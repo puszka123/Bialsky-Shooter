@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66117a6f66c3f5843b5650555b3ef216, type: 3}
+  m_Name: Progression
+  m_EditorClassIdentifier: 
+  statsDefinitions:
+  - nameToDisplay: Health
+    value: 0
+    display: 1
+    statType: 0
+  - nameToDisplay: Power
+    value: 0
+    display: 1
+    statType: 1
+  - nameToDisplay: Stamina
+    value: 0
+    display: 1
+    statType: 2
+  - nameToDisplay: Agility
+    value: 0
+    display: 1
+    statType: 3
+  - nameToDisplay: Strength
+    value: 0
+    display: 1
+    statType: 4
+  creatureClasses:
+  - classType: 0
+    stats:
+    - stat: 0
+      values:
+      - 100
+      - 200
+      - 300
+      - 400
+      - 500
+    - stat: 1
+      values:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
+    - stat: 2
+      values:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
+    - stat: 3
+      values:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
+    - stat: 4
+      values:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
+    - stat: 5
+      values:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
