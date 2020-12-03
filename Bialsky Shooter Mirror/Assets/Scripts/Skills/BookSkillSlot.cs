@@ -10,6 +10,8 @@ namespace BialskyShooter.SkillSystem
         [SerializeField] Skill skill;
         [SerializeField] Image skillImage;
 
+        public Skill Skill { get { return skill; } }
+
         private void Start()
         {
             skillImage.sprite = skill.Icon;

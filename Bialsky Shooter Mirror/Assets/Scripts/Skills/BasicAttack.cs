@@ -11,6 +11,7 @@ namespace BialskyShooter.SkillSystem
     {
         public override void Use(ISkillUser skillUser)
         {
+            Debug.Log(skillUser);
             var weapon = skillUser.GetWeapon();
             var transform = skillUser.GetTransform();
             if (Physics.Raycast(transform.position + Vector3.up/2, 

@@ -319,6 +319,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72ac34866bd79749a8f32cbc967fd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
-  injectSkill: 0
   bindingText: {fileID: 1582146594504787279}
+  skillImage: {fileID: 5711595510218705497}

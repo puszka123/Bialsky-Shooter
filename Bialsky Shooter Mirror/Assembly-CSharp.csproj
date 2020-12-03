@@ -91,8 +91,10 @@
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillUser.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillDragger.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillUser.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsBook.cs" />
+    <Compile Include="Assets\Scripts\UI\Draggable.cs" />
     <Compile Include="Assets\Scripts\UI\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\UI\SlotsDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleInventoryDisplay.cs" />
