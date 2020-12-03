@@ -9,7 +9,7 @@ namespace BialskyShooter.ClassSystem
     [RequireComponent(typeof(Experience))]
     public class CreatureStats : NetworkBehaviour
     {
-        [SerializeField] Progression progression;
+        [SerializeField] Progression progression = null;
         [SerializeField] ClassType classType = default;
         [SyncVar] Stat health = null;
         [SyncVar] Stat power = null;
@@ -23,10 +23,14 @@ namespace BialskyShooter.ClassSystem
         public Stat Agility { get { return agility; } }
         public Stat Strength { get { return strength; } }
 
+        Experience experience;
+
+
         public override void OnStartServer()
         {
+            experience = GetComponent<Experience>();
             InitStats();
-            UpdateStats(classType, GetComponent<Experience>().ExperiencePoints);
+            UpdateStats();
         }
 
         private void InitStats()
@@ -38,24 +42,28 @@ namespace BialskyShooter.ClassSystem
             strength = progression.GetStatDefinition(StatType.Strength);
         }
 
-        public void UpdateStats(ClassType classType, float experiencePoints)
+        public void UpdateStats()
         {
-            UpdateStat(health, classType, experiencePoints);
-            UpdateStat(power, classType, experiencePoints);
-            UpdateStat(stamina, classType, experiencePoints);
-            UpdateStat(agility, classType, experiencePoints);
-            UpdateStat(strength, classType, experiencePoints);
+            UpdateStat(health);
+            UpdateStat(power);
+            UpdateStat(stamina);
+            UpdateStat(agility);
+            UpdateStat(strength);
         }
 
-        public void UpdateStat(Stat stat, ClassType classType, float experiencePoints)
+        public void UpdateStat(Stat stat)
         {
-            int level = GetLevel(classType, experiencePoints);
-            stat.value = progression.GetStat(classType, stat.statType, level);
+            stat.value = progression.GetStat(classType, stat.statType, GetLevel(experience.ExperiencePoints));
         }
 
-        public int GetLevel(ClassType classType, float experiencePoints)
+        public int GetLevel(float experiencePoints)
         {
             return progression.GetLevel(classType, experiencePoints);
+        }
+
+        public float GetStatValue(StatType statType)
+        {
+            return progression.GetStat(classType, statType, GetLevel(experience.ExperiencePoints));
         }
     }
 }

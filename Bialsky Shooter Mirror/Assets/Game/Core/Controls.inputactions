@@ -12,6 +12,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Use Skill",
+                    "type": "Button",
+                    "id": "e71dce09-8f03-49b2-bbe8-8b3db564f8b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -69,6 +77,28 @@
                     "action": "Move Player",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "487432d3-2975-488e-b4bc-425e2a1a2b2b",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "339650ce-5063-48f4-9637-e09a56cccb16",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

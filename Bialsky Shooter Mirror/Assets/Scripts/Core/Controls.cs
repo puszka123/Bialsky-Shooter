@@ -25,6 +25,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Use Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""e71dce09-8f03-49b2-bbe8-8b3db564f8b6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -82,6 +90,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Move Player"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""487432d3-2975-488e-b4bc-425e2a1a2b2b"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""339650ce-5063-48f4-9637-e09a56cccb16"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -108,6 +138,7 @@ public class @Controls : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MovePlayer = m_Player.FindAction("Move Player", throwIfNotFound: true);
+        m_Player_UseSkill = m_Player.FindAction("Use Skill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -158,11 +189,13 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_MovePlayer;
+    private readonly InputAction m_Player_UseSkill;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MovePlayer => m_Wrapper.m_Player_MovePlayer;
+        public InputAction @UseSkill => m_Wrapper.m_Player_UseSkill;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -175,6 +208,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @MovePlayer.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePlayer;
                 @MovePlayer.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePlayer;
                 @MovePlayer.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovePlayer;
+                @UseSkill.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSkill;
+                @UseSkill.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSkill;
+                @UseSkill.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSkill;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -182,6 +218,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @MovePlayer.started += instance.OnMovePlayer;
                 @MovePlayer.performed += instance.OnMovePlayer;
                 @MovePlayer.canceled += instance.OnMovePlayer;
+                @UseSkill.started += instance.OnUseSkill;
+                @UseSkill.performed += instance.OnUseSkill;
+                @UseSkill.canceled += instance.OnUseSkill;
             }
         }
     }
@@ -198,5 +237,6 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMovePlayer(InputAction.CallbackContext context);
+        void OnUseSkill(InputAction.CallbackContext context);
     }
 }
