@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6284945902980892876}
   - component: {fileID: 8249488468055190269}
+  - component: {fileID: 8662454057884818178}
   m_Layer: 0
   m_Name: InventoryDisplay
   m_TagString: Untagged
@@ -51,6 +52,19 @@ MonoBehaviour:
   canvas: {fileID: 2150801694779657774}
   rowsCount: 9
   columnsCount: 5
+--- !u!114 &8662454057884818178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142912515433158884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17d762cd7dc207409d694b9d438e3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGO: {fileID: 2291227924082658893}
 --- !u!1 &2291227924082658893
 GameObject:
   m_ObjectHideFlags: 0

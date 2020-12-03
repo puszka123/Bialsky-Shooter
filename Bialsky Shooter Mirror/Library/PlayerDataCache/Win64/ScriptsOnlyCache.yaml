@@ -14,7 +14,13 @@ ScriptsOnlyBuild:
     - BialskyShooter.Movement.CreatureMovement
     - BialskyShooter.Multiplayer.MyNetworkManager
     - BialskyShooter.SkillSystem.BasicAttack
+    - BialskyShooter.SkillSystem.BookSkillSlot
     - BialskyShooter.SkillSystem.SkillUser
+    - BialskyShooter.UI.SkillSlot
+    - SlotsDisplay
+    - ToggleInventoryDisplay
+    - ToggleSkillsBookDisplay
+    - ToggleSkillsUseDisplay
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineFramingTransposer
@@ -22,19 +28,26 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineVirtualCamera
     Mirror.Components.dll:
     - Mirror.NetworkTransform
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     - kcp2k.KcpTransport
     Unity.InputSystem.dll:
+    - UnityEngine.InputSystem.InputActionAsset
+    - UnityEngine.InputSystem.InputActionReference
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
+    - UnityEngine.InputSystem.UI.InputSystemUIInputModule
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -45,6 +58,11 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
   sceneClasses:
     Assets/Scenes/Map_Battle_01.unity:
     - Class: 1
@@ -74,22 +92,64 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11466}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 12272}
+      Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 12762}
+      Script: {instanceID: 11492}
     - Class: 114
-      Script: {instanceID: 13422}
+      Script: {instanceID: 11800}
     - Class: 114
-      Script: {instanceID: 13842}
+      Script: {instanceID: 12104}
     - Class: 114
-      Script: {instanceID: 14322}
+      Script: {instanceID: 12226}
+    - Class: 114
+      Script: {instanceID: 12300}
+    - Class: 114
+      Script: {instanceID: 12410}
+    - Class: 114
+      Script: {instanceID: 12414}
+    - Class: 114
+      Script: {instanceID: 12622}
+    - Class: 114
+      Script: {instanceID: 12796}
+    - Class: 114
+      Script: {instanceID: 12868}
+    - Class: 114
+      Script: {instanceID: 13192}
+    - Class: 114
+      Script: {instanceID: 13342}
+    - Class: 114
+      Script: {instanceID: 13460}
+    - Class: 114
+      Script: {instanceID: 13646}
+    - Class: 114
+      Script: {instanceID: 13700}
+    - Class: 114
+      Script: {instanceID: 13802}
+    - Class: 114
+      Script: {instanceID: 13886}
+    - Class: 114
+      Script: {instanceID: 14366}
+    - Class: 114
+      Script: {instanceID: 17570}
+    - Class: 114
+      Script: {instanceID: 18722}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
     - Class: 1
@@ -110,6 +170,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 81
@@ -118,49 +180,63 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 11308}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11774}
+      Script: {instanceID: 11800}
     - Class: 114
-      Script: {instanceID: 12210}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12484}
+      Script: {instanceID: 12276}
     - Class: 114
-      Script: {instanceID: 12532}
+      Script: {instanceID: 12514}
     - Class: 114
-      Script: {instanceID: 12840}
+      Script: {instanceID: 12562}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 12574}
     - Class: 114
-      Script: {instanceID: 13842}
+      Script: {instanceID: 12876}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 13220}
+    - Class: 114
+      Script: {instanceID: 13342}
+    - Class: 114
+      Script: {instanceID: 13362}
+    - Class: 114
+      Script: {instanceID: 13424}
+    - Class: 114
+      Script: {instanceID: 13526}
+    - Class: 114
+      Script: {instanceID: 13886}
     - Class: 114
       Script: {instanceID: 14070}
     - Class: 114
-      Script: {instanceID: 14102}
+      Script: {instanceID: 14076}
     - Class: 114
-      Script: {instanceID: 14398}
+      Script: {instanceID: 14114}
     - Class: 114
-      Script: {instanceID: 14492}
+      Script: {instanceID: 14146}
     - Class: 114
-      Script: {instanceID: 16314}
+      Script: {instanceID: 14442}
     - Class: 114
-      Script: {instanceID: 16442}
-    - Class: 114
-      Script: {instanceID: 16474}
+      Script: {instanceID: 14536}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -483,7 +559,7 @@ ScriptsOnlyBuild:
     className: InputActionEditorWindow
   - hash:
       serializedVersion: 2
-      Hash: f8f7c4856ba17bd884754e92a61992d9
+      Hash: a0b82bd474a423b455a455150c560c36
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.SkillSystem
     className: BasicAttack
@@ -735,6 +811,12 @@ ScriptsOnlyBuild:
     className: SlotsDisplay
   - hash:
       serializedVersion: 2
+      Hash: 41588dd4ef28eb17842cc4aeb9892180
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: BookSkillSlot
+  - hash:
+      serializedVersion: 2
       Hash: 9b01b1d80bd3ecf4eaca45e1a22d444e
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror.Experimental
@@ -795,6 +877,12 @@ ScriptsOnlyBuild:
     className: V_Text
   - hash:
       serializedVersion: 2
+      Hash: 11a4887e07aaa2a07f1473e303731047
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: Equipment
+  - hash:
+      serializedVersion: 2
       Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -805,6 +893,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineTriggerAction
+  - hash:
+      serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToggleSkillsUseDisplay
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -907,6 +1001,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachinePath
+  - hash:
+      serializedVersion: 2
+      Hash: 9e1a8da1ec78218ba50084671ef24285
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.UI
+    className: SkillSlot
   - hash:
       serializedVersion: 2
       Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
@@ -1179,6 +1279,12 @@ ScriptsOnlyBuild:
     className: NetworkLobbyPlayer
   - hash:
       serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.Combat
+    className: CombatTarget
+  - hash:
+      serializedVersion: 2
       Hash: 91835d5ad99155431c21b3b548706002
     assemblyName: Mirror.Authenticators.dll
     namespaceName: Mirror.Authenticators
@@ -1213,6 +1319,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.Cloud.GUI.dll
     namespaceName: Mirror.Cloud.Example
     className: ServerListUIItem
+  - hash:
+      serializedVersion: 2
+      Hash: d9b65c0cba432781790d67a3ee7a29c3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.ItemSystem
+    className: SpikeSword
   - hash:
       serializedVersion: 2
       Hash: a66794b62dbf044668a5f102bb7908c2
@@ -1629,22 +1741,16 @@ ScriptsOnlyBuild:
     className: KcpTransport
   - hash:
       serializedVersion: 2
-      Hash: d9b65c0cba432781790d67a3ee7a29c3
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
     assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.ItemSystem
-    className: SpikeSword
+    namespaceName: 
+    className: ToggleSkillsBookDisplay
   - hash:
       serializedVersion: 2
-      Hash: 11a4887e07aaa2a07f1473e303731047
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
     assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.EquipmentSystem
-    className: Equipment
-  - hash:
-      serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.Combat
-    className: CombatTarget
+    namespaceName: 
+    className: ToggleInventoryDisplay
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

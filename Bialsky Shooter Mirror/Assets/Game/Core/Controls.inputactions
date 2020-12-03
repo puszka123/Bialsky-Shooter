@@ -99,6 +99,17 @@
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f5d3493-8622-4d72-85b0-fdcc71cbdf61",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

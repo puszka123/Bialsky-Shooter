@@ -36,5 +36,10 @@ namespace BialskyShooter.SkillSystem
         {
             skillBindings[keyBinding] = skill;
         }
+
+        public void BindSkill(string keyBinding, Guid skillId)
+        {
+            skillBindings[keyBinding] = GetSkill(skillId);
+        }
     }
 }

@@ -13,8 +13,6 @@ namespace BialskyShooter.SkillSystem
         {
             var weapon = skillUser.GetWeapon();
             var transform = skillUser.GetTransform();
-            Debug.DrawRay(transform.position,
-                transform.forward, Color.red, 10f);
             if (Physics.Raycast(transform.position + Vector3.up/2, 
                 transform.forward, 
                 out RaycastHit hit, 
@@ -22,8 +20,6 @@ namespace BialskyShooter.SkillSystem
                 layerMask
                 ))
             {
-                Debug.DrawRay(transform.position,
-                transform.forward, Color.blue, 10f);
                 OnHit(hit.transform.GetComponent<CombatTarget>()?.GetComponent<Health>(), weapon);
             }
         }

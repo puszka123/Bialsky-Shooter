@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640e5be2e4d12484fb0f8ea4889ba155, type: 3}
   m_Name: BasicAttack
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 4c025d9eb27f66d4f8d70e65d532b53a, type: 3}
   uniqueName: Basic Attack
   layerMask:
     serializedVersion: 2
