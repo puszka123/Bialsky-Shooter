@@ -32,7 +32,7 @@ namespace BialskyShooter.SkillSystem
         [Server]
         void UseSkill(string keyBinding)
         {
-            skillsBook.GetSkill(keyBinding).Use(this);
+            skillsBook.GetSkill(keyBinding)?.Use(this);
         }
 
         [Server]

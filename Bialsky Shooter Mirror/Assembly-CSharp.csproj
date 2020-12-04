@@ -93,12 +93,13 @@
     <Compile Include="Assets\Scripts\Skills\ProgressionCreatureSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\ProgressionSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillBindingManager.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillDragger.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillUser.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsBook.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsProgression.cs" />
     <Compile Include="Assets\Scripts\UI\Draggable.cs" />
-    <Compile Include="Assets\Scripts\UI\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\UI\SlotsDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleInventoryDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsBookDisplay.cs" />

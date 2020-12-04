@@ -27,7 +27,9 @@ namespace BialskyShooter.Control
         private void ClientOnUseSkillPerformed(InputAction.CallbackContext ctx)
         {
             if (!hasAuthority) return;
-            skillUser.CmdUseSkill(ctx.control.name);
+            var ctrl = ctx.control;
+            var bindingName = !string.IsNullOrEmpty(ctrl.shortDisplayName) ? ctrl.shortDisplayName : ctrl.displayName;
+            skillUser.CmdUseSkill(bindingName);
         }
 
         #endregion

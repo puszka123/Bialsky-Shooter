@@ -15,8 +15,11 @@ ScriptsOnlyBuild:
     - BialskyShooter.Multiplayer.MyNetworkManager
     - BialskyShooter.SkillSystem.BasicAttack
     - BialskyShooter.SkillSystem.BookSkillSlot
+    - BialskyShooter.SkillSystem.SkillSlot
     - BialskyShooter.SkillSystem.SkillUser
-    - BialskyShooter.UI.SkillSlot
+    - BialskyShooter.SkillSystem.SkillsBook
+    - BialskyShooter.SkillSystem.SkillsProgression
+    - Draggable
     - SlotsDisplay
     - ToggleInventoryDisplay
     - ToggleSkillsBookDisplay
@@ -96,45 +99,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11492}
+      Script: {instanceID: 11494}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11562}
     - Class: 114
-      Script: {instanceID: 12104}
+      Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 12226}
+      Script: {instanceID: 11808}
     - Class: 114
-      Script: {instanceID: 12300}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 12410}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12414}
+      Script: {instanceID: 12308}
     - Class: 114
-      Script: {instanceID: 12622}
+      Script: {instanceID: 12418}
     - Class: 114
-      Script: {instanceID: 12796}
+      Script: {instanceID: 12422}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12630}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 12878}
     - Class: 114
-      Script: {instanceID: 13460}
+      Script: {instanceID: 13202}
     - Class: 114
-      Script: {instanceID: 13646}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 13700}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13802}
+      Script: {instanceID: 13656}
     - Class: 114
-      Script: {instanceID: 13886}
+      Script: {instanceID: 13710}
     - Class: 114
-      Script: {instanceID: 14366}
+      Script: {instanceID: 13786}
     - Class: 114
-      Script: {instanceID: 17570}
+      Script: {instanceID: 13814}
     - Class: 114
-      Script: {instanceID: 18722}
+      Script: {instanceID: 13898}
+    - Class: 114
+      Script: {instanceID: 14378}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -189,43 +194,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11664}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 11808}
     - Class: 114
-      Script: {instanceID: 12276}
+      Script: {instanceID: 12244}
     - Class: 114
-      Script: {instanceID: 12514}
+      Script: {instanceID: 12284}
     - Class: 114
-      Script: {instanceID: 12562}
+      Script: {instanceID: 12522}
     - Class: 114
-      Script: {instanceID: 12574}
+      Script: {instanceID: 12570}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 13220}
+      Script: {instanceID: 12886}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 13230}
     - Class: 114
-      Script: {instanceID: 13362}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 13424}
+      Script: {instanceID: 13372}
     - Class: 114
-      Script: {instanceID: 13526}
+      Script: {instanceID: 13434}
     - Class: 114
-      Script: {instanceID: 13886}
+      Script: {instanceID: 13536}
     - Class: 114
-      Script: {instanceID: 14070}
+      Script: {instanceID: 13898}
     - Class: 114
-      Script: {instanceID: 14076}
+      Script: {instanceID: 14082}
     - Class: 114
-      Script: {instanceID: 14114}
+      Script: {instanceID: 14088}
     - Class: 114
-      Script: {instanceID: 14146}
+      Script: {instanceID: 14126}
     - Class: 114
-      Script: {instanceID: 14442}
+      Script: {instanceID: 14158}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14454}
+    - Class: 114
+      Script: {instanceID: 14530}
+    - Class: 114
+      Script: {instanceID: 14550}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -253,7 +262,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: 929ddd88dcb4b6620d771eb6cef730de
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.SkillSystem
     className: SkillUser
@@ -433,10 +442,22 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToggleSkillsBookDisplay
+  - hash:
+      serializedVersion: 2
       Hash: 32fce7b97c39bff4b4f6c0f53f7e6bf1
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineCollisionImpulseSource
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Draggable
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -455,6 +476,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillDragger
+  - hash:
+      serializedVersion: 2
+      Hash: 06c677da53777c30d4c65cea174b8f7f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillsBook
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -1003,9 +1036,9 @@ ScriptsOnlyBuild:
     className: CinemachinePath
   - hash:
       serializedVersion: 2
-      Hash: 9e1a8da1ec78218ba50084671ef24285
+      Hash: cde20e283bf088b563a31ca4aa110082
     assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.UI
+    namespaceName: BialskyShooter.SkillSystem
     className: SkillSlot
   - hash:
       serializedVersion: 2
@@ -1387,6 +1420,12 @@ ScriptsOnlyBuild:
     className: NetworkRoomManagerExt
   - hash:
       serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToggleInventoryDisplay
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1723,6 +1762,12 @@ ScriptsOnlyBuild:
     className: PlayerScore
   - hash:
       serializedVersion: 2
+      Hash: 150021a414448dd302c0bcf6a4f16154
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillsProgression
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.EnhancedTouch
@@ -1739,18 +1784,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
-  - hash:
-      serializedVersion: 2
-      Hash: 6764620c8232eb7a34533d8bc8ee14b6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ToggleSkillsBookDisplay
-  - hash:
-      serializedVersion: 2
-      Hash: 6764620c8232eb7a34533d8bc8ee14b6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ToggleInventoryDisplay
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

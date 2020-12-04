@@ -41,7 +41,7 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public Skill GetSkill(string keyBinding)
         {
-            return skillBindings[keyBinding];
+            return skillBindings.ContainsKey(keyBinding) ? skillBindings[keyBinding] : null;
         }
 
         [Server]
@@ -60,7 +60,6 @@ namespace BialskyShooter.SkillSystem
         public void BindSkill(string keyBinding, Guid skillId)
         {
             skillBindings[keyBinding] = GetSkill(skillId);
-            print(keyBinding);
         }
 
         [Server]
