@@ -9,30 +9,24 @@ using UnityEngine;
 namespace BialskyShooter.SkillSystem
 {
     [RequireComponent(typeof(Equipment))]
+    [RequireComponent(typeof(SkillsBook))]
     public class SkillUser : NetworkBehaviour, ISkillUser
     {
-        [SerializeField] SkillsBook skillsBook = null;
+        SkillsBook skillsBook;
         Equipment equipment;
 
-        private void Start()
+        #region Server
+
+        public override void OnStartServer()
         {
             equipment = GetComponent<Equipment>();
-            //debug only
-            //skillsBook.BindSkill("1", skillsBook.GetSkill(0));
+            skillsBook = GetComponent<SkillsBook>();
         }
-
-        #region
 
         [Command]
         public void CmdUseSkill(string keyBinding)
         {
             UseSkill(keyBinding);
-        }
-
-        [Command]
-        void CmdBindSkill(string binding, Guid skillId)
-        {
-            skillsBook.BindSkill(binding, skillId);
         }
 
         [Server]
@@ -51,22 +45,6 @@ namespace BialskyShooter.SkillSystem
         public Transform GetTransform()
         {
             return transform;
-        }
-
-        #endregion
-
-        #region Client
-
-        public override void OnStartClient()
-        {
-            SkillSlot.clientOnSkillInjected += OnSkillInjected;
-        }
-
-        [Client]
-        private void OnSkillInjected(string binding, Guid skillId)
-        {
-            if (!hasAuthority) return;
-            CmdBindSkill(binding, skillId);
         }
 
         #endregion
