@@ -15,6 +15,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.Core.PlayerCameraSpawner
     - BialskyShooter.EquipmentSystem.Equipment
     - BialskyShooter.ItemSystem.SpikeSword
+    - BialskyShooter.ManagementModule.LoseManager
     - BialskyShooter.Movement.AIMovement
     - BialskyShooter.Movement.Movement
     - BialskyShooter.Movement.PlayerMovement
@@ -105,47 +106,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11496}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11564}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11580}
     - Class: 114
-      Script: {instanceID: 11810}
+      Script: {instanceID: 11814}
     - Class: 114
-      Script: {instanceID: 12114}
+      Script: {instanceID: 12124}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 12248}
     - Class: 114
-      Script: {instanceID: 12310}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12422}
+      Script: {instanceID: 12434}
     - Class: 114
-      Script: {instanceID: 12426}
+      Script: {instanceID: 12438}
     - Class: 114
-      Script: {instanceID: 12636}
+      Script: {instanceID: 12648}
     - Class: 114
-      Script: {instanceID: 12812}
+      Script: {instanceID: 12824}
     - Class: 114
-      Script: {instanceID: 12884}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 13208}
+      Script: {instanceID: 13220}
     - Class: 114
-      Script: {instanceID: 13358}
+      Script: {instanceID: 13368}
     - Class: 114
-      Script: {instanceID: 13478}
+      Script: {instanceID: 13488}
     - Class: 114
-      Script: {instanceID: 13664}
+      Script: {instanceID: 13676}
     - Class: 114
-      Script: {instanceID: 13718}
+      Script: {instanceID: 13730}
     - Class: 114
-      Script: {instanceID: 13794}
+      Script: {instanceID: 13806}
     - Class: 114
-      Script: {instanceID: 13822}
+      Script: {instanceID: 13834}
     - Class: 114
-      Script: {instanceID: 13906}
+      Script: {instanceID: 13918}
     - Class: 114
-      Script: {instanceID: 14386}
+      Script: {instanceID: 14400}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -202,59 +203,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11664}
+      Script: {instanceID: 11434}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 11666}
     - Class: 114
-      Script: {instanceID: 11810}
+      Script: {instanceID: 11686}
     - Class: 114
-      Script: {instanceID: 12246}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12286}
+      Script: {instanceID: 11814}
     - Class: 114
-      Script: {instanceID: 12346}
+      Script: {instanceID: 12028}
     - Class: 114
-      Script: {instanceID: 12526}
+      Script: {instanceID: 12120}
     - Class: 114
-      Script: {instanceID: 12574}
+      Script: {instanceID: 12258}
+    - Class: 114
+      Script: {instanceID: 12298}
+    - Class: 114
+      Script: {instanceID: 12358}
+    - Class: 114
+      Script: {instanceID: 12538}
     - Class: 114
       Script: {instanceID: 12586}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12598}
     - Class: 114
-      Script: {instanceID: 13358}
+      Script: {instanceID: 12904}
     - Class: 114
-      Script: {instanceID: 13378}
+      Script: {instanceID: 13368}
     - Class: 114
-      Script: {instanceID: 13440}
+      Script: {instanceID: 13388}
     - Class: 114
-      Script: {instanceID: 13544}
+      Script: {instanceID: 13450}
     - Class: 114
-      Script: {instanceID: 13906}
+      Script: {instanceID: 13524}
     - Class: 114
-      Script: {instanceID: 14090}
+      Script: {instanceID: 13556}
     - Class: 114
-      Script: {instanceID: 14096}
+      Script: {instanceID: 13918}
     - Class: 114
-      Script: {instanceID: 14134}
+      Script: {instanceID: 14104}
     - Class: 114
-      Script: {instanceID: 14166}
+      Script: {instanceID: 14110}
     - Class: 114
-      Script: {instanceID: 14462}
+      Script: {instanceID: 14148}
     - Class: 114
-      Script: {instanceID: 14538}
+      Script: {instanceID: 14180}
     - Class: 114
-      Script: {instanceID: 14558}
+      Script: {instanceID: 14476}
     - Class: 114
-      Script: {instanceID: 15364}
+      Script: {instanceID: 14552}
     - Class: 114
-      Script: {instanceID: 15368}
+      Script: {instanceID: 14572}
     - Class: 114
-      Script: {instanceID: 15380}
-    - Class: 114
-      Script: {instanceID: 15454}
-    - Class: 114
-      Script: {instanceID: 15494}
+      Script: {instanceID: 16582}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -376,6 +379,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Visyde
     className: V_SMC_Camera
+  - hash:
+      serializedVersion: 2
+      Hash: 3c7ba6a513db7ce0db92c8ed463e86c8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.Movement
+    className: Movement
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -534,6 +543,12 @@ ScriptsOnlyBuild:
     className: CinemachineExternalCamera
   - hash:
       serializedVersion: 2
+      Hash: 95c4cf4d9748ecceba94ddf76713ae2e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.Movement
+    className: AIMovement
+  - hash:
+      serializedVersion: 2
       Hash: 5da7b9e4b43d0ba75d617a81259ec141
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Chat
@@ -624,6 +639,12 @@ ScriptsOnlyBuild:
     className: BasicAttack
   - hash:
       serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.AI
+    className: CollisionDetection
+  - hash:
+      serializedVersion: 2
       Hash: 051c18b41ea168ba34b7f7c41b137e34
     assemblyName: Mirror.dll
     namespaceName: Mirror.Logging
@@ -696,6 +717,12 @@ ScriptsOnlyBuild:
     className: CinemachineFreeLook
   - hash:
       serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.AI
+    className: EnemyAI
+  - hash:
+      serializedVersion: 2
       Hash: 192ca9716d03752ea1d90a78bc2daac9
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Additive
@@ -736,6 +763,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: NoiseSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.Movement
+    className: PlayerMovement
   - hash:
       serializedVersion: 2
       Hash: f17a7afbb6fc4d6b5c3ba20ed1c93f68
@@ -1374,6 +1407,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.AI
+    className: EnemySight
+  - hash:
+      serializedVersion: 2
       Hash: ce58790f4b80db4732075fa2fb5e1bf9
     assemblyName: Mirror.Examples.Cloud.GUI.dll
     namespaceName: Mirror.Cloud.Example
@@ -1814,38 +1853,8 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
     assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.AI
-    className: CollisionDetection
-  - hash:
-      serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.AI
-    className: EnemyAI
-  - hash:
-      serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.AI
-    className: EnemySight
-  - hash:
-      serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.Movement
-    className: PlayerMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 95c4cf4d9748ecceba94ddf76713ae2e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.Movement
-    className: AIMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 3c7ba6a513db7ce0db92c8ed463e86c8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.Movement
-    className: Movement
+    namespaceName: BialskyShooter.ManagementModule
+    className: LoseManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

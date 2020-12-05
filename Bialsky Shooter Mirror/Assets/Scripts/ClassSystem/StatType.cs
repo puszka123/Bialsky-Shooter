@@ -6,6 +6,6 @@ namespace BialskyShooter.ClassSystem
 {
     public enum StatType
     {
-        Health, Power, Stamina, Agility, Strength, LevelBasedOnExperience
+        Health, Power, Stamina, Agility, Strength, LevelBasedOnExperience, ExperienceReward
     }
 }

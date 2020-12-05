@@ -1,4 +1,5 @@
-﻿using BialskyShooter.ItemSystem;
+﻿using BialskyShooter.ClassSystem;
+using BialskyShooter.ItemSystem;
 using Mirror;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace BialskyShooter.Combat
             if (other.gameObject == parent 
                 || !inProgress
                 || !other.TryGetComponent<CombatTarget>(out CombatTarget target)) return;
-            target.Health.TakeDamage(weapon.Stats.damage.value);
+            target.Health.TakeDamage(parent.GetComponent<NetworkIdentity>(), weapon.Stats.damage.value);
         }
 
         [Server]

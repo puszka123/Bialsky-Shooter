@@ -17,8 +17,11 @@ namespace BialskyShooter.Multiplayer
             base.OnServerSceneChanged(sceneName);
             if (SceneManager.GetActiveScene().name.StartsWith("Map"))
             {
-                var enemyInstance = Instantiate(humanEnemyPrefab, GetStartPosition().position, Quaternion.identity);
-                NetworkServer.Spawn(enemyInstance);
+                for (int i = 0; i < 4; i++)
+                {
+                    var enemyInstance = Instantiate(humanEnemyPrefab, GetStartPosition().position, Quaternion.identity);
+                    NetworkServer.Spawn(enemyInstance);
+                }
             }
         }
 

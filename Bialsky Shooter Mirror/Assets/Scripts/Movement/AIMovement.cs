@@ -7,11 +7,14 @@ using UnityEngine;
 namespace BialskyShooter.Movement
 {
     [RequireComponent(typeof(Movement))]
+    [RequireComponent(typeof(CollisionDetection))]
     public class AIMovement : NetworkBehaviour
     {
         [SerializeField] float ApproximateDistance = 5f;
         MovementSystem movementSystem;
         Movement movement;
+        CollisionDetection collisionDetection;
+        
 
         #region Server
 
@@ -20,6 +23,7 @@ namespace BialskyShooter.Movement
         {
             movementSystem = new MovementSystem();
             movement = GetComponent<Movement>();
+            collisionDetection = GetComponent<CollisionDetection>();
         }
 
         [Server]
@@ -32,7 +36,7 @@ namespace BialskyShooter.Movement
         float ComputeAngle(Vector3 destination)
         {
             float goalAngle = GetBearing(transform.position, destination);
-            CollisionDetection.UpdateCollisions(transform, out float frontDist, out float rightDist, out float leftDist);
+            collisionDetection.UpdateCollisions(out float frontDist, out float rightDist, out float leftDist);
             movementSystem.Calculate(frontDist, rightDist, leftDist, out float avoidanceAngle);
             float avoidanceWeight = 1.0f;
             float goalWeight = 1.0f;
@@ -52,7 +56,8 @@ namespace BialskyShooter.Movement
         {
             if (!ShouldMove(destination)) return;
             movement.Rotate(ComputeAngle(destination));
-            var moveVector3 = destination - transform.position;
+            //var moveVector3 = destination - transform.position;
+            var moveVector3 = transform.forward;
             var moveVector2 = new Vector2(moveVector3.x, moveVector3.z);
             movement.Move(moveVector2);
         }

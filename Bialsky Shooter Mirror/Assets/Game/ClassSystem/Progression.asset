@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsDefinitions:
   - nameToDisplay: Health
-    value: 0
+    value: 200
     display: 1
     statType: 0
   - nameToDisplay: Power
-    value: 0
+    value: 15
     display: 1
     statType: 1
   - nameToDisplay: Stamina
-    value: 0
+    value: 15
     display: 1
     statType: 2
   - nameToDisplay: Agility
-    value: 0
+    value: 15
     display: 1
     statType: 3
   - nameToDisplay: Strength
-    value: 0
+    value: 15
     display: 1
     statType: 4
   creatureClasses:
@@ -72,6 +72,13 @@ MonoBehaviour:
       - 25
       - 30
     - stat: 5
+      values:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
+    - stat: 6
       values:
       - 10
       - 15

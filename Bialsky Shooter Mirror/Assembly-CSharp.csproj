@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Items\Weapons\Swords\Spike Sword\SpikeSword.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\WeaponStats.cs" />
+    <Compile Include="Assets\Scripts\Management\LoseManager.cs" />
     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />

@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.ClassSystem;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace BialskyShooter.Combat
     [RequireComponent(typeof(CreatureStats))]
     public class Health : NetworkBehaviour
     {
+        public event Action serverOnCreatureLose;
+
         CreatureStats creatureStats;
         [SyncVar] float currentHealth;
 
@@ -21,22 +24,29 @@ namespace BialskyShooter.Combat
         }
 
         [Command]
-        public void CmdTakeDamage(float damage)
+        public void CmdTakeDamage(NetworkIdentity attacker, float damage)
         {
-            TakeDamage(damage);
+            TakeDamage(attacker, damage);
         }
 
         [Server]
-        public void TakeDamage(float damage)
+        public void TakeDamage(NetworkIdentity attacker, float damage)
         {
             currentHealth -= damage;
-            print(currentHealth);
+            if(currentHealth <= 1f)
+            {
+                currentHealth = 1f;
+                Lose();
+                attacker
+                    .GetComponent<Experience>()
+                    .GainExperience(creatureStats.GetStatValue(StatType.ExperienceReward));
+            }
         }
 
         [Server]
         void Lose()
         {
-            throw new System.NotImplementedException("Losing is not implemented!");
+            serverOnCreatureLose?.Invoke();
         }
 
         #endregion
