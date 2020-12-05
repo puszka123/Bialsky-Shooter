@@ -25,6 +25,15 @@ namespace BialskyShooter.SkillSystem
             weaponUser = GetComponent<WeaponUser>();
         }
 
+        [Server]
+        public void UseRandomSkill()
+        {
+            if (skillsBook == null) return;
+            Skill skill = skillsBook.GetSkill(0);
+            if (skill == null) return;
+            UseSkill(skill);
+        }
+
         [Command]
         public void CmdUseSkill(string keyBinding)
         {
@@ -36,6 +45,11 @@ namespace BialskyShooter.SkillSystem
         {
             Skill skill = skillsBook.GetSkill(keyBinding);
             if (skill == null) return;
+            UseSkill(skill);
+        }
+
+        private void UseSkill(Skill skill)
+        {
             if (skillsBook.IsSkillAvailable(skill.Id))
             {
                 StartCoroutine(CooldownSkill(skill));

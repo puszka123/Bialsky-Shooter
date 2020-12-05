@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BialskyShooter.Movement;
+using BialskyShooter.SkillSystem;
 using Mirror;
 using UnityEngine;
 
@@ -8,10 +9,12 @@ namespace BialskyShooter.AI
 {
     [RequireComponent(typeof(AIMovement))]
     [RequireComponent(typeof(EnemySight))]
+    [RequireComponent(typeof(SkillUser))]
     public class EnemyAI : NetworkBehaviour
     {
         EnemySight enemySight;
         AIMovement aiMovement;
+        SkillUser skillUser;
         GameObject player;
 
         #region Server
@@ -21,6 +24,7 @@ namespace BialskyShooter.AI
         {
             aiMovement = GetComponent<AIMovement>();
             enemySight = GetComponent<EnemySight>();
+            skillUser = GetComponent<SkillUser>();
         }
 
         [ServerCallback]
@@ -31,6 +35,7 @@ namespace BialskyShooter.AI
             if (enemySight.CanSeePlayer())
             {
                 aiMovement.Move(player.transform.position);
+                skillUser.UseRandomSkill();
             }
 
         }

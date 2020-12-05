@@ -103,6 +103,10 @@ namespace BialskyShooter.SkillSystem
             foreach (var skill in availableSkills)
             {
                 availableSkillsDict[skill.Id] = skill;
+                if (!skillsAvailability.ContainsKey(skill.Id))
+                {
+                    skillsAvailability[skill.Id] = true;
+                }
             }
         }
 
