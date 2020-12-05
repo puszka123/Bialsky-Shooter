@@ -53,6 +53,15 @@ namespace BialskyShooter.Movement
             return moveForce;
         }
 
+        [Command]
+        public void CmdRotate(Vector3 lookAt)
+        {
+            lookAt.y = transform.position.y;
+            var forward = lookAt - transform.position;
+            var rotation = Quaternion.LookRotation(forward, Vector3.up);
+            rb.MoveRotation(rotation);
+        }
+
         #endregion
     }
 }

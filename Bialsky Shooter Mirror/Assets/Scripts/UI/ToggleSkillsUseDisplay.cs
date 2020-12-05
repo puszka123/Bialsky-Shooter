@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Composites;
 
 public class ToggleSkillsUseDisplay : MonoBehaviour
 {
-    [SerializeField] GameObject canvasGO;
+    [SerializeField] GameObject canvasGO = default;
 
 
     void Toggle()

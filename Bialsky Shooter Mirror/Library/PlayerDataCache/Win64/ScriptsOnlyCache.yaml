@@ -6,6 +6,8 @@ ScriptsOnlyBuild:
     - BialskyShooter.ClassSystem.Progression
     - BialskyShooter.Combat.CombatTarget
     - BialskyShooter.Combat.Health
+    - BialskyShooter.Combat.SwordController
+    - BialskyShooter.Combat.WeaponUser
     - BialskyShooter.Control.PlayerMoveController
     - BialskyShooter.Control.PlayerSkillController
     - BialskyShooter.Core.PlayerCameraSpawner
@@ -127,19 +129,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 13470}
+      Script: {instanceID: 13472}
     - Class: 114
-      Script: {instanceID: 13656}
+      Script: {instanceID: 13658}
     - Class: 114
-      Script: {instanceID: 13710}
+      Script: {instanceID: 13712}
     - Class: 114
-      Script: {instanceID: 13786}
+      Script: {instanceID: 13788}
     - Class: 114
-      Script: {instanceID: 13814}
+      Script: {instanceID: 13816}
     - Class: 114
-      Script: {instanceID: 13898}
+      Script: {instanceID: 13900}
     - Class: 114
-      Script: {instanceID: 14378}
+      Script: {instanceID: 14380}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -178,6 +180,8 @@ ScriptsOnlyBuild:
     - Class: 49
       Script: {instanceID: 0}
     - Class: 54
+      Script: {instanceID: 0}
+    - Class: 65
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
@@ -218,23 +222,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13434}
     - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13538}
     - Class: 114
-      Script: {instanceID: 13898}
+      Script: {instanceID: 13900}
     - Class: 114
-      Script: {instanceID: 14082}
+      Script: {instanceID: 14084}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 14090}
     - Class: 114
-      Script: {instanceID: 14126}
+      Script: {instanceID: 14128}
     - Class: 114
-      Script: {instanceID: 14158}
+      Script: {instanceID: 14160}
     - Class: 114
-      Script: {instanceID: 14454}
+      Script: {instanceID: 14456}
     - Class: 114
-      Script: {instanceID: 14530}
+      Script: {instanceID: 14532}
     - Class: 114
-      Script: {instanceID: 14550}
+      Script: {instanceID: 14552}
+    - Class: 114
+      Script: {instanceID: 18922}
+    - Class: 114
+      Script: {instanceID: 19164}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1784,6 +1792,18 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 21fcfd733d2e53b99dcca183790ac6f8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.Combat
+    className: SwordController
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.Combat
+    className: WeaponUser
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

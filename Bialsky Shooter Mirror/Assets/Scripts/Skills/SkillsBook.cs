@@ -12,7 +12,7 @@ namespace BialskyShooter.SkillSystem
     [RequireComponent(typeof(Experience))]
     public class SkillsBook : NetworkBehaviour
     {
-        [SerializeField] SkillsProgression skillsProgression;
+        [SerializeField] SkillsProgression skillsProgression = default;
         List<Skill> availableSkills;
         Dictionary<string, Skill> skillBindings;
         CreatureStats creatureStats;

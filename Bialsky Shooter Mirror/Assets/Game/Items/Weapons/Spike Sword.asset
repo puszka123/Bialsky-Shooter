@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ca9c1bce19dfd49aec50dbdb37c9fa, type: 3}
   m_Name: Spike Sword
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5472748743282065801, guid: 519bbf15098ba78449db79389978bb50, type: 3}
   uniqueName: Spike Sword
   stats:
     damage:

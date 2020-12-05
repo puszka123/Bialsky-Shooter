@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ToggleInventoryDisplay : MonoBehaviour
 {
-    [SerializeField] GameObject canvasGO;
+    [SerializeField] GameObject canvasGO = default;
 
     void Toggle()
     {

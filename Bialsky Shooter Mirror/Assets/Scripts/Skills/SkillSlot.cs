@@ -11,8 +11,8 @@ namespace BialskyShooter.SkillSystem
     public class SkillSlot : MonoBehaviour
     {
         public static event Action<string, Guid> clientOnSkillInjected;
-        [SerializeField] TMP_Text bindingText;
-        [SerializeField] Image skillImage;
+        [SerializeField] TMP_Text bindingText = default;
+        [SerializeField] Image skillImage = default;
         Guid skillId;
 
         public string Binding { get { return bindingText.text; } }

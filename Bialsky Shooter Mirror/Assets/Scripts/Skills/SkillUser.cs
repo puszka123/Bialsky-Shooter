@@ -1,5 +1,5 @@
-﻿using BialskyShooter.EquipmentSystem;
-using BialskyShooter.ItemSystem;
+﻿using BialskyShooter.Combat;
+using BialskyShooter.EquipmentSystem;
 using Mirror;
 using System;
 using System.Collections;
@@ -10,17 +10,19 @@ namespace BialskyShooter.SkillSystem
 {
     [RequireComponent(typeof(Equipment))]
     [RequireComponent(typeof(SkillsBook))]
+    [RequireComponent(typeof(WeaponUser))]
     public class SkillUser : NetworkBehaviour, ISkillUser
     {
         SkillsBook skillsBook;
         Equipment equipment;
-
+        WeaponUser weaponUser;
         #region Server
 
         public override void OnStartServer()
         {
             equipment = GetComponent<Equipment>();
             skillsBook = GetComponent<SkillsBook>();
+            weaponUser = GetComponent<WeaponUser>();
         }
 
         [Command]
@@ -36,15 +38,20 @@ namespace BialskyShooter.SkillSystem
         }
 
         [Server]
-        public Weapon GetWeapon()
+        public WeaponController GetWeaponController()
         {
-            return equipment.Weapon;
+            return null;
         }
 
         [Server]
         public Transform GetTransform()
         {
             return transform;
+        }
+
+        public void UseWeapon()
+        {
+            weaponUser.UseWeapon(equipment.Weapon);
         }
 
         #endregion

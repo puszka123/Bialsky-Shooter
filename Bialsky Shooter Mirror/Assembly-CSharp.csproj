@@ -75,6 +75,9 @@
     <Compile Include="Assets\Scripts\Combat\CombatTarget.cs" />
     <Compile Include="Assets\Scripts\Combat\Fighter.cs" />
     <Compile Include="Assets\Scripts\Combat\Health.cs" />
+    <Compile Include="Assets\Scripts\Combat\SwordController.cs" />
+    <Compile Include="Assets\Scripts\Combat\WeaponController.cs" />
+    <Compile Include="Assets\Scripts\Combat\WeaponUser.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
@@ -82,7 +85,7 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStatType.cs" />
-    <Compile Include="Assets\Scripts\Items\Weapons\Spike Sword\SpikeSword.cs" />
+    <Compile Include="Assets\Scripts\Items\Weapons\Swords\Spike Sword\SpikeSword.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\WeaponStats.cs" />
     <Compile Include="Assets\Scripts\Movement\CreatureMovement.cs" />

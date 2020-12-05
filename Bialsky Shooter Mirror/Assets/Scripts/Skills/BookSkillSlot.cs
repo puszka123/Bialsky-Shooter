@@ -7,8 +7,8 @@ namespace BialskyShooter.SkillSystem
 {
     public class BookSkillSlot : MonoBehaviour
     {
-        [SerializeField] Skill skill;
-        [SerializeField] Image skillImage;
+        [SerializeField] Skill skill = default;
+        [SerializeField] Image skillImage = default;
 
         public Skill Skill { get { return skill; } }
 

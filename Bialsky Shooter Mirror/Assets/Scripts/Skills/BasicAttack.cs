@@ -1,5 +1,4 @@
-﻿using BialskyShooter.Combat;
-using BialskyShooter.ItemSystem;
+﻿using BialskyShooter.ItemSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,22 +11,7 @@ namespace BialskyShooter.SkillSystem
         public override void Use(ISkillUser skillUser)
         {
             Debug.Log(skillUser);
-            var weapon = skillUser.GetWeapon();
-            var transform = skillUser.GetTransform();
-            if (Physics.Raycast(transform.position + Vector3.up/2, 
-                transform.forward, 
-                out RaycastHit hit, 
-                weapon.Stats.range.value,
-                layerMask
-                ))
-            {
-                OnHit(hit.transform.GetComponent<CombatTarget>()?.GetComponent<Health>(), weapon);
-            }
-        }
-
-        void OnHit(Health target, Weapon weapon)
-        {
-            target.TakeDamage(weapon.Stats.damage.value);
+            skillUser.UseWeapon();
         }
     }
 }

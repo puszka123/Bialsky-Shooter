@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ToggleSkillsBookDisplay : MonoBehaviour
 {
-    [SerializeField] GameObject canvasGO;
+    [SerializeField] GameObject canvasGO = default;
 
     void Toggle()
     {

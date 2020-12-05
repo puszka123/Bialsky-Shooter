@@ -23,7 +23,6 @@ namespace BialskyShooter.Control
 
         public override void OnStartAuthority()
         {
-            base.OnStartAuthority();
             Controls controls = new Controls();
             controls.Player.MovePlayer.performed += SetPreviousInput;
             controls.Player.MovePlayer.canceled += SetPreviousInput;
@@ -41,6 +40,15 @@ namespace BialskyShooter.Control
         {
             if (!hasAuthority) return;
             movement.CmdMove(previousInput);
+        }
+
+        [ClientCallback]
+        private void Update()
+        {
+            if (!hasAuthority) return;
+            var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
+            movement.CmdRotate(hit.point);
         }
 
         #endregion
