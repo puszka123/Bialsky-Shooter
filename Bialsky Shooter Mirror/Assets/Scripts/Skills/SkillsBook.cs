@@ -14,7 +14,9 @@ namespace BialskyShooter.SkillSystem
     {
         [SerializeField] SkillsProgression skillsProgression = default;
         List<Skill> availableSkills;
+        Dictionary<Guid, Skill> availableSkillsDict;
         Dictionary<string, Skill> skillBindings;
+        Dictionary<Guid, bool> skillsAvailability;
         CreatureStats creatureStats;
 
         #region Server
@@ -22,6 +24,8 @@ namespace BialskyShooter.SkillSystem
         public override void OnStartServer()
         {
             skillBindings = new Dictionary<string, Skill>();
+            skillsAvailability = new Dictionary<Guid, bool>();
+            availableSkillsDict = new Dictionary<Guid, Skill>();
             creatureStats = GetComponent<CreatureStats>();
             creatureStats.serverOnLevelUp += OnLevelUp;
             UpdateAvailableSkills();
@@ -35,7 +39,7 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public Skill GetSkill(Guid skillId)
         {
-            return availableSkills.First(s => s.Id == skillId);
+            return availableSkillsDict[skillId];
         }
 
         [Server]
@@ -54,12 +58,32 @@ namespace BialskyShooter.SkillSystem
         public void BindSkill(string keyBinding, Skill skill)
         {
             skillBindings[keyBinding] = skill;
+            if (!skillsAvailability.ContainsKey(skill.Id))
+            {
+                skillsAvailability[skill.Id] = true;
+            }
         }
 
         [Server]
         public void BindSkill(string keyBinding, Guid skillId)
         {
             skillBindings[keyBinding] = GetSkill(skillId);
+            if (!skillsAvailability.ContainsKey(skillId))
+            {
+                skillsAvailability[skillId] = true;
+            }
+        }
+
+        [Server]
+        public bool IsSkillAvailable(Guid skillId)
+        {
+            return skillsAvailability[skillId];
+        }
+
+        [Server]
+        public void SetSkillAvailability(Guid skillId, bool availability)
+        {
+            skillsAvailability[skillId] = availability;
         }
 
         [Server]
@@ -75,6 +99,11 @@ namespace BialskyShooter.SkillSystem
                 .GetAvailableSkills(creatureStats.ClassType, 
                 creatureStats.Level)
                 .ToList();
+            availableSkillsDict = new Dictionary<Guid, Skill>();
+            foreach (var skill in availableSkills)
+            {
+                availableSkillsDict[skill.Id] = skill;
+            }
         }
 
         [Command]

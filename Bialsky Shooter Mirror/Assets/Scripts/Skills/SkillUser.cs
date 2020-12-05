@@ -34,7 +34,21 @@ namespace BialskyShooter.SkillSystem
         [Server]
         void UseSkill(string keyBinding)
         {
-            skillsBook.GetSkill(keyBinding)?.Use(this);
+            Skill skill = skillsBook.GetSkill(keyBinding);
+            if (skill == null) return;
+            if (skillsBook.IsSkillAvailable(skill.Id))
+            {
+                StartCoroutine(CooldownSkill(skill));
+                skill.Use(this);
+            }
+        }
+
+        [Server]
+        IEnumerator CooldownSkill(Skill skill)
+        {
+            skillsBook.SetSkillAvailability(skill.Id, false);
+            yield return new WaitForSeconds(skill.GetCooldown());
+            skillsBook.SetSkillAvailability(skill.Id, true);
         }
 
         [Server]
