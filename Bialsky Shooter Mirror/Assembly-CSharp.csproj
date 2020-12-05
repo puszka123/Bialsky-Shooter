@@ -64,6 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game\Core\Controls.cs" />
+    <Compile Include="Assets\Scripts\AI\CollisionDetection.cs" />
+    <Compile Include="Assets\Scripts\AI\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\AI\EnemySight.cs" />
+    <Compile Include="Assets\Scripts\AI\MovementRules.cs" />
+    <Compile Include="Assets\Scripts\AI\MovementSystem.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ClassType.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\CreatureStats.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\Experience.cs" />
@@ -88,7 +93,9 @@
     <Compile Include="Assets\Scripts\Items\Weapons\Swords\Spike Sword\SpikeSword.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\WeaponStats.cs" />
-    <Compile Include="Assets\Scripts\Movement\CreatureMovement.cs" />
+    <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
+    <Compile Include="Assets\Scripts\Movement\Movement.cs" />
+    <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MyNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Skills\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />

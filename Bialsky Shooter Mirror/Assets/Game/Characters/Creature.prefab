@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: -552161123578679713}
   - component: {fileID: 7044250140318999182}
   - component: {fileID: 3794708983946990275}
-  - component: {fileID: 5005329142723679938}
   - component: {fileID: 5360952457645775694}
   - component: {fileID: 1441308730554521684}
   - component: {fileID: 5351562959127060175}
+  - component: {fileID: 2897143995586943611}
   m_Layer: 9
   m_Name: Creature
   m_TagString: Untagged
@@ -87,22 +87,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &5005329142723679938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995792351427308607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ed9b99d418d864a9c82b6ae4be7ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  brakeFactor: 0.1
-  moveFactor: 0.5
 --- !u!114 &5360952457645775694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +132,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  skillsBook:
-    availableSkills:
-    - {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
+--- !u!114 &2897143995586943611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995792351427308607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6eae41934ed1e4f9356ae88681d29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  brakeFactor: 0.1
+  moveFactor: 0.5

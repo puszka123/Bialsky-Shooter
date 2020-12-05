@@ -72,6 +72,20 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   skillsProgression: {fileID: 11400000, guid: d3b623f4229c6ef418bb717a78ea91fc, type: 2}
+--- !u!114 &5124044646688164302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788995692344120177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84ef2640077cc040bb88a0f03f38e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &6805268571547878861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +179,11 @@ PrefabInstance:
     - target: {fileID: 971237985703913530, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 971237985703913530, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2006935726027745882, guid: e1fe6c7866506774ca3ccb908125b1fb,

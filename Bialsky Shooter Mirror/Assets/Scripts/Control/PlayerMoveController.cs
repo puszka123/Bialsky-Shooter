@@ -8,15 +8,15 @@ using UnityEngine.InputSystem;
 
 namespace BialskyShooter.Control
 {
-    [RequireComponent(typeof(CreatureMovement))]
+    [RequireComponent(typeof(PlayerMovement))]
     public class PlayerMoveController : NetworkBehaviour
     {
         Vector2 previousInput;
-        CreatureMovement movement;
+        PlayerMovement movement;
 
         private void Start()
         {
-            movement = GetComponent<CreatureMovement>();
+            movement = GetComponent<PlayerMovement>();
         }
 
         #region Client
