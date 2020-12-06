@@ -8,8 +8,8 @@ namespace BialskyShooter.EquipmentSystem
 {
     public class Equipment : NetworkBehaviour
     {
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] WeaponProperties weapon = null;
 
-        public Weapon Weapon { get { return weapon; } }
+        public WeaponProperties Weapon { get { return weapon; } }
     }
 }

@@ -9,7 +9,7 @@ namespace BialskyShooter.AI
     public class CollisionDetection : NetworkBehaviour
     {
         public static int angleIncrease = 10;
-        [SerializeField] Transform center;
+        [SerializeField] Transform center = default;
 
         #region Server
 

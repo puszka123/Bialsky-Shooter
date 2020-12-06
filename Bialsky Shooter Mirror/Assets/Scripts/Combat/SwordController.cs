@@ -12,7 +12,7 @@ namespace BialskyShooter.Combat
     {
         [SerializeField] GameObject parent = default;
         bool inProgress;
-        Weapon weapon;
+        WeaponProperties weapon;
         #region Server
 
         [ServerCallback]
@@ -25,7 +25,7 @@ namespace BialskyShooter.Combat
         }
 
         [Server]
-        public override void StartControl(Weapon weapon)
+        public override void StartControl(WeaponProperties weapon)
         {
             this.weapon = weapon;
             if (!inProgress)

@@ -8,7 +8,7 @@ namespace BialskyShooter.Multiplayer
 {
     public class MyNetworkManager : NetworkManager
     {
-        [SerializeField] GameObject humanEnemyPrefab;
+        [SerializeField] GameObject humanEnemyPrefab = default;
 
         #region Server
 

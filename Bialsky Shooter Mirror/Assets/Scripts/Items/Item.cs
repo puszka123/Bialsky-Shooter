@@ -3,13 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : ScriptableObject
+namespace BialskyShooter.ItemSystem
 {
-    [SerializeField] protected Guid id = default;
-    [SerializeField] protected GameObject prefab = default;
-    [SerializeField] protected string uniqueName = default;
+    [System.Serializable]
+    public class Item
+    {
+        Guid id;
+        ItemProperties properties;
+        public ItemProperties Properties { get { return properties; } }
+        public Guid Id { get { return id; } }
 
-    public Guid Id { get { return id; } }
-    public string UniqueName { get { return uniqueName; } }
-    public GameObject Prefab { get { return prefab; } }
+        public Item(ItemProperties properties)
+        {
+            this.properties = properties;
+            id = Guid.NewGuid();
+        }
+
+        public Item(Guid id, ItemProperties properties)
+        {
+            this.properties = properties;
+            this.id = id;
+        }
+
+        public Item(Item item)
+        {
+            properties = item.properties;
+            id = item.id;
+        }
+    }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3659017034363927654}
   - component: {fileID: 2062987173300972925}
   - component: {fileID: 4864944425590927912}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spike Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
