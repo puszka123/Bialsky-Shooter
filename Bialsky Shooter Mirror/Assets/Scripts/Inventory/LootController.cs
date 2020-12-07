@@ -33,11 +33,18 @@ namespace BialskyShooter.InventoryModule
             var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) return;
             if (!hit.transform.TryGetComponent<Inventory>(out loot)) return;
-            //inventory.ClientLootItem(loot.GetComponent<NetworkIdentity>(), loot.GetFirstItemId());
             lootDisplayInstance = Instantiate(lootDisplayPrefab);
             var slotsDisplay = lootDisplayInstance.GetComponentInChildren<SlotsDisplay>();
             slotsDisplay.Display(loot.ItemDisplays);
+            LootItemSelection.clientOnItemSelected += OnLootItemSelected;
         }
+
+        [Client]
+        private void OnLootItemSelected(Guid itemId)
+        {
+            inventory.ClientLootItem(loot.GetComponent<NetworkIdentity>(), itemId);
+        }
+
 
         #endregion
     }

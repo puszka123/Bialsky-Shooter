@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.ItemSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -75,9 +76,11 @@ namespace BialskyShooter.InventoryModule
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
                     if (isLoot)
                     {
-                        var image = slotInstance.GetComponentInChildren<Image>();
+                        var image = slotInstance.transform.GetChild(0).GetComponent<Image>();
                         image.color = new Color(1, 1, 1, 1);
                         image.sprite = itemDisplays[row + column - 2].Icon;
+                        var slotItemSelection = slotInstance.GetComponent<LootItemSelection>();
+                        slotItemSelection.itemId = itemDisplays[row + column - 2].ItemId;
                     }
                 }
             }
