@@ -89,7 +89,9 @@
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
+    <Compile Include="Assets\Scripts\Inventory\SlotsDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\ItemProperties.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStatType.cs" />
@@ -114,7 +116,6 @@
     <Compile Include="Assets\Scripts\Skills\SkillsBook.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsProgression.cs" />
     <Compile Include="Assets\Scripts\UI\Draggable.cs" />
-    <Compile Include="Assets\Scripts\UI\SlotsDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleInventoryDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsBookDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsUseDisplay.cs" />

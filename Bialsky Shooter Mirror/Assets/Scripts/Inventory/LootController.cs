@@ -13,6 +13,8 @@ namespace BialskyShooter.InventoryModule
         [SerializeField] GameObject lootDisplayPrefab = default;
         [SerializeField] LayerMask layerMask = new LayerMask();
         Inventory inventory;
+        Inventory loot;
+        GameObject lootDisplayInstance;
 
         #region Client
 
@@ -25,12 +27,16 @@ namespace BialskyShooter.InventoryModule
             controls.Enable();
         }
 
+        [Client]
         private void LootPerformed(InputAction.CallbackContext ctx)
         {
             var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) return;
-            if (!hit.transform.TryGetComponent<Inventory>(out Inventory loot)) return;
-            inventory.ClientLootItem(loot.GetComponent<NetworkIdentity>(), loot.GetFirstItemId());
+            if (!hit.transform.TryGetComponent<Inventory>(out loot)) return;
+            //inventory.ClientLootItem(loot.GetComponent<NetworkIdentity>(), loot.GetFirstItemId());
+            lootDisplayInstance = Instantiate(lootDisplayPrefab);
+            var slotsDisplay = lootDisplayInstance.GetComponentInChildren<SlotsDisplay>();
+            slotsDisplay.Display(loot.ItemDisplays);
         }
 
         #endregion

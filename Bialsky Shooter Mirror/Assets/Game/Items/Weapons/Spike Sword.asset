@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5472748743282065801, guid: 519bbf15098ba78449db79389978bb50, type: 3}
   uniqueName: Spike Sword
+  iconPath: SIW 1
   stats:
     damage:
       nameToDisplay: Damage

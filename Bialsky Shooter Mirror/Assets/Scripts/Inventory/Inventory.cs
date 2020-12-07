@@ -26,7 +26,7 @@ namespace BialskyShooter.InventoryModule
             //debug only
             if (testItemProperties != null)
             {
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(1f);
                 var testItem = new Item(testItemProperties);
                 PickupItem(testItem);
             }
@@ -60,7 +60,7 @@ namespace BialskyShooter.InventoryModule
         void PickupItem(Item item)
         {
             itemsDict[item.Id] = item;
-            RpcPickupItem(item.Id);
+            RpcPickupItem(item.Id, item.Properties.IconPath);
         }
 
         #endregion
@@ -68,11 +68,13 @@ namespace BialskyShooter.InventoryModule
         #region Client
 
         [SerializeField] List<string> itemsIdsStrings = new List<string>();
-        List<Guid> itemsIds;
+        List<ItemDisplay> itemDisplays;
+
+        public IEnumerable<ItemDisplay> ItemDisplays { get { return itemDisplays; } }
 
         public override void OnStartClient()
         {
-            if (itemsIds == null) itemsIds = new List<Guid>();
+            if (itemDisplays == null) itemDisplays = new List<ItemDisplay>();
         }
 
         [Client]
@@ -84,19 +86,20 @@ namespace BialskyShooter.InventoryModule
         [Client]
         public Guid GetFirstItemId()
         {
-            return itemsIds[0];
+            return itemDisplays[0].ItemId;
         }
 
         [ClientRpc]
-        void RpcPickupItem(Guid itemId)
+        void RpcPickupItem(Guid itemId, string iconPath)
         {
-            ClientPickupItem(itemId);
+            ClientPickupItem(itemId, iconPath);
         }
 
-        void ClientPickupItem(Guid itemId)
+        void ClientPickupItem(Guid itemId, string iconPath)
         {
-            if(itemsIds == null) itemsIds = new List<Guid>();
-            itemsIds.Add(itemId);
+            if(itemDisplays == null) itemDisplays = new List<ItemDisplay>();
+            Sprite icon = Resources.Load<Sprite>(iconPath);
+            itemDisplays.Add(new ItemDisplay(itemId, icon));
             itemsIdsStrings.Add(itemId.ToString());
         }
 
@@ -109,7 +112,7 @@ namespace BialskyShooter.InventoryModule
         [Client]
         void ClientThrowAwayItem(Guid itemId)
         {
-            itemsIds.Remove(itemId);
+            itemDisplays.Remove(itemDisplays.Find(e => e.ItemId == itemId));
             itemsIdsStrings.Remove(itemId.ToString());
         }
 
