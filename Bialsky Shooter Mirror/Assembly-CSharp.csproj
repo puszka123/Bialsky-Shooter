@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemProperties.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />

@@ -29,6 +29,25 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
+--- !u!114 &-1344151271467110101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788995692344120177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86477d844bd106e4da7e76a612d68886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  lootDisplayPrefab: {fileID: 8106788102062863199, guid: 709e3959218b97e43a30bd9ce1936ce1,
+    type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &2496644803665957581
 MonoBehaviour:
   m_ObjectHideFlags: 0

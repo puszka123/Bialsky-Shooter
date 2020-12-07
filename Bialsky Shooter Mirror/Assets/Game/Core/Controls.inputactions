@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Loot",
+                    "type": "Button",
+                    "id": "a9fb5127-ad93-4b05-93f5-6e9f3c6d53aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -295,6 +303,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Use Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "558f4fcc-b863-4eb8-96f5-546aebd5aae2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Loot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Loot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9fb5127-ad93-4b05-93f5-6e9f3c6d53aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -310,6 +318,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""558f4fcc-b863-4eb8-96f5-546aebd5aae2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Loot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -337,6 +356,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MovePlayer = m_Player.FindAction("Move Player", throwIfNotFound: true);
         m_Player_UseSkill = m_Player.FindAction("Use Skill", throwIfNotFound: true);
+        m_Player_Loot = m_Player.FindAction("Loot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -388,12 +408,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_MovePlayer;
     private readonly InputAction m_Player_UseSkill;
+    private readonly InputAction m_Player_Loot;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MovePlayer => m_Wrapper.m_Player_MovePlayer;
         public InputAction @UseSkill => m_Wrapper.m_Player_UseSkill;
+        public InputAction @Loot => m_Wrapper.m_Player_Loot;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -409,6 +431,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @UseSkill.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSkill;
                 @UseSkill.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSkill;
                 @UseSkill.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseSkill;
+                @Loot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoot;
+                @Loot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoot;
+                @Loot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoot;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -419,6 +444,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @UseSkill.started += instance.OnUseSkill;
                 @UseSkill.performed += instance.OnUseSkill;
                 @UseSkill.canceled += instance.OnUseSkill;
+                @Loot.started += instance.OnLoot;
+                @Loot.performed += instance.OnLoot;
+                @Loot.canceled += instance.OnLoot;
             }
         }
     }
@@ -436,5 +464,6 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMovePlayer(InputAction.CallbackContext context);
         void OnUseSkill(InputAction.CallbackContext context);
+        void OnLoot(InputAction.CallbackContext context);
     }
 }
