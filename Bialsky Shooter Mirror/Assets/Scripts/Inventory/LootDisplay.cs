@@ -21,6 +21,7 @@ namespace BialskyShooter.InventoryModule
         public void Display(IEnumerable<ItemDisplay> itemDisplays)
         {
             this.itemDisplays = new List<ItemDisplay>(itemDisplays);
+            print(this.itemDisplays.Count);
             var count = this.itemDisplays.Count;
             rowsCount = count / 2;
             columnsCount = count / 2;

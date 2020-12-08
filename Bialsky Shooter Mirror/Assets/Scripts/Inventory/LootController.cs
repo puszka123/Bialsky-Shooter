@@ -35,7 +35,7 @@ namespace BialskyShooter.InventoryModule
             if (!hit.transform.TryGetComponent<Inventory>(out loot)) return;
             lootDisplayInstance = Instantiate(lootDisplayPrefab);
             var slotsDisplay = lootDisplayInstance.GetComponentInChildren<LootDisplay>();
-            slotsDisplay.Display(loot.ItemDisplays);
+            slotsDisplay.Display(loot.GetItemDisplays());
             LootItemSelection.clientOnItemSelected += OnLootItemSelected;
         }
 

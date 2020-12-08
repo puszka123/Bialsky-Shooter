@@ -75,7 +75,6 @@ namespace BialskyShooter.InventoryModule
 
         public void DisplayLootItem(ItemDisplay displayItem)
         {
-            print(slotsAvailability.Count);
             var slot = slotsAvailability.First(pair => pair.Value).Key;
             DisplayItem(slot, displayItem.Icon);
             SetLootItemSelection(slot, displayItem.ItemId);

@@ -10,27 +10,28 @@ namespace BialskyShooter.InventoryModule
 {
     public class Inventory : NetworkBehaviour
     {
-        #region Server
+        SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
 
-        [SerializeField] ItemProperties testItemProperties = default;
-        Dictionary<Guid, Item> itemsDict;
-
-
-        public override void OnStartServer()
-        {
-            itemsDict = new Dictionary<Guid, Item>();    
-        }
-
-        [ServerCallback]
         private IEnumerator Start()
         {
+            
             //debug only
-            if (testItemProperties != null)
+            if (NetworkServer.active && testItemProperties != null)
             {
                 yield return new WaitForSeconds(1f);
                 var testItem = new Item(testItemProperties);
                 PickupItem(testItem);
             }
+        }
+
+        #region Server
+
+        [SerializeField] ItemProperties testItemProperties = default;
+        Dictionary<Guid, Item> itemsDict;
+
+        public override void OnStartServer()
+        {
+            itemsDict = new Dictionary<Guid, Item>();
         }
 
 
@@ -39,6 +40,7 @@ namespace BialskyShooter.InventoryModule
         {
             LootItem(loot, itemId);
         }
+
 
         [Server]
         void LootItem(NetworkIdentity loot, Guid itemId)
@@ -53,7 +55,8 @@ namespace BialskyShooter.InventoryModule
         {
             var item = new Item(itemsDict[itemId]);
             itemsDict.Remove(itemId);
-            RpcThrowAwayItem(itemId);
+            var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
+            syncItemInformations.Remove(itemToRemove);
             return item;
         }
 
@@ -61,21 +64,17 @@ namespace BialskyShooter.InventoryModule
         void PickupItem(Item item)
         {
             itemsDict[item.Id] = item;
+            syncItemInformations.Add(new ItemInformation(item.Id.ToString(), item.Properties.IconPath));
             RpcPickupItem(item.Id, item.Properties.IconPath);
         }
 
         #endregion
 
         #region Client
-        [SerializeField] List<string> itemsIdsStrings = new List<string>();
         InventoryDisplay inventoryDisplay;
-        List<ItemDisplay> itemDisplays;
-
-        public IEnumerable<ItemDisplay> ItemDisplays { get { return itemDisplays; } }
 
         public override void OnStartClient()
         {
-            if (itemDisplays == null) itemDisplays = new List<ItemDisplay>();
             if (CompareTag("Player")) inventoryDisplay = FindObjectOfType<InventoryDisplay>();
         }
 
@@ -85,39 +84,32 @@ namespace BialskyShooter.InventoryModule
             CmdLootItem(loot, itemId);
         }
 
-        [Client]
-        public Guid GetFirstItemId()
-        {
-            return itemDisplays[0].ItemId;
-        }
-
         [ClientRpc]
         void RpcPickupItem(Guid itemId, string iconPath)
         {
+            if (!hasAuthority) return;
             ClientPickupItem(itemId, iconPath);
         }
 
         void ClientPickupItem(Guid itemId, string iconPath)
         {
-            if(itemDisplays == null) itemDisplays = new List<ItemDisplay>();
             Sprite icon = Resources.Load<Sprite>(iconPath);
             var displayItem = new ItemDisplay(itemId, icon);
-            itemDisplays.Add(displayItem);
-            itemsIdsStrings.Add(itemId.ToString());
             if (CompareTag("Player")) inventoryDisplay.DisplayLootItem(displayItem);
         }
 
-        [ClientRpc]
-        void RpcThrowAwayItem(Guid itemId)
-        {
-            ClientThrowAwayItem(itemId);
-        }
-
         [Client]
-        void ClientThrowAwayItem(Guid itemId)
+        public IEnumerable<ItemDisplay> GetItemDisplays()
         {
-            itemDisplays.Remove(itemDisplays.Find(e => e.ItemId == itemId));
-            itemsIdsStrings.Remove(itemId.ToString());
+            var itemDisplays = new List<ItemDisplay>();
+            for (int i = 0; i < syncItemInformations.Count; i++)
+            {
+                var itemId = syncItemInformations[i].itemId;
+                var icon = Resources.Load<Sprite>(syncItemInformations[i].iconPath);
+                itemDisplays.Add(new ItemDisplay(Guid.Parse(itemId), icon));
+            }
+
+            return itemDisplays;
         }
 
         #endregion

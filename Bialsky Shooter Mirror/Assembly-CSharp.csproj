@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Inventory\LootItemSelection.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemDisplay.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemInformation.cs" />
     <Compile Include="Assets\Scripts\Items\ItemProperties.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStatType.cs" />
