@@ -11,7 +11,8 @@ namespace BialskyShooter.InventoryModule
     public class Inventory : NetworkBehaviour
     {
         #region Server
-        [SerializeField] ItemProperties testItemProperties;
+
+        [SerializeField] ItemProperties testItemProperties = default;
         Dictionary<Guid, Item> itemsDict;
 
 
@@ -66,8 +67,8 @@ namespace BialskyShooter.InventoryModule
         #endregion
 
         #region Client
-
         [SerializeField] List<string> itemsIdsStrings = new List<string>();
+        InventoryDisplay inventoryDisplay;
         List<ItemDisplay> itemDisplays;
 
         public IEnumerable<ItemDisplay> ItemDisplays { get { return itemDisplays; } }
@@ -75,6 +76,7 @@ namespace BialskyShooter.InventoryModule
         public override void OnStartClient()
         {
             if (itemDisplays == null) itemDisplays = new List<ItemDisplay>();
+            if (CompareTag("Player")) inventoryDisplay = FindObjectOfType<InventoryDisplay>();
         }
 
         [Client]
@@ -99,8 +101,10 @@ namespace BialskyShooter.InventoryModule
         {
             if(itemDisplays == null) itemDisplays = new List<ItemDisplay>();
             Sprite icon = Resources.Load<Sprite>(iconPath);
-            itemDisplays.Add(new ItemDisplay(itemId, icon));
+            var displayItem = new ItemDisplay(itemId, icon);
+            itemDisplays.Add(displayItem);
             itemsIdsStrings.Add(itemId.ToString());
+            if (CompareTag("Player")) inventoryDisplay.DisplayLootItem(displayItem);
         }
 
         [ClientRpc]

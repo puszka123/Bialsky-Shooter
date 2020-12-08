@@ -88,9 +88,10 @@
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryDisplay.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
+    <Compile Include="Assets\Scripts\Inventory\LootDisplay.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootItemSelection.cs" />
-    <Compile Include="Assets\Scripts\Inventory\SlotsDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\ItemProperties.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Assets\Scripts\Skills\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillUser.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsBook.cs" />
+    <Compile Include="Assets\Scripts\Skills\SkillsDisplay.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsProgression.cs" />
     <Compile Include="Assets\Scripts\UI\Draggable.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleInventoryDisplay.cs" />

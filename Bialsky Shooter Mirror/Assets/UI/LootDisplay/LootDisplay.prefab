@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4674419241246891356}
-  - component: {fileID: 6131380400512791514}
+  - component: {fileID: 7193481913943924531}
   m_Layer: 0
   m_Name: LootDisplay
   m_TagString: Untagged
@@ -280,7 +280,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6131380400512791514
+--- !u!114 &7193481913943924531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,13 +289,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8106788102062863199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bda2eb5d8154b1499242d4c853e4f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 370e5ed983b303241b0b7a25fb43e89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotsPanel: {fileID: 7324627358939871979}
   mainPanel: {fileID: 6597784929512701803}
   slotImagePrefab: {fileID: 2381210435746379025, guid: 7d0166e487042d24bb808418d312a04b,
     type: 3}
-  rowsCount: 5
-  columnsCount: 5
   canvas: {fileID: 6594854013538329875}

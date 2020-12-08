@@ -257,8 +257,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4965507827286253054}
-  - component: {fileID: 1949464602312285589}
   - component: {fileID: 5738643436670147306}
+  - component: {fileID: 3007339242839044778}
   m_Layer: 0
   m_Name: SkillsBookDisplay
   m_TagString: Untagged
@@ -281,25 +281,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1949464602312285589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395819718363743579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bda2eb5d8154b1499242d4c853e4f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotsPanel: {fileID: 4306063860702708861}
-  mainPanel: {fileID: 2993766760686558729}
-  slotImagePrefab: {fileID: 4869860423040663370, guid: 41d4915c5c3b38a4da0abd5517a9475e,
-    type: 3}
-  canvas: {fileID: 413979727646400850}
-  rowsCount: 4
-  columnsCount: 5
 --- !u!114 &5738643436670147306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,3 +294,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGO: {fileID: 1564161050969258880}
+--- !u!114 &3007339242839044778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395819718363743579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46dd2c60b954524199ef01fded05e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotsPanel: {fileID: 4306063860702708861}
+  mainPanel: {fileID: 2993766760686558729}
+  slotImagePrefab: {fileID: 4869860423040663370, guid: 41d4915c5c3b38a4da0abd5517a9475e,
+    type: 3}
+  canvas: {fileID: 413979727646400850}
+  rowsCount: 3
+  columnsCount: 10
+  alignWithMousePosition: 0

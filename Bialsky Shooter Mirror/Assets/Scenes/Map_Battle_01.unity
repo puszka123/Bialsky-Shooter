@@ -1854,6 +1854,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 843360436154385730, guid: 35abc2ce31e93754bb69c26a4d87b5dd,
+        type: 3}
+      propertyPath: fixedSlotsCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2142912515433158884, guid: 35abc2ce31e93754bb69c26a4d87b5dd,
         type: 3}
       propertyPath: m_Name
