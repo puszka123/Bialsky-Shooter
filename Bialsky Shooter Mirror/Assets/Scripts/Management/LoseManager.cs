@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BialskyShooter.InventoryModule;
 
 namespace BialskyShooter.ManagementModule
 {
@@ -25,6 +26,26 @@ namespace BialskyShooter.ManagementModule
         {
             GetComponent<Health>().serverOnCreatureLose -= OnCreatureLose;
         }
+
+        #endregion
+
+
+        #region Client
+
+        public override void OnStartClient()
+        {
+            if (NetworkServer.active) return;
+            GetComponent<Health>().clientOnCreatureLose += OnCreatureLose;
+            if (GetComponent<Health>().IsDefeated) OnCreatureLose();
+        }
+
+        public override void OnStopClient()
+        {
+            if (NetworkServer.active) return;
+            GetComponent<Health>().clientOnCreatureLose -= OnCreatureLose;
+        }
+
+        #endregion
 
         void OnCreatureLose()
         {
@@ -44,9 +65,8 @@ namespace BialskyShooter.ManagementModule
             }
             if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody)) rigidbody.isKinematic = true;
             var renderer = GetComponentInChildren<Renderer>();
-            if(renderer != null) renderer.material.color = Color.blue;
+            if (renderer != null) renderer.material.color = Color.blue;
+            if(GetComponent<Inventory>() != null) gameObject.AddComponent<LootTarget>();
         }
-
-        #endregion
     }
 }

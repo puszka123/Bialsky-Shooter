@@ -12,6 +12,7 @@ namespace BialskyShooter.Combat
     public class Health : NetworkBehaviour
     {
         public event Action serverOnCreatureLose;
+        public event Action clientOnCreatureLose;
 
         CreatureStats creatureStats;
         [SyncVar] float currentHealth;
@@ -51,8 +52,18 @@ namespace BialskyShooter.Combat
         void Lose()
         {
             isDefeated = true;
-            gameObject.AddComponent<LootTarget>();
             serverOnCreatureLose?.Invoke();
+            RpcOnCreatureLose();
+        }
+
+        #endregion
+
+        #region Client
+
+        [ClientRpc]
+        void RpcOnCreatureLose()
+        {
+            clientOnCreatureLose?.Invoke();
         }
 
         #endregion
