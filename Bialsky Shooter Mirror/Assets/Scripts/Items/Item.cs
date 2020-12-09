@@ -9,17 +9,17 @@ namespace BialskyShooter.ItemSystem
     public class Item
     {
         Guid id;
-        ItemProperties properties;
-        public ItemProperties Properties { get { return properties; } }
+        ItemSO properties;
+        public ItemSO Properties { get { return properties; } }
         public Guid Id { get { return id; } }
 
-        public Item(ItemProperties properties)
+        public Item(ItemSO properties)
         {
             this.properties = properties;
             id = Guid.NewGuid();
         }
 
-        public Item(Guid id, ItemProperties properties)
+        public Item(Guid id, ItemSO properties)
         {
             this.properties = properties;
             this.id = id;

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemStatType
+namespace BialskyShooter.ItemSystem
 {
-    Damage, Cooldown, Range
+    public enum ItemStatType
+    {
+        Damage, Cooldown, Range, Armor
+    }
 }

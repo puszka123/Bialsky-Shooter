@@ -10,23 +10,34 @@ namespace BialskyShooter.InventoryModule
 {
     public class Inventory : NetworkBehaviour
     {
+        InventoryDisplay inventoryDisplay;
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
 
         private IEnumerator Start()
         {
-            
+            if (CompareTag("Player") && hasAuthority)
+            {
+                inventoryDisplay = FindObjectOfType<InventoryDisplay>();
+                foreach (var item in GetItemDisplays())
+                {
+                    inventoryDisplay.DisplayItem(item);
+                }
+            }
             //debug only
             if (NetworkServer.active && testItemProperties != null)
             {
                 yield return new WaitForSeconds(1f);
                 var testItem = new Item(testItemProperties);
+                var testItem2 = new Item(testItemProperties2);
                 PickupItem(testItem);
+                PickupItem(testItem2);
             }
         }
 
         #region Server
 
-        [SerializeField] ItemProperties testItemProperties = default;
+        [SerializeField] ItemSO testItemProperties = default;
+        [SerializeField] ItemSO testItemProperties2 = default;
         Dictionary<Guid, Item> itemsDict;
 
         public override void OnStartServer()
@@ -71,12 +82,6 @@ namespace BialskyShooter.InventoryModule
         #endregion
 
         #region Client
-        InventoryDisplay inventoryDisplay;
-
-        public override void OnStartClient()
-        {
-            if (CompareTag("Player")) inventoryDisplay = FindObjectOfType<InventoryDisplay>();
-        }
 
         [Client]
         public void ClientLootItem(NetworkIdentity loot, Guid itemId)
@@ -95,7 +100,7 @@ namespace BialskyShooter.InventoryModule
         {
             Sprite icon = Resources.Load<Sprite>(iconPath);
             var displayItem = new ItemDisplay(itemId, icon);
-            if (CompareTag("Player")) inventoryDisplay.DisplayLootItem(displayItem);
+            if (CompareTag("Player")) inventoryDisplay.DisplayItem(displayItem);
         }
 
         [Client]

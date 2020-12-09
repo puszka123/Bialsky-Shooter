@@ -29,6 +29,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
+  shield: {fileID: 11400000, guid: 40152574577497e4e83a6914a8e7ef47, type: 2}
+  chest: {fileID: 11400000, guid: 359e59305fe35d84d8adcf35602284a2, type: 2}
+  helmet: {fileID: 11400000, guid: 21a6c486f45301a418d63b4cfd3f8f6c, type: 2}
+  legs: {fileID: 11400000, guid: 85bda8379d6bcf1459c3ab5de6d06f00, type: 2}
+  boots: {fileID: 11400000, guid: 9e1012c87baaec1429e46f582c178525, type: 2}
 --- !u!114 &-1344151271467110101
 MonoBehaviour:
   m_ObjectHideFlags: 0

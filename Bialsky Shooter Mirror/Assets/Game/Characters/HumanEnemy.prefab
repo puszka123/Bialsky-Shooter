@@ -15,6 +15,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
+  shield: {fileID: 0}
+  chest: {fileID: 0}
+  helmet: {fileID: 0}
+  legs: {fileID: 0}
+  boots: {fileID: 0}
 --- !u!114 &-7697872267077002639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +119,12 @@ PrefabInstance:
       propertyPath: testItemProperties
       value: 
       objectReference: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189,
+        type: 2}
+    - target: {fileID: -2142402995849587584, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: testItemProperties2
+      value: 
+      objectReference: {fileID: 11400000, guid: 359e59305fe35d84d8adcf35602284a2,
         type: 2}
     - target: {fileID: 612544585951867151, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}

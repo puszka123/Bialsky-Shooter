@@ -20,14 +20,20 @@ namespace BialskyShooter.InventoryModule
 
         public void Display(IEnumerable<ItemDisplay> itemDisplays)
         {
+            if (itemDisplays == null) return;
             this.itemDisplays = new List<ItemDisplay>(itemDisplays);
-            print(this.itemDisplays.Count);
+            if (this.itemDisplays.Count == 0) return;
             var count = this.itemDisplays.Count;
             rowsCount = count / 2;
             columnsCount = count / 2;
             rowsCount += count % 2;
             if (columnsCount == 0) columnsCount = 1;
             if (rowsCount == 0) rowsCount = 1;
+            if(count == 2)
+            {
+                rowsCount = 1;
+                columnsCount = 2;
+            }
             InitLootPanel();
             SetMainPanelPositionToMousePosition();
         }

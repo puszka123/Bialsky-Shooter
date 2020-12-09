@@ -12,7 +12,7 @@ namespace BialskyShooter.Combat
     {
         [SerializeField] GameObject parent = default;
         bool inProgress;
-        WeaponProperties weapon;
+        WeaponSO weapon;
         #region Server
 
         [ServerCallback]
@@ -20,12 +20,14 @@ namespace BialskyShooter.Combat
         {
             if (other.gameObject == parent 
                 || !inProgress
-                || !other.TryGetComponent<CombatTarget>(out CombatTarget target)) return;
-            target.Health.TakeDamage(parent.GetComponent<NetworkIdentity>(), weapon.Stats.damage.value);
+                || !other.TryGetComponent<CombatTarget>(out CombatTarget target)
+                || target.Health.IsDefeated) return;
+            target.Health.TakeDamage(parent.GetComponent<NetworkIdentity>(), 
+                weapon.Stats.GetStat(ItemStatType.Damage).value);
         }
 
         [Server]
-        public override void StartControl(WeaponProperties weapon)
+        public override void StartControl(WeaponSO weapon)
         {
             this.weapon = weapon;
             if (!inProgress)

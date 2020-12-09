@@ -8,7 +8,7 @@ namespace BialskyShooter.Combat
 {
     public class Fighter : NetworkBehaviour
     {
-        [SerializeField] WeaponProperties weapon;
+        [SerializeField] WeaponSO weapon;
 
         #region Server
 

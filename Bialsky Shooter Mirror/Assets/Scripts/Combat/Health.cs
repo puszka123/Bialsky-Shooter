@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.ClassSystem;
+using BialskyShooter.InventoryModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -14,6 +15,9 @@ namespace BialskyShooter.Combat
 
         CreatureStats creatureStats;
         [SyncVar] float currentHealth;
+        [SyncVar] bool isDefeated;
+
+        public bool IsDefeated { get { return isDefeated; } }
 
         #region Server
 
@@ -46,6 +50,8 @@ namespace BialskyShooter.Combat
         [Server]
         void Lose()
         {
+            isDefeated = true;
+            gameObject.AddComponent<LootTarget>();
             serverOnCreatureLose?.Invoke();
         }
 

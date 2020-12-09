@@ -73,7 +73,7 @@ namespace BialskyShooter.InventoryModule
             image.sprite = icon;
         }
 
-        public void DisplayLootItem(ItemDisplay displayItem)
+        public void DisplayItem(ItemDisplay displayItem)
         {
             var slot = slotsAvailability.First(pair => pair.Value).Key;
             DisplayItem(slot, displayItem.Icon);

@@ -14,20 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5472748743282065801, guid: 519bbf15098ba78449db79389978bb50, type: 3}
   uniqueName: Spike Sword
-  iconPath: SIW 1
+  iconPath: Spike Sword
   stats:
-    damage:
-      nameToDisplay: Damage
+    stats:
+    - nameToDisplay: Damage
       value: 25
       display: 1
       statType: 0
-    range:
-      nameToDisplay: Range
-      value: 5
+    - nameToDisplay: Range
+      value: 2
       display: 1
       statType: 2
-    cooldown:
-      nameToDisplay: Cooldown
-      value: 1.25
-      display: 1
-      statType: 1

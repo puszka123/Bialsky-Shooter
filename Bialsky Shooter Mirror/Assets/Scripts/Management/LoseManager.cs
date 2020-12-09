@@ -34,8 +34,14 @@ namespace BialskyShooter.ManagementModule
             if (TryGetComponent<PlayerMoveController>(out PlayerMoveController ctrl)) ctrl.enabled = false;
             if (TryGetComponent<PlayerSkillController>(out PlayerSkillController skillCtrl)) skillCtrl.enabled = false;
             if (TryGetComponent<CombatTarget>(out CombatTarget target)) target.enabled = false;
-            if (TryGetComponent<BoxCollider>(out BoxCollider boxCollider)) boxCollider.enabled = false;
-            if (TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider)) capsuleCollider.enabled = false;
+            if (TryGetComponent<BoxCollider>(out BoxCollider boxCollider))
+            {
+                boxCollider.isTrigger = true;
+            }
+            if (TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
+            {
+                capsuleCollider.isTrigger = true;
+            }
             if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody)) rigidbody.isKinematic = true;
             var renderer = GetComponentInChildren<Renderer>();
             if(renderer != null) renderer.material.color = Color.blue;
