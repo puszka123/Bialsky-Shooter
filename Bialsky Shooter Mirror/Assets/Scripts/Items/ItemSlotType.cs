@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemSlotType
+namespace BialskyShooter.ItemSystem
 {
-    Weapon, Shield, Helmet, Chest, Legs, Boots
+    [System.Serializable]
+    public enum ItemSlotType
+    {
+        Weapon, Shield, Helmet, Chest, Legs, Boots
+    }
 }

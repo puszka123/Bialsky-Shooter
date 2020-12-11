@@ -113,6 +113,7 @@ namespace BialskyShooter.EquipmentSystem
             image.color = new Color(1, 1, 1, 1);
             var icon = Resources.Load<Sprite>(itemInformation.iconPath);
             image.sprite = icon;
+            slot.GetComponent<EquipmentItemSelection>().itemId = Guid.Parse(itemInformation.itemId);
         }
     }
 }

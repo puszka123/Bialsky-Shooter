@@ -16,13 +16,17 @@ namespace BialskyShooter.EquipmentSystem
         Equipment equipment;
         EquipmentDisplay equipmentDisplay;
 
+        private void Start()
+        {
+            equipmentDisplay = FindObjectOfType<EquipmentDisplay>();
+        }
+
         #region Server
 
         public override void OnStartServer()
         {
             inventory = GetComponent<Inventory>();
             equipment = GetComponent<Equipment>();
-            equipmentDisplay = FindObjectOfType<EquipmentDisplay>();
         }
 
         [Command]
@@ -35,8 +39,11 @@ namespace BialskyShooter.EquipmentSystem
         void EquipItem(Guid itemId)
         {
             var item = inventory.ThrowAwayItem(itemId);
-            var itemInformation = equipment.Equip(item);
-            RpcEquipItem(itemInformation);
+            if (item != null)
+            {
+                var itemInformation = equipment.Equip(item);
+                RpcEquipItem(itemInformation);
+            }
         }
 
         [Command]

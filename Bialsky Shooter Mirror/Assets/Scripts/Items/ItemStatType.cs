@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BialskyShooter.ItemSystem
 {
+    [System.Serializable]
     public enum ItemStatType
     {
         Damage, Cooldown, Range, Armor

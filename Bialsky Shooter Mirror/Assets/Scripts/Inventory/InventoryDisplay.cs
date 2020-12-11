@@ -22,6 +22,20 @@ namespace BialskyShooter.InventoryModule
         private void Start()
         {
             Display();
+            InventoryItemSelection.clientOnItemSelected += OnItemSelected;
+        }
+
+        private void OnDestroy()
+        {
+            InventoryItemSelection.clientOnItemSelected -= OnItemSelected;
+        }
+
+        private void OnItemSelected(Guid itemId)
+        {
+            GameObject slot = slotsAvailability.Keys
+                .FirstOrDefault(s => s.GetComponent<InventoryItemSelection>().itemId == itemId);
+            if (slot == null) return;
+            slotsAvailability[slot] = true;
         }
 
         void InitLootPanel()

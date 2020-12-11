@@ -57,12 +57,16 @@ namespace BialskyShooter.InventoryModule
         {
             Inventory lootInventory = loot.GetComponent<Inventory>();
             var item = lootInventory.ThrowAwayItem(itemId);
-            PickupItem(item);
+            if (item != null)
+            {
+                PickupItem(item);
+            }
         }
 
         [Server]
         public Item ThrowAwayItem(Guid itemId)
         {
+            if (!itemsDict.ContainsKey(itemId)) return null;
             var item = new Item(itemsDict[itemId]);
             itemsDict.Remove(itemId);
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
@@ -85,7 +89,10 @@ namespace BialskyShooter.InventoryModule
         [Client]
         public void ClientLootItem(NetworkIdentity loot, Guid itemId)
         {
-            CmdLootItem(loot, itemId);
+            if (itemId != Guid.Empty)
+            {
+                CmdLootItem(loot, itemId);
+            }
         }
 
         [ClientRpc]

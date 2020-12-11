@@ -76,37 +76,37 @@ namespace BialskyShooter.EquipmentSystem
         {
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
             syncItemInformations.Remove(itemToRemove);
-            if (weapon.Id == itemId)
+            if (weapon != null && weapon.Id == itemId)
             {
                 var item = new Item(weapon.Id, weapon.ItemSO);
                 weapon = null;
                 return item;
             }
-            if (shield.Id == itemId)
+            if (shield != null && shield.Id == itemId)
             {
                 var item = new Item(shield.Id, shield.ItemSO);
                 shield = null;
                 return item;
             }
-            if (helmet.Id == itemId)
+            if (helmet != null && helmet.Id == itemId)
             {
                 var item = new Item(helmet.Id, helmet.ItemSO);
                 helmet = null;
                 return item;
             }
-            if (chest.Id == itemId)
+            if (chest != null && chest.Id == itemId)
             {
                 var item = new Item(chest.Id, chest.ItemSO);
                 chest = null;
                 return item;
             }
-            if (legs.Id == itemId)
+            if (legs != null && legs.Id == itemId)
             {
                 var item = new Item(legs.Id, legs.ItemSO);
                 legs = null;
                 return item;
             }
-            if (boots.Id == itemId)
+            if (boots != null && boots.Id == itemId)
             {
                 var item = new Item(boots.Id, boots.ItemSO);
                 boots = null;

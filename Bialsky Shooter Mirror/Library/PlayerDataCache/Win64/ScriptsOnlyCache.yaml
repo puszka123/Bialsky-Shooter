@@ -15,16 +15,15 @@ ScriptsOnlyBuild:
     - BialskyShooter.Control.PlayerSkillController
     - BialskyShooter.Core.PlayerCameraSpawner
     - BialskyShooter.EquipmentSystem.Equipment
+    - BialskyShooter.EquipmentSystem.EquipmentDisplay
+    - BialskyShooter.EquipmentSystem.EquipmentItemSelection
+    - BialskyShooter.EquipmentSystem.EquippingController
     - BialskyShooter.InventoryModule.Inventory
     - BialskyShooter.InventoryModule.InventoryDisplay
     - BialskyShooter.InventoryModule.LootController
     - BialskyShooter.InventoryModule.LootDisplay
     - BialskyShooter.InventoryModule.LootItemSelection
-    - BialskyShooter.ItemSystem.LeatherBootsSO
     - BialskyShooter.ItemSystem.LeatherChestSO
-    - BialskyShooter.ItemSystem.LeatherHelmetSO
-    - BialskyShooter.ItemSystem.LeatherLegsSO
-    - BialskyShooter.ItemSystem.LeatherShieldSO
     - BialskyShooter.ItemSystem.SpikeSwordSO
     - BialskyShooter.ManagementModule.LoseManager
     - BialskyShooter.Movement.AIMovement
@@ -38,7 +37,9 @@ ScriptsOnlyBuild:
     - BialskyShooter.SkillSystem.SkillsBook
     - BialskyShooter.SkillSystem.SkillsDisplay
     - BialskyShooter.SkillSystem.SkillsProgression
+    - BialskyShooter.UI.ToggleCharacterInfoDisplay
     - Draggable
+    - InventoryItemSelection
     - ToggleInventoryDisplay
     - ToggleSkillsBookDisplay
     - ToggleSkillsUseDisplay
@@ -115,53 +116,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11178}
     - Class: 114
-      Script: {instanceID: 11208}
+      Script: {instanceID: 11182}
     - Class: 114
-      Script: {instanceID: 11500}
+      Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 11570}
+      Script: {instanceID: 11584}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 11588}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11822}
+      Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 12136}
+      Script: {instanceID: 12146}
     - Class: 114
-      Script: {instanceID: 12262}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12336}
+      Script: {instanceID: 12294}
     - Class: 114
-      Script: {instanceID: 12450}
+      Script: {instanceID: 12348}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12370}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 12488}
     - Class: 114
-      Script: {instanceID: 12844}
+      Script: {instanceID: 12682}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12710}
     - Class: 114
-      Script: {instanceID: 13244}
+      Script: {instanceID: 12856}
     - Class: 114
-      Script: {instanceID: 13394}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 13518}
+      Script: {instanceID: 12968}
     - Class: 114
-      Script: {instanceID: 13706}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13760}
+      Script: {instanceID: 13298}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 13452}
     - Class: 114
-      Script: {instanceID: 13898}
+      Script: {instanceID: 13578}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 14438}
+      Script: {instanceID: 13830}
+    - Class: 114
+      Script: {instanceID: 13908}
+    - Class: 114
+      Script: {instanceID: 13970}
+    - Class: 114
+      Script: {instanceID: 14022}
+    - Class: 114
+      Script: {instanceID: 14524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -214,91 +223,87 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11178}
     - Class: 114
-      Script: {instanceID: 11190}
+      Script: {instanceID: 11182}
     - Class: 114
-      Script: {instanceID: 11208}
+      Script: {instanceID: 11192}
     - Class: 114
-      Script: {instanceID: 11310}
+      Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11316}
+      Script: {instanceID: 11320}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11448}
     - Class: 114
-      Script: {instanceID: 11480}
+      Script: {instanceID: 11508}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 11674}
+      Script: {instanceID: 11690}
     - Class: 114
-      Script: {instanceID: 11694}
+      Script: {instanceID: 11710}
     - Class: 114
-      Script: {instanceID: 11806}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 11822}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 11876}
     - Class: 114
-      Script: {instanceID: 12038}
+      Script: {instanceID: 12062}
     - Class: 114
-      Script: {instanceID: 12132}
+      Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12186}
+      Script: {instanceID: 12218}
     - Class: 114
-      Script: {instanceID: 12272}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12312}
+      Script: {instanceID: 12344}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 12348}
     - Class: 114
-      Script: {instanceID: 12552}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12594}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12644}
     - Class: 114
-      Script: {instanceID: 12894}
+      Script: {instanceID: 12658}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12942}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 12976}
     - Class: 114
-      Script: {instanceID: 13394}
+      Script: {instanceID: 13380}
     - Class: 114
-      Script: {instanceID: 13414}
+      Script: {instanceID: 13452}
     - Class: 114
-      Script: {instanceID: 13422}
+      Script: {instanceID: 13472}
     - Class: 114
-      Script: {instanceID: 13478}
+      Script: {instanceID: 13480}
     - Class: 114
-      Script: {instanceID: 13554}
+      Script: {instanceID: 13536}
     - Class: 114
-      Script: {instanceID: 13586}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13824}
+      Script: {instanceID: 13650}
     - Class: 114
-      Script: {instanceID: 13858}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 13898}
+      Script: {instanceID: 14022}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 14222}
     - Class: 114
-      Script: {instanceID: 14138}
+      Script: {instanceID: 14228}
     - Class: 114
-      Script: {instanceID: 14144}
+      Script: {instanceID: 14266}
     - Class: 114
-      Script: {instanceID: 14182}
+      Script: {instanceID: 14298}
     - Class: 114
-      Script: {instanceID: 14214}
+      Script: {instanceID: 14600}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 14678}
     - Class: 114
-      Script: {instanceID: 14514}
+      Script: {instanceID: 14686}
     - Class: 114
-      Script: {instanceID: 14590}
-    - Class: 114
-      Script: {instanceID: 14598}
-    - Class: 114
-      Script: {instanceID: 14612}
+      Script: {instanceID: 14700}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -332,6 +337,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 4bc4346a71a8df53a6b106f68ef3a190
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
+  - hash:
+      serializedVersion: 2
       Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.SkillSystem
@@ -342,12 +353,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: Mirror
     className: TelepathyTransport
-  - hash:
-      serializedVersion: 2
-      Hash: 4bc4346a71a8df53a6b106f68ef3a190
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 23d669c8bf2983ca4a3df160658318a6
@@ -458,7 +463,7 @@ ScriptsOnlyBuild:
     className: PlayerInputManagerEditor
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: LeatherHelmetSO
@@ -480,6 +485,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: Mirror
     className: NetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: EquippingController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -684,6 +695,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: InputActionEditorWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: EquipmentItemSelection
   - hash:
       serializedVersion: 2
       Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
@@ -902,6 +919,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InventoryItemSelection
+  - hash:
+      serializedVersion: 2
       Hash: 611bc970ee9dc090779a3fac6a18fac6
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1040,7 +1063,7 @@ ScriptsOnlyBuild:
     className: V_Text
   - hash:
       serializedVersion: 2
-      Hash: eb1a9c1a39d051354cd04cbe6f72e3e3
+      Hash: 84d1a73b93789926ae8ac1f27de3cb03
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.EquipmentSystem
     className: Equipment
@@ -1118,6 +1141,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.UI
+    className: ToggleCharacterInfoDisplay
+  - hash:
+      serializedVersion: 2
       Hash: 204ea02909ea3f738dafe3ff633d2a93
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1160,7 +1189,7 @@ ScriptsOnlyBuild:
     className: NetworkLerpRigidbody
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: LeatherChestSO
@@ -1250,6 +1279,12 @@ ScriptsOnlyBuild:
     className: CinemachineTargetGroup
   - hash:
       serializedVersion: 2
+      Hash: ade5bd982ee8b70139e770ef48b26fdd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: EquipmentDisplay
+  - hash:
+      serializedVersion: 2
       Hash: 460f1bc7ddb5a5325403b8276116aa4d
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
@@ -1292,7 +1327,7 @@ ScriptsOnlyBuild:
     className: NetworkMatchChecker
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: LegsSO
@@ -1514,7 +1549,7 @@ ScriptsOnlyBuild:
     className: ServerListUIItem
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: SpikeSwordSO
@@ -1580,7 +1615,7 @@ ScriptsOnlyBuild:
     className: NetworkRoomManagerExt
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: LeatherBootsSO
@@ -1604,7 +1639,7 @@ ScriptsOnlyBuild:
     className: Fighter
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: LeatherShieldSO
@@ -1748,7 +1783,7 @@ ScriptsOnlyBuild:
     className: PlayerMoveController
   - hash:
       serializedVersion: 2
-      Hash: b895aea2da412fe8e7c4e2f7a10a8669
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.ItemSystem
     className: LeatherLegsSO
