@@ -16,12 +16,8 @@ MonoBehaviour:
   uniqueName: Spike Sword
   iconPath: Spike Sword
   stats:
-    stats:
+    statsList:
     - nameToDisplay: Damage
       value: 25
       display: 1
       statType: 0
-    - nameToDisplay: Range
-      value: 2
-      display: 1
-      statType: 2

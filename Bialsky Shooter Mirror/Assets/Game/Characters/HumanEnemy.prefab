@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
-  shield: {fileID: 0}
-  chest: {fileID: 0}
-  helmet: {fileID: 0}
-  legs: {fileID: 0}
-  boots: {fileID: 0}
+  weapon:
+    itemSO: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
+  shield:
+    itemSO: {fileID: 0}
+  chest:
+    itemSO: {fileID: 0}
+  helmet:
+    itemSO: {fileID: 0}
+  legs:
+    itemSO: {fileID: 0}
+  boots:
+    itemSO: {fileID: 0}
 --- !u!114 &-7697872267077002639
 MonoBehaviour:
   m_ObjectHideFlags: 0

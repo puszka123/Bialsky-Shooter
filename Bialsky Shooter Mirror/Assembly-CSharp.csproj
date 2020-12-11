@@ -87,30 +87,42 @@
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquipmentDisplay.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquipmentItemSelection.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquippingController.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryDisplay.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryItemSelection.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootDisplay.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootItemSelection.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootTarget.cs" />
+    <Compile Include="Assets\Scripts\Items\Boots\Boots.cs" />
     <Compile Include="Assets\Scripts\Items\Boots\BootsSO.cs" />
     <Compile Include="Assets\Scripts\Items\Boots\Leather Boots\LeatherBootsSO.cs" />
+    <Compile Include="Assets\Scripts\Items\Chests\Chest.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\ChestSO.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\Leather Chest\LeatherChestSO.cs" />
+    <Compile Include="Assets\Scripts\Items\GenericItem.cs" />
+    <Compile Include="Assets\Scripts\Items\Helmets\Helmet.cs" />
     <Compile Include="Assets\Scripts\Items\Helmets\HelmetSO.cs" />
     <Compile Include="Assets\Scripts\Items\Helmets\Leather Helmet\LeatherHelmetSO.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\ItemInformation.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSO.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemSlotType.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStatType.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStats.cs" />
     <Compile Include="Assets\Scripts\Items\Legs\Leather Legs\LeatherLegsSO.cs" />
+    <Compile Include="Assets\Scripts\Items\Legs\Legs.cs" />
     <Compile Include="Assets\Scripts\Items\Legs\LegsSO.cs" />
     <Compile Include="Assets\Scripts\Items\Shields\Leather Shield\LeatherShieldSO.cs" />
+    <Compile Include="Assets\Scripts\Items\Shields\Shield.cs" />
     <Compile Include="Assets\Scripts\Items\Shields\ShieldSO.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Swords\Spike Sword\SpikeSwordSO.cs" />
+    <Compile Include="Assets\Scripts\Items\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\WeaponSO.cs" />
     <Compile Include="Assets\Scripts\Management\LoseManager.cs" />
     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
@@ -131,6 +143,7 @@
     <Compile Include="Assets\Scripts\Skills\SkillsDisplay.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsProgression.cs" />
     <Compile Include="Assets\Scripts\UI\Draggable.cs" />
+    <Compile Include="Assets\Scripts\UI\ToggleCharacterInfoDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleInventoryDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsBookDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsUseDisplay.cs" />
@@ -737,6 +750,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>

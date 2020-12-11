@@ -6,29 +6,18 @@ using UnityEngine;
 namespace BialskyShooter.ItemSystem
 {
     [System.Serializable]
-    public class Item
+    public class Item : GenericItem<ItemSO>
     {
-        Guid id;
-        ItemSO properties;
-        public ItemSO Properties { get { return properties; } }
-        public Guid Id { get { return id; } }
-
-        public Item(ItemSO properties)
+        public Item(ItemSO itemSO) : base(itemSO)
         {
-            this.properties = properties;
-            id = Guid.NewGuid();
         }
 
-        public Item(Guid id, ItemSO properties)
+        public Item(GenericItem<ItemSO> item) : base(item)
         {
-            this.properties = properties;
-            this.id = id;
         }
 
-        public Item(Item item)
+        public Item(Guid id, ItemSO itemSO) : base(id, itemSO)
         {
-            properties = item.properties;
-            id = item.id;
         }
     }
 }

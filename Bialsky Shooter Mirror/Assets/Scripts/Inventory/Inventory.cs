@@ -52,7 +52,6 @@ namespace BialskyShooter.InventoryModule
             LootItem(loot, itemId);
         }
 
-
         [Server]
         void LootItem(NetworkIdentity loot, Guid itemId)
         {
@@ -62,7 +61,7 @@ namespace BialskyShooter.InventoryModule
         }
 
         [Server]
-        Item ThrowAwayItem(Guid itemId)
+        public Item ThrowAwayItem(Guid itemId)
         {
             var item = new Item(itemsDict[itemId]);
             itemsDict.Remove(itemId);
@@ -72,11 +71,11 @@ namespace BialskyShooter.InventoryModule
         }
 
         [Server]
-        void PickupItem(Item item)
+        public void PickupItem(Item item)
         {
             itemsDict[item.Id] = item;
-            syncItemInformations.Add(new ItemInformation(item.Id.ToString(), item.Properties.IconPath));
-            RpcPickupItem(item.Id, item.Properties.IconPath);
+            syncItemInformations.Add(new ItemInformation(item.Id.ToString(), item.ItemSO.IconPath));
+            RpcPickupItem(item.Id, item.ItemSO.IconPath);
         }
 
         #endregion
@@ -96,6 +95,7 @@ namespace BialskyShooter.InventoryModule
             ClientPickupItem(itemId, iconPath);
         }
 
+        [Client]
         void ClientPickupItem(Guid itemId, string iconPath)
         {
             Sprite icon = Resources.Load<Sprite>(iconPath);
@@ -113,7 +113,6 @@ namespace BialskyShooter.InventoryModule
                 var icon = Resources.Load<Sprite>(syncItemInformations[i].iconPath);
                 itemDisplays.Add(new ItemDisplay(Guid.Parse(itemId), icon));
             }
-
             return itemDisplays;
         }
 

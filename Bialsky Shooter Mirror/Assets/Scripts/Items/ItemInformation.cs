@@ -10,6 +10,8 @@ namespace BialskyShooter.ItemSystem
     {
         public string itemId;
         public string iconPath;
+        public ItemSlotType slotType;
+        public List<ItemStat> stats;
 
         public ItemInformation() { }
 
@@ -17,6 +19,14 @@ namespace BialskyShooter.ItemSystem
         {
             itemId = id;
             this.iconPath = iconPath;
+        }
+
+        public ItemInformation(string id, string iconPath, ItemSlotType slotType, IEnumerable<ItemStat> stats)
+        {
+            itemId = id;
+            this.iconPath = iconPath;
+            this.slotType = slotType;
+            this.stats = new List<ItemStat>(stats);
         }
     }
 }

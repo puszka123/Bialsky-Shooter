@@ -16,7 +16,7 @@ MonoBehaviour:
   uniqueName: Leather Chest
   iconPath: Leather Chest
   stats:
-    stats:
+    statsList:
     - nameToDisplay: Armor
       value: 5
       display: 1

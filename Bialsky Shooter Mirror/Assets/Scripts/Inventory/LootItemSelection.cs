@@ -10,8 +10,9 @@ namespace BialskyShooter.InventoryModule
     public class LootItemSelection : MonoBehaviour, IPointerClickHandler
     {
         public static event Action<Guid> clientOnItemSelected;
-
         public Guid itemId;
+
+        private void Start() { }
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -19,6 +20,7 @@ namespace BialskyShooter.InventoryModule
             image.color = new Color(1,1,1,0);
             image.sprite = null;
             clientOnItemSelected?.Invoke(itemId);
+            itemId = Guid.Empty;
         }
     }
 }

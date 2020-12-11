@@ -28,12 +28,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
-  shield: {fileID: 11400000, guid: 40152574577497e4e83a6914a8e7ef47, type: 2}
-  chest: {fileID: 11400000, guid: 359e59305fe35d84d8adcf35602284a2, type: 2}
-  helmet: {fileID: 11400000, guid: 21a6c486f45301a418d63b4cfd3f8f6c, type: 2}
-  legs: {fileID: 11400000, guid: 85bda8379d6bcf1459c3ab5de6d06f00, type: 2}
-  boots: {fileID: 11400000, guid: 9e1012c87baaec1429e46f582c178525, type: 2}
+  weapon:
+    itemSO: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
+  shield:
+    itemSO: {fileID: 0}
+  chest:
+    itemSO: {fileID: 0}
+  helmet:
+    itemSO: {fileID: 0}
+  legs:
+    itemSO: {fileID: 0}
+  boots:
+    itemSO: {fileID: 0}
 --- !u!114 &-1344151271467110101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +126,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc2f7b90c2978664faeabf56a5c82402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &3179666062868847853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788995692344120177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182d40912a7c836498ad67a3d05ef0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0

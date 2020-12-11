@@ -79,7 +79,7 @@ namespace BialskyShooter.SkillSystem
 
         public void UseWeapon()
         {
-            weaponUser.UseWeapon(equipment.Weapon);
+            weaponUser.UseWeapon(equipment.Weapon.ItemSO);
         }
 
         #endregion

@@ -47,6 +47,7 @@ namespace BialskyShooter.InventoryModule
                 {
                     float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
+                    slotInstance.GetComponent<InventoryItemSelection>().enabled = true;
                     InitSlots(row + column - 2, slotInstance);
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
                 }
@@ -60,9 +61,9 @@ namespace BialskyShooter.InventoryModule
             slotsAvailability[slotInstance] = true;
         }
 
-        private void SetLootItemSelection(GameObject slotInstance, Guid itemId)
+        private void SetInventoryItemSelection(GameObject slotInstance, Guid itemId)
         {
-            var slotItemSelection = slotInstance.GetComponent<LootItemSelection>();
+            var slotItemSelection = slotInstance.GetComponent<InventoryItemSelection>();
             slotItemSelection.itemId = itemId;
         }
 
@@ -77,7 +78,7 @@ namespace BialskyShooter.InventoryModule
         {
             var slot = slotsAvailability.First(pair => pair.Value).Key;
             DisplayItem(slot, displayItem.Icon);
-            SetLootItemSelection(slot, displayItem.ItemId);
+            SetInventoryItemSelection(slot, displayItem.ItemId);
             slotsAvailability[slot] = false;
         }
 

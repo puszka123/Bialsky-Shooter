@@ -8,9 +8,9 @@ namespace BialskyShooter.ItemSystem
     [System.Serializable]
     public class ItemStats
     {
-        [SerializeField] List<ItemStat> stats = default;
+        [SerializeField] List<ItemStat> statsList = default;
 
-        public IEnumerable<ItemStat> Stats { get { return stats; } }
+        public IEnumerable<ItemStat> StatsList { get { return statsList; } }
         Dictionary<ItemStatType, ItemStat> statsBook;
 
         public ItemStat GetStat(ItemStatType statType)
@@ -29,7 +29,7 @@ namespace BialskyShooter.ItemSystem
         private void InitStatsBook()
         {
             statsBook = new Dictionary<ItemStatType, ItemStat>();
-            foreach (var stat in stats)
+            foreach (var stat in statsList)
             {
                 statsBook[stat.statType] = stat;
             }
