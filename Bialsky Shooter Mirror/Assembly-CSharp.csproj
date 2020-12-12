@@ -92,12 +92,10 @@
     <Compile Include="Assets\Scripts\Equipment\DisplayCharacterInfo.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentDisplay.cs" />
-    <Compile Include="Assets\Scripts\Equipment\EquipmentItemSelection.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquippingController.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryDisplay.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryDragger.cs" />
-    <Compile Include="Assets\Scripts\Inventory\InventoryItemSelection.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootDisplay.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootItemSelection.cs" />
@@ -108,10 +106,13 @@
     <Compile Include="Assets\Scripts\Items\Chests\Chest.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\ChestSO.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\Leather Chest\LeatherChestSO.cs" />
+    <Compile Include="Assets\Scripts\Items\EquipmentItemSelection.cs" />
     <Compile Include="Assets\Scripts\Items\GenericItem.cs" />
     <Compile Include="Assets\Scripts\Items\Helmets\Helmet.cs" />
     <Compile Include="Assets\Scripts\Items\Helmets\HelmetSO.cs" />
     <Compile Include="Assets\Scripts\Items\Helmets\Leather Helmet\LeatherHelmetSO.cs" />
+    <Compile Include="Assets\Scripts\Items\IItemSelection.cs" />
+    <Compile Include="Assets\Scripts\Items\InventoryItemSelection.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\ItemInformation.cs" />

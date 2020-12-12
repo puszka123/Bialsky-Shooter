@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BialskyShooter.ItemSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 namespace BialskyShooter.InventoryModule
 {
-    public class LootItemSelection : MonoBehaviour, IPointerClickHandler
+    public class LootItemSelection : MonoBehaviour, IPointerClickHandler, IItemSelection
     {
         public static event Action<Guid> clientOnItemSelected;
         public Guid itemId;
@@ -21,6 +22,21 @@ namespace BialskyShooter.InventoryModule
             image.sprite = null;
             clientOnItemSelected?.Invoke(itemId);
             itemId = Guid.Empty;
+        }
+
+        public Guid GetItemId()
+        {
+            return itemId;
+        }
+
+        public Image GetItemImage()
+        {
+            return transform.GetChild(0).GetComponent<Image>();
+        }
+
+        public void ItemDragged()
+        {
+            
         }
     }
 }

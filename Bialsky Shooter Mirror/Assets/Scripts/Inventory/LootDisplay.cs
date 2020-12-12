@@ -71,7 +71,7 @@ namespace BialskyShooter.InventoryModule
                 {
                     float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
-                    slotInstance.GetComponent<LootItemSelection>().enabled = true;
+                    slotInstance.AddComponent<LootItemSelection>();
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
                     DisplayItem(slotInstance, itemDisplays[row + column - 2].Icon);
                     SetLootItemSelection(slotInstance, itemDisplays[row + column - 2].ItemId);

@@ -67,12 +67,20 @@ namespace BialskyShooter.EquipmentSystem
         {
             InventoryItemSelection.clientOnItemSelected += ClientOnInventoryItemSelected;
             EquipmentItemSelection.clientOnItemSelected += ClientOnEquipmentItemSelected;
+            EquipmentItemSelection.clientOnItemDraggedIn += ClientOnItemDraggedIn;
         }
         public override void OnStopAuthority()
         {
             InventoryItemSelection.clientOnItemSelected -= ClientOnInventoryItemSelected;
             EquipmentItemSelection.clientOnItemSelected -= ClientOnEquipmentItemSelected;
+            EquipmentItemSelection.clientOnItemDraggedIn -= ClientOnItemDraggedIn;
 
+        }
+
+        [Client]
+        private void ClientOnItemDraggedIn(Guid itemId)
+        {
+            CmdEquipItem(itemId);
         }
 
         [Client]

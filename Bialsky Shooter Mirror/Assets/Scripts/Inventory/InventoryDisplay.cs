@@ -73,6 +73,7 @@ namespace BialskyShooter.InventoryModule
 
         private void PlaceSlots(RectTransform slotRect)
         {
+            int index = 0;
             for (int row = 1; row <= rowsCount; row++)
             {
                 float anchoredY = slotRect.anchoredPosition.y * row - slotRect.rect.height * (row - 1);
@@ -80,9 +81,10 @@ namespace BialskyShooter.InventoryModule
                 {
                     float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
-                    slotInstance.GetComponent<InventoryItemSelection>().enabled = true;
-                    InitSlots(row + column - 2, slotInstance);
+                    slotInstance.AddComponent<InventoryItemSelection>();
+                    InitSlots(index, slotInstance);
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
+                    ++index;
                 }
             }
         }
@@ -109,10 +111,18 @@ namespace BialskyShooter.InventoryModule
 
         public void DisplayItem(ItemDisplay displayItem)
         {
+            if (ItemExists(displayItem)) return;
             var slot = slotsAvailability.First(pair => pair.Value).Key;
             DisplayItem(slot, displayItem.Icon);
             SetInventoryItemSelection(slot, displayItem.ItemId);
             slotsAvailability[slot] = false;
+        }
+
+        private bool ItemExists(ItemDisplay displayItem)
+        {
+            return slots
+                .Select(s => s.GetComponent<InventoryItemSelection>().itemId)
+                .Contains(displayItem.ItemId);
         }
 
         private void ComputePanelSize(RectTransform slotRect)
