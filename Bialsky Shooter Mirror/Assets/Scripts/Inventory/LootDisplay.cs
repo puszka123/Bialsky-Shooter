@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.ItemSystem;
+using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,10 +18,15 @@ namespace BialskyShooter.InventoryModule
         int rowsCount;
         int columnsCount;
         List<ItemDisplay> itemDisplays;
+        Inventory loot;
 
-        public void Display(IEnumerable<ItemDisplay> itemDisplays)
+        public Inventory Loot { get { return loot; } }
+
+        public void Display(Inventory loot)
         {
+            var itemDisplays = loot.GetItemDisplays();
             if (itemDisplays == null) return;
+            this.loot = loot;
             this.itemDisplays = new List<ItemDisplay>(itemDisplays);
             if (this.itemDisplays.Count == 0) return;
             var count = this.itemDisplays.Count;
@@ -94,6 +100,11 @@ namespace BialskyShooter.InventoryModule
             float h = (slotRect.rect.height + Mathf.Abs(slotRect.anchoredPosition.y)) * rowsCount + marginY;
             mainPanel.sizeDelta = new Vector2(w, h);
             mainPanel.anchoredPosition = Vector2.zero;
+        }
+
+        public void CloseLoot()
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BialskyShooter.InventoryModule
         Inventory loot;
         GameObject lootDisplayInstance;
 
+
         #region Client
 
         [ClientCallback]
@@ -40,14 +41,24 @@ namespace BialskyShooter.InventoryModule
             if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) return;
             if (hit.transform.GetComponent<LootTarget>() == null) return;
             if (!hit.transform.TryGetComponent<Inventory>(out loot)) return;
+            if (LootDisplayed(loot)) return;
             lootDisplayInstance = Instantiate(lootDisplayPrefab);
             var slotsDisplay = lootDisplayInstance.GetComponentInChildren<LootDisplay>();
-            slotsDisplay.Display(loot.GetItemDisplays());
+            slotsDisplay.Display(loot);
             LootItemSelection.clientOnItemSelected += OnLootItemSelected;
         }
 
+        bool LootDisplayed(Inventory loot)
+        {
+            foreach (var item in FindObjectsOfType<LootDisplay>())
+            {
+                if (item.Loot != null && item.Loot == loot) return true;
+            }
+            return false;
+        }
+
         [Client]
-        private void OnLootItemSelected(Guid itemId)
+        void OnLootItemSelected(Guid itemId)
         {
             inventory.ClientLootItem(loot.GetComponent<NetworkIdentity>(), itemId);
         }

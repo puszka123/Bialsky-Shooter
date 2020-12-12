@@ -90,6 +90,7 @@ namespace BialskyShooter.EquipmentSystem
         [ClientRpc]
         void RpcEquipItem(ItemInformation itemInformation)
         {
+            if (!hasAuthority) return;
             ClientEquipItem(itemInformation);
         }
 

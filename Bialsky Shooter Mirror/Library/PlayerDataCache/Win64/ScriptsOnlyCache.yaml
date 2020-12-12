@@ -82,6 +82,7 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -223,6 +224,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11178}
     - Class: 114
+      Script: {instanceID: 11180}
+    - Class: 114
       Script: {instanceID: 11182}
     - Class: 114
       Script: {instanceID: 11192}
@@ -284,6 +287,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13618}
     - Class: 114
       Script: {instanceID: 13650}
+    - Class: 114
+      Script: {instanceID: 13830}
     - Class: 114
       Script: {instanceID: 13970}
     - Class: 114
