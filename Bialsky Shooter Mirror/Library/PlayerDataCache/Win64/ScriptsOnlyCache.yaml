@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.Control.PlayerMoveController
     - BialskyShooter.Control.PlayerSkillController
     - BialskyShooter.Core.PlayerCameraSpawner
+    - BialskyShooter.EquipmentSystem.DisplayCharacterInfo
     - BialskyShooter.EquipmentSystem.Equipment
     - BialskyShooter.EquipmentSystem.EquipmentDisplay
     - BialskyShooter.EquipmentSystem.EquipmentItemSelection
@@ -37,12 +38,12 @@ ScriptsOnlyBuild:
     - BialskyShooter.SkillSystem.SkillsBook
     - BialskyShooter.SkillSystem.SkillsDisplay
     - BialskyShooter.SkillSystem.SkillsProgression
+    - BialskyShooter.UI.Draggable
     - BialskyShooter.UI.ToggleCharacterInfoDisplay
-    - Draggable
+    - BialskyShooter.UI.ToggleInventoryDisplay
+    - BialskyShooter.UI.ToggleSkillsBookDisplay
+    - BialskyShooter.UI.ToggleSkillsUseDisplay
     - InventoryItemSelection
-    - ToggleInventoryDisplay
-    - ToggleSkillsBookDisplay
-    - ToggleSkillsUseDisplay
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineFramingTransposer
@@ -116,6 +117,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11178}
+    - Class: 114
+      Script: {instanceID: 11180}
     - Class: 114
       Script: {instanceID: 11182}
     - Class: 114
@@ -244,6 +247,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11710}
     - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
       Script: {instanceID: 11826}
     - Class: 114
       Script: {instanceID: 11842}
@@ -270,9 +275,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12658}
     - Class: 114
+      Script: {instanceID: 12856}
+    - Class: 114
       Script: {instanceID: 12942}
     - Class: 114
       Script: {instanceID: 12976}
+    - Class: 114
+      Script: {instanceID: 13132}
     - Class: 114
       Script: {instanceID: 13380}
     - Class: 114
@@ -309,6 +318,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14686}
     - Class: 114
       Script: {instanceID: 14700}
+    - Class: 114
+      Script: {instanceID: 16932}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -330,16 +341,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: ae83e830e7a90c0aff918c4c2e520825
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: GraphicRaycaster
-  - hash:
-      serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: ae83e830e7a90c0aff918c4c2e520825
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GraphicRaycaster
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -542,7 +553,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 6764620c8232eb7a34533d8bc8ee14b6
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: BialskyShooter.UI
     className: ToggleSkillsBookDisplay
   - hash:
       serializedVersion: 2
@@ -560,7 +571,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: BialskyShooter.UI
     className: Draggable
   - hash:
       serializedVersion: 2
@@ -1094,7 +1105,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 6764620c8232eb7a34533d8bc8ee14b6
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: BialskyShooter.UI
     className: ToggleSkillsUseDisplay
   - hash:
       serializedVersion: 2
@@ -1628,7 +1639,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 6764620c8232eb7a34533d8bc8ee14b6
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: BialskyShooter.UI
     className: ToggleInventoryDisplay
   - hash:
       serializedVersion: 2
@@ -2014,6 +2025,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 3aac1e938c9d81e0101326452d196958
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: DisplayCharacterInfo
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

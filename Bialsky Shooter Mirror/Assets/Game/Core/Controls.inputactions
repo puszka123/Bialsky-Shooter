@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CharacterInfo",
+                    "type": "Button",
+                    "id": "a03464d6-ee6a-44f5-bb45-46c892eb8279",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -314,6 +322,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Loot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfcc1edf-025b-4781-9e7e-5fabb0c67280",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CharacterInfo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

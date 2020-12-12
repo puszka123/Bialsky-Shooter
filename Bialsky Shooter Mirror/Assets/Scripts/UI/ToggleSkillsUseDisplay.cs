@@ -5,22 +5,25 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Composites;
 
-public class ToggleSkillsUseDisplay : MonoBehaviour
+namespace BialskyShooter.UI
 {
-    [SerializeField] GameObject canvasGO = default;
-
-
-    void Toggle()
+    public class ToggleSkillsUseDisplay : MonoBehaviour
     {
-        canvasGO.SetActive(!canvasGO.activeSelf);
-    }
+        [SerializeField] GameObject canvasGO = default;
 
-    void Update()
-    {
-        if(Keyboard.current.leftCtrlKey.isPressed
-            && Keyboard.current.eKey.wasPressedThisFrame)
+
+        void Toggle()
         {
-            Toggle();
+            canvasGO.SetActive(!canvasGO.activeSelf);
+        }
+
+        void Update()
+        {
+            if (Keyboard.current.leftCtrlKey.isPressed
+                && Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                Toggle();
+            }
         }
     }
 }

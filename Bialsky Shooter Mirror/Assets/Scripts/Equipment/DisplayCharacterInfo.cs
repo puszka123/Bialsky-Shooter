@@ -1,0 +1,57 @@
+﻿using BialskyShooter.InventoryModule;
+using Mirror;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace BialskyShooter.EquipmentSystem
+{
+    public class DisplayCharacterInfo : NetworkBehaviour
+    {
+        [SerializeField] GameObject equipmentDisplayPrefab = default;
+        [SerializeField] LayerMask layerMask = new LayerMask();
+        GameObject equipmentDisplayInstance;
+
+        [ClientCallback]
+        void Start()
+        {
+            if (!hasAuthority) return;
+            InitInputSystem();
+        }
+
+        private void InitInputSystem()
+        {
+            Controls controls = new Controls();
+            controls.Player.CharacterInfo.performed += CharacterInfoPerformed;
+            controls.Enable();
+        }
+
+        private void CharacterInfoPerformed(InputAction.CallbackContext ctx)
+        {
+            var selectedGameObject = GetSelectedGameObject();
+            if (selectedGameObject == null) return;
+            if (!selectedGameObject.TryGetComponent<Equipment>(out Equipment equipment)) return;
+            if (selectedGameObject.TryGetComponent<LootTarget>(out LootTarget lootTarget)) return;
+            equipmentDisplayInstance = Instantiate(equipmentDisplayPrefab);
+            DisplayEquipment(equipment);
+        }
+
+        private void DisplayEquipment(Equipment equipment)
+        {
+            var equipmentDisplay = equipmentDisplayInstance.GetComponent<EquipmentDisplay>();
+            foreach (var itemInformation in equipment.ItemInformations)
+            {
+                equipmentDisplay.DisplayItem(itemInformation);
+            }
+        }
+
+        private GameObject GetSelectedGameObject()
+        {
+            var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) return null;
+            return hit.transform.gameObject;
+        }
+    }
+}

@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ToggleInventoryDisplay : MonoBehaviour
+namespace BialskyShooter.UI
 {
-    [SerializeField] GameObject canvasGO = default;
-
-    void Toggle()
+    public class ToggleInventoryDisplay : MonoBehaviour
     {
-        canvasGO.SetActive(!canvasGO.activeSelf);
-    }
+        [SerializeField] GameObject canvasGO = default;
 
-    void Update()
-    {
-        if (Keyboard.current.leftCtrlKey.isPressed
-            && Keyboard.current.iKey.wasPressedThisFrame)
+        void Toggle()
         {
-            Toggle();
+            canvasGO.SetActive(!canvasGO.activeSelf);
+        }
+
+        void Update()
+        {
+            if (Keyboard.current.leftCtrlKey.isPressed
+                && Keyboard.current.iKey.wasPressedThisFrame)
+            {
+                Toggle();
+            }
         }
     }
 }

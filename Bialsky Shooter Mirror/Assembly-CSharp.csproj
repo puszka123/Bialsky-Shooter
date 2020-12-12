@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Control\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
+    <Compile Include="Assets\Scripts\Equipment\DisplayCharacterInfo.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentDisplay.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentItemSelection.cs" />

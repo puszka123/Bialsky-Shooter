@@ -21,7 +21,7 @@ namespace BialskyShooter.UI
         void Update()
         {
             if (Keyboard.current.leftCtrlKey.isPressed
-                && Keyboard.current.iKey.wasPressedThisFrame)
+                && Keyboard.current.kKey.wasPressedThisFrame)
             {
                 Toggle();
             }

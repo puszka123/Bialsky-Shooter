@@ -4,22 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+namespace BialskyShooter.UI
 {
-    public static event Action<Draggable> ClientOnEndDrag;
-
-    public void OnBeginDrag(PointerEventData eventData)
+    public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        
-    }
+        public static event Action<Draggable> ClientOnEndDrag;
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        
-    }
+        public void OnBeginDrag(PointerEventData eventData)
+        {
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        ClientOnEndDrag?.Invoke(this);
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            ClientOnEndDrag?.Invoke(this);
+        }
     }
 }

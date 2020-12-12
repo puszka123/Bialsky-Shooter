@@ -41,6 +41,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CharacterInfo"",
+                    ""type"": ""Button"",
+                    ""id"": ""a03464d6-ee6a-44f5-bb45-46c892eb8279"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -329,6 +337,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Loot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfcc1edf-025b-4781-9e7e-5fabb0c67280"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterInfo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -357,6 +376,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_MovePlayer = m_Player.FindAction("Move Player", throwIfNotFound: true);
         m_Player_UseSkill = m_Player.FindAction("Use Skill", throwIfNotFound: true);
         m_Player_Loot = m_Player.FindAction("Loot", throwIfNotFound: true);
+        m_Player_CharacterInfo = m_Player.FindAction("CharacterInfo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -409,6 +429,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_MovePlayer;
     private readonly InputAction m_Player_UseSkill;
     private readonly InputAction m_Player_Loot;
+    private readonly InputAction m_Player_CharacterInfo;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -416,6 +437,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @MovePlayer => m_Wrapper.m_Player_MovePlayer;
         public InputAction @UseSkill => m_Wrapper.m_Player_UseSkill;
         public InputAction @Loot => m_Wrapper.m_Player_Loot;
+        public InputAction @CharacterInfo => m_Wrapper.m_Player_CharacterInfo;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -434,6 +456,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Loot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoot;
                 @Loot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoot;
                 @Loot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoot;
+                @CharacterInfo.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterInfo;
+                @CharacterInfo.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterInfo;
+                @CharacterInfo.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterInfo;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -447,6 +472,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Loot.started += instance.OnLoot;
                 @Loot.performed += instance.OnLoot;
                 @Loot.canceled += instance.OnLoot;
+                @CharacterInfo.started += instance.OnCharacterInfo;
+                @CharacterInfo.performed += instance.OnCharacterInfo;
+                @CharacterInfo.canceled += instance.OnCharacterInfo;
             }
         }
     }
@@ -465,5 +493,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMovePlayer(InputAction.CallbackContext context);
         void OnUseSkill(InputAction.CallbackContext context);
         void OnLoot(InputAction.CallbackContext context);
+        void OnCharacterInfo(InputAction.CallbackContext context);
     }
 }

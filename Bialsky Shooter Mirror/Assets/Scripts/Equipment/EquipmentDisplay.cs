@@ -11,12 +11,12 @@ namespace BialskyShooter.EquipmentSystem
 {
     public class EquipmentDisplay : MonoBehaviour
     {
-        [SerializeField] GameObject weaponSlot;
-        [SerializeField] GameObject shieldSlot;
-        [SerializeField] GameObject chestSlot;
-        [SerializeField] GameObject helmetSlot;
-        [SerializeField] GameObject legsSlot;
-        [SerializeField] GameObject bootsSlot;
+        [SerializeField] GameObject weaponSlot = default;
+        [SerializeField] GameObject shieldSlot = default;
+        [SerializeField] GameObject chestSlot = default;
+        [SerializeField] GameObject helmetSlot = default;
+        [SerializeField] GameObject legsSlot = default;
+        [SerializeField] GameObject bootsSlot = default;
         Equipment localPlayerEquipment;
 
         private void Start()
@@ -114,6 +114,11 @@ namespace BialskyShooter.EquipmentSystem
             var icon = Resources.Load<Sprite>(itemInformation.iconPath);
             image.sprite = icon;
             slot.GetComponent<EquipmentItemSelection>().itemId = Guid.Parse(itemInformation.itemId);
+        }
+
+        public void CloseCharacterInfoDisplay()
+        {
+            Destroy(gameObject);
         }
     }
 }
