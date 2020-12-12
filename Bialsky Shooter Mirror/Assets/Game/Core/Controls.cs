@@ -57,6 +57,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""916e4333-47fe-4264-8d95-aabeebfec6d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -367,6 +375,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""EnemyPlate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb1a69fa-7beb-46e4-8157-dc74d4ed144b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -397,6 +416,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Loot = m_Player.FindAction("Loot", throwIfNotFound: true);
         m_Player_CharacterInfo = m_Player.FindAction("CharacterInfo", throwIfNotFound: true);
         m_Player_EnemyPlate = m_Player.FindAction("EnemyPlate", throwIfNotFound: true);
+        m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -451,6 +471,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Loot;
     private readonly InputAction m_Player_CharacterInfo;
     private readonly InputAction m_Player_EnemyPlate;
+    private readonly InputAction m_Player_Inventory;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -460,6 +481,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Loot => m_Wrapper.m_Player_Loot;
         public InputAction @CharacterInfo => m_Wrapper.m_Player_CharacterInfo;
         public InputAction @EnemyPlate => m_Wrapper.m_Player_EnemyPlate;
+        public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -484,6 +506,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @EnemyPlate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPlate;
                 @EnemyPlate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPlate;
                 @EnemyPlate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPlate;
+                @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -503,6 +528,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @EnemyPlate.started += instance.OnEnemyPlate;
                 @EnemyPlate.performed += instance.OnEnemyPlate;
                 @EnemyPlate.canceled += instance.OnEnemyPlate;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -523,5 +551,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnLoot(InputAction.CallbackContext context);
         void OnCharacterInfo(InputAction.CallbackContext context);
         void OnEnemyPlate(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

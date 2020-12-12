@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Equipment\EquippingController.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryDisplay.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryDragger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItemSelection.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootDisplay.cs" />

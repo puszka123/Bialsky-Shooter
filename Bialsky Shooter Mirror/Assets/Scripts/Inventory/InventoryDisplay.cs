@@ -23,19 +23,38 @@ namespace BialskyShooter.InventoryModule
         {
             Display();
             InventoryItemSelection.clientOnItemSelected += OnItemSelected;
+            InventoryItemSelection.clientOnItemCleared += OnItemCleared;
+            InventoryItemSelection.clientOnItemInjected += OnItemInjected;
         }
 
         private void OnDestroy()
         {
             InventoryItemSelection.clientOnItemSelected -= OnItemSelected;
+            InventoryItemSelection.clientOnItemCleared -= OnItemCleared;
+            InventoryItemSelection.clientOnItemInjected -= OnItemInjected;
         }
 
         private void OnItemSelected(Guid itemId)
         {
+            SetSlotAvailability(itemId, true);
+        }
+
+        private void OnItemCleared(Guid itemId)
+        {
+            SetSlotAvailability(itemId, true);
+        }
+
+        private void OnItemInjected(Guid itemId)
+        {
+            SetSlotAvailability(itemId, false);
+        }
+
+        private void SetSlotAvailability(Guid itemId, bool availability)
+        {
             GameObject slot = slotsAvailability.Keys
-                .FirstOrDefault(s => s.GetComponent<InventoryItemSelection>().itemId == itemId);
+                            .FirstOrDefault(s => s.GetComponent<InventoryItemSelection>().itemId == itemId);
             if (slot == null) return;
-            slotsAvailability[slot] = true;
+            slotsAvailability[slot] = availability;
         }
 
         void InitLootPanel()

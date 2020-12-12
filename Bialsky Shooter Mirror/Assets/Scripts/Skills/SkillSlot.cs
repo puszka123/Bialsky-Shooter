@@ -21,7 +21,7 @@ namespace BialskyShooter.SkillSystem
 
         private void Start()
         {
-            Draggable.ClientOnEndDrag += OnEndDrag;
+            Draggable.clientOnEndDrag += OnEndDrag;
             var binding = SkillBindingManager.PopAvailableBinding();
             if (binding != null)
             {
@@ -35,7 +35,7 @@ namespace BialskyShooter.SkillSystem
 
         private void OnDestroy()
         {
-            Draggable.ClientOnEndDrag -= OnEndDrag;
+            Draggable.clientOnEndDrag -= OnEndDrag;
         }
 
         public void InjectSkill(Guid id, Sprite icon)
