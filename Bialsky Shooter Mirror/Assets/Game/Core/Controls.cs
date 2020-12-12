@@ -49,6 +49,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""EnemyPlate"",
+                    ""type"": ""Button"",
+                    ""id"": ""32ca2ded-dd13-4e1e-b77a-8f5ed52cd612"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -113,7 +121,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -124,7 +132,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -135,7 +143,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -146,7 +154,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -157,7 +165,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -168,7 +176,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -179,7 +187,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/6"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -190,7 +198,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/7"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -201,7 +209,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/8"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -212,7 +220,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/9"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -223,7 +231,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -234,7 +242,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -245,7 +253,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -256,7 +264,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -267,7 +275,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -278,7 +286,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/u"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -289,7 +297,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -300,7 +308,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -311,7 +319,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -322,7 +330,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Use Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -333,7 +341,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""MultiTap"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Loot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -344,8 +352,19 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""MultiTap"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""CharacterInfo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8199691e-fc58-4eae-ab9c-306e4b02eb14"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""EnemyPlate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -377,6 +396,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_UseSkill = m_Player.FindAction("Use Skill", throwIfNotFound: true);
         m_Player_Loot = m_Player.FindAction("Loot", throwIfNotFound: true);
         m_Player_CharacterInfo = m_Player.FindAction("CharacterInfo", throwIfNotFound: true);
+        m_Player_EnemyPlate = m_Player.FindAction("EnemyPlate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -430,6 +450,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_UseSkill;
     private readonly InputAction m_Player_Loot;
     private readonly InputAction m_Player_CharacterInfo;
+    private readonly InputAction m_Player_EnemyPlate;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -438,6 +459,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @UseSkill => m_Wrapper.m_Player_UseSkill;
         public InputAction @Loot => m_Wrapper.m_Player_Loot;
         public InputAction @CharacterInfo => m_Wrapper.m_Player_CharacterInfo;
+        public InputAction @EnemyPlate => m_Wrapper.m_Player_EnemyPlate;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -459,6 +481,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @CharacterInfo.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterInfo;
                 @CharacterInfo.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterInfo;
                 @CharacterInfo.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCharacterInfo;
+                @EnemyPlate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPlate;
+                @EnemyPlate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPlate;
+                @EnemyPlate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPlate;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -475,6 +500,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @CharacterInfo.started += instance.OnCharacterInfo;
                 @CharacterInfo.performed += instance.OnCharacterInfo;
                 @CharacterInfo.canceled += instance.OnCharacterInfo;
+                @EnemyPlate.started += instance.OnEnemyPlate;
+                @EnemyPlate.performed += instance.OnEnemyPlate;
+                @EnemyPlate.canceled += instance.OnEnemyPlate;
             }
         }
     }
@@ -494,5 +522,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnUseSkill(InputAction.CallbackContext context);
         void OnLoot(InputAction.CallbackContext context);
         void OnCharacterInfo(InputAction.CallbackContext context);
+        void OnEnemyPlate(InputAction.CallbackContext context);
     }
 }

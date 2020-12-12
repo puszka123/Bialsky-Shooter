@@ -16,9 +16,12 @@ namespace BialskyShooter.Combat
 
         CreatureStats creatureStats;
         [SyncVar] float currentHealth;
+        [SyncVar] float maxHealth;
         [SyncVar] bool isDefeated;
 
         public bool IsDefeated { get { return isDefeated; } }
+        public float CurrentHealth { get { return currentHealth; } }
+        public float MaxHealth { get { return maxHealth; } }
 
         #region Server
 
@@ -26,6 +29,13 @@ namespace BialskyShooter.Combat
         {
             creatureStats = GetComponent<CreatureStats>();
             currentHealth = creatureStats.GetStatValue(StatType.Health);
+            maxHealth = creatureStats.GetStatValue(StatType.Health);
+            creatureStats.serverOnLevelUp += OnLevelUp;
+        }
+
+        public override void OnStopServer()
+        {
+            creatureStats.serverOnLevelUp -= OnLevelUp;
         }
 
         [Command]
@@ -54,6 +64,12 @@ namespace BialskyShooter.Combat
             isDefeated = true;
             serverOnCreatureLose?.Invoke();
             RpcOnCreatureLose();
+        }
+
+        [Server]
+        void OnLevelUp(int level)
+        {
+            maxHealth = creatureStats.GetStatValue(StatType.Health);
         }
 
         #endregion

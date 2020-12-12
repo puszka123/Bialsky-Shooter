@@ -69,6 +69,9 @@
     <Compile Include="Assets\Scripts\AI\EnemySight.cs" />
     <Compile Include="Assets\Scripts\AI\MovementRules.cs" />
     <Compile Include="Assets\Scripts\AI\MovementSystem.cs" />
+    <Compile Include="Assets\Scripts\Characters\CreaturePlateDisplay.cs" />
+    <Compile Include="Assets\Scripts\Characters\EnemyPlateDisplay.cs" />
+    <Compile Include="Assets\Scripts\Characters\LocalPlateDisplay.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ClassType.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\CreatureStats.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\Experience.cs" />

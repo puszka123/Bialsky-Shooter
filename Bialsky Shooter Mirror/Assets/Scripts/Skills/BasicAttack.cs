@@ -10,7 +10,7 @@ namespace BialskyShooter.SkillSystem
     {
         public override void Use(ISkillUser skillUser)
         {
-            Debug.Log(skillUser);
+            //Debug.Log(skillUser);
             skillUser.UseWeapon();
         }
     }

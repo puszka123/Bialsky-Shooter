@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "EnemyPlate",
+                    "type": "Button",
+                    "id": "32ca2ded-dd13-4e1e-b77a-8f5ed52cd612",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -100,7 +108,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -111,7 +119,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -122,7 +130,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -133,7 +141,7 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -144,7 +152,7 @@
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -155,7 +163,7 @@
                     "path": "<Keyboard>/5",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -166,7 +174,7 @@
                     "path": "<Keyboard>/6",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -177,7 +185,7 @@
                     "path": "<Keyboard>/7",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -188,7 +196,7 @@
                     "path": "<Keyboard>/8",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -199,7 +207,7 @@
                     "path": "<Keyboard>/9",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -210,7 +218,7 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -221,7 +229,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -232,7 +240,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -243,7 +251,7 @@
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -254,7 +262,7 @@
                     "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -265,7 +273,7 @@
                     "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -276,7 +284,7 @@
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -287,7 +295,7 @@
                     "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -298,7 +306,7 @@
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -309,7 +317,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Use Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -320,7 +328,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "MultiTap",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "Loot",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -331,8 +339,19 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "MultiTap",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard & Mouse",
                     "action": "CharacterInfo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8199691e-fc58-4eae-ab9c-306e4b02eb14",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "EnemyPlate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
