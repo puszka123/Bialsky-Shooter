@@ -70,10 +70,12 @@
     <Compile Include="Assets\Scripts\AI\MovementRules.cs" />
     <Compile Include="Assets\Scripts\AI\MovementSystem.cs" />
     <Compile Include="Assets\Scripts\Characters\CreaturePlateDisplay.cs" />
+    <Compile Include="Assets\Scripts\Characters\DisplayCharacterInfo.cs" />
     <Compile Include="Assets\Scripts\Characters\EnemyPlateDisplay.cs" />
     <Compile Include="Assets\Scripts\Characters\LocalPlateDisplay.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ClassType.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\CreatureStats.cs" />
+    <Compile Include="Assets\Scripts\ClassSystem\CreatureStatsDisplay.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\Experience.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\Progression.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureClass.cs" />
@@ -89,7 +91,6 @@
     <Compile Include="Assets\Scripts\Control\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
-    <Compile Include="Assets\Scripts\Equipment\DisplayCharacterInfo.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentDisplay.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquippingController.cs" />

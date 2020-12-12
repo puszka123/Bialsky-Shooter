@@ -4,9 +4,11 @@ ScriptsOnlyBuild:
     - BialskyShooter.AI.CollisionDetection
     - BialskyShooter.AI.EnemyAI
     - BialskyShooter.AI.EnemySight
+    - BialskyShooter.CharacterModule.DisplayCharacterInfo
     - BialskyShooter.CharacterModule.EnemyPlateDisplay
     - BialskyShooter.CharacterModule.LocalPlateDisplay
     - BialskyShooter.ClassSystem.CreatureStats
+    - BialskyShooter.ClassSystem.CreatureStatsDisplay
     - BialskyShooter.ClassSystem.Experience
     - BialskyShooter.ClassSystem.Progression
     - BialskyShooter.Combat.CombatTarget
@@ -16,7 +18,6 @@ ScriptsOnlyBuild:
     - BialskyShooter.Control.PlayerMoveController
     - BialskyShooter.Control.PlayerSkillController
     - BialskyShooter.Core.PlayerCameraSpawner
-    - BialskyShooter.EquipmentSystem.DisplayCharacterInfo
     - BialskyShooter.EquipmentSystem.Equipment
     - BialskyShooter.EquipmentSystem.EquipmentDisplay
     - BialskyShooter.EquipmentSystem.EquippingController
@@ -81,8 +82,6 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-    UnityEditor.UI.dll:
-    - UnityEditor.UI.ImageEditor
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.UI.Button
@@ -167,19 +166,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13460}
     - Class: 114
-      Script: {instanceID: 13586}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13780}
+      Script: {instanceID: 13782}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 13840}
     - Class: 114
-      Script: {instanceID: 13916}
+      Script: {instanceID: 13918}
     - Class: 114
-      Script: {instanceID: 14030}
+      Script: {instanceID: 14032}
     - Class: 114
-      Script: {instanceID: 14514}
+      Script: {instanceID: 14516}
     - Class: 114
-      Script: {instanceID: 14534}
+      Script: {instanceID: 14536}
+    - Class: 114
+      Script: {instanceID: 41220}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -298,31 +299,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13488}
     - Class: 114
-      Script: {instanceID: 13544}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13626}
+      Script: {instanceID: 13628}
     - Class: 114
-      Script: {instanceID: 13658}
+      Script: {instanceID: 13660}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 13840}
     - Class: 114
-      Script: {instanceID: 14030}
+      Script: {instanceID: 14032}
     - Class: 114
-      Script: {instanceID: 14230}
+      Script: {instanceID: 14232}
     - Class: 114
-      Script: {instanceID: 14236}
+      Script: {instanceID: 14238}
     - Class: 114
-      Script: {instanceID: 14274}
+      Script: {instanceID: 14276}
     - Class: 114
-      Script: {instanceID: 14306}
+      Script: {instanceID: 14308}
     - Class: 114
-      Script: {instanceID: 14610}
+      Script: {instanceID: 14612}
     - Class: 114
-      Script: {instanceID: 14688}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14696}
+      Script: {instanceID: 14698}
     - Class: 114
-      Script: {instanceID: 14710}
+      Script: {instanceID: 14712}
+    - Class: 114
+      Script: {instanceID: 41220}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1444,7 +1447,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 3aac1e938c9d81e0101326452d196958
     assemblyName: Assembly-CSharp.dll
-    namespaceName: BialskyShooter.EquipmentSystem
+    namespaceName: BialskyShooter.CharacterModule
     className: DisplayCharacterInfo
   - hash:
       serializedVersion: 2
@@ -2058,6 +2061,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: bc4dcd2901cae99e9aedd90630dd2593
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: BialskyShooter.ClassSystem
+    className: CreatureStatsDisplay
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
