@@ -41,7 +41,10 @@ namespace BialskyShooter.CharacterModule
 
         public void Close()
         {
-            canvasGO.SetActive(false);
+            if (canvasGO != null)
+            {
+                canvasGO.SetActive(false);
+            }
             initialized = false;
             health = null;
             stats = null;

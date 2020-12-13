@@ -11,5 +11,6 @@ namespace BialskyShooter.ItemSystem
         Guid GetItemId();
         Image GetItemImage();
         void ItemDragged();
+        bool ReadyOnly();
     }
 }

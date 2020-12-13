@@ -12,6 +12,7 @@ namespace BialskyShooter.InventoryModule
     {
         public static event Action<Guid> clientOnItemSelected;
         public Guid itemId;
+        bool readOnlyMode;
 
         private void Start() { }
 
@@ -37,6 +38,11 @@ namespace BialskyShooter.InventoryModule
         public void ItemDragged()
         {
             
+        }
+
+        public bool ReadyOnly()
+        {
+            return readOnlyMode;
         }
     }
 }

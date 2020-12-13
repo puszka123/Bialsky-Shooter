@@ -293,6 +293,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterInfoDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 2780073369966413605, guid: 8f54e93e39811364896b19aa98a4a5cf,
+        type: 3}
+      propertyPath: m_TagString
+      value: LocalCharacterInfo
+      objectReference: {fileID: 0}
     - target: {fileID: 6470559955203233993, guid: 8f54e93e39811364896b19aa98a4a5cf,
         type: 3}
       propertyPath: m_LocalPosition.z

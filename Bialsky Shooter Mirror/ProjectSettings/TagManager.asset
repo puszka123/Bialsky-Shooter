@@ -7,6 +7,7 @@ TagManager:
   - PlayerVirtualCamera
   - Enemy
   - LocalUserPlate
+  - LocalCharacterInfo
   layers:
   - Default
   - TransparentFX

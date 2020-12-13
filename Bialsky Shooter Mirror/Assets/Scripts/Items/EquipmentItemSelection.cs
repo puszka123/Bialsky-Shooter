@@ -16,34 +16,46 @@ namespace BialskyShooter.ItemSystem
         public static event Action<Guid> clientOnItemDraggedIn;
         public Guid itemId;
         RectTransform rect;
+        Controls controls;
+        bool readOnlyMode;
 
         private void Start()
         {
             rect = GetComponent<RectTransform>();
-            InitInputSystem();
-            Draggable.clientOnEndDrag += OnEndDrag;
+            if (!readOnlyMode)
+            {
+                InitInputSystem();
+                Draggable.clientOnEndDrag += OnEndDrag;
+            }
         }
 
         private void OnDestroy()
         {
-            Draggable.clientOnEndDrag -= OnEndDrag;
+            if (!readOnlyMode) Draggable.clientOnEndDrag -= OnEndDrag;
+        }
+
+        public void ReadOnly()
+        {
+            readOnlyMode = true;
         }
 
         private void InitInputSystem()
         {
-            Controls controls = new Controls();
+            controls = new Controls();
             controls.Player.Inventory.performed += EquipmentPerformed;
             controls.Enable();
+            print("InitInputSystem: " + controls);
         }
 
         private void EquipmentPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
+            if (this.itemId == Guid.Empty) return;
             var itemId = ClearItem();
             clientOnItemSelected?.Invoke(itemId);
         }
 
-        private Guid ClearItem()
+        public Guid ClearItem()
         {
             var clearedItemId = itemId;
             clientOnItemCleared?.Invoke(clearedItemId);
@@ -74,8 +86,14 @@ namespace BialskyShooter.ItemSystem
         {
             if (!draggable.TryGetComponent<IItemSelection>(out IItemSelection itemSelection)) return;
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
+            if (itemSelection.GetItemId() == Guid.Empty) return;
             clientOnItemDraggedIn?.Invoke(itemSelection.GetItemId());
             itemSelection.ItemDragged();
+        }
+
+        public bool ReadyOnly()
+        {
+            return readOnlyMode;
         }
     }
 }

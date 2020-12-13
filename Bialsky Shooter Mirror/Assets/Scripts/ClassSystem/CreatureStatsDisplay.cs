@@ -56,7 +56,6 @@ namespace BialskyShooter.ClassSystem
         private void OnCharacterInfoDisplayed()
         {
             GetLocalPlayerStats();
-            print("xd");
         }
 
         private void GetLocalPlayerStats()

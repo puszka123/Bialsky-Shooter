@@ -18,6 +18,7 @@ namespace BialskyShooter.EquipmentSystem
         [SerializeField] GameObject legsSlot = default;
         [SerializeField] GameObject bootsSlot = default;
         Equipment localPlayerEquipment;
+        bool readOnlyMode;
 
         private void Start()
         {
@@ -29,10 +30,21 @@ namespace BialskyShooter.EquipmentSystem
             ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed -= OnCharacterInfoDisplayed;
         }
 
+        public void ReadOnly()
+        {
+            weaponSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+            shieldSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+            chestSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+            helmetSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+            legsSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+            bootsSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+        }
+
         private void OnCharacterInfoDisplayed()
         {
             if (localPlayerEquipment == null) GetLocalPlayerEquipment();
             if (localPlayerEquipment.ItemInformations == null) return;
+            ClearSlots();
             foreach (var item in localPlayerEquipment.ItemInformations)
             {
                 DisplayItem(item);
@@ -118,7 +130,29 @@ namespace BialskyShooter.EquipmentSystem
 
         public void CloseCharacterInfoDisplay()
         {
-            Destroy(gameObject);
+            if (!CompareTag("LocalCharacterInfo"))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.GetComponentInChildren<Canvas>().gameObject.SetActive(false);
+            }
+        }
+
+        void ClearSlots()
+        {
+            ClearSlot(weaponSlot);
+            ClearSlot(shieldSlot);
+            ClearSlot(helmetSlot);
+            ClearSlot(chestSlot);
+            ClearSlot(legsSlot);
+            ClearSlot(bootsSlot);
+        }
+
+        void ClearSlot(GameObject slot)
+        {
+            slot.GetComponent<EquipmentItemSelection>().ClearItem();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BialskyShooter.ItemSystem
         public static event Action<Guid> clientOnItemInjected;
         public Guid itemId;
         RectTransform rect;
+        bool readOnlyMode;
 
         private void Start()
         {
@@ -39,6 +40,7 @@ namespace BialskyShooter.ItemSystem
         private void InventoryPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
+            if (this.itemId == Guid.Empty) return;
             var itemId = ClearItem();
             clientOnItemSelected?.Invoke(itemId);
         }
@@ -47,6 +49,8 @@ namespace BialskyShooter.ItemSystem
         {
             if (!draggable.TryGetComponent<IItemSelection>(out IItemSelection itemSelection)) return;
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
+            if (itemSelection.ReadyOnly()) return;
+            if (itemSelection.GetItemId() == Guid.Empty) return;
             var itemId = itemSelection.GetItemId();
             var sprite = itemSelection.GetItemImage().sprite;
             itemSelection.ItemDragged();
@@ -86,6 +90,11 @@ namespace BialskyShooter.ItemSystem
         public void ItemDragged()
         {
             ClearItem();
+        }
+
+        public bool ReadyOnly()
+        {
+            return readOnlyMode;
         }
     }
 }
