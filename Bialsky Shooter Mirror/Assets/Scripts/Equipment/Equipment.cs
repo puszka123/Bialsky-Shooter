@@ -3,6 +3,7 @@ using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BialskyShooter.EquipmentSystem
@@ -26,6 +27,11 @@ namespace BialskyShooter.EquipmentSystem
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
 
         public IEnumerable<ItemInformation> ItemInformations { get { return syncItemInformations; } }
+
+        public ItemInformation GetItemInformation(Guid itemId)
+        {
+            return syncItemInformations.FirstOrDefault(e => Guid.Parse(e.itemId) == itemId);
+        }
 
 
         #region Server
@@ -66,6 +72,7 @@ namespace BialskyShooter.EquipmentSystem
             var itemInformation = new ItemInformation(
                     item.Id.ToString(),
                     item.ItemSO.IconPath,
+                    item.ItemSO.UniqueName,
                     slotType,
                     item.ItemSO.Stats.StatsList);
             syncItemInformations.Add(itemInformation);

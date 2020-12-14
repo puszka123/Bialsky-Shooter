@@ -12,7 +12,7 @@ namespace BialskyShooter.InventoryModule
     {
         public static event Action<Guid> clientOnItemSelected;
         public Guid itemId;
-        bool readOnlyMode;
+        bool readOnlyMode = default;
 
         private void Start() { }
 

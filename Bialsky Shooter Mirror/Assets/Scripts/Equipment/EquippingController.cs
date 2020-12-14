@@ -102,6 +102,7 @@ namespace BialskyShooter.EquipmentSystem
             ClientEquipItem(itemInformation);
         }
 
+        [Client]
         void ClientEquipItem(ItemInformation itemInformation)
         {
             equipmentDisplay.DisplayItem(itemInformation);

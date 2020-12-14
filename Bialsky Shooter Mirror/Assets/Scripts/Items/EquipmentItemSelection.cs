@@ -78,12 +78,14 @@ namespace BialskyShooter.ItemSystem
 
         public void ItemDragged()
         {
+            if (readOnlyMode) return;
             var itemId = ClearItem();
             clientOnItemSelected?.Invoke(itemId);
         }
 
         private void OnEndDrag(Draggable draggable)
         {
+            if (readOnlyMode) return;
             if (!draggable.TryGetComponent<IItemSelection>(out IItemSelection itemSelection)) return;
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
             if (itemSelection.GetItemId() == Guid.Empty) return;

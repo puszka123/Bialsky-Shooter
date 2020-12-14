@@ -10,14 +10,20 @@ namespace BialskyShooter.ItemSystem
     {
         Sprite icon;
         Guid itemId;
+        List<ItemStat> itemStats;
+        string itemName;
 
         public Guid ItemId { get { return itemId; } }
         public Sprite Icon { get { return icon; } }
+        public IEnumerable<ItemStat> ItemStats { get { return itemStats; } }
+        public string ItemName { get { return itemName; } }
 
-        public ItemDisplay(Guid itemId, Sprite icon)
+        public ItemDisplay(ItemInformation itemInformation)
         {
-            this.itemId = itemId;
-            this.icon = icon;
+            itemId = Guid.Parse(itemInformation.itemId);
+            icon = Resources.Load<Sprite>(itemInformation.iconPath);
+            itemStats = itemInformation.stats;
+            itemName = itemInformation.itemName;
         }
     }
 }

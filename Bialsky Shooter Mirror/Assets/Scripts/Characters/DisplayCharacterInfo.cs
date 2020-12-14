@@ -51,7 +51,7 @@ namespace BialskyShooter.CharacterModule
         {
             
             var equipmentDisplay = equipmentDisplayInstance.GetComponent<EquipmentDisplay>();
-            if(!equipment.hasAuthority) equipmentDisplay.ReadOnly();
+            if (!equipment.hasAuthority) equipmentDisplay.ReadOnly();
             foreach (var itemInformation in equipment.ItemInformations)
             {
                 equipmentDisplay.DisplayItem(itemInformation);

@@ -18,6 +18,7 @@ namespace BialskyShooter.InventoryModule
         [SerializeField] int columnsCount = 10;
         GameObject[] slots;
         Dictionary<GameObject, bool> slotsAvailability;
+        List<ItemDisplay> itemDisplays;
 
         private void Start()
         {
@@ -36,25 +37,27 @@ namespace BialskyShooter.InventoryModule
 
         private void OnItemSelected(Guid itemId)
         {
-            SetSlotAvailability(itemId, true);
+            var slot = SetSlotAvailability(itemId, true);
         }
 
         private void OnItemCleared(Guid itemId)
         {
-            SetSlotAvailability(itemId, true);
+            var slot = SetSlotAvailability(itemId, true);
         }
 
         private void OnItemInjected(Guid itemId)
         {
-            SetSlotAvailability(itemId, false);
+            var slot = SetSlotAvailability(itemId, false);
+            SetItemInformationToggle(slot, itemDisplays.FirstOrDefault(e => e.ItemId == itemId));
         }
 
-        private void SetSlotAvailability(Guid itemId, bool availability)
+        private GameObject SetSlotAvailability(Guid itemId, bool availability)
         {
             GameObject slot = slotsAvailability.Keys
                             .FirstOrDefault(s => s.GetComponent<InventoryItemSelection>().itemId == itemId);
-            if (slot == null) return;
+            if (slot == null) return null;
             slotsAvailability[slot] = availability;
+            return slot;
         }
 
         void InitLootPanel()
@@ -68,6 +71,7 @@ namespace BialskyShooter.InventoryModule
         {
             slots = new GameObject[rowsCount * columnsCount];
             slotsAvailability = new Dictionary<GameObject, bool>();
+            itemDisplays = new List<ItemDisplay>();
             InitLootPanel();
         }
 
@@ -102,6 +106,12 @@ namespace BialskyShooter.InventoryModule
             slotItemSelection.itemId = itemId;
         }
 
+        private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
+        {
+            if (slot == null || slot.GetComponent<ItemInformationToggle>() == null) return;
+            slot.GetComponent<ItemInformationToggle>().SetItemDisplay(displayItem);
+        }
+
         private void DisplayItem(GameObject slotInstance, Sprite icon)
         {
             var image = slotInstance.transform.GetChild(0).GetComponent<Image>();
@@ -115,7 +125,9 @@ namespace BialskyShooter.InventoryModule
             var slot = slotsAvailability.First(pair => pair.Value).Key;
             DisplayItem(slot, displayItem.Icon);
             SetInventoryItemSelection(slot, displayItem.ItemId);
+            SetItemInformationToggle(slot, displayItem);
             slotsAvailability[slot] = false;
+            itemDisplays.Add(displayItem);
         }
 
         private bool ItemExists(ItemDisplay displayItem)

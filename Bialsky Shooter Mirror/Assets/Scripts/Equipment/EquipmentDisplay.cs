@@ -126,6 +126,13 @@ namespace BialskyShooter.EquipmentSystem
             var icon = Resources.Load<Sprite>(itemInformation.iconPath);
             image.sprite = icon;
             slot.GetComponent<EquipmentItemSelection>().itemId = Guid.Parse(itemInformation.itemId);
+            SetItemInformationToggle(slot, new ItemDisplay(itemInformation));
+        }
+
+        private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
+        {
+            if (slot == null || slot.GetComponent<ItemInformationToggle>() == null) return;
+            slot.GetComponent<ItemInformationToggle>().SetItemDisplay(displayItem);
         }
 
         public void CloseCharacterInfoDisplay()

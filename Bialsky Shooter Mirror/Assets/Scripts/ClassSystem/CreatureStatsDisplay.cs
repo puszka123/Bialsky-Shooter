@@ -50,7 +50,6 @@ namespace BialskyShooter.ClassSystem
         public void SetCreatureStats(CreatureStats stats)
         {
             creatureStats = stats;
-            print(stats.gameObject.name);
         }
 
         private void OnCharacterInfoDisplayed()

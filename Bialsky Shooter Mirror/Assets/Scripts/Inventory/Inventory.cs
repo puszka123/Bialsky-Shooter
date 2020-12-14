@@ -78,8 +78,12 @@ namespace BialskyShooter.InventoryModule
         public void PickupItem(Item item)
         {
             itemsDict[item.Id] = item;
-            syncItemInformations.Add(new ItemInformation(item.Id.ToString(), item.ItemSO.IconPath));
-            RpcPickupItem(item.Id, item.ItemSO.IconPath);
+            var itemInformation = new ItemInformation(item.Id.ToString(),
+                item.ItemSO.IconPath,
+                item.ItemSO.UniqueName,
+                item.ItemSO.Stats.StatsList);
+            syncItemInformations.Add(itemInformation);
+            RpcPickupItem(itemInformation);
         }
 
         #endregion
@@ -96,17 +100,16 @@ namespace BialskyShooter.InventoryModule
         }
 
         [ClientRpc]
-        void RpcPickupItem(Guid itemId, string iconPath)
+        void RpcPickupItem(ItemInformation itemInformation)
         {
             if (!hasAuthority) return;
-            ClientPickupItem(itemId, iconPath);
+            ClientPickupItem(itemInformation);
         }
 
         [Client]
-        void ClientPickupItem(Guid itemId, string iconPath)
+        void ClientPickupItem(ItemInformation itemInformation)
         {
-            Sprite icon = Resources.Load<Sprite>(iconPath);
-            var displayItem = new ItemDisplay(itemId, icon);
+            var displayItem = new ItemDisplay(itemInformation);
             if (CompareTag("Player")) inventoryDisplay.DisplayItem(displayItem);
         }
 
@@ -114,11 +117,9 @@ namespace BialskyShooter.InventoryModule
         public IEnumerable<ItemDisplay> GetItemDisplays()
         {
             var itemDisplays = new List<ItemDisplay>();
-            for (int i = 0; i < syncItemInformations.Count; i++)
+            foreach (var item in syncItemInformations)
             {
-                var itemId = syncItemInformations[i].itemId;
-                var icon = Resources.Load<Sprite>(syncItemInformations[i].iconPath);
-                itemDisplays.Add(new ItemDisplay(Guid.Parse(itemId), icon));
+                itemDisplays.Add(new ItemDisplay(item));
             }
             return itemDisplays;
         }

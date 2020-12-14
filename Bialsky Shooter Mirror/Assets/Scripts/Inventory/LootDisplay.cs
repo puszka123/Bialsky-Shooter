@@ -3,6 +3,7 @@ using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -18,9 +19,29 @@ namespace BialskyShooter.InventoryModule
         int rowsCount;
         int columnsCount;
         List<ItemDisplay> itemDisplays;
+        List<GameObject> slots;
         Inventory loot;
 
         public Inventory Loot { get { return loot; } }
+
+        private void Start()
+        {
+            LootItemSelection.clientOnItemSelected += OnLootItemSelected;
+        }
+
+        private void OnDestroy()
+        {
+            LootItemSelection.clientOnItemSelected -= OnLootItemSelected;
+        }
+
+        private void OnLootItemSelected(Guid itemId)
+        {
+            var slot = slots.FirstOrDefault(e => e.GetComponent<LootItemSelection>().itemId == itemId);
+            if (slot != null)
+            {
+                SetItemInformationToggle(slot, null);
+            }
+        }
 
         public void Display(Inventory loot)
         {
@@ -47,6 +68,7 @@ namespace BialskyShooter.InventoryModule
         void InitLootPanel()
         {
             var slotRect = slotImagePrefab.GetComponent<RectTransform>();
+            slots = new List<GameObject>();
             ComputePanelSize(slotRect);
             PlaceSlots(slotRect);
         }
@@ -64,6 +86,7 @@ namespace BialskyShooter.InventoryModule
 
         private void PlaceSlots(RectTransform slotRect)
         {
+            var index = 0;
             for (int row = 1; row <= rowsCount; row++)
             {
                 float anchoredY = slotRect.anchoredPosition.y * row - slotRect.rect.height * (row - 1);
@@ -71,10 +94,13 @@ namespace BialskyShooter.InventoryModule
                 {
                     float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
+                    slots.Add(slotInstance);
                     slotInstance.AddComponent<LootItemSelection>();
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
-                    DisplayItem(slotInstance, itemDisplays[row + column - 2].Icon);
-                    SetLootItemSelection(slotInstance, itemDisplays[row + column - 2].ItemId);
+                    DisplayItem(slotInstance, itemDisplays[index].Icon);
+                    SetLootItemSelection(slotInstance, itemDisplays[index].ItemId);
+                    SetItemInformationToggle(slotInstance, itemDisplays[index]);
+                    index++;
                 }
             }
         }
@@ -83,6 +109,12 @@ namespace BialskyShooter.InventoryModule
         {
             var slotItemSelection = slotInstance.GetComponent<LootItemSelection>();
             slotItemSelection.itemId = itemId;
+        }
+
+        private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
+        {
+            if (slot == null || slot.GetComponent<ItemInformationToggle>() == null) return;
+            slot.GetComponent<ItemInformationToggle>().SetItemDisplay(displayItem);
         }
 
         private void DisplayItem(GameObject slotInstance, Sprite icon)

@@ -16,7 +16,7 @@ namespace BialskyShooter.ItemSystem
         public static event Action<Guid> clientOnItemInjected;
         public Guid itemId;
         RectTransform rect;
-        bool readOnlyMode;
+        bool readOnlyMode = default;
 
         private void Start()
         {

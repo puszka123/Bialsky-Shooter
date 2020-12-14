@@ -117,6 +117,8 @@
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\ItemInformation.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemInformationDisplay.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemInformationToggle.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSO.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSlotType.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />
