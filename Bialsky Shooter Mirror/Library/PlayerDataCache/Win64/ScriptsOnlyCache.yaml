@@ -1133,7 +1133,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: fc64253b3262cc414e676c571e0060a8
+      Hash: e37f6baf4bfa6b8e84f7e4e827ad4522
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.SkillSystem
     className: SkillsDisplay

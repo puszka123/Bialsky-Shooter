@@ -51,6 +51,7 @@ namespace BialskyShooter.ItemSystem
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
             if (itemSelection.ReadyOnly()) return;
             if (itemSelection.GetItemId() == Guid.Empty) return;
+            if (this.itemId != Guid.Empty) return;
             var itemId = itemSelection.GetItemId();
             var sprite = itemSelection.GetItemImage().sprite;
             itemSelection.ItemDragged();

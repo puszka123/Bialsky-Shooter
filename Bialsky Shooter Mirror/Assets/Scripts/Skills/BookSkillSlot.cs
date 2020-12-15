@@ -6,12 +6,24 @@ using UnityEngine.UI;
 
 namespace BialskyShooter.SkillSystem
 {
-    public class BookSkillSlot : MonoBehaviour
+    public class BookSkillSlot : MonoBehaviour, ISkillSlot
     {
         [SerializeField] Image skillImage = default;
         Skill skill;
 
         public Skill Skill { get { return skill; } }
+
+        public Sprite GetSkillIcon()
+        {
+            return Skill.Icon;
+        }
+
+        public Guid GetSkillId()
+        {
+            return Skill.Id;
+        }
+
+        public void RemoveSkill() { }
 
         public void SetSkill(Skill skill)
         {

@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 2488345856329808549}
   - component: {fileID: 2385989077020801929}
   - component: {fileID: 1171922981847387039}
+  - component: {fileID: -5595237983802045816}
   m_Layer: 0
   m_Name: SlotImage
   m_TagString: Untagged
@@ -321,3 +322,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bindingText: {fileID: 1582146594504787279}
   skillImage: {fileID: 5711595510218705497}
+--- !u!114 &-5595237983802045816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084922525226505342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b935e16fe216745819c9f326916dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

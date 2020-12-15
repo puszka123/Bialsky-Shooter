@@ -10,24 +10,30 @@ namespace BialskyShooter.SkillSystem
     [RequireComponent(typeof(CreatureStats))]
     public class SkillsDisplay : MonoBehaviour
     {
+        [SerializeField] bool skillsBook = default;
         [SerializeField] RectTransform slotsPanel = null;
         [SerializeField] RectTransform mainPanel = null;
         [SerializeField] GameObject slotImagePrefab = null;
-        [SerializeField] Canvas canvas = null;
+        [SerializeField] Canvas canvas;
         [SerializeField] int rowsCount = 10;
         [SerializeField] int columnsCount = 10;
-        [SerializeField] SkillsProgression skillsProgression;
+        [SerializeField] SkillsProgression skillsProgression = default;      
         CreatureStats creatureStats;
         List<Skill> availableSkills;
         bool panelInitialized;
+        List<GameObject> skillsSlots; 
+
+        public IEnumerable<GameObject> SkillsSlots { get { return skillsSlots; } }
 
         private void Start()
         {
-            if(skillsProgression == null) InitSkillsPanel();
+            if(!skillsBook) InitSkillsPanel();
         }
 
         private void Update()
         {
+            if (!skillsBook) return;
+
             if (skillsProgression != null && availableSkills == null)
             {
                 GetAvailableSkills();
@@ -61,6 +67,7 @@ namespace BialskyShooter.SkillSystem
 
         void InitSkillsPanel()
         {
+            skillsSlots = new List<GameObject>();
             var slotRect = slotImagePrefab.GetComponent<RectTransform>();
             ComputePanelSize(slotRect);
             PlaceSlots(slotRect);
@@ -79,6 +86,7 @@ namespace BialskyShooter.SkillSystem
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
                     SetBookSkillSlot(slotInstance, index);
+                    skillsSlots.Add(slotInstance);
                     ++index;
                 }
             }
@@ -86,7 +94,7 @@ namespace BialskyShooter.SkillSystem
 
         private void SetBookSkillSlot(GameObject slotInstance, int index)
         {
-            if (availableSkills == null || availableSkills.Count <= index) return;
+            if (!skillsBook || availableSkills == null || availableSkills.Count <= index) return;
             slotInstance.GetComponent<BookSkillSlot>().SetSkill(availableSkills[index]);
         }
 

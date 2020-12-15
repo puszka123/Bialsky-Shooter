@@ -75,6 +75,12 @@ namespace BialskyShooter.SkillSystem
         }
 
         [Server]
+        public void UnbindSkill(string keyBinding, Guid skillId)
+        {
+            skillBindings[keyBinding] = null;
+        }
+
+        [Server]
         public bool IsSkillAvailable(Guid skillId)
         {
             return skillsAvailability[skillId];
@@ -116,6 +122,12 @@ namespace BialskyShooter.SkillSystem
             BindSkill(binding, skillId);
         }
 
+        [Command]
+        void CmdUnbindSkill(string binding, Guid skillId)
+        {
+            UnbindSkill(binding, skillId);
+        }
+
         #endregion
 
         #region Client
@@ -123,11 +135,13 @@ namespace BialskyShooter.SkillSystem
         public override void OnStartClient()
         {
             SkillSlot.clientOnSkillInjected += OnSkillInjected;
+            SkillSlot.clientOnSkillRemoved += OnSkillRemoved;
         }
 
         public override void OnStopClient()
         {
             SkillSlot.clientOnSkillInjected -= OnSkillInjected;
+            SkillSlot.clientOnSkillRemoved -= OnSkillRemoved;
         }
 
         [Client]
@@ -135,6 +149,13 @@ namespace BialskyShooter.SkillSystem
         {
             if (!hasAuthority) return;
             CmdBindSkill(binding, skillId);
+        }
+
+        [Client]
+        private void OnSkillRemoved(string binding, Guid skillId)
+        {
+            if (!hasAuthority) return;
+            CmdUnbindSkill(binding, skillId);
         }
 
         #endregion

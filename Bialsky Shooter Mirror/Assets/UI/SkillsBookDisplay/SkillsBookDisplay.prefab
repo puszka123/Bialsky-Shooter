@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46dd2c60b954524199ef01fded05e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillsBook: 1
   slotsPanel: {fileID: 4306063860702708861}
   mainPanel: {fileID: 2993766760686558729}
   slotImagePrefab: {fileID: 4869860423040663370, guid: 41d4915c5c3b38a4da0abd5517a9475e,
