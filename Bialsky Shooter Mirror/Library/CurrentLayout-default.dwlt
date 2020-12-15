@@ -424,7 +424,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 72aafeff8eaafeff94adfeff98adfeffdaadfefff6adfeff4cb3feff50b3feff98d7feffc6d7feffd6d7feff4ed8feff58d8feff66d8feff98f7feff0c07ffff9407ffffb007ffff060dffff0a0dffffda2ffffff62fffff4c35ffff5035ffffb0a7ffffcca7ffff22adffff26adffff7ecbffff9acbffffa0ceffffa4ceffffe2cefffffeceffff54d4ffff58d4ffff42faffff58fbffff
+      m_ExpandedIDs: e670f2ff0271f2ff0874f2ff0c74f2ff5274f2ff6e74f2ffc479f2ffc879f2ffac86f2ffdc86f2ff0097f2ff8c97f2ffa897f2fffe9cf2ff029df2ffc48effff98adffff12aeffffc0b8ffff2ad1ffff58fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -695,20 +695,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/UI/ItemInformationDisplay
+    - Assets/UI/BookSkillImage
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/UI/ItemInformationDisplay
+  - Assets/UI/BookSkillImage
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\unity-projects\bialsky-shooter-mirror\Bialsky Shooter Mirror
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 845}
-    m_SelectedIDs: 58400000
-    m_LastClickedID: 16472
-    m_ExpandedIDs: 00000000d23f0000d43f0000d63f0000d83f0000da3f0000dc3f0000de3f0000e03f0000e23f0000e43f0000e63f0000e83f0000ea3f0000ec3f0000ee3f0000f03f0000f23f0000f43f0000f63f0000f83f0000
+    scrollPos: {x: 0, y: 780}
+    m_SelectedIDs: 4e400000
+    m_LastClickedID: 16462
+    m_ExpandedIDs: 00000000d23f0000d43f0000d63f0000d83f0000da3f0000dc3f0000de3f0000e03f0000e23f0000e43f0000e63f0000e83f0000ea3f0000ec3f0000ee3f0000f03f0000f23f0000f43f0000f63f0000f83f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

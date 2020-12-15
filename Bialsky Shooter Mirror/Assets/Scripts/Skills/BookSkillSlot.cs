@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +8,18 @@ namespace BialskyShooter.SkillSystem
 {
     public class BookSkillSlot : MonoBehaviour
     {
-        [SerializeField] Skill skill = default;
         [SerializeField] Image skillImage = default;
+        Skill skill;
 
         public Skill Skill { get { return skill; } }
 
-        private void Start()
+        public void SetSkill(Skill skill)
+        {
+            this.skill = skill;
+            DisplaySkill(skill);
+        }
+
+        void DisplaySkill(Skill skill)
         {
             skillImage.sprite = skill.Icon;
             skillImage.color = new Color(1f, 1f, 1f, 1f);

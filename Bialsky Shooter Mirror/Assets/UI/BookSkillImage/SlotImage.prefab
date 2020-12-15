@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ece57c5db431f74d819b61ac3db4251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
   skillImage: {fileID: 7963528411984765293}
 --- !u!114 &3611813902897481660
 MonoBehaviour:

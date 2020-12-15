@@ -313,4 +313,4 @@ MonoBehaviour:
   canvas: {fileID: 413979727646400850}
   rowsCount: 3
   columnsCount: 10
-  alignWithMousePosition: 0
+  skillsProgression: {fileID: 11400000, guid: d3b623f4229c6ef418bb717a78ea91fc, type: 2}

@@ -187,6 +187,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14522}
     - Class: 114
       Script: {instanceID: 14542}
+    - Class: 114
+      Script: {instanceID: 14696}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1047,7 +1049,7 @@ ScriptsOnlyBuild:
     className: InputSettings
   - hash:
       serializedVersion: 2
-      Hash: 41588dd4ef28eb17842cc4aeb9892180
+      Hash: b1a5c6c2320288f8de6a401a0d5d1134
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.SkillSystem
     className: BookSkillSlot
@@ -1131,7 +1133,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 10061b16fabcdde632405b7b9582ae37
+      Hash: fc64253b3262cc414e676c571e0060a8
     assemblyName: Assembly-CSharp.dll
     namespaceName: BialskyShooter.SkillSystem
     className: SkillsDisplay

@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using BialskyShooter.ClassSystem;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace BialskyShooter.SkillSystem
 {
+    [RequireComponent(typeof(CreatureStats))]
     public class SkillsDisplay : MonoBehaviour
     {
         [SerializeField] RectTransform slotsPanel = null;
@@ -13,38 +16,60 @@ namespace BialskyShooter.SkillSystem
         [SerializeField] Canvas canvas = null;
         [SerializeField] int rowsCount = 10;
         [SerializeField] int columnsCount = 10;
-        [SerializeField] bool alignWithMousePosition = default;
+        [SerializeField] SkillsProgression skillsProgression;
+        CreatureStats creatureStats;
+        List<Skill> availableSkills;
+        bool panelInitialized;
 
         private void Start()
         {
-            InitLootPanel();
+            if(skillsProgression == null) InitSkillsPanel();
+        }
+
+        private void Update()
+        {
+            if (skillsProgression != null && availableSkills == null)
+            {
+                GetAvailableSkills();
+            }
+            if(!panelInitialized && availableSkills != null) InitSkillsPanel();
 
         }
 
-        void InitLootPanel()
+        private void GetAvailableSkills()
+        {
+            if (skillsProgression != null)
+            {
+                GetLocalCreatureStats();
+                if (creatureStats == null) return;
+                availableSkills = new List<Skill>(skillsProgression
+                    .GetAvailableSkills(creatureStats.ClassType, creatureStats.Level));
+            }
+        }
+
+        private void GetLocalCreatureStats()
+        {
+            foreach (var creatureStats in FindObjectsOfType<CreatureStats>())
+            {
+                if (creatureStats.hasAuthority)
+                {
+                    this.creatureStats = creatureStats;
+                    break;
+                }
+            }
+        }
+
+        void InitSkillsPanel()
         {
             var slotRect = slotImagePrefab.GetComponent<RectTransform>();
             ComputePanelSize(slotRect);
             PlaceSlots(slotRect);
-            if (alignWithMousePosition)
-            {
-                SetMainPanelPositionToMousePosition();
-            }
-        }
-
-        private void SetMainPanelPositionToMousePosition()
-        {
-            float maxCanvasWidth = canvas.GetComponent<RectTransform>().rect.width - mainPanel.rect.width;
-            float maxCanvasHeight = canvas.GetComponent<RectTransform>().rect.height - mainPanel.rect.height;
-            Vector2 mousePos = Mouse.current.position.ReadValue();
-            Vector2 lerp = new Vector2(mousePos.x / Screen.width, mousePos.y / Screen.height);
-            mainPanel.anchoredPosition = new Vector2(
-                Mathf.Lerp(0f, maxCanvasWidth, lerp.x),
-                -Mathf.Lerp(0f, maxCanvasHeight, 1 - lerp.y));
+            panelInitialized = true;
         }
 
         private void PlaceSlots(RectTransform slotRect)
         {
+            int index = 0;
             for (int row = 1; row <= rowsCount; row++)
             {
                 float anchoredY = slotRect.anchoredPosition.y * row - slotRect.rect.height * (row - 1);
@@ -53,8 +78,16 @@ namespace BialskyShooter.SkillSystem
                     float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
+                    SetBookSkillSlot(slotInstance, index);
+                    ++index;
                 }
             }
+        }
+
+        private void SetBookSkillSlot(GameObject slotInstance, int index)
+        {
+            if (availableSkills == null || availableSkills.Count <= index) return;
+            slotInstance.GetComponent<BookSkillSlot>().SetSkill(availableSkills[index]);
         }
 
         private void ComputePanelSize(RectTransform slotRect)

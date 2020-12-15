@@ -20,6 +20,7 @@ namespace BialskyShooter.ClassSystem
         [SyncVar] Stat strength = null;
         [SyncVar] int level = 1;
 
+
         public Stat Health { get { return health; } }
         public Stat Power { get { return power; } }
         public Stat Stamina { get { return stamina; } }

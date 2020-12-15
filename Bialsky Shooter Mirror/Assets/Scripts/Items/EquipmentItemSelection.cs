@@ -44,7 +44,6 @@ namespace BialskyShooter.ItemSystem
             controls = new Controls();
             controls.Player.Inventory.performed += EquipmentPerformed;
             controls.Enable();
-            print("InitInputSystem: " + controls);
         }
 
         private void EquipmentPerformed(InputAction.CallbackContext ctx)
