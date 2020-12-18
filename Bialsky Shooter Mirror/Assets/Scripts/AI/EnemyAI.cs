@@ -4,6 +4,7 @@ using BialskyShooter.Movement;
 using BialskyShooter.SkillSystem;
 using Mirror;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.AI
 {
@@ -12,20 +13,12 @@ namespace BialskyShooter.AI
     [RequireComponent(typeof(SkillUser))]
     public class EnemyAI : NetworkBehaviour
     {
-        EnemySight enemySight;
-        AIMovement aiMovement;
-        SkillUser skillUser;
+        [Inject] EnemySight enemySight;
+        [Inject] AIMovement aiMovement;
+        [Inject] SkillUser skillUser;
         GameObject player;
 
         #region Server
-
-        [ServerCallback]
-        private void Start()
-        {
-            aiMovement = GetComponent<AIMovement>();
-            enemySight = GetComponent<EnemySight>();
-            skillUser = GetComponent<SkillUser>();
-        }
 
         [ServerCallback]
         void Update()

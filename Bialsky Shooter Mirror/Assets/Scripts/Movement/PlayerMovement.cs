@@ -3,18 +3,14 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.Movement
 {
     [RequireComponent(typeof(Movement))]
     public class PlayerMovement : NetworkBehaviour
     {
-        Movement movement;
-
-        private void Start()
-        {
-            movement = GetComponent<Movement>();
-        }
+        [Inject] Movement movement;
 
         #region Server
 

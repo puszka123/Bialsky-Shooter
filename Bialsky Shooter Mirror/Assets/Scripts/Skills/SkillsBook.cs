@@ -5,19 +5,20 @@ using UnityEngine;
 using System.Linq;
 using Mirror;
 using BialskyShooter.ClassSystem;
+using Zenject;
 
 namespace BialskyShooter.SkillSystem
 {
     [RequireComponent(typeof(CreatureStats))]
-    [RequireComponent(typeof(Experience))]
     public class SkillsBook : NetworkBehaviour
     {
+        [Inject] CreatureStats creatureStats;
+
         [SerializeField] SkillsProgression skillsProgression = default;
         List<Skill> availableSkills;
         Dictionary<Guid, Skill> availableSkillsDict;
         Dictionary<string, Skill> skillBindings;
         Dictionary<Guid, bool> skillsAvailability;
-        CreatureStats creatureStats;
 
         #region Server
 

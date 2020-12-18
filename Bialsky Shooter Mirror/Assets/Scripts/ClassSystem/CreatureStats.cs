@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.ClassSystem
 {
@@ -30,13 +31,12 @@ namespace BialskyShooter.ClassSystem
 
         public int Level { get { return level; } }
 
-        Experience experience;
+        [Inject] Experience experience;
 
         #region Server
 
         public override void OnStartServer()
         {
-            experience = GetComponent<Experience>();
             experience.serverOnExperienceGained += OnExperienceGained;
             InitStats();
             UpdateStats();

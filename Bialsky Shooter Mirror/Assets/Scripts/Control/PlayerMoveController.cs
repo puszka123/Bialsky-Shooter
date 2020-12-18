@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace BialskyShooter.Control
 {
@@ -12,12 +13,7 @@ namespace BialskyShooter.Control
     public class PlayerMoveController : NetworkBehaviour
     {
         Vector2 previousInput;
-        PlayerMovement movement;
-
-        private void Start()
-        {
-            movement = GetComponent<PlayerMovement>();
-        }
+        [Inject] PlayerMovement movement;
 
         #region Client
 

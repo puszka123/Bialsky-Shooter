@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.EquipmentSystem
 {
@@ -12,8 +13,9 @@ namespace BialskyShooter.EquipmentSystem
     [RequireComponent(typeof(Equipment))]
     public class EquippingController : NetworkBehaviour
     {
-        Inventory inventory;
-        Equipment equipment;
+        [Inject] Inventory inventory;
+        [Inject] Equipment equipment;
+
         EquipmentDisplay equipmentDisplay;
 
         private void Start()
@@ -22,12 +24,6 @@ namespace BialskyShooter.EquipmentSystem
         }
 
         #region Server
-
-        public override void OnStartServer()
-        {
-            inventory = GetComponent<Inventory>();
-            equipment = GetComponent<Equipment>();
-        }
 
         [Command]
         void CmdEquipItem(Guid itemId)

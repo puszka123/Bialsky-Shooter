@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.SkillSystem
 {
@@ -13,17 +14,11 @@ namespace BialskyShooter.SkillSystem
     [RequireComponent(typeof(WeaponUser))]
     public class SkillUser : NetworkBehaviour, ISkillUser
     {
-        SkillsBook skillsBook;
-        Equipment equipment;
-        WeaponUser weaponUser;
-        #region Server
+        [Inject] SkillsBook skillsBook;
+        [Inject] Equipment equipment;
+        [Inject] WeaponUser weaponUser;
 
-        public override void OnStartServer()
-        {
-            equipment = GetComponent<Equipment>();
-            skillsBook = GetComponent<SkillsBook>();
-            weaponUser = GetComponent<WeaponUser>();
-        }
+        #region Server
 
         [Server]
         public void UseRandomSkill()

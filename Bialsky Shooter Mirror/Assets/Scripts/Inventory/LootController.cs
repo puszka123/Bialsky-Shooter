@@ -4,15 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace BialskyShooter.InventoryModule
 {
     [RequireComponent(typeof(Inventory))]
     public class LootController : NetworkBehaviour
     {
+        [Inject] Inventory inventory;
+
         [SerializeField] GameObject lootDisplayPrefab = default;
         [SerializeField] LayerMask layerMask = new LayerMask();
-        Inventory inventory;
         Inventory loot;
         GameObject lootDisplayInstance;
 

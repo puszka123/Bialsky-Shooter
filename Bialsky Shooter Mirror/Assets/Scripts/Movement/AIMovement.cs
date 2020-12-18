@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BialskyShooter.AI;
 using Mirror;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.Movement
 {
@@ -10,21 +11,13 @@ namespace BialskyShooter.Movement
     [RequireComponent(typeof(CollisionDetection))]
     public class AIMovement : NetworkBehaviour
     {
-        [SerializeField] float ApproximateDistance = 5f;
-        MovementSystem movementSystem;
-        Movement movement;
-        CollisionDetection collisionDetection;
-        
+        [Inject] MovementSystem movementSystem;
+        [Inject] Movement movement;
+        [Inject] CollisionDetection collisionDetection;
+
+        [SerializeField] float ApproximateDistance = 5f; 
 
         #region Server
-
-        [ServerCallback]
-        void Start()
-        {
-            movementSystem = new MovementSystem();
-            movement = GetComponent<Movement>();
-            collisionDetection = GetComponent<CollisionDetection>();
-        }
 
         [Server]
         bool ShouldMove(Vector3 destination)

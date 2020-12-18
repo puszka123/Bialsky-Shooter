@@ -3,6 +3,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.Movement
 {
@@ -10,19 +11,13 @@ namespace BialskyShooter.Movement
     [RequireComponent(typeof(Rigidbody))]
     public class Movement : NetworkBehaviour
     {
+        [Inject] CreatureStats creatureStats;
+        [Inject] Rigidbody rb;
+
         [SerializeField] float brakeFactor = 0.1f;
-        [SerializeField] float moveFactor = 0.5f;
-        CreatureStats creatureStats;
-        Rigidbody rb;
+        [SerializeField] float moveFactor = 0.5f;      
 
         #region Server
-
-        [ServerCallback]
-        private void Start()
-        {
-            rb = GetComponent<Rigidbody>();
-            creatureStats = GetComponent<CreatureStats>();
-        }
 
         [Server]
         Vector3 ComputeMoveForce(Vector2 moveVector)

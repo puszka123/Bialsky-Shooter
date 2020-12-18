@@ -5,19 +5,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace BialskyShooter.Control
 {
     [RequireComponent(typeof(SkillUser))]
     public class PlayerSkillController : NetworkBehaviour
     {
-        SkillUser skillUser;
+        [Inject] SkillUser skillUser;
 
         #region Client
 
         public override void OnStartClient()
         {
-            skillUser = GetComponent<SkillUser>();
             if (!hasAuthority) return;
             Controls controls = new Controls();
             controls.Player.UseSkill.performed += ClientOnUseSkillPerformed;

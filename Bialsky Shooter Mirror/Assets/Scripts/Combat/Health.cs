@@ -5,16 +5,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.Combat
 {
     [RequireComponent(typeof(CreatureStats))]
     public class Health : NetworkBehaviour
     {
+        [Inject] CreatureStats creatureStats;
+
         public event Action serverOnCreatureLose;
         public event Action clientOnCreatureLose;
-
-        CreatureStats creatureStats;
         [SyncVar] float currentHealth;
         [SyncVar] float maxHealth;
         [SyncVar] bool isDefeated;
@@ -27,7 +28,6 @@ namespace BialskyShooter.Combat
 
         public override void OnStartServer()
         {
-            creatureStats = GetComponent<CreatureStats>();
             currentHealth = creatureStats.GetStatValue(StatType.Health);
             maxHealth = creatureStats.GetStatValue(StatType.Health);
             creatureStats.serverOnLevelUp += OnLevelUp;

@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace BialskyShooter.SkillSystem
 {
     [RequireComponent(typeof(SkillsDisplay))]
     public class SkillsDragger : MonoBehaviour
     {
-        SkillsDisplay skillsDisplay;
+        [Inject] SkillsDisplay skillsDisplay;
 
         private void Start()
         {
-            skillsDisplay = GetComponent<SkillsDisplay>();
             Draggable.clientOnEndDrag += OnEndDrag;
         }
 
