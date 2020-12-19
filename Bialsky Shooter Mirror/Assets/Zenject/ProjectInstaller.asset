@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce11550a3cfdf942b9ae98629990131, type: 3}
+  m_Name: ProjectInstaller
+  m_EditorClassIdentifier: 
+  networkManagerPrefab: {fileID: 1087170427319808519, guid: 3975d9236318a00489cba75cec0e0a2a,
+    type: 3}
+  humanEnemyPrefab: {fileID: 7744607722170757279, guid: 0eff7170a0d880c459c8a5f4ab7ab070,
+    type: 3}

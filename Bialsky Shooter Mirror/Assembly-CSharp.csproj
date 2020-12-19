@@ -138,6 +138,8 @@
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MyNetworkManager.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\CreatureFactoryBehaviour.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Skills\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillSlot.cs" />
@@ -158,7 +160,8 @@
     <Compile Include="Assets\Scripts\UI\ToggleInventoryDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsBookDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleSkillsUseDisplay.cs" />
-    <Compile Include="Assets\Zenject\DefaultInstaller.cs" />
+    <Compile Include="Assets\Zenject\ComponentInstaller.cs" />
+    <Compile Include="Assets\Zenject\ProjectInstaller.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

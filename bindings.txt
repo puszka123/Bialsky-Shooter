@@ -1,0 +1,15 @@
+        Container.Bind<CreatureStats>().FromComponentsSibling();
+        Container.Bind<SkillsDisplay>().FromComponentsSibling();
+        Container.Bind<EnemySight>().FromComponentsSibling();
+        Container.Bind<AIMovement>().FromComponentsSibling();
+        Container.Bind<SkillUser>().FromComponentsSibling();
+        Container.Bind<Experience>().FromComponentsSibling();
+        Container.Bind<PlayerMovement>().FromComponentsSibling();
+        Container.Bind<Inventory>().FromComponentsSibling();
+        Container.Bind<Equipment>().FromComponentsSibling();
+        Container.Bind<Movement>().FromComponentsSibling();
+        Container.Bind<CollisionDetection>().FromComponentsSibling();
+        Container.Bind<Rigidbody>().FromComponentsSibling();
+        Container.Bind<WeaponUser>().FromComponentsSibling();
+        Container.Bind<SkillsBook>().FromComponentsSibling();
+        Container.Bind<Health>().FromComponentsSibling();
