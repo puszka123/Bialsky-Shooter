@@ -64,8 +64,6 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 7744607722170757279, guid: 0eff7170a0d880c459c8a5f4ab7ab070, type: 3}
-  humanEnemyPrefab: {fileID: 7744607722170757279, guid: 0eff7170a0d880c459c8a5f4ab7ab070,
-    type: 3}
 --- !u!114 &7558256964619850026
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ namespace BialskyShooter.ResourcesModule
         CreatureFactoryBehaviour.CreatureFactory creatureFactory;
         MyNetworkManager networkManager;
 
+        [ServerCallback]
         private void Start()
         {
             SpawnEnemies();

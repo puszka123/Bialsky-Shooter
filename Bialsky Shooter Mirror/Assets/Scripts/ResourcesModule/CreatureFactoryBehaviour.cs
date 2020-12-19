@@ -12,6 +12,7 @@ namespace BialskyShooter.ResourcesModule
         {
             transform.position = position;
             transform.rotation = rotation;
+            print(gameObject.name + " " + position);
         }
 
         public class CreatureFactory : PlaceholderFactory<Vector3, Quaternion, CreatureFactoryBehaviour>
