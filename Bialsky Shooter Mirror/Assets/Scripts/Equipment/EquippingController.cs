@@ -35,9 +35,9 @@ namespace BialskyShooter.EquipmentSystem
         void EquipItem(Guid itemId)
         {
             var item = inventory.ThrowAwayItem(itemId);
-            if (item != null)
+            if (item != null && item is IEquipmentItem)
             {
-                var itemInformation = equipment.Equip(item);
+                var itemInformation = equipment.Equip((IEquipmentItem)item);
                 RpcEquipItem(itemInformation);
             }
         }

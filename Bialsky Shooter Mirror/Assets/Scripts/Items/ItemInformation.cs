@@ -33,13 +33,13 @@ namespace BialskyShooter.ItemSystem
             this.stats = new List<ItemStat>(stats);
         }
 
-        public ItemInformation(Item item, ItemSlotType slotType)
+        public ItemInformation(IItem item, ItemSlotType slotType)
         {
-            itemId = item.Id.ToString();
-            this.iconPath = item.ItemSO.IconPath;
-            this.itemName = item.ItemSO.UniqueName;
+            itemId = item.GetId().ToString();
+            this.iconPath = item.GetItem().IconPath;
+            this.itemName = item.GetItem().UniqueName;
             this.slotType = slotType;
-            this.stats = new List<ItemStat>(item.ItemSO.Stats.StatsList);
+            this.stats = new List<ItemStat>(item.GetItem().Stats.StatsList);
         }
     }
 }

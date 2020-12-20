@@ -47,18 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  weapon:
-    itemSO: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
-  shield:
-    itemSO: {fileID: 0}
-  chest:
-    itemSO: {fileID: 0}
-  helmet:
-    itemSO: {fileID: 0}
-  legs:
-    itemSO: {fileID: 0}
-  boots:
-    itemSO: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
 --- !u!114 &-2521735252590908131
 MonoBehaviour:
   m_ObjectHideFlags: 0

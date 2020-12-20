@@ -18,7 +18,7 @@ namespace BialskyShooter.Combat
         }
 
         [Server]
-        public void UseWeapon(WeaponSO weapon)
+        public void UseWeapon(IWeapon weapon)
         {
             weaponController.StartControl(weapon);
         }

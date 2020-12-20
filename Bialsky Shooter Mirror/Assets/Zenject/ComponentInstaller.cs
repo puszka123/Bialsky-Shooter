@@ -14,13 +14,8 @@ namespace BialskyShooter.Zenject
 {
     public class ComponentInstaller : MonoInstaller
     {
-        [Inject] Vector3 position;
-        [Inject] Quaternion rotation;
-
         public override void InstallBindings()
         {
-            Container.BindInstance(position).WhenInjectedInto<CreatureFactoryBehaviour>();
-            Container.BindInstance(rotation).WhenInjectedInto<CreatureFactoryBehaviour>();
             Container.Bind(convention => convention
                                     .AllClasses()
                                     .InNamespace("BialskyShooter")

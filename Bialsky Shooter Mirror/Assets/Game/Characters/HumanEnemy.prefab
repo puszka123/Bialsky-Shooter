@@ -14,18 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  weapon:
-    itemSO: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
-  shield:
-    itemSO: {fileID: 0}
-  chest:
-    itemSO: {fileID: 0}
-  helmet:
-    itemSO: {fileID: 0}
-  legs:
-    itemSO: {fileID: 0}
-  boots:
-    itemSO: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
 --- !u!114 &-7697872267077002639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +59,18 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   ApproximateDistance: 1
+--- !u!114 &2960685193064544021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744607722170757279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452db9a43b8903e4e97802beaa0a7f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4697018384776210106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,13 +125,23 @@ PrefabInstance:
         type: 3}
       propertyPath: testItemProperties
       value: 
-      objectReference: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: -2142402995849587584, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: testItemProperties2
       value: 
-      objectReference: {fileID: 11400000, guid: 359e59305fe35d84d8adcf35602284a2,
+      objectReference: {fileID: 0}
+    - target: {fileID: -2142402995849587584, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: item1
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189,
+        type: 2}
+    - target: {fileID: -2142402995849587584, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: item2
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189,
         type: 2}
     - target: {fileID: 606097307811722435, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
@@ -227,6 +238,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 814729623038844411, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 814729623038844411, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: _monoInstallers.Array.data[1]
+      value: 
+      objectReference: {fileID: 2960685193064544021}
     - target: {fileID: 971237985703913530, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: m_Name

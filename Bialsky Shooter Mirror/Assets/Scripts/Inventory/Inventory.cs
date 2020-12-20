@@ -24,25 +24,26 @@ namespace BialskyShooter.InventoryModule
                 }
             }
             //debug only
-            if (NetworkServer.active && testItemProperties != null)
+            if (NetworkServer.active && item1 != null)
             {
                 yield return new WaitForSeconds(1f);
-                var testItem = new Item(testItemProperties);
-                var testItem2 = new Item(testItemProperties2);
-                PickupItem(testItem);
-                PickupItem(testItem2);
+                item1 = Instantiate(item1);
+                item2 = Instantiate(item2);
+                PickupItem(item1);
+                PickupItem(item2);
             }
         }
 
         #region Server
 
-        [SerializeField] ItemSO testItemProperties = default;
-        [SerializeField] ItemSO testItemProperties2 = default;
-        Dictionary<Guid, Item> itemsDict;
+        [SerializeField] Item item1 = default;
+        [SerializeField] Item item2 = default;
+        [SerializeField] IItem testItemProperties3 = default;
+        Dictionary<Guid, IItem> itemsDict;
 
         public override void OnStartServer()
         {
-            itemsDict = new Dictionary<Guid, Item>();
+            itemsDict = new Dictionary<Guid, IItem>();
         }
 
 
@@ -64,10 +65,10 @@ namespace BialskyShooter.InventoryModule
         }
 
         [Server]
-        public Item ThrowAwayItem(Guid itemId)
+        public IItem ThrowAwayItem(Guid itemId)
         {
             if (!itemsDict.ContainsKey(itemId)) return null;
-            var item = new Item(itemsDict[itemId]);
+            var item = itemsDict[itemId];
             itemsDict.Remove(itemId);
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
             syncItemInformations.Remove(itemToRemove);
@@ -75,13 +76,13 @@ namespace BialskyShooter.InventoryModule
         }
 
         [Server]
-        public void PickupItem(Item item)
+        public void PickupItem(IItem item)
         {
-            itemsDict[item.Id] = item;
-            var itemInformation = new ItemInformation(item.Id.ToString(),
-                item.ItemSO.IconPath,
-                item.ItemSO.UniqueName,
-                item.ItemSO.Stats.StatsList);
+            itemsDict[item.GetId()] = item;
+            var itemInformation = new ItemInformation(item.GetId().ToString(),
+                item.GetItem().IconPath,
+                item.GetItem().UniqueName,
+                item.GetItem().Stats.StatsList);
             syncItemInformations.Add(itemInformation);
             RpcPickupItem(itemInformation);
         }

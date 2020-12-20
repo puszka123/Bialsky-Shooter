@@ -5,19 +5,33 @@ using UnityEngine;
 
 namespace BialskyShooter.ItemSystem
 {
-    [System.Serializable]
-    public class Item : GenericItem<ItemSO>
+    public abstract class Item : ScriptableObject, IItem
     {
-        public Item(ItemSO itemSO) : base(itemSO)
+        [SerializeField] protected Guid id = default;
+        [SerializeField] protected GameObject prefab = default;
+        [SerializeField] protected string uniqueName = default;
+        [SerializeField] protected string iconPath = default;
+        [SerializeField] protected ItemStats stats;
+
+        public Guid Id { get { return id; } }
+        public string UniqueName { get { return uniqueName; } }
+        public GameObject Prefab { get { return prefab; } }
+        public string IconPath { get { return iconPath; } }
+        public ItemStats Stats { get { return stats; } }
+
+        private void OnEnable()
         {
+            id = Guid.NewGuid();
         }
 
-        public Item(GenericItem<ItemSO> item) : base(item)
+        public Guid GetId()
         {
+            return Id;
         }
 
-        public Item(Guid id, ItemSO itemSO) : base(id, itemSO)
+        public Item GetItem()
         {
+            return this;
         }
     }
 }

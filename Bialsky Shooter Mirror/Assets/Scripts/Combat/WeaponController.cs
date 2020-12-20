@@ -10,7 +10,7 @@ namespace BialskyShooter.Combat
     {
         #region Server
 
-        public abstract void StartControl(WeaponSO weapon);
+        public abstract void StartControl(IWeapon weapon);
 
         #endregion
     }
