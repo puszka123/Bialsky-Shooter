@@ -45,6 +45,7 @@ namespace BialskyShooter.ItemSystem
             clientOnItemSelected?.Invoke(itemId);
         }
 
+
         private void OnEndDrag(Draggable draggable)
         {
             if (!draggable.TryGetComponent(out IItemSelection itemSelection)) return;

@@ -37,7 +37,9 @@ namespace BialskyShooter.EquipmentSystem
             var item = inventory.ThrowAwayItem(itemId);
             if (item != null && item is IEquipmentItem)
             {
-                var itemInformation = equipment.Equip((IEquipmentItem)item);
+                var equipmentItem = (IEquipmentItem)item;
+                UnequipItem(equipmentItem.GetItemSlotType());
+                var itemInformation = equipment.Equip(equipmentItem);
                 RpcEquipItem(itemInformation);
             }
         }
@@ -52,7 +54,14 @@ namespace BialskyShooter.EquipmentSystem
         void UnequipItem(Guid itemId)
         {
             var item = equipment.Unequip(itemId);
-            inventory.PickupItem(item);
+            if (item != null) inventory.PickupItem(item);
+        }
+
+        [Server]
+        void UnequipItem(ItemSlotType itemSlotType)
+        {
+            var item = equipment.Unequip(itemSlotType);
+            if(item != null) inventory.PickupItem(item);
         }
 
         #endregion

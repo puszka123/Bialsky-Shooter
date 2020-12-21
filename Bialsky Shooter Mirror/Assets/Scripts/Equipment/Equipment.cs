@@ -47,6 +47,7 @@ namespace BialskyShooter.EquipmentSystem
 
         #region Server
 
+        [Server]
         public ItemInformation Equip(IEquipmentItem item)
         {
             equipmentItems[item.GetItemSlotType()] = item;
@@ -60,16 +61,38 @@ namespace BialskyShooter.EquipmentSystem
             return itemInformation;
         }
 
+        [Server]
         public IItem Unequip(Guid itemId)
+        {
+            foreach (var equipmentItem in equipmentItems.Values)
+            {
+                if (equipmentItem?.GetId() == itemId)
+                {
+                    RemoveFromSyncItems(itemId);
+                    equipmentItems[equipmentItem.GetItemSlotType()] = null;
+                    return equipmentItem;
+                }
+            }
+            return null;
+        }
+
+        [Server]
+        public IItem Unequip(ItemSlotType itemSlotType)
+        {
+            var item = equipmentItems[itemSlotType];
+            if (item != null)
+            {
+                RemoveFromSyncItems(item.GetId());
+                equipmentItems[itemSlotType] = null;
+            }
+            return item;
+        }
+
+        [Server]
+        void RemoveFromSyncItems(Guid itemId)
         {
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
             syncItemInformations.Remove(itemToRemove);
-            foreach (var equipmentItem in equipmentItems.Values)
-            {
-                if (equipmentItem?.GetId() == itemId) return equipmentItem;
-            }
-
-            throw new Exception($"Invalid itemId ({itemId}) in public Item Unequip(Guid itemId) method.");
         }
 
         #endregion

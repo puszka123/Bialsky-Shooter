@@ -54,6 +54,7 @@ namespace BialskyShooter.InventoryModule
             rowsCount = count / 2;
             columnsCount = count / 2;
             rowsCount += count % 2;
+            columnsCount += count % 2;
             if (columnsCount == 0) columnsCount = 1;
             if (rowsCount == 0) rowsCount = 1;
             if(count == 2)
@@ -92,6 +93,7 @@ namespace BialskyShooter.InventoryModule
                 float anchoredY = slotRect.anchoredPosition.y * row - slotRect.rect.height * (row - 1);
                 for (int column = 1; column <= columnsCount; column++)
                 {
+                    if (index >= itemDisplays.Count) return;
                     float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slots.Add(slotInstance);

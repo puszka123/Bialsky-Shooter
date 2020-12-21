@@ -29,8 +29,10 @@ namespace BialskyShooter.InventoryModule
                 yield return new WaitForSeconds(1f);
                 item1 = Instantiate(item1);
                 item2 = Instantiate(item2);
+                item3 = Instantiate(item3);
                 PickupItem(item1);
                 PickupItem(item2);
+                PickupItem(item3);
             }
         }
 
@@ -38,6 +40,7 @@ namespace BialskyShooter.InventoryModule
 
         [SerializeField] Item item1 = default;
         [SerializeField] Item item2 = default;
+        [SerializeField] Item item3 = default;
         [SerializeField] IItem testItemProperties3 = default;
         Dictionary<Guid, IItem> itemsDict;
 

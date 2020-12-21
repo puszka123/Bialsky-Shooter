@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 342}
   m_MaxSize: {x: 12004, y: 8042}
   vertical: 1
-  controlID: 41
+  controlID: 40
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 342}
   m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 42
+  controlID: 41
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 342}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 91
+  controlID: 84
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 92
+  controlID: 85
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -424,7 +424,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5aadfeff7aadfeffaeb3feffb2b3feff0cc1feffb8c1feffd8c1feff08c8feff0cc8feffb2d5feffd2d5feff06dcfeff0adcfeffbaf6feffdaf6feff0efdfeff12fdfeffb617ffffd617ffff0a1effff0e1effff082cffff282cffff5c32ffff6032ffff4c3fffffa458ffff3666ffff5666ffff906cffff9e6cffff6e7effff0e7fffff2a7fffff3c82ffff4082ffff2883ffff4883ffff7889ffff7c89ffffb496ffff5897ffff7897ffffac9dffffb09dffff48c4ffff58fbfffff4ffffff
+      m_ExpandedIDs: 58fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -695,11 +695,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game/Core
+    - Assets/Game/Characters
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Game/Core
+  - Assets/Game/Characters
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\unity-projects\bialsky-shooter-mirror\Bialsky Shooter Mirror
   m_LockTracker:
@@ -708,7 +708,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 6}
     m_SelectedIDs: 40410000
     m_LastClickedID: 16704
-    m_ExpandedIDs: 0000000010410000124100001441000016410000184100001a4100001c4100001e41000020410000224100002441000026410000284100002a4100002c4100002e410000304100003241000034410000364100007041000000ca9a3b
+    m_ExpandedIDs: 0000000010410000124100001441000016410000184100001a4100001c4100001e41000020410000224100002441000026410000284100002a4100002c4100002e41000030410000324100003441000036410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
