@@ -15,7 +15,6 @@ namespace BialskyShooter.ResourcesModule
         [ServerCallback]
         private IEnumerator Start()
         {
-            if (NetworkServer.active) NetworkServer.Spawn(gameObject);
             yield return new WaitForSeconds(1f);
             SpawnEnemies();
         }
@@ -23,6 +22,7 @@ namespace BialskyShooter.ResourcesModule
         [Inject]
         public void Construct(CreatureFactoryBehaviour.CreatureFactory creatureFactory, MyNetworkManager networkManager)
         {
+            if (NetworkServer.active) NetworkServer.Spawn(gameObject);
             this.creatureFactory = creatureFactory;
             this.networkManager = networkManager;
         }

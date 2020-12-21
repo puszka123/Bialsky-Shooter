@@ -32,8 +32,8 @@ namespace BialskyShooter.CharacterModule
                 Close();
                 return;
             }
-            if (!hit.transform.TryGetComponent<Health>(out Health enemyHealth)
-                || !hit.transform.TryGetComponent<CreatureStats>(out CreatureStats creatureStats))
+            if (!hit.transform.TryGetComponent(out Health enemyHealth)
+                || !hit.transform.TryGetComponent(out CreatureStats creatureStats))
             {
                 Close();
                 return;

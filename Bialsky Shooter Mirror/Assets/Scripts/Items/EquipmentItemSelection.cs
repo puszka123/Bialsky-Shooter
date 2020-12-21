@@ -85,7 +85,7 @@ namespace BialskyShooter.ItemSystem
         private void OnEndDrag(Draggable draggable)
         {
             if (readOnlyMode) return;
-            if (!draggable.TryGetComponent<IItemSelection>(out IItemSelection itemSelection)) return;
+            if (!draggable.TryGetComponent(out IItemSelection itemSelection)) return;
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
             if (itemSelection.GetItemId() == Guid.Empty) return;
             clientOnItemDraggedIn?.Invoke(itemSelection.GetItemId());

@@ -19,8 +19,7 @@ namespace BialskyShooter.Zenject
             Container.Bind(convention => convention
                                     .AllClasses()
                                     .InNamespace("BialskyShooter")
-                                    .DerivingFrom<MonoBehaviour>()
-                                    .Where(e => !e.IsAssignableFrom(typeof(WeaponController))))
+                                    .DerivingFrom<MonoBehaviour>())
                 .FromComponentOn(gameObject).AsSingle();
             Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<MovementSystem>().AsSingle();

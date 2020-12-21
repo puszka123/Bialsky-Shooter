@@ -451,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3.51, z: 0}
+  m_LocalPosition: {x: -2.56, y: 7.81, z: 4.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -696,7 +696,7 @@ PrefabInstance:
     - target: {fileID: 1771401223937585683, guid: e824f8d8297135a48a29f5ea85f6e5a7,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.0589519
+      value: 2.242358
       objectReference: {fileID: 0}
     - target: {fileID: 3613813104731233933, guid: e824f8d8297135a48a29f5ea85f6e5a7,
         type: 3}

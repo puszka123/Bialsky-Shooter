@@ -34,9 +34,9 @@ namespace BialskyShooter.CharacterModule
         {
             var selectedGameObject = GetSelectedGameObject();
             if (selectedGameObject == null) return;
-            if (!selectedGameObject.TryGetComponent<Equipment>(out Equipment equipment)) return;
-            if (!selectedGameObject.TryGetComponent<CreatureStats>(out CreatureStats stats)) return;
-            if (selectedGameObject.TryGetComponent<LootTarget>(out LootTarget lootTarget)) return;
+            if (!selectedGameObject.TryGetComponent(out Equipment equipment)) return;
+            if (!selectedGameObject.TryGetComponent(out CreatureStats stats)) return;
+            if (selectedGameObject.TryGetComponent(out LootTarget lootTarget)) return;
             equipmentDisplayInstance = Instantiate(equipmentDisplayPrefab);
             DisplayEquipment(equipment);
             DisplayCreatureStats(stats);

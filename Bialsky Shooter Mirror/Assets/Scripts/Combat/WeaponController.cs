@@ -6,12 +6,8 @@ using UnityEngine;
 
 namespace BialskyShooter.Combat
 {
-    public abstract class WeaponController : NetworkBehaviour
+    public interface WeaponController
     {
-        #region Server
-
-        public abstract void StartControl(IWeapon weapon);
-
-        #endregion
+        void StartControl(IWeapon weapon);
     }
 }

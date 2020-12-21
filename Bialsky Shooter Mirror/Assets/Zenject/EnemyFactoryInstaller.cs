@@ -17,9 +17,12 @@ namespace BialskyShooter.Zenject
             Container.Bind<Vector3>().AsSingle();
             Container.Bind<Quaternion>().AsSingle();
             Container.Bind<float>().AsSingle();
-            Container.BindFactory<Vector3, Quaternion, CreatureFactoryBehaviour, CreatureFactoryBehaviour.CreatureFactory>()
-                .FromSubContainerResolve().ByNewContextPrefab<CreatureSpawnInstaller>(humanEnemyPrefab);
-            Container.Bind<EnemySpawner>().FromComponentInNewPrefab(enemySpawnerPrefab).AsSingle().NonLazy();
+            if (NetworkServer.active)
+            {
+                Container.BindFactory<Vector3, Quaternion, CreatureFactoryBehaviour, CreatureFactoryBehaviour.CreatureFactory>()
+                    .FromSubContainerResolve().ByNewContextPrefab<CreatureSpawnInstaller>(humanEnemyPrefab);
+                Container.Bind<EnemySpawner>().FromComponentInNewPrefab(enemySpawnerPrefab).AsSingle().NonLazy();
+            }
         }
     }
 }
