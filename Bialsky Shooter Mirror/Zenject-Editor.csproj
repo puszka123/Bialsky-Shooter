@@ -74,10 +74,15 @@
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\ObjectGraphVisualizer.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\SceneParentLoading\DefaultSceneContractConfig.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\SceneParentLoading\SceneParentAutomaticLoader.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Editor\TestAutoMocking.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\UnityInspectorListEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenMenuItems.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenUnityEditorUtil.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenjectMoqExtensions.cs" />
     <None Include="Assets\Plugins\Zenject\Source\Editor\Zenject-Editor.asmdef" />
+    <None Include="Assets\Plugins\Zenject\Source\Editor\Moq\License.txt" />
+    <None Include="Assets\Plugins\Zenject\Source\Editor\ReadMe.txt" />
+    <None Include="Assets\Plugins\Zenject\Source\Editor\Moq\Source.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -299,6 +304,12 @@
     </Reference>
     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
       <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/Source/Editor/Moq/Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/Source/Editor/Moq/Moq.dll</HintPath>
     </Reference>
     <Reference Include="Zenject-usage">
       <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>

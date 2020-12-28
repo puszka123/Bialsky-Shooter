@@ -8,10 +8,13 @@ using UnityEngine;
 
 namespace BialskyShooter.InventoryModule
 {
+
     public class Inventory : NetworkBehaviour
     {
         InventoryDisplay inventoryDisplay;
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
+
+        public IList<ItemInformation> SyncItemInformations { get { return syncItemInformations; } }
 
         private IEnumerator Start()
         {

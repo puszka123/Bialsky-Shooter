@@ -302,6 +302,12 @@
     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
       <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/Source/Editor/Moq/Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/Source/Editor/Moq/Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Zenject-usage">
       <HintPath>D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
