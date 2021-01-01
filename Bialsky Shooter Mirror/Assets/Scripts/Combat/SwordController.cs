@@ -22,8 +22,7 @@ namespace BialskyShooter.Combat
                 || !inProgress
                 || !other.TryGetComponent(out CombatTarget target)
                 || target.Health.IsDefeated) return;
-            target.Health.TakeDamage(parent.GetComponent<NetworkIdentity>(), 
-                weapon.GetItem().Stats.GetStat(ItemStatType.Damage).value);
+            target.Health.TakeDamage(parent.GetComponent<NetworkIdentity>(),weapon.GetDamage());
         }
 
         [Server]

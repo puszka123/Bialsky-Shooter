@@ -2,6 +2,6 @@
 {
     public interface IWeapon : IItem, IEquipmentItem
     {
-
+        float GetDamage();
     }
 }

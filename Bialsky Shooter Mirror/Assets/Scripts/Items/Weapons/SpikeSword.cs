@@ -8,6 +8,11 @@ namespace BialskyShooter.ItemSystem
     [CreateAssetMenu(fileName = "Spike Sword", menuName = "ScriptableObjects/Items/Spike Sword")]
     public class SpikeSword : Item, IWeapon
     {
+        public float GetDamage()
+        {
+            return Stats.GetStat(ItemStatType.Damage).value;
+        }
+
         public ItemSlotType GetItemSlotType()
         {
             return ItemSlotType.Weapon;
