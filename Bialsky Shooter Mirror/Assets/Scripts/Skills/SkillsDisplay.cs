@@ -79,12 +79,9 @@ namespace BialskyShooter.SkillSystem
             int index = 0;
             for (int row = 1; row <= rowsCount; row++)
             {
-                float anchoredY = slotRect.anchoredPosition.y * row - slotRect.rect.height * (row - 1);
                 for (int column = 1; column <= columnsCount; column++)
                 {
-                    float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
-                    slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
                     SetBookSkillSlot(slotInstance, index);
                     skillsSlots.Add(slotInstance);
                     ++index;

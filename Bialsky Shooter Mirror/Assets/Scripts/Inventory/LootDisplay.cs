@@ -90,15 +90,12 @@ namespace BialskyShooter.InventoryModule
             var index = 0;
             for (int row = 1; row <= rowsCount; row++)
             {
-                float anchoredY = slotRect.anchoredPosition.y * row - slotRect.rect.height * (row - 1);
                 for (int column = 1; column <= columnsCount; column++)
                 {
                     if (index >= itemDisplays.Count) return;
-                    float anchoredX = slotRect.anchoredPosition.x * column + slotRect.rect.width * (column - 1);
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slots.Add(slotInstance);
                     slotInstance.AddComponent<LootItemSelection>();
-                    slotInstance.GetComponent<RectTransform>().anchoredPosition = new Vector2(anchoredX, anchoredY);
                     DisplayItem(slotInstance, itemDisplays[index].Icon);
                     SetLootItemSelection(slotInstance, itemDisplays[index].ItemId);
                     SetItemInformationToggle(slotInstance, itemDisplays[index]);
