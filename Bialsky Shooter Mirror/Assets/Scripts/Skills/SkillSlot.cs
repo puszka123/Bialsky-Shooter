@@ -63,5 +63,10 @@ namespace BialskyShooter.SkillSystem
         {
             return icon;
         }
+
+        public void InjectSkill(ISkillSlot skillSlot)
+        {
+            InjectSkill(skillSlot.GetSkillId(), skillSlot.GetSkillIcon());
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace BialskyShooter.Zenject
     [CreateAssetMenu(fileName = "ProjectInstaller", menuName = "Installers/ProjectInstaller")]
     public class ProjectInstaller : ScriptableObjectInstaller<ProjectInstaller>
     {
-        [SerializeField] GameObject networkManagerPrefab;
+        [SerializeField] GameObject networkManagerPrefab = null;
         
         public override void InstallBindings()
         {

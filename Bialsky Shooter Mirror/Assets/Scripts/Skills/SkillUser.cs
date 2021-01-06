@@ -14,9 +14,9 @@ namespace BialskyShooter.SkillSystem
     [RequireComponent(typeof(WeaponUser))]
     public class SkillUser : NetworkBehaviour, ISkillUser
     {
-        [Inject] SkillsBook skillsBook;
-        [Inject] Equipment equipment;
-        [Inject] WeaponUser weaponUser;
+        [Inject] SkillsBook skillsBook = null;
+        [Inject] Equipment equipment = null;
+        [Inject] WeaponUser weaponUser = null;
 
         #region Server
 

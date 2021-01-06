@@ -31,7 +31,7 @@ namespace BialskyShooter.ClassSystem
 
         public int Level { get { return level; } }
 
-        [Inject] Experience experience;
+        [Inject] Experience experience = null;
 
         #region Server
 

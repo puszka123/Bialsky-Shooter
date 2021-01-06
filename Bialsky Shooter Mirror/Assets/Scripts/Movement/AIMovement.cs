@@ -11,9 +11,9 @@ namespace BialskyShooter.Movement
     [RequireComponent(typeof(CollisionDetection))]
     public class AIMovement : NetworkBehaviour
     {
-        [Inject] MovementSystem movementSystem;
-        [Inject] Movement movement;
-        [Inject] CollisionDetection collisionDetection;
+        [Inject] MovementSystem movementSystem = null;
+        [Inject] Movement movement = null;
+        [Inject] CollisionDetection collisionDetection = null;
 
         [SerializeField] float ApproximateDistance = 5f; 
 

@@ -23,6 +23,8 @@ namespace BialskyShooter.SkillSystem
             return Skill.Id;
         }
 
+        public void InjectSkill(ISkillSlot skillSlot) { }
+
         public void RemoveSkill() { }
 
         public void SetSkill(Skill skill)

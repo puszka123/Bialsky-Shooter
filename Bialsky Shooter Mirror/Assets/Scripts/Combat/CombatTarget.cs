@@ -9,7 +9,7 @@ namespace BialskyShooter.Combat
     [RequireComponent(typeof(Health))]
     public class CombatTarget : NetworkBehaviour
     {
-        [Inject] Health health;
+        [Inject] Health health = null;
 
         public Health Health { get { return health; } }
     }

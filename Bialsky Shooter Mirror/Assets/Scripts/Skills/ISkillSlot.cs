@@ -10,5 +10,6 @@ namespace BialskyShooter.SkillSystem
         Guid GetSkillId();
         Sprite GetSkillIcon();
         void RemoveSkill();
+        void InjectSkill(ISkillSlot skillSlot);
     }
 }

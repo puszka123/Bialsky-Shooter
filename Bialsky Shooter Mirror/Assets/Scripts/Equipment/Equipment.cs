@@ -58,6 +58,7 @@ namespace BialskyShooter.EquipmentSystem
                     item.GetItemSlotType(),
                     item.GetItem().Stats.StatsList);
             syncItemInformations.Add(itemInformation);
+            RpcEquipmentChanged();
             return itemInformation;
         }
 
@@ -93,6 +94,19 @@ namespace BialskyShooter.EquipmentSystem
         {
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
             syncItemInformations.Remove(itemToRemove);
+            RpcEquipmentChanged();
+        }
+
+        #endregion
+
+        #region Client
+
+        public event Action clientOnEquipmentChanged;
+
+        [ClientRpc]
+        public void RpcEquipmentChanged()
+        {
+            clientOnEquipmentChanged?.Invoke();
         }
 
         #endregion

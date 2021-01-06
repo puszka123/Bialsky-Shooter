@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace BialskyShooter.InventoryModule
 {
-    public class InventoryDisplay : MonoBehaviour
+    public class InventoryDisplay : MonoBehaviour, IInventorySlotsContainer
     {
         [SerializeField] RectTransform slotsPanel = null;
         [SerializeField] RectTransform mainPanel = null;
@@ -23,16 +23,16 @@ namespace BialskyShooter.InventoryModule
         private void Start()
         {
             Display();
-            InventoryItemSelection.clientOnItemSelected += OnItemSelected;
-            InventoryItemSelection.clientOnItemCleared += OnItemCleared;
-            InventoryItemSelection.clientOnItemInjected += OnItemInjected;
+            InventoryItemSlot.clientOnItemSelected += OnItemSelected;
+            InventoryItemSlot.clientOnItemCleared += OnItemCleared;
+            InventoryItemSlot.clientOnItemInjected += OnItemInjected;
         }
 
         private void OnDestroy()
         {
-            InventoryItemSelection.clientOnItemSelected -= OnItemSelected;
-            InventoryItemSelection.clientOnItemCleared -= OnItemCleared;
-            InventoryItemSelection.clientOnItemInjected -= OnItemInjected;
+            InventoryItemSlot.clientOnItemSelected -= OnItemSelected;
+            InventoryItemSlot.clientOnItemCleared -= OnItemCleared;
+            InventoryItemSlot.clientOnItemInjected -= OnItemInjected;
         }
 
         private void OnItemSelected(Guid itemId)
@@ -54,7 +54,7 @@ namespace BialskyShooter.InventoryModule
         private GameObject SetSlotAvailability(Guid itemId, bool availability)
         {
             GameObject slot = slotsAvailability.Keys
-                            .FirstOrDefault(s => s.GetComponent<InventoryItemSelection>().itemId == itemId);
+                            .FirstOrDefault(s => s.GetComponent<InventoryItemSlot>().itemId == itemId);
             if (slot == null) return null;
             slotsAvailability[slot] = availability;
             return slot;
@@ -83,7 +83,7 @@ namespace BialskyShooter.InventoryModule
                 for (int column = 1; column <= columnsCount; column++)
                 {
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
-                    slotInstance.AddComponent<InventoryItemSelection>();
+                    slotInstance.AddComponent<InventoryItemSlot>();
                     InitSlots(index, slotInstance);
                     ++index;
                 }
@@ -99,14 +99,14 @@ namespace BialskyShooter.InventoryModule
 
         private void SetInventoryItemSelection(GameObject slotInstance, Guid itemId)
         {
-            var slotItemSelection = slotInstance.GetComponent<InventoryItemSelection>();
+            var slotItemSelection = slotInstance.GetComponent<InventoryItemSlot>();
             slotItemSelection.itemId = itemId;
         }
 
         private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
         {
-            if (slot == null || slot.GetComponent<ItemInformationToggle>() == null) return;
-            slot.GetComponent<ItemInformationToggle>().SetItemDisplay(displayItem);
+            if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
+            slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
         }
 
         private void DisplayItem(GameObject slotInstance, Sprite icon)
@@ -130,7 +130,7 @@ namespace BialskyShooter.InventoryModule
         private bool ItemExists(ItemDisplay displayItem)
         {
             return slots
-                .Select(s => s.GetComponent<InventoryItemSelection>().itemId)
+                .Select(s => s.GetComponent<InventoryItemSlot>().itemId)
                 .Contains(displayItem.ItemId);
         }
 
@@ -142,6 +142,15 @@ namespace BialskyShooter.InventoryModule
             float h = (slotRect.rect.height + Mathf.Abs(slotRect.anchoredPosition.y)) * rowsCount + marginY;
             mainPanel.sizeDelta = new Vector2(w, h);
             mainPanel.anchoredPosition = Vector2.zero;
+        }
+
+        public IItemSlot GetFirstAvailableSlot()
+        {
+            foreach (var pair in slotsAvailability)
+            {
+                if (pair.Value) return pair.Key.GetComponent<IItemSlot>();
+            }
+            return null;
         }
     }
 }

@@ -10,8 +10,8 @@ namespace BialskyShooter.Zenject
     [CreateAssetMenu(fileName = "EnemyFactoryInstaller", menuName = "Installers/EnemyFactoryInstaller")]
     public class EnemyFactoryInstaller : ScriptableObjectInstaller<EnemyFactoryInstaller>
     {
-        [SerializeField] GameObject enemySpawnerPrefab;
-        [SerializeField] GameObject humanEnemyPrefab;
+        [SerializeField] GameObject enemySpawnerPrefab = null;
+        [SerializeField] GameObject humanEnemyPrefab = null;
         public override void InstallBindings()
         {
             Container.Bind<Vector3>().AsSingle();

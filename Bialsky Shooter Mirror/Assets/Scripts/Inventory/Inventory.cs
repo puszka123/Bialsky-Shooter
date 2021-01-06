@@ -44,7 +44,7 @@ namespace BialskyShooter.InventoryModule
         [SerializeField] Item item1 = default;
         [SerializeField] Item item2 = default;
         [SerializeField] Item item3 = default;
-        [SerializeField] IItem testItemProperties3 = default;
+        [SerializeField] IItem testItemProperties3;
         Dictionary<Guid, IItem> itemsDict;
 
         public override void OnStartServer()

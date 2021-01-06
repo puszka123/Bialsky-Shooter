@@ -26,17 +26,17 @@ namespace BialskyShooter.InventoryModule
 
         private void Start()
         {
-            LootItemSelection.clientOnItemSelected += OnLootItemSelected;
+            LootItemSlot.clientOnItemSelected += OnLootItemSelected;
         }
 
         private void OnDestroy()
         {
-            LootItemSelection.clientOnItemSelected -= OnLootItemSelected;
+            LootItemSlot.clientOnItemSelected -= OnLootItemSelected;
         }
 
         private void OnLootItemSelected(Guid itemId)
         {
-            var slot = slots.FirstOrDefault(e => e.GetComponent<LootItemSelection>().itemId == itemId);
+            var slot = slots.FirstOrDefault(e => e.GetComponent<LootItemSlot>().itemId == itemId);
             if (slot != null)
             {
                 SetItemInformationToggle(slot, null);
@@ -95,7 +95,7 @@ namespace BialskyShooter.InventoryModule
                     if (index >= itemDisplays.Count) return;
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slots.Add(slotInstance);
-                    slotInstance.AddComponent<LootItemSelection>();
+                    slotInstance.AddComponent<LootItemSlot>();
                     DisplayItem(slotInstance, itemDisplays[index].Icon);
                     SetLootItemSelection(slotInstance, itemDisplays[index].ItemId);
                     SetItemInformationToggle(slotInstance, itemDisplays[index]);
@@ -106,14 +106,14 @@ namespace BialskyShooter.InventoryModule
 
         private void SetLootItemSelection(GameObject slotInstance, Guid itemId)
         {
-            var slotItemSelection = slotInstance.GetComponent<LootItemSelection>();
+            var slotItemSelection = slotInstance.GetComponent<LootItemSlot>();
             slotItemSelection.itemId = itemId;
         }
 
         private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
         {
-            if (slot == null || slot.GetComponent<ItemInformationToggle>() == null) return;
-            slot.GetComponent<ItemInformationToggle>().SetItemDisplay(displayItem);
+            if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
+            slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
         }
 
         private void DisplayItem(GameObject slotInstance, Sprite icon)

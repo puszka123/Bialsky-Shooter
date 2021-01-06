@@ -12,7 +12,7 @@ namespace BialskyShooter.Control
     [RequireComponent(typeof(SkillUser))]
     public class PlayerSkillController : NetworkBehaviour
     {
-        [Inject] SkillUser skillUser;
+        [Inject] SkillUser skillUser = null;
 
         #region Client
 

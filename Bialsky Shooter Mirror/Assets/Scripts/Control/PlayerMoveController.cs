@@ -13,7 +13,7 @@ namespace BialskyShooter.Control
     public class PlayerMoveController : NetworkBehaviour
     {
         Vector2 previousInput;
-        [Inject] PlayerMovement movement;
+        [Inject] PlayerMovement movement = null;
 
         #region Client
 

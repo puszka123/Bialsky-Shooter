@@ -4,119 +4,78 @@ using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace BialskyShooter.EquipmentSystem
 {
-    public class EquipmentDisplay : MonoBehaviour
+    public class EquipmentDisplay : MonoBehaviour, IEquipmentSlotsContainer
     {
-        [SerializeField] GameObject weaponSlot = default;
-        [SerializeField] GameObject shieldSlot = default;
-        [SerializeField] GameObject chestSlot = default;
-        [SerializeField] GameObject helmetSlot = default;
-        [SerializeField] GameObject legsSlot = default;
-        [SerializeField] GameObject bootsSlot = default;
-        Equipment localPlayerEquipment;
+        [SerializeField] List<EquipmentItemSlot> itemSlots = null;
+        Equipment equipment;
+        EquippingController equippingController;
         bool readOnlyMode;
 
         private void Start()
         {
-            ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed += OnCharacterInfoDisplayed;
+            ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed += OnLocalCharacterInfoDisplayed;
         }
 
         private void OnDestroy()
         {
-            ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed -= OnCharacterInfoDisplayed;
+            ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed -= OnLocalCharacterInfoDisplayed;
+            if (equipment != null) equipment.clientOnEquipmentChanged -= DisplayEquipment;
         }
+
 
         public void ReadOnly()
         {
-            weaponSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
-            shieldSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
-            chestSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
-            helmetSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
-            legsSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
-            bootsSlot.GetComponent<EquipmentItemSelection>().ReadOnly();
+            itemSlots.ForEach(slot => slot.ReadOnly());
         }
 
-        private void OnCharacterInfoDisplayed()
+        public void SetupEquipmentDisplay(Equipment equipment, EquippingController equippingController)
         {
-            if (localPlayerEquipment == null) GetLocalPlayerEquipment();
-            if (localPlayerEquipment.ItemInformations == null) return;
-            ClearSlots();
-            foreach (var item in localPlayerEquipment.ItemInformations)
+            if (this.equipment != null) equipment.clientOnEquipmentChanged -= DisplayEquipment;
+            if (equipment != null) equipment.clientOnEquipmentChanged += DisplayEquipment;
+            this.equipment = equipment;
+            this.equippingController = equippingController;
+            DisplayEquipment();
+        }
+
+        private void OnLocalCharacterInfoDisplayed()
+        {
+            var player = GetLocalPlayer();
+            SetupEquipmentDisplay(player.GetComponent<Equipment>(), player.GetComponent<EquippingController>());
+        }
+
+        private GameObject GetLocalPlayer()
+        {
+            GameObject localPlayer = null;
+            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (player.GetComponent<NetworkIdentity>().hasAuthority)
+                {
+                    localPlayer = player;
+                    break;
+                }
+            }
+            return localPlayer;
+        }
+
+        void DisplayEquipment()
+        {
+            if (equipment == null || equipment.ItemInformations == null) return;
+            foreach (var item in equipment.ItemInformations)
             {
                 DisplayItem(item);
             }
         }
 
-        private void GetLocalPlayerEquipment()
+        void DisplayItem(ItemInformation itemInformation)
         {
-            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                if (player.GetComponent<NetworkIdentity>().hasAuthority)
-                {
-                    localPlayerEquipment = player.GetComponent<Equipment>();
-                    break;
-                }
-            }
-        }
-
-        public void DisplayItem(ItemInformation itemInformation)
-        {
-            switch (itemInformation.slotType)
-            {
-                case ItemSlotType.Weapon:
-                    DisplayWeapon(itemInformation);
-                    break;
-                case ItemSlotType.Shield:
-                    DisplayShield(itemInformation);
-                    break;
-                case ItemSlotType.Helmet:
-                    DisplayHelmet(itemInformation);
-                    break;
-                case ItemSlotType.Chest:
-                    DisplayChest(itemInformation);
-                    break;
-                case ItemSlotType.Legs:
-                    DisplayLegs(itemInformation);
-                    break;
-                case ItemSlotType.Boots:
-                    DisplayBoots(itemInformation);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        void DisplayWeapon(ItemInformation itemInformation)
-        {
-            SetSlot(weaponSlot, itemInformation);
-        }
-        void DisplayShield(ItemInformation itemInformation)
-        {
-            SetSlot(shieldSlot, itemInformation);
-        }
-
-        void DisplayHelmet(ItemInformation itemInformation)
-        {
-            SetSlot(helmetSlot, itemInformation);
-        }
-
-        void DisplayChest(ItemInformation itemInformation)
-        {
-            SetSlot(chestSlot, itemInformation);
-        }
-
-        void DisplayLegs(ItemInformation itemInformation)
-        {
-            SetSlot(legsSlot, itemInformation);
-        }
-
-        void DisplayBoots(ItemInformation itemInformation)
-        {
-            SetSlot(bootsSlot, itemInformation);
+            var foundSlot = itemSlots.FirstOrDefault(slot => slot.ItemSlotType == itemInformation.slotType);
+            if (foundSlot != null) SetSlot(foundSlot.gameObject, itemInformation);
         }
 
         private void SetSlot(GameObject slot, ItemInformation itemInformation)
@@ -125,41 +84,22 @@ namespace BialskyShooter.EquipmentSystem
             image.color = new Color(1, 1, 1, 1);
             var icon = Resources.Load<Sprite>(itemInformation.iconPath);
             image.sprite = icon;
-            slot.GetComponent<EquipmentItemSelection>().itemId = Guid.Parse(itemInformation.itemId);
+            slot.GetComponent<EquipmentItemSlot>().itemId = Guid.Parse(itemInformation.itemId);
             SetItemInformationToggle(slot, new ItemDisplay(itemInformation));
         }
 
         private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
         {
-            if (slot == null || slot.GetComponent<ItemInformationToggle>() == null) return;
-            slot.GetComponent<ItemInformationToggle>().SetItemDisplay(displayItem);
+            if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
+            slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
         }
 
-        public void CloseCharacterInfoDisplay()
+        public void InjectItem(IItemSlot itemSlot)
         {
-            if (!CompareTag("LocalCharacterInfo"))
+            if (equippingController != null)
             {
-                Destroy(gameObject);
+                equippingController.ClientEquipItem(itemSlot.GetItemId());
             }
-            else
-            {
-                transform.GetComponentInChildren<Canvas>().gameObject.SetActive(false);
-            }
-        }
-
-        void ClearSlots()
-        {
-            ClearSlot(weaponSlot);
-            ClearSlot(shieldSlot);
-            ClearSlot(helmetSlot);
-            ClearSlot(chestSlot);
-            ClearSlot(legsSlot);
-            ClearSlot(bootsSlot);
-        }
-
-        void ClearSlot(GameObject slot)
-        {
-            slot.GetComponent<EquipmentItemSelection>().ClearItem();
         }
     }
 }

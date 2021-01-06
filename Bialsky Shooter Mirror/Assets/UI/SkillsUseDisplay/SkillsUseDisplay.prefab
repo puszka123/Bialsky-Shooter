@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4681017701672188353}
   - component: {fileID: 4385623362225382622}
   - component: {fileID: 1651681782210979868}
-  - component: {fileID: 4862388869754520742}
   - component: {fileID: 172373374997877282}
   - component: {fileID: 3934648128464763880}
   m_Layer: 0
@@ -70,18 +69,6 @@ MonoBehaviour:
   rowsCount: 2
   columnsCount: 10
   skillsProgression: {fileID: 0}
---- !u!114 &4862388869754520742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205252872520314606}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31dbe13255eedb548ad4c4804cc75bff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &172373374997877282
 MonoBehaviour:
   m_ObjectHideFlags: 0

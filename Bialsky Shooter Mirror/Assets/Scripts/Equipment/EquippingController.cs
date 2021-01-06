@@ -13,15 +13,8 @@ namespace BialskyShooter.EquipmentSystem
     [RequireComponent(typeof(Equipment))]
     public class EquippingController : NetworkBehaviour
     {
-        [Inject] Inventory inventory;
-        [Inject] Equipment equipment;
-
-        EquipmentDisplay equipmentDisplay;
-
-        private void Start()
-        {
-            equipmentDisplay = FindObjectOfType<EquipmentDisplay>();
-        }
+        [Inject] Inventory inventory = null;
+        [Inject] Equipment equipment = null;
 
         #region Server
 
@@ -40,7 +33,6 @@ namespace BialskyShooter.EquipmentSystem
                 var equipmentItem = (IEquipmentItem)item;
                 UnequipItem(equipmentItem.GetItemSlotType());
                 var itemInformation = equipment.Equip(equipmentItem);
-                RpcEquipItem(itemInformation);
             }
         }
 
@@ -70,15 +62,17 @@ namespace BialskyShooter.EquipmentSystem
 
         public override void OnStartAuthority()
         {
-            InventoryItemSelection.clientOnItemSelected += ClientOnInventoryItemSelected;
-            EquipmentItemSelection.clientOnItemSelected += ClientOnEquipmentItemSelected;
-            EquipmentItemSelection.clientOnItemDraggedIn += ClientOnItemDraggedIn;
+            InventoryItemSlot.clientOnItemSelected += ClientOnInventoryItemSelected;
+            EquipmentItemSlot.clientOnItemSelected += ClientOnEquipmentItemSelected;
+            EquipmentItemSlot.clientOnItemDraggedIn += ClientOnItemDraggedIn;
+            EquipmentItemSlot.clientOnItemCleared += ClientOnEquipmentItemCleared;
         }
         public override void OnStopAuthority()
         {
-            InventoryItemSelection.clientOnItemSelected -= ClientOnInventoryItemSelected;
-            EquipmentItemSelection.clientOnItemSelected -= ClientOnEquipmentItemSelected;
-            EquipmentItemSelection.clientOnItemDraggedIn -= ClientOnItemDraggedIn;
+            InventoryItemSlot.clientOnItemSelected -= ClientOnInventoryItemSelected;
+            EquipmentItemSlot.clientOnItemSelected -= ClientOnEquipmentItemSelected;
+            EquipmentItemSlot.clientOnItemDraggedIn -= ClientOnItemDraggedIn;
+            EquipmentItemSlot.clientOnItemCleared -= ClientOnEquipmentItemCleared;
 
         }
 
@@ -100,17 +94,16 @@ namespace BialskyShooter.EquipmentSystem
             CmdUnequipItem(itemId);
         }
 
-        [ClientRpc]
-        void RpcEquipItem(ItemInformation itemInformation)
+        [Client]
+        void ClientOnEquipmentItemCleared(Guid itemId)
         {
-            if (!hasAuthority) return;
-            ClientEquipItem(itemInformation);
+            CmdUnequipItem(itemId);
         }
 
         [Client]
-        void ClientEquipItem(ItemInformation itemInformation)
+        public void ClientEquipItem(Guid itemId)
         {
-            equipmentDisplay.DisplayItem(itemInformation);
+            CmdEquipItem(itemId);
         }
 
         #endregion

@@ -12,7 +12,7 @@ namespace BialskyShooter.Combat
     [RequireComponent(typeof(CreatureStats))]
     public class Health : NetworkBehaviour
     {
-        [Inject] CreatureStats creatureStats;
+        [Inject] CreatureStats creatureStats = null;
 
         public event Action serverOnCreatureLose;
         public event Action clientOnCreatureLose;

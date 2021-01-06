@@ -10,7 +10,7 @@ namespace BialskyShooter.Movement
     [RequireComponent(typeof(Movement))]
     public class PlayerMovement : NetworkBehaviour
     {
-        [Inject] Movement movement;
+        [Inject] Movement movement = null;
 
         #region Server
 

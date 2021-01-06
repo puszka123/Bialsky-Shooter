@@ -11,8 +11,8 @@ namespace BialskyShooter.Movement
     [RequireComponent(typeof(Rigidbody))]
     public class Movement : NetworkBehaviour
     {
-        [Inject] CreatureStats creatureStats;
-        [Inject] Rigidbody rb;
+        [Inject] CreatureStats creatureStats = null;
+        [Inject] Rigidbody rb = null;
 
         [SerializeField] float brakeFactor = 0.1f;
         [SerializeField] float moveFactor = 0.5f;      

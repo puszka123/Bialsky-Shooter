@@ -13,9 +13,9 @@ namespace BialskyShooter.AI
     [RequireComponent(typeof(SkillUser))]
     public class EnemyAI : NetworkBehaviour
     {
-        [Inject] EnemySight enemySight;
-        [Inject] AIMovement aiMovement;
-        [Inject] SkillUser skillUser;
+        [Inject] EnemySight enemySight = null;
+        [Inject] AIMovement aiMovement = null;
+        [Inject] SkillUser skillUser = null;
         GameObject player;
 
         #region Server

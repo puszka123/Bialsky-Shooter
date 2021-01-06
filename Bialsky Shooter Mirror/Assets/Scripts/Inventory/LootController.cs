@@ -47,7 +47,7 @@ namespace BialskyShooter.InventoryModule
             lootDisplayInstance = Instantiate(lootDisplayPrefab);
             var slotsDisplay = lootDisplayInstance.GetComponentInChildren<LootDisplay>();
             slotsDisplay.Display(loot);
-            LootItemSelection.clientOnItemSelected += OnLootItemSelected;
+            LootItemSlot.clientOnItemSelected += OnLootItemSelected;
         }
 
         bool LootDisplayed(Inventory loot)

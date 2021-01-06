@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 238667004796604817}
   - component: {fileID: 61703851829432509}
   - component: {fileID: 3218052013313285083}
-  - component: {fileID: 3611813902897481660}
+  - component: {fileID: 3298700819628357948}
   m_Layer: 0
   m_Name: SlotImage
   m_TagString: Untagged
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillImage: {fileID: 7963528411984765293}
---- !u!114 &3611813902897481660
+--- !u!114 &3298700819628357948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4869860423040663370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b935e16fe216745819c9f326916dd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 31dbe13255eedb548ad4c4804cc75bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8928885273430630097
