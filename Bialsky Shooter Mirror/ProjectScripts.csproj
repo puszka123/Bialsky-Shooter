@@ -123,7 +123,6 @@
     <Compile Include="Assets\Scripts\Items\IItem.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemInformation.cs" />
-    <Compile Include="Assets\Scripts\Items\ItemInformationTooltip.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSlotType.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStat.cs" />
     <Compile Include="Assets\Scripts\Items\ItemStatType.cs" />
@@ -131,11 +130,13 @@
     <Compile Include="Assets\Scripts\Items\Legs\ILegs.cs" />
     <Compile Include="Assets\Scripts\Items\Shields\IShield.cs" />
     <Compile Include="Assets\Scripts\Items\UI\DragItem.cs" />
+    <Compile Include="Assets\Scripts\Items\UI\DragItemMock.cs" />
     <Compile Include="Assets\Scripts\Items\UI\EquipmentItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\UI\IItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\UI\InventoryItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationDisplay.cs" />
+    <Compile Include="Assets\Scripts\Items\UI\ItemInformationTooltip.cs" />
     <Compile Include="Assets\Scripts\Items\UI\LootItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\SpikeSword.cs" />

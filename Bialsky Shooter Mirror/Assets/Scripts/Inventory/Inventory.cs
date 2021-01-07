@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace BialskyShooter.InventoryModule
 {
-
     public class Inventory : NetworkBehaviour
     {
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
