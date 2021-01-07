@@ -54,7 +54,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         void DisplayInventory()
         {
-            if(inventory == null) inventory = GetLocalInventory();
+            if (inventory == null) inventory = GetLocalInventory();
             DisplayInventoryItems();
         }
 
@@ -87,7 +87,7 @@ namespace BialskyShooter.InventoryModule.UI
         void OnItemInjected(Guid itemId)
         {
             var slot = SetSlotAvailability(itemId, false);
-            SetItemInformationTooltip(slot, 
+            SetItemInformationTooltip(slot,
                 GetItemDisplays(inventory.SyncItemInformations).FirstOrDefault(e => e.ItemId == itemId));
         }
 
@@ -207,6 +207,12 @@ namespace BialskyShooter.InventoryModule.UI
             float h = (slotRect.rect.height + Mathf.Abs(slotRect.anchoredPosition.y)) * rowsCount + marginY;
             mainPanel.sizeDelta = new Vector2(w, h);
             mainPanel.anchoredPosition = Vector2.zero;
+        }
+
+        public void InjectItem(IItemSlot itemSlot)
+        {
+            var slot = GetFirstAvailableSlot();
+            slot.InjectItem(itemSlot);
         }
     }
 }

@@ -9,10 +9,11 @@ namespace BialskyShooter.ItemSystem.UI
     public interface IItemSlot
     {
         Guid GetItemId();
-        Image GetItemImage();
+        Sprite GetItemIcon();
         bool ReadyOnly();
 
         void InjectItem(IItemSlot itemSlot);
         Guid ClearItem();
+        void SetItemVisibility(bool visibility);
     }
 }

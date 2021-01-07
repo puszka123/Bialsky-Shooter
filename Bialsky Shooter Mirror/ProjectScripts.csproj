@@ -108,12 +108,14 @@
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquippingController.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplay.cs" />
+    <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplayContainer.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\IEquipmentSlotsContainer.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootTarget.cs" />
     <Compile Include="Assets\Scripts\Inventory\UI\IInventorySlotsContainer.cs" />
     <Compile Include="Assets\Scripts\Inventory\UI\InventoryDisplay.cs" />
+    <Compile Include="Assets\Scripts\Inventory\UI\InventoryDisplayContainer.cs" />
     <Compile Include="Assets\Scripts\Inventory\UI\LootDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\Boots\IBoots.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\IChest.cs" />
@@ -137,6 +139,7 @@
     <Compile Include="Assets\Scripts\Items\UI\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationTooltip.cs" />
+    <Compile Include="Assets\Scripts\Items\UI\ItemSwapper.cs" />
     <Compile Include="Assets\Scripts\Items\UI\LootItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\SpikeSword.cs" />

@@ -1,0 +1,3048 @@
+ScriptsOnlyBuild:
+  usedScripts:
+    Cinemachine.dll:
+    - Cinemachine.CinemachineBrain
+    - Cinemachine.CinemachineFramingTransposer
+    - Cinemachine.CinemachinePipeline
+    - Cinemachine.CinemachineVirtualCamera
+    Mirror.Components.dll:
+    - Mirror.NetworkTransform
+    Mirror.dll:
+    - Mirror.NetworkIdentity
+    - Mirror.NetworkManagerHUD
+    - Mirror.NetworkStartPosition
+    - kcp2k.KcpTransport
+    ProjectScripts.dll:
+    - BialskyShooter.AI.CollisionDetection
+    - BialskyShooter.AI.EnemyAI
+    - BialskyShooter.AI.EnemySight
+    - BialskyShooter.CharacterModule.EnemyPlateDisplay
+    - BialskyShooter.CharacterModule.LocalPlateDisplay
+    - BialskyShooter.CharacterModule.UI.CharacterInfoDisplayer
+    - BialskyShooter.CharacterModule.UI.DisplayCharacterInfo
+    - BialskyShooter.ClassSystem.CreatureStats
+    - BialskyShooter.ClassSystem.CreatureStatsDisplay
+    - BialskyShooter.ClassSystem.Experience
+    - BialskyShooter.ClassSystem.Progression
+    - BialskyShooter.Combat.CombatTarget
+    - BialskyShooter.Combat.Health
+    - BialskyShooter.Combat.SwordController
+    - BialskyShooter.Combat.WeaponUser
+    - BialskyShooter.Control.PlayerMoveController
+    - BialskyShooter.Control.PlayerSkillController
+    - BialskyShooter.Core.PlayerCameraSpawner
+    - BialskyShooter.EquipmentSystem.Equipment
+    - BialskyShooter.EquipmentSystem.EquippingController
+    - BialskyShooter.EquipmentSystem.UI.EquipmentDisplay
+    - BialskyShooter.InventoryModule.Inventory
+    - BialskyShooter.InventoryModule.LootController
+    - BialskyShooter.InventoryModule.UI.InventoryDisplay
+    - BialskyShooter.InventoryModule.UI.LootDisplay
+    - BialskyShooter.ItemSystem.LeatherChest
+    - BialskyShooter.ItemSystem.SpikeSword
+    - BialskyShooter.ItemSystem.UI.DragItem
+    - BialskyShooter.ItemSystem.UI.DragItemMock
+    - BialskyShooter.ItemSystem.UI.EquipmentItemSlot
+    - BialskyShooter.ItemSystem.UI.ItemInformationDisplay
+    - BialskyShooter.ItemSystem.UI.ItemInformationTooltip
+    - BialskyShooter.ManagementModule.LoseManager
+    - BialskyShooter.Movement.AIMovement
+    - BialskyShooter.Movement.Movement
+    - BialskyShooter.Movement.PlayerMovement
+    - BialskyShooter.Multiplayer.MyNetworkManager
+    - BialskyShooter.ResourcesModule.CreatureFactoryBehaviour
+    - BialskyShooter.ResourcesModule.EnemySpawner
+    - BialskyShooter.SkillSystem.BasicAttack
+    - BialskyShooter.SkillSystem.BookSkillSlot
+    - BialskyShooter.SkillSystem.DragSkill
+    - BialskyShooter.SkillSystem.SkillSlot
+    - BialskyShooter.SkillSystem.SkillUser
+    - BialskyShooter.SkillSystem.SkillsBook
+    - BialskyShooter.SkillSystem.SkillsDisplay
+    - BialskyShooter.SkillSystem.SkillsProgression
+    - BialskyShooter.UI.ToggleCharacterInfoDisplay
+    - BialskyShooter.UI.ToggleInventoryDisplay
+    - BialskyShooter.UI.ToggleSkillsBookDisplay
+    - BialskyShooter.UI.ToggleSkillsUseDisplay
+    - BialskyShooter.Zenject.ComponentInstaller
+    - BialskyShooter.Zenject.EnemyFactoryInstaller
+    - BialskyShooter.Zenject.ProjectInstaller
+    - CreatureSpawnInstaller
+    Unity.InputSystem.dll:
+    - UnityEngine.InputSystem.InputActionAsset
+    - UnityEngine.InputSystem.InputActionReference
+    - UnityEngine.InputSystem.InputSettings
+    - UnityEngine.InputSystem.InputSystemObject
+    - UnityEngine.InputSystem.RemoteInputPlayerConnection
+    - UnityEngine.InputSystem.UI.InputSystemUIInputModule
+    Unity.Rider.Editor.dll:
+    - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
+    UnityEditor.TestRunner.dll:
+    - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
+    - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.UI.Button
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
+    Zenject-Editor.dll:
+    - Zenject.Internal.DefaultSceneContractConfig
+    Zenject-IntegrationTests.dll:
+    - Zenject.Tests.AutoInjecter.Bar
+    - Zenject.Tests.AutoInjecter.Gorp
+    - Zenject.Tests.AutoInjecter.Qux
+    - Zenject.Tests.Bindings.DiContainerMethods.Foo
+    - Zenject.Tests.Bindings.DiContainerMethods.Foo2
+    - Zenject.Tests.Bindings.DiContainerMethods.Gorp
+    - Zenject.Tests.Bindings.DiContainerMethods.Gorp2
+    - Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext.Foo
+    - Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext.FooInstaller
+    - Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext.Gorp
+    - Zenject.Tests.Bindings.FromNewScriptableObjectResource.Bob
+    - Zenject.Tests.Bindings.FromNewScriptableObjectResource.Foo
+    - Zenject.Tests.Bindings.FromPrefab.Bar
+    - Zenject.Tests.Bindings.FromPrefab.Bob
+    - Zenject.Tests.Bindings.FromPrefab.Foo
+    - Zenject.Tests.Bindings.FromPrefab.Gorp
+    - Zenject.Tests.Bindings.FromPrefab.Jim
+    - Zenject.Tests.Bindings.FromPrefab.Norf
+    - Zenject.Tests.Bindings.FromPrefab.Norf2
+    - Zenject.Tests.Bindings.FromPrefab.Qux
+    - Zenject.Tests.Bindings.FromPrefabInstaller.Bar
+    - Zenject.Tests.Bindings.FromPrefabInstaller.Foo
+    - Zenject.Tests.Bindings.FromPrefabResource.Bar
+    - Zenject.Tests.Bindings.FromPrefabResource.Bob
+    - Zenject.Tests.Bindings.FromPrefabResource.Foo
+    - Zenject.Tests.Bindings.FromPrefabResource.Gorp
+    - Zenject.Tests.Bindings.FromPrefabResource.Jim
+    - Zenject.Tests.Bindings.FromPrefabResource.Norf
+    - Zenject.Tests.Bindings.FromPrefabResource.Norf2
+    - Zenject.Tests.Bindings.FromPrefabResource.Qux
+    - Zenject.Tests.Bindings.FromSubContainerPrefab.Bar
+    - Zenject.Tests.Bindings.FromSubContainerPrefab.CircFoo
+    - Zenject.Tests.Bindings.FromSubContainerPrefab.Foo
+    - Zenject.Tests.Bindings.FromSubContainerPrefab.FooInstaller
+    - Zenject.Tests.Bindings.FromSubContainerPrefabResource.Bar
+    - Zenject.Tests.Bindings.FromSubContainerPrefabResource.Foo
+    - Zenject.Tests.Bindings.FromSubContainerPrefabResource.FooInstaller
+    - Zenject.Tests.Bindings.InstantiateCallback.Foo
+    - Zenject.Tests.Factories.BindFactory.Bar
+    - Zenject.Tests.Factories.BindFactory.Foo
+    - Zenject.Tests.Factories.BindFactoryFive.Foo
+    - Zenject.Tests.Factories.BindFactoryFive.FooInstaller
+    - Zenject.Tests.Factories.BindFactoryOne.Bar
+    - Zenject.Tests.Factories.BindFactoryOne.Foo
+    - Zenject.Tests.Factories.BindFactoryOne.FooInstaller
+    - Zenject.Tests.Factories.PrefabFactory.Foo
+    - Zenject.Tests.Factories.PrefabFactory.Foo2
+    - Zenject.Tests.Installers.MonoInstallers.BarInstaller
+    - Zenject.Tests.Installers.MonoInstallers.FooInstaller
+    - Zenject.Tests.Installers.MonoInstallers.QuxInstaller
+    - Zenject.Tests.Installers.ScriptableObjectInstallers.BarInstaller
+    - Zenject.Tests.Installers.ScriptableObjectInstallers.FooInstaller
+    - Zenject.Tests.Installers.ScriptableObjectInstallers.QuxInstaller
+    - Zenject.Tests.TestAnimationStateBehaviourInject.StateBehaviour1
+    Zenject-TestFramework.dll:
+    - Zenject.SceneTestFixtureSceneReference
+    Zenject.dll:
+    - Zenject.Asteroids.Asteroid
+    - Zenject.Asteroids.GameSettingsInstaller
+    - Zenject.Asteroids.Ship
+    - Zenject.GameObjectContext
+    - Zenject.ProjectContext
+    - Zenject.SceneContext
+    - Zenject.SpaceFighter.Bullet
+    - Zenject.SpaceFighter.EnemyFacade
+    - Zenject.SpaceFighter.EnemyView
+    - Zenject.SpaceFighter.Explosion
+    - Zenject.SpaceFighter.GameSettingsInstaller
+    - Zenject.ZenAutoInjecter
+    - Zenject.ZenjectBinding
+  sceneClasses:
+    Assets/Scenes/Map_Battle_01.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11198}
+    - Class: 114
+      Script: {instanceID: 11200}
+    - Class: 114
+      Script: {instanceID: 11202}
+    - Class: 114
+      Script: {instanceID: 11204}
+    - Class: 114
+      Script: {instanceID: 11220}
+    - Class: 114
+      Script: {instanceID: 11224}
+    - Class: 114
+      Script: {instanceID: 11580}
+    - Class: 114
+      Script: {instanceID: 11674}
+    - Class: 114
+      Script: {instanceID: 11746}
+    - Class: 114
+      Script: {instanceID: 11762}
+    - Class: 114
+      Script: {instanceID: 11784}
+    - Class: 114
+      Script: {instanceID: 11872}
+    - Class: 114
+      Script: {instanceID: 11898}
+    - Class: 114
+      Script: {instanceID: 11926}
+    - Class: 114
+      Script: {instanceID: 12072}
+    - Class: 114
+      Script: {instanceID: 12090}
+    - Class: 114
+      Script: {instanceID: 12136}
+    - Class: 114
+      Script: {instanceID: 12352}
+    - Class: 114
+      Script: {instanceID: 12384}
+    - Class: 114
+      Script: {instanceID: 12478}
+    - Class: 114
+      Script: {instanceID: 12506}
+    - Class: 114
+      Script: {instanceID: 12604}
+    - Class: 114
+      Script: {instanceID: 12672}
+    - Class: 114
+      Script: {instanceID: 12700}
+    - Class: 114
+      Script: {instanceID: 12786}
+    - Class: 114
+      Script: {instanceID: 12788}
+    - Class: 114
+      Script: {instanceID: 12838}
+    - Class: 114
+      Script: {instanceID: 12960}
+    - Class: 114
+      Script: {instanceID: 13000}
+    - Class: 114
+      Script: {instanceID: 13176}
+    - Class: 114
+      Script: {instanceID: 13194}
+    - Class: 114
+      Script: {instanceID: 13232}
+    - Class: 114
+      Script: {instanceID: 13262}
+    - Class: 114
+      Script: {instanceID: 13276}
+    - Class: 114
+      Script: {instanceID: 13396}
+    - Class: 114
+      Script: {instanceID: 13424}
+    - Class: 114
+      Script: {instanceID: 13466}
+    - Class: 114
+      Script: {instanceID: 13510}
+    - Class: 114
+      Script: {instanceID: 13530}
+    - Class: 114
+      Script: {instanceID: 13602}
+    - Class: 114
+      Script: {instanceID: 13616}
+    - Class: 114
+      Script: {instanceID: 13630}
+    - Class: 114
+      Script: {instanceID: 13778}
+    - Class: 114
+      Script: {instanceID: 13824}
+    - Class: 114
+      Script: {instanceID: 14036}
+    - Class: 114
+      Script: {instanceID: 14178}
+    - Class: 114
+      Script: {instanceID: 14244}
+    - Class: 114
+      Script: {instanceID: 14278}
+    - Class: 114
+      Script: {instanceID: 14342}
+    - Class: 114
+      Script: {instanceID: 14366}
+    - Class: 114
+      Script: {instanceID: 14392}
+    - Class: 114
+      Script: {instanceID: 14450}
+    - Class: 114
+      Script: {instanceID: 14642}
+    - Class: 114
+      Script: {instanceID: 14712}
+    - Class: 114
+      Script: {instanceID: 14728}
+    - Class: 114
+      Script: {instanceID: 14772}
+    - Class: 114
+      Script: {instanceID: 14838}
+    - Class: 114
+      Script: {instanceID: 14870}
+    - Class: 114
+      Script: {instanceID: 14984}
+    - Class: 114
+      Script: {instanceID: 15260}
+    - Class: 114
+      Script: {instanceID: 15310}
+    - Class: 114
+      Script: {instanceID: 15642}
+    - Class: 114
+      Script: {instanceID: 15668}
+    - Class: 114
+      Script: {instanceID: 15764}
+    - Class: 114
+      Script: {instanceID: 15890}
+    - Class: 114
+      Script: {instanceID: 15898}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11198}
+    - Class: 114
+      Script: {instanceID: 11200}
+    - Class: 114
+      Script: {instanceID: 11202}
+    - Class: 114
+      Script: {instanceID: 11204}
+    - Class: 114
+      Script: {instanceID: 11220}
+    - Class: 114
+      Script: {instanceID: 11224}
+    - Class: 114
+      Script: {instanceID: 11226}
+    - Class: 114
+      Script: {instanceID: 11256}
+    - Class: 114
+      Script: {instanceID: 11314}
+    - Class: 114
+      Script: {instanceID: 11382}
+    - Class: 114
+      Script: {instanceID: 11390}
+    - Class: 114
+      Script: {instanceID: 11444}
+    - Class: 114
+      Script: {instanceID: 11464}
+    - Class: 114
+      Script: {instanceID: 11470}
+    - Class: 114
+      Script: {instanceID: 11472}
+    - Class: 114
+      Script: {instanceID: 11474}
+    - Class: 114
+      Script: {instanceID: 11476}
+    - Class: 114
+      Script: {instanceID: 11500}
+    - Class: 114
+      Script: {instanceID: 11538}
+    - Class: 114
+      Script: {instanceID: 11552}
+    - Class: 114
+      Script: {instanceID: 11580}
+    - Class: 114
+      Script: {instanceID: 11602}
+    - Class: 114
+      Script: {instanceID: 11666}
+    - Class: 114
+      Script: {instanceID: 11714}
+    - Class: 114
+      Script: {instanceID: 11784}
+    - Class: 114
+      Script: {instanceID: 11810}
+    - Class: 114
+      Script: {instanceID: 11882}
+    - Class: 114
+      Script: {instanceID: 11888}
+    - Class: 114
+      Script: {instanceID: 11898}
+    - Class: 114
+      Script: {instanceID: 11926}
+    - Class: 114
+      Script: {instanceID: 12006}
+    - Class: 114
+      Script: {instanceID: 12072}
+    - Class: 114
+      Script: {instanceID: 12090}
+    - Class: 114
+      Script: {instanceID: 12136}
+    - Class: 114
+      Script: {instanceID: 12352}
+    - Class: 114
+      Script: {instanceID: 12384}
+    - Class: 114
+      Script: {instanceID: 12386}
+    - Class: 114
+      Script: {instanceID: 12502}
+    - Class: 114
+      Script: {instanceID: 12568}
+    - Class: 114
+      Script: {instanceID: 12604}
+    - Class: 114
+      Script: {instanceID: 12684}
+    - Class: 114
+      Script: {instanceID: 12696}
+    - Class: 114
+      Script: {instanceID: 12700}
+    - Class: 114
+      Script: {instanceID: 12714}
+    - Class: 114
+      Script: {instanceID: 12744}
+    - Class: 114
+      Script: {instanceID: 12762}
+    - Class: 114
+      Script: {instanceID: 12810}
+    - Class: 114
+      Script: {instanceID: 12838}
+    - Class: 114
+      Script: {instanceID: 12866}
+    - Class: 114
+      Script: {instanceID: 12892}
+    - Class: 114
+      Script: {instanceID: 12924}
+    - Class: 114
+      Script: {instanceID: 12974}
+    - Class: 114
+      Script: {instanceID: 12996}
+    - Class: 114
+      Script: {instanceID: 13006}
+    - Class: 114
+      Script: {instanceID: 13086}
+    - Class: 114
+      Script: {instanceID: 13100}
+    - Class: 114
+      Script: {instanceID: 13114}
+    - Class: 114
+      Script: {instanceID: 13146}
+    - Class: 114
+      Script: {instanceID: 13176}
+    - Class: 114
+      Script: {instanceID: 13194}
+    - Class: 114
+      Script: {instanceID: 13242}
+    - Class: 114
+      Script: {instanceID: 13262}
+    - Class: 114
+      Script: {instanceID: 13310}
+    - Class: 114
+      Script: {instanceID: 13424}
+    - Class: 114
+      Script: {instanceID: 13434}
+    - Class: 114
+      Script: {instanceID: 13516}
+    - Class: 114
+      Script: {instanceID: 13520}
+    - Class: 114
+      Script: {instanceID: 13526}
+    - Class: 114
+      Script: {instanceID: 13530}
+    - Class: 114
+      Script: {instanceID: 13618}
+    - Class: 114
+      Script: {instanceID: 13630}
+    - Class: 114
+      Script: {instanceID: 13802}
+    - Class: 114
+      Script: {instanceID: 13956}
+    - Class: 114
+      Script: {instanceID: 14094}
+    - Class: 114
+      Script: {instanceID: 14134}
+    - Class: 114
+      Script: {instanceID: 14244}
+    - Class: 114
+      Script: {instanceID: 14268}
+    - Class: 114
+      Script: {instanceID: 14278}
+    - Class: 114
+      Script: {instanceID: 14342}
+    - Class: 114
+      Script: {instanceID: 14356}
+    - Class: 114
+      Script: {instanceID: 14366}
+    - Class: 114
+      Script: {instanceID: 14402}
+    - Class: 114
+      Script: {instanceID: 14450}
+    - Class: 114
+      Script: {instanceID: 14540}
+    - Class: 114
+      Script: {instanceID: 14578}
+    - Class: 114
+      Script: {instanceID: 14598}
+    - Class: 114
+      Script: {instanceID: 14644}
+    - Class: 114
+      Script: {instanceID: 14650}
+    - Class: 114
+      Script: {instanceID: 14664}
+    - Class: 114
+      Script: {instanceID: 14712}
+    - Class: 114
+      Script: {instanceID: 14728}
+    - Class: 114
+      Script: {instanceID: 14750}
+    - Class: 114
+      Script: {instanceID: 14772}
+    - Class: 114
+      Script: {instanceID: 14870}
+    - Class: 114
+      Script: {instanceID: 14984}
+    - Class: 114
+      Script: {instanceID: 15040}
+    - Class: 114
+      Script: {instanceID: 15070}
+    - Class: 114
+      Script: {instanceID: 15098}
+    - Class: 114
+      Script: {instanceID: 15138}
+    - Class: 114
+      Script: {instanceID: 15162}
+    - Class: 114
+      Script: {instanceID: 15166}
+    - Class: 114
+      Script: {instanceID: 15254}
+    - Class: 114
+      Script: {instanceID: 15260}
+    - Class: 114
+      Script: {instanceID: 15310}
+    - Class: 114
+      Script: {instanceID: 15348}
+    - Class: 114
+      Script: {instanceID: 15370}
+    - Class: 114
+      Script: {instanceID: 15430}
+    - Class: 114
+      Script: {instanceID: 15470}
+    - Class: 114
+      Script: {instanceID: 15502}
+    - Class: 114
+      Script: {instanceID: 15550}
+    - Class: 114
+      Script: {instanceID: 15644}
+    - Class: 114
+      Script: {instanceID: 15678}
+    - Class: 114
+      Script: {instanceID: 15764}
+    - Class: 114
+      Script: {instanceID: 15774}
+    - Class: 114
+      Script: {instanceID: 15832}
+    - Class: 114
+      Script: {instanceID: 15858}
+    - Class: 114
+      Script: {instanceID: 15874}
+    - Class: 114
+      Script: {instanceID: 15890}
+    - Class: 114
+      Script: {instanceID: 15898}
+    - Class: 114
+      Script: {instanceID: 15914}
+    - Class: 114
+      Script: {instanceID: 15916}
+    - Class: 114
+      Script: {instanceID: 21296}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 134
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+  scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 7ab0e790220bdca831fdd886b339039d
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 4bc4346a71a8df53a6b106f68ef3a190
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: 0157479af444bc0b93f36f35519d994f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem.UI
+    className: ItemInformationTooltip
+  - hash:
+      serializedVersion: 2
+      Hash: 3d4d5dd917d642fdd71fc939ad04f108
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: ControlsDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillUser
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabInstaller
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: dac362aec30e75b5bdfe3eea60cdf384
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: TelepathyTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Installers.MonoInstallers
+    className: QuxInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 23d669c8bf2983ca4a3df160658318a6
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineStateDrivenCamera
+  - hash:
+      serializedVersion: 2
+      Hash: c42672c997f8be6b1aa86a927ebea785
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: f2002d8401a2ac16dfc3e0ac0a47dd91
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Zenject
+    className: ProjectInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ScriptableObjectInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 87ff43d2baf3385cba327d8f803a4ebb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AudioPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 626925ef558787b2d85c809198164d19
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 4e55399bb1b81f08ab790913f62fbbac
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkManagerHUD
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Control
+    className: PlayerSkillController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactory
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: f08eb5dd576ff13f3673da4df7a85f50
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefab
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.DiContainerMethods
+    className: Gorp
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.Asteroids
+    className: Asteroid
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.PrefabFactory
+    className: Foo2
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactory
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: a2113831d3323f931007e1b3812dc814
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineFollowZoom
+  - hash:
+      serializedVersion: 2
+      Hash: 192ca9716d03752ea1d90a78bc2daac9
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Installers.MonoInstallers
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: d227987243593b32ae57394d06018643
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineFixedSignal
+  - hash:
+      serializedVersion: 2
+      Hash: e7a73f5f78ba6445195ec23b74a1ce2d
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
+    className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 265cf1537361bce87401ba1fba27baf3
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkTransform
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefabResource
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 645f598775b9a8322a36a9c552c976b9
+    assemblyName: ProjectScripts.dll
+    namespaceName: Visyde
+    className: V_SMC_Camera
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: 3c7ba6a513db7ce0db92c8ed463e86c8
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Movement
+    className: Movement
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Jim
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: d5b39c54cd3b8db955940e7482d69ad7
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: Spawner
+  - hash:
+      serializedVersion: 2
+      Hash: 16a720ee1ef3f470f479041a1e75bdc1
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Additive
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: fc169718e5fd24cea7425f24908c0418
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: PlayerInputManagerEditor
+  - hash:
+      serializedVersion: 2
+      Hash: a5781dc71a671b1ad2b38de19f24b71f
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: af56f77a30c1a2da1680c736a6f5c6e8
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: GroupWeightManipulator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ZenjectStateMachineBehaviourAutoInjecter
+  - hash:
+      serializedVersion: 2
+      Hash: b2b4a4bf81317f3c08703a1773162a08
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: EquippingController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkStartPosition
+  - hash:
+      serializedVersion: 2
+      Hash: 8ea27909a92fe60806557460a2594f37
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PhysicsCollision
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: MonoInstallerBase
+  - hash:
+      serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: 499fd23433e68e265d153aa6b95d0047
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Scrollbar
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.DecoratorTests
+    className: Scene1Installer
+  - hash:
+      serializedVersion: 2
+      Hash: c45ef8c30cc2ee343077d78e1f372297
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: Explosion
+  - hash:
+      serializedVersion: 2
+      Hash: 66a76d307baa3e8eb65d877c961f1b43
+    assemblyName: Cinemachine.dll
+    namespaceName: 
+    className: CinemachineRecomposer
+  - hash:
+      serializedVersion: 2
+      Hash: b83139f2ca94f6a4745ca67b07841e5a
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.CharacterModule
+    className: LocalPlateDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: PositionAsUV1
+  - hash:
+      serializedVersion: 2
+      Hash: abf1930d8126d0b2e00e9449129a0190
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.UI
+    className: ToggleSkillsBookDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 32fce7b97c39bff4b4f6c0f53f7e6bf1
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineCollisionImpulseSource
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem.UI
+    className: DragItem
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
+    className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 426e5bd616852254b77531cd1a8e29b6
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.OnScreen
+    className: OnScreenStick
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.AutoInjecter
+    className: Qux
+  - hash:
+      serializedVersion: 2
+      Hash: 234235b9fb07320d11497e08a726cc56
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: DragSkill
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestAnimationStateBehaviourInject
+    className: StateBehaviour1
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Installers.ScriptableObjectInstallers
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 06c677da53777c30d4c65cea174b8f7f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillsBook
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Example
+    className: QuickListServerDebug
+  - hash:
+      serializedVersion: 2
+      Hash: 37c782056623a482d772a08897449977
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkRigidbody2D
+  - hash:
+      serializedVersion: 2
+      Hash: 6dd3dc11942e98c0a809c81f95fc960c
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineExternalCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 95c4cf4d9748ecceba94ddf76713ae2e
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Movement
+    className: AIMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 5da7b9e4b43d0ba75d617a81259ec141
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: ChatWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.UI.Editor
+    className: InputSystemUIInputModuleEditor
+  - hash:
+      serializedVersion: 2
+      Hash: f3a8ccc18ad656ac8993b34a1b30984f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: d5b39c54cd3b8db955940e7482d69ad7
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: Spawner
+  - hash:
+      serializedVersion: 2
+      Hash: b5eb08b578a2f2d80bb106cbe65ab501
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineStoryboard
+  - hash:
+      serializedVersion: 2
+      Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.DiContainerMethods
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 1cb3ae0a2d707e19133c67f4ce57102f
+    assemblyName: Mirror.Cloud.dll
+    namespaceName: Mirror.Cloud
+    className: ApiConnector
+  - hash:
+      serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
+  - hash:
+      serializedVersion: 2
+      Hash: ede3d522ce29a72deb2613abda57d11e
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: RemoteInputPlayerConnection
+  - hash:
+      serializedVersion: 2
+      Hash: cbae2ed2d2d53cc8f539e7cb4f29bc1f
+    assemblyName: Cinemachine.dll
+    namespaceName: 
+    className: CinemachineCameraOffset
+  - hash:
+      serializedVersion: 2
+      Hash: 18c222bef9ae745ce69ddde9b74337ca
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 295831406da5907d41f58d84acd55d8d
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputActionEditorWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Combat
+    className: WeaponUser
+  - hash:
+      serializedVersion: 2
+      Hash: e33ed663c6c8e38e487ae7a7d97d4342
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: BasicAttack
+  - hash:
+      serializedVersion: 2
+      Hash: d683a1f901c74ef3259de5891404049f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.AI
+    className: CollisionDetection
+  - hash:
+      serializedVersion: 2
+      Hash: 051c18b41ea168ba34b7f7c41b137e34
+    assemblyName: Mirror.dll
+    namespaceName: Mirror.Logging
+    className: NetworkHeadlessLogger
+  - hash:
+      serializedVersion: 2
+      Hash: bd3cf68c8964d3c66d1c43f4f98508c9
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: a8afcbd0a467dd957879959591dec288
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.XR
+    className: TrackedPoseDriver
+  - hash:
+      serializedVersion: 2
+      Hash: 8607e281fc904db39e20c4b25934b1d9
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests
+    className: SceneContextEventsTester
+  - hash:
+      serializedVersion: 2
+      Hash: b2b4a4bf81317f3c08703a1773162a08
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Basic
+    className: BasicNetManager
+  - hash:
+      serializedVersion: 2
+      Hash: cf9f5cf2c3145a37ac07f00e50e460f9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: AspectRatioFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Examples.Pong
+    className: QuitButtonHUD
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: RectMask2D
+  - hash:
+      serializedVersion: 2
+      Hash: d941ab6dd93d37ffdf2277f2ea2375a0
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestDestructionOrder
+    className: FooMonoBehaviourUnderSceneContext1
+  - hash:
+      serializedVersion: 2
+      Hash: 842c3d5f6a26b098df5d2ec35bc3fab4
+    assemblyName: Mirror.dll
+    namespaceName: Mirror.Logging
+    className: LogSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 50d893c48b1c02a4b8ede5fe28ff9e85
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.UI
+    className: TrackedDeviceRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestDestructionOrder
+    className: Scene2Installer
+  - hash:
+      serializedVersion: 2
+      Hash: b83139f2ca94f6a4745ca67b07841e5a
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.CharacterModule
+    className: CreaturePlateDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 5ab533713adae59372fb3e10a585c186
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ResourcesModule
+    className: EnemySpawner
+  - hash:
+      serializedVersion: 2
+      Hash: 37b861a2f40ccc87f8f5587c245a9a05
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineFreeLook
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.AI
+    className: EnemyAI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Norf2
+  - hash:
+      serializedVersion: 2
+      Hash: 192ca9716d03752ea1d90a78bc2daac9
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Additive
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: aba7b2852ef61d175dd9602e7723d5e5
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 071d93f3e16645b8ca72486802a5b912
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: MultiplexTransport
+  - hash:
+      serializedVersion: 2
+      Hash: caa533b001ae39b864ba8425019e2268
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine.PostFX
+    className: CinemachinePostProcessing
+  - hash:
+      serializedVersion: 2
+      Hash: cef9ddc6e3c7debbf50fbbe60d1daf93
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.InventoryModule.UI
+    className: InventoryDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: e87f50864f8a979f1228e8c69bd62658
+    assemblyName: Mirror.Examples.Cloud.Pong.dll
+    namespaceName: Mirror.Cloud.Examples.Pong
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 8963690ef6f6b05ce03bfd8b5c26e20c
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: NoiseSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestDestructionOrder
+    className: FooMonoBehaviourUnderSceneContext3
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Movement
+    className: PlayerMovement
+  - hash:
+      serializedVersion: 2
+      Hash: f17a7afbb6fc4d6b5c3ba20ed1c93f68
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.UI
+    className: InputSystemUIInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: ddbe4a5e0bde645bfdd43d16723a7951
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.InventoryModule
+    className: LootController
+  - hash:
+      serializedVersion: 2
+      Hash: 4678e37e5f25172d96da84b348025ce2
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineConfiner2D
+  - hash:
+      serializedVersion: 2
+      Hash: afc31e4ddab91135bb6bac9ec14612e8
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: PlayerInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: 
+    className: CreatureSpawnInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 09a332418522e82d937585e2a061b3cf
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Benchmark
+    className: BenchmarkNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: d4a0f162fb9f35fcefae9e327cfb3d35
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Example
+    className: ServerListManager
+  - hash:
+      serializedVersion: 2
+      Hash: cc4274b586df3c02688bac01b88bd16c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 70a7fe614ffc8d4a5ee1d04d107f3106
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Benchmark
+    className: MonsterMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 0fb27be807aa299702f28ad0bcad1f46
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: b2b4a4bf81317f3c08703a1773162a08
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Multiplayer
+    className: MyNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6d022d9ff248227139002644faf03785
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.AutoInjecter
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem
+    className: SpikeSword
+  - hash:
+      serializedVersion: 2
+      Hash: 4f7c883b482d662cb9806791738ebf81
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ZenAutoInjecter
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Cinemachine.dll
+    namespaceName: 
+    className: CinemachineTrack
+  - hash:
+      serializedVersion: 2
+      Hash: b8a5e8091ab0b8861d2add371082c5e0
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefab
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 611bc970ee9dc090779a3fac6a18fac6
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineFramingTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: e1e759a045f78fe1be63700b162d25d6
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem.UI
+    className: EquipmentItemSlot
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem.UI
+    className: InventoryItemSlot
+  - hash:
+      serializedVersion: 2
+      Hash: dbb6fc7e117f9cdea56b2fb106ddfe2c
+    assemblyName: SimpleWebTransport.dll
+    namespaceName: Mirror.SimpleWeb
+    className: SimpleWebTransport
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: ControlTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 64ad1bd05f4939fa76a6b091d9a9d755
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: PlayerInputManager
+  - hash:
+      serializedVersion: 2
+      Hash: 0900b2a2edaa5053e22ac979962d76bf
+    assemblyName: Zenject-TestFramework.dll
+    namespaceName: Zenject
+    className: SceneTestFixtureSceneReference
+  - hash:
+      serializedVersion: 2
+      Hash: 8dc90e648ac06f43bdd31ac9fa8f4579
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 21fcfd733d2e53b99dcca183790ac6f8
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Combat
+    className: SwordController
+  - hash:
+      serializedVersion: 2
+      Hash: 6269de7b2e8700c47e4b84336de4b7eb
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Additive
+    className: ZoneHandler
+  - hash:
+      serializedVersion: 2
+      Hash: e6b0b783ea73cf405c717cd9b89fbd7c
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkRoomManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Installers.ScriptableObjectInstallers
+    className: QuxInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 991d2e8f56cd6070136c2ea5db7ccd6d
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Tanks
+    className: Tank
+  - hash:
+      serializedVersion: 2
+      Hash: f08eb5dd576ff13f3673da4df7a85f50
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefabResource
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: e3a9d5756f1162dd7720942841561275
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: PlayerInput
+  - hash:
+      serializedVersion: 2
+      Hash: c8b6e28fe620a823f8990f96b3362d7d
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefab
+    className: CircFoo
+  - hash:
+      serializedVersion: 2
+      Hash: 37de53a49708b087da4050fc1ca7a6ee
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachinePOV
+  - hash:
+      serializedVersion: 2
+      Hash: 6be939d6f0aad748aa63a8815400aaa2
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: InputSettings
+  - hash:
+      serializedVersion: 2
+      Hash: b1a5c6c2320288f8de6a401a0d5d1134
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: BookSkillSlot
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 9b01b1d80bd3ecf4eaca45e1a22d444e
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkRigidbody
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Norf
+  - hash:
+      serializedVersion: 2
+      Hash: bc4dcd2901cae99e9aedd90630dd2593
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ClassSystem
+    className: CreatureStatsDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefab
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: cd0ecdca0166232906c6f2df9dddc3d3
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputActionDebuggerWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputActionImporterEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 287a4aa7392bcfb309b4d7b4dc89eb3c
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: PlayerInputEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.DiContainerMethods
+    className: Foo2
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Installers.ScriptableObjectInstallers
+    className: BarInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Core
+    className: PlayerCameraSpawner
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: b3ab2106268377ffe25dd18ac23dca28
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_Asset
+  - hash:
+      serializedVersion: 2
+      Hash: 2ce2187bbae6f802011f568630bd3d1f
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineOrbitalTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: 16a720ee1ef3f470f479041a1e75bdc1
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: aecc5ebee2760ad3f0649a0482aec01d
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ClassSystem
+    className: CreatureStats
+  - hash:
+      serializedVersion: 2
+      Hash: 6d7635dbc21c9e5d6431e0cdd45a179d
+    assemblyName: ProjectScripts.dll
+    namespaceName: Visyde
+    className: V_Text
+  - hash:
+      serializedVersion: 2
+      Hash: 0495506fdab3cc2133b052d13b3ad19e
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: Equipment
+  - hash:
+      serializedVersion: 2
+      Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: ScrollRect
+  - hash:
+      serializedVersion: 2
+      Hash: 03b1f2ee800c4cc86ad8554760d0e7ea
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.Asteroids
+    className: GuiHandler
+  - hash:
+      serializedVersion: 2
+      Hash: e37f6baf4bfa6b8e84f7e4e827ad4522
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillsDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Bob
+  - hash:
+      serializedVersion: 2
+      Hash: 7ca765ad7969aae95e8011264b9c4046
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineTriggerAction
+  - hash:
+      serializedVersion: 2
+      Hash: a99b318176d19988b456fcf5cb0452f5
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: SceneContext
+  - hash:
+      serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.UI
+    className: ToggleSkillsUseDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: MonoInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Qux
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.AutoLoadSceneTests
+    className: Scene3Installer
+  - hash:
+      serializedVersion: 2
+      Hash: bd543bad7f9f6262f10595aadb130d22
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineComposer
+  - hash:
+      serializedVersion: 2
+      Hash: 3e980b25cdd2e1d2d91d018e8046b209
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.CharacterModule.UI
+    className: CharacterInfoDisplayer
+  - hash:
+      serializedVersion: 2
+      Hash: 702330b33d6f348f76db0c974f6e02c3
+    assemblyName: Mirror.Authenticators.dll
+    namespaceName: Mirror.Authenticators
+    className: BasicAuthenticator
+  - hash:
+      serializedVersion: 2
+      Hash: bfeb96683d3796cadaab890bfdfe92be
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputDebuggerWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestDestructionOrder
+    className: FooMonoBehaviourUnderSceneContext2
+  - hash:
+      serializedVersion: 2
+      Hash: 15882a52798c275361cd0a3ada984ec5
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineDollyCart
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Zenject
+    className: ComponentInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 220bd265f54cc4cee8f1539ad2b2c64a
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Examples
+    className: InstantiateNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: e5d90ad8291faa3b77dd8eae370cf441
+    assemblyName: Mirror.Examples.Cloud.Pong.dll
+    namespaceName: Mirror.Cloud.Examples.Pong
+    className: BallManager
+  - hash:
+      serializedVersion: 2
+      Hash: 42c6852ad60d41ec965f75f396f1fb79
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ProjectContext
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.UI
+    className: ToggleCharacterInfoDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 204ea02909ea3f738dafe3ff633d2a93
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineTrackedDolly
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ProjectKernel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachinePipeline
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefabResource
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactoryFive
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: e87f50864f8a979f1228e8c69bd62658
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Pong
+    className: Ball
+  - hash:
+      serializedVersion: 2
+      Hash: b16a6adc97f40b49027b23341e726ecd
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.Asteroids
+    className: GameSettingsInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 90277704ece3ccddb50a43901005a06e
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: GameObjectContext
+  - hash:
+      serializedVersion: 2
+      Hash: b2b4a4bf81317f3c08703a1773162a08
+    assemblyName: Mirror.Examples.Cloud.Pong.dll
+    namespaceName: Mirror.Cloud.Example
+    className: NetworkManagerListServerPong
+  - hash:
+      serializedVersion: 2
+      Hash: e87f50864f8a979f1228e8c69bd62658
+    assemblyName: Mirror.Examples.Cloud.Pong.dll
+    namespaceName: Mirror.Cloud.Examples.Pong
+    className: Ball
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
+    className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 57ffcf646fc996572e2fbc3d96ee6be4
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkLerpRigidbody
+  - hash:
+      serializedVersion: 2
+      Hash: d5de1c9a7feae1dfb2eda43d0789cd33
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: PlayerGui
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.UI
+    className: BaseInputOverride
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.AutoLoadSceneTests
+    className: Scene2Installer
+  - hash:
+      serializedVersion: 2
+      Hash: 694d20920c0e41f567e119f7159a3644
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachinePath
+  - hash:
+      serializedVersion: 2
+      Hash: fd24781b40c3575bece4ab1c6e140064
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Zenject
+    className: EnemyFactoryInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: cde20e283bf088b563a31ca4aa110082
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillSlot
+  - hash:
+      serializedVersion: 2
+      Hash: e100fd826c6ebff737761b47a9a5bca7
+    assemblyName: Zenject-Editor.dll
+    namespaceName: Zenject.Internal
+    className: DefaultSceneContractConfig
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Combat
+    className: Health
+  - hash:
+      serializedVersion: 2
+      Hash: 16a720ee1ef3f470f479041a1e75bdc1
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: c1f5356fcd27668ddc25078e27f9828d
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.UI
+    className: MultiplayerEventSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 4fd8bf02e3089425d3502e26c44ba31a
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: ad4af01eeb7f0a9ae0be2df3e0f1953a
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputStateWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 9b06583966b5c25325233c4ef1ab1fd4
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.HID.Editor
+    className: HIDDescriptorWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 4c790fa3b7c93033baa4406ca5ac8c04
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: Reward
+  - hash:
+      serializedVersion: 2
+      Hash: f84d945e5e1ca985698660fc26e9657f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: d3f29ba27f28c1f558880c4df5545ed3
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: 
+    className: DownloadableSample
+  - hash:
+      serializedVersion: 2
+      Hash: 52054571faa2df4709dc67227b8153a0
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: LLAPITransport
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext
+    className: Gorp
+  - hash:
+      serializedVersion: 2
+      Hash: 56df1fa7cea034df9863fe5a24200a32
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineTargetGroup
+  - hash:
+      serializedVersion: 2
+      Hash: b996dd9af85645406bc3f8df469c874d
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.EquipmentSystem.UI
+    className: EquipmentDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: f9c05aa86e45cc76878136fb48a10c5d
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: SceneDecoratorContext
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.DecoratorTests
+    className: Scene2Installer
+  - hash:
+      serializedVersion: 2
+      Hash: 460f1bc7ddb5a5325403b8276116aa4d
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 192ca9716d03752ea1d90a78bc2daac9
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: 5d5b0c61f3ab6ff5f41b1bbe19764526
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.OnScreen
+    className: OnScreenButton
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromGameObjectInstaller
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 1271cbd15e4e3136c5a60fed78b363da
+    assemblyName: ProjectScripts.dll
+    namespaceName: Visyde
+    className: V_SMC_Handler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: AnimatorMoveHandlerManager
+  - hash:
+      serializedVersion: 2
+      Hash: 8996336a1113af80862107545b719922
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkPingDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: f52f0b15bed2b56b2f0be090a01715d5
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: ChatNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Gorp
+  - hash:
+      serializedVersion: 2
+      Hash: 42a930c6b13af0df34d41f5b19ec8152
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkMatchChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: AnimatorIkHandlerManager
+  - hash:
+      serializedVersion: 2
+      Hash: 5ad4aa237d47ac2bab17bacb672edf7a
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 7c792393fb82488bd20139dcc5ba26d8
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: 295852e83016219fe0ab9a38fc36f74a
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: InputActionAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 21fc0ab40df87e5caa5928222082035e
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineImpulseListener
+  - hash:
+      serializedVersion: 2
+      Hash: 144f39e785cd2926af56aa422f7e8948
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkSceneChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 285f5d7c369d870b93f4a2cbcec118e4
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputDeviceDebuggerWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Jim
+  - hash:
+      serializedVersion: 2
+      Hash: e6d75f1a9bc0c6f7085df0baa077e688
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineGroupComposer
+  - hash:
+      serializedVersion: 2
+      Hash: dbfb4270852b0008a423a7418d9de4cf
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineSameAsFollowTarget
+  - hash:
+      serializedVersion: 2
+      Hash: f3a8ccc18ad656ac8993b34a1b30984f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkRoomPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromGameObjectInstaller
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: 4a639215e29265dd99e4fed19e3fa9f4
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: f2abb829d12b59dbe96dd47fd84edeb3
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.InventoryModule.UI
+    className: LootDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 8075eaf0cfb57abd29d10d3e4b233241
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Additive
+    className: AdditiveNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 9579061eadc9f429d99a5c2e236405ec
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.CharacterModule.UI
+    className: DisplayCharacterInfo
+  - hash:
+      serializedVersion: 2
+      Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: InputField
+  - hash:
+      serializedVersion: 2
+      Hash: c9a8b80298a116835b51ba1cf9284367
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: b639d97cb780d0d99a2bfb3ad1935732
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineMixingCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: DefaultGameObjectKernel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: InputActionAssetEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 17b20b5de670d2b68ab23a189a91a16c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Basic
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 5ad4aa237d47ac2bab17bacb672edf7a
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: HorizontalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 35a9693c388776aaf487636491a20f11
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: eeb356fa33eec10332ebc7e468fecb95
+    assemblyName: Cinemachine.dll
+    namespaceName: 
+    className: CinemachineShot
+  - hash:
+      serializedVersion: 2
+      Hash: e1300922cc039f41ab46a47f4cb05898
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_Settings
+  - hash:
+      serializedVersion: 2
+      Hash: df21ffd1864551a3e43410f28754a73e
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineConfiner
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: ActivationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 60aa8bdfa15db27c48858bcf7b14a935
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.InventoryModule
+    className: Inventory
+  - hash:
+      serializedVersion: 2
+      Hash: 18c222bef9ae745ce69ddde9b74337ca
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: Physics2DRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: db62de697e6213d850b5a165934e344b
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Example
+    className: ApiUpdater
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.AutoLoadSceneTests
+    className: Scene1Installer
+  - hash:
+      serializedVersion: 2
+      Hash: 1e3d6222ff533d213aab144eb854a53b
+    assemblyName: Cinemachine.dll
+    namespaceName: 
+    className: CinemachineTouchInputMapper
+  - hash:
+      serializedVersion: 2
+      Hash: f3a8ccc18ad656ac8993b34a1b30984f
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkLobbyPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Combat
+    className: CombatTarget
+  - hash:
+      serializedVersion: 2
+      Hash: 91835d5ad99155431c21b3b548706002
+    assemblyName: Mirror.Authenticators.dll
+    namespaceName: Mirror.Authenticators
+    className: TimeoutAuthenticator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Norf
+  - hash:
+      serializedVersion: 2
+      Hash: cd2aaf347fd341c0712120ef5050b745
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem.UI
+    className: ItemInformationDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 1dba5139719a801dc9b5d9eeb289d123
+    assemblyName: Mirror.example.RigidbodyPhysics.dll
+    namespaceName: Mirror.Examples.RigidbodyPhysics
+    className: AddForce
+  - hash:
+      serializedVersion: 2
+      Hash: 5b39dcc8ef34d0c74e640dcd04a3f0e1
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineVirtualCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.InstantiateCallback
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 9e12720e9f1df1639263519e77f2c4d7
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Experimental
+    className: NetworkTransformChild
+  - hash:
+      serializedVersion: 2
+      Hash: c1933cc0a2f4ff6eb13333347497beb3
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ScriptableObjectInstallerBase
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.AI
+    className: EnemySight
+  - hash:
+      serializedVersion: 2
+      Hash: ce58790f4b80db4732075fa2fb5e1bf9
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Example
+    className: ServerListUIItem
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromNewScriptableObjectResource
+    className: Bob
+  - hash:
+      serializedVersion: 2
+      Hash: a66794b62dbf044668a5f102bb7908c2
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineIndependentImpulseListener
+  - hash:
+      serializedVersion: 2
+      Hash: 3cf156985df62fac63708d6bed3583bf
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.Asteroids
+    className: TilingBackground
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 1088b99d0c88ca05dcb48022854c0cd7
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Pong
+    className: NetworkManagerPong
+  - hash:
+      serializedVersion: 2
+      Hash: 6225eb0973ab0af667bc5f9d1b1b18de
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineCollider
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactoryOne
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: bd50beb95120324d8c4e8386692b6e82
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineBlenderSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 23066ceca838af0cf02e00e3cf5155c1
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineImpulseSource
+  - hash:
+      serializedVersion: 2
+      Hash: 76aef43e801605d1829c8805eeee135c
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: InputActionReference
+  - hash:
+      serializedVersion: 2
+      Hash: 8ed3d56f3b2b2d744745b88ef60a0eb4
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: GameSettingsInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 071d93f3e16645b8ca72486802a5b912
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: FallbackTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.DiContainerMethods
+    className: Gorp2
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Gorp
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ResourcesModule
+    className: CreatureFactoryBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 8001a5f7502aab37e42206da015e6914
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine.PostFX
+    className: CinemachineVolumeSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactoryFive
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestDestructionOrder
+    className: ProjectInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 8ccbe2cda8656b22433a41ac81b27cd3
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem
+    className: LeatherChest
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.TestDestructionOrder
+    className: Scene1Installer
+  - hash:
+      serializedVersion: 2
+      Hash: e6b0b783ea73cf405c717cd9b89fbd7c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: NetworkRoomManagerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 6764620c8232eb7a34533d8bc8ee14b6
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.UI
+    className: ToggleInventoryDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: f336e086360abe49a3323e5f1583c35a
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AudioTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Combat
+    className: Fighter
+  - hash:
+      serializedVersion: 2
+      Hash: ad425eb6c32a6f6977115fef236ef55f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Additive
+    className: ShootingTankBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: ae83e830e7a90c0aff918c4c2e520825
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools
+    className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: GuiRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: c56a9426da8f5d94d45fd88dc881ef1b
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Benchmark
+    className: PlayerMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 6ff1c52123c50b3d73f35cd0e2e65dfd
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineSmoothPath
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineHardLookAt
+  - hash:
+      serializedVersion: 2
+      Hash: f0a97e65bffb6f90f36a2963210ff0a6
+    assemblyName: Mirror.dll
+    namespaceName: Mirror
+    className: NetworkIdentity
+  - hash:
+      serializedVersion: 2
+      Hash: d7bcfc1eb92c441b0be979120f82080a
+    assemblyName: Mirror.dll
+    namespaceName: Mirror.Logging
+    className: NetworkLogSettings
+  - hash:
+      serializedVersion: 2
+      Hash: fb098a805b436b7bc9e759379191feea
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineInputProvider
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: PlayerFacade
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactoryOne
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PhysicsSimulator
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefab
+    className: Qux
+  - hash:
+      serializedVersion: 2
+      Hash: 681b5f9be6f57e5a7b20908e503986d3
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Discovery
+    className: NetworkDiscoveryHUD
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: EnemyFacade
+  - hash:
+      serializedVersion: 2
+      Hash: ffd3ed4fcd23b3e7745287c99a637247
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: Cinemachine3rdPersonAim
+  - hash:
+      serializedVersion: 2
+      Hash: 26d8420d411073ff79776f96257e7df0
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: EnemyView
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromNewScriptableObjectResource
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: e6b0b783ea73cf405c717cd9b89fbd7c
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkLobbyManager
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 9b5a106d716e10dbf0635b1180cc5e67
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Chat
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 5e84370a36252d6aa37d6a7bd37710f7
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: Cinemachine3rdPersonFollow
+  - hash:
+      serializedVersion: 2
+      Hash: d791aa6007fa3640be1164ea75bb087d
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 5480b17bad42de26b5682c28f0dd2e48
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ClassSystem
+    className: Experience
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.InventoryModule.UI
+    className: LootItemSlot
+  - hash:
+      serializedVersion: 2
+      Hash: cd0ecdca0166232906c6f2df9dddc3d3
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.Editor
+    className: AdvancedDropdownWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 2bca67b5b15bd74f4ed58264903bca65
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkTransform
+  - hash:
+      serializedVersion: 2
+      Hash: e87f50864f8a979f1228e8c69bd62658
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Pong
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: bff354b4aeba312cbb5ecedc1ed14784
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: MultiSceneNetManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Control
+    className: PlayerMoveController
+  - hash:
+      serializedVersion: 2
+      Hash: 60cd3889cd3e4eb6edcb3e79f707404c
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: Bullet
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.SpaceFighter
+    className: GameInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.BindFactoryOne
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabInstaller
+    className: Bar
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.InventoryModule
+    className: LootTarget
+  - hash:
+      serializedVersion: 2
+      Hash: 21d73eda81c18eacd2c91ad5dfaf2e32
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TextMeshPro
+  - hash:
+      serializedVersion: 2
+      Hash: 3165968ba45c74472d279ba04455fccb
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_ColorGradient
+  - hash:
+      serializedVersion: 2
+      Hash: 445f0087cd919990f5679a24a2ce2edc
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.Asteroids
+    className: Ship
+  - hash:
+      serializedVersion: 2
+      Hash: 999114b81b16350120dede9aabe37fe4
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror.Discovery
+    className: NetworkDiscovery
+  - hash:
+      serializedVersion: 2
+      Hash: b2b4a4bf81317f3c08703a1773162a08
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Example
+    className: NetworkManagerListServer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
+    className: PlayModeRunnerCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: SceneKernel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Installers.MonoInstallers
+    className: BarInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 216c4bcd126c22b93d86c49174ecd34d
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkTransformChild
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachinePixelPerfect
+  - hash:
+      serializedVersion: 2
+      Hash: caa533b001ae39b864ba8425019e2268
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: 861b259d7eea4de9243a511b37ae51a8
+    assemblyName: Mirror.Components.dll
+    namespaceName: Mirror
+    className: NetworkProximityChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 88e3b86c3ab08e02b94869c8fc5ce863
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.NetworkRoom
+    className: PlayerScore
+  - hash:
+      serializedVersion: 2
+      Hash: a63fc1a3b035e5a0b5839cd7f7b3086e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: 8649814970b42d345b89944b862453cc
+    assemblyName: Unity.TextMeshPro.dll
+    namespaceName: TMPro
+    className: TMP_SubMesh
+  - hash:
+      serializedVersion: 2
+      Hash: 49e0d03cb6738ad04b07244d52b3149c
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.CharacterModule
+    className: EnemyPlateDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Bob
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestRunner.Utils
+    className: TestRunCallbackListener
+  - hash:
+      serializedVersion: 2
+      Hash: 1351a1bf2c4086539cf0063006375478
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineBrain
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.AutoInjecter
+    className: Gorp
+  - hash:
+      serializedVersion: 2
+      Hash: 4ef0f7d42cdb13479386e1f049c315aa
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestTools.TestRunner
+    className: PlaymodeTestsController
+  - hash:
+      serializedVersion: 2
+      Hash: 2aeeec1b1a144c469cd2d37776bc2315
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: dbfb4270852b0008a423a7418d9de4cf
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineHardLockToTarget
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject.dll
+    namespaceName: Zenject.Asteroids
+    className: GameInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: e4fb2671f4e7782c0481d74d32ad6df2
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.Tanks
+    className: Projectile
+  - hash:
+      serializedVersion: 2
+      Hash: 862148ee6f656c9befce49dba370ec3e
+    assemblyName: Mirror.Examples.Cloud.GUI.dll
+    namespaceName: Mirror.Cloud.Example
+    className: ServerListUI
+  - hash:
+      serializedVersion: 2
+      Hash: 748dd2a2a28da4e618912da5ac45684b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: StandaloneInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 55d1385e92ae55b83696d36407bfe079
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromSubContainerPrefab
+    className: CircBar
+  - hash:
+      serializedVersion: 2
+      Hash: b5c3dbcb94925c8b595ad16a62b44788
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineBasicMultiChannelPerlin
+  - hash:
+      serializedVersion: 2
+      Hash: aa88ae22474df55295327e4ee99e5a24
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Toggle
+  - hash:
+      serializedVersion: 2
+      Hash: 95c127d1f263d4723a14710d6aa2844c
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ClassSystem
+    className: Progression
+  - hash:
+      serializedVersion: 2
+      Hash: 8220b46879dc5e37db1b940c938f5744
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: SignalEmitter
+  - hash:
+      serializedVersion: 2
+      Hash: 9a4656237d4b59441eee06fdcf9bb2f5
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ItemSystem.UI
+    className: DragItemMock
+  - hash:
+      serializedVersion: 2
+      Hash: 2792936179724025482dc04d68a47ca7
+    assemblyName: Cinemachine.dll
+    namespaceName: Cinemachine
+    className: CinemachineClearShot
+  - hash:
+      serializedVersion: 2
+      Hash: 7072231382eb3c4871b3dd75ad0227e1
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: 880d064aa7bf32abd8295b0fe07bcc13
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem
+    className: InputSystemObject
+  - hash:
+      serializedVersion: 2
+      Hash: 8ce7490218aa3427e7b51d3293cb15b1
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext
+    className: FooInstaller
+  - hash:
+      serializedVersion: 2
+      Hash: 0fd6822f6177297bd0eb4d83cc7a9030
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: ToggleGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Bindings.FromPrefabResource
+    className: Norf2
+  - hash:
+      serializedVersion: 2
+      Hash: 29ab74c7fdc1448c133740c67aae90e8
+    assemblyName: Zenject-IntegrationTests.dll
+    namespaceName: Zenject.Tests.Factories.PrefabFactory
+    className: Foo
+  - hash:
+      serializedVersion: 2
+      Hash: 4c790fa3b7c93033baa4406ca5ac8c04
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: Reward
+  - hash:
+      serializedVersion: 2
+      Hash: 5fdc3c691001157e6a51b430df6e5f8c
+    assemblyName: Mirror.Examples.dll
+    namespaceName: Mirror.Examples.MultipleAdditiveScenes
+    className: PlayerScore
+  - hash:
+      serializedVersion: 2
+      Hash: 150021a414448dd302c0bcf6a4f16154
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: SkillsProgression
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.InputSystem.dll
+    namespaceName: UnityEngine.InputSystem.EnhancedTouch
+    className: TouchSimulation
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ManagementModule
+    className: LoseManager
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: a9118fb5f6d913bd7f7536f843376959
+    assemblyName: Zenject.dll
+    namespaceName: Zenject
+    className: ZenjectBinding
+  - hash:
+      serializedVersion: 2
+      Hash: df22c71d4b6346c84dc7f26ab93cd842
+    assemblyName: Mirror.dll
+    namespaceName: kcp2k
+    className: KcpTransport
+  platform: 19
+  scenePathNames:
+  - Assets/Scenes/Menu.unity
+  - Assets/Scenes/Map_Battle_01.unity
+  playerPath: D:/unity-projects/bialsky-shooter-mirror/Bialsky Shooter Mirror/Builds/Bialsky
+    Shooter Mirror.exe

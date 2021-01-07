@@ -70,9 +70,9 @@ namespace BialskyShooter.ItemSystem.UI
             return itemId;
         }
 
-        public Image GetItemImage()
+        public Sprite GetItemIcon()
         {
-            return transform.GetChild(0).GetComponent<Image>();
+            return transform.GetChild(0).GetComponent<Image>().sprite;
         }
 
         public bool ReadyOnly()
@@ -84,6 +84,11 @@ namespace BialskyShooter.ItemSystem.UI
         {
             if (readOnlyMode) return;
             clientOnItemDraggedIn?.Invoke(itemSlot.GetItemId());
+        }
+
+        public void SetItemVisibility(bool visibility)
+        {
+            transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
         }
     }
 }

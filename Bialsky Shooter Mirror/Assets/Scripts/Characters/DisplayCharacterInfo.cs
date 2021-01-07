@@ -12,12 +12,7 @@ namespace BialskyShooter.CharacterModule.UI
 {
     public class DisplayCharacterInfo : MonoBehaviour
     {
-        [SerializeField] EquipmentDisplay equipmentDisplay = null;
-        [SerializeField] CreatureStatsDisplay creatureStatsDisplay = null;
         [SerializeField] Canvas canvas = null;
-
-        public EquipmentDisplay EquipmentDisplay { get { return equipmentDisplay; } }
-        public CreatureStatsDisplay CreatureStatsDisplay { get { return creatureStatsDisplay; } }
 
 
         public void CloseCharacterInfoDisplay()
@@ -39,12 +34,12 @@ namespace BialskyShooter.CharacterModule.UI
 
         private void DisplayCreatureStats(CreatureStats stats)
         {
-            GetComponent<DisplayCharacterInfo>().CreatureStatsDisplay.SetCreatureStats(stats);
+            GetComponent<DisplayCharacterInfo>().GetComponent<CreatureStatsDisplay>().SetCreatureStats(stats);
         }
 
         private void DisplayEquipment(Equipment equipment, EquippingController equippingController)
         {
-            var equipmentDisplay = GetComponent<DisplayCharacterInfo>().EquipmentDisplay;
+            var equipmentDisplay = GetComponent<DisplayCharacterInfo>().GetComponent<EquipmentDisplay>();
             if (!equipment.hasAuthority) equipmentDisplay.ReadOnly();
             equipmentDisplay.SetupEquipmentDisplay(equipment, equippingController);
         }

@@ -61,7 +61,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void InjectItem(IItemSlot itemSlot)
         {
-            InjectItem(itemSlot.GetItemId(), itemSlot.GetItemImage().sprite);
+            InjectItem(itemSlot.GetItemId(), itemSlot.GetItemIcon());
         }
 
         public Guid GetItemId()
@@ -69,14 +69,19 @@ namespace BialskyShooter.ItemSystem.UI
             return itemId;
         }
 
-        public Image GetItemImage()
+        public Sprite GetItemIcon()
         {
-            return transform.GetChild(0).GetComponent<Image>();
+            return transform.GetChild(0).GetComponent<Image>().sprite;
         }
 
         public bool ReadyOnly()
         {
             return readOnlyMode;
+        }
+
+        public void SetItemVisibility(bool visibility)
+        {
+            transform.GetChild(0).GetComponent<Image>().color = new Color(1,1,1,visibility ? 1 : 0);
         }
     }
 }
