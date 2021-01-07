@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.ClassSystem;
 using BialskyShooter.EquipmentSystem;
+using BialskyShooter.EquipmentSystem.UI;
 using BialskyShooter.InventoryModule;
 using System;
 using System.Collections;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BialskyShooter.CharacterModule
+namespace BialskyShooter.CharacterModule.UI
 {
     public class DisplayCharacterInfo : MonoBehaviour
     {

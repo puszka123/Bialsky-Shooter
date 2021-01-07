@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using BialskyShooter.InventoryModule.UI;
+using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;

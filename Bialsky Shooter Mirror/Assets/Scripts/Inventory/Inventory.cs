@@ -11,21 +11,12 @@ namespace BialskyShooter.InventoryModule
 
     public class Inventory : NetworkBehaviour
     {
-        InventoryDisplay inventoryDisplay;
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
 
         public IList<ItemInformation> SyncItemInformations { get { return syncItemInformations; } }
 
         private IEnumerator Start()
         {
-            if (CompareTag("Player") && hasAuthority)
-            {
-                inventoryDisplay = FindObjectOfType<InventoryDisplay>();
-                foreach (var item in GetItemDisplays())
-                {
-                    inventoryDisplay.DisplayItem(item);
-                }
-            }
             //debug only
             if (NetworkServer.active && item1 != null)
             {
@@ -96,6 +87,7 @@ namespace BialskyShooter.InventoryModule
         #endregion
 
         #region Client
+        public event Action clientOnInventoryChanged;
 
         [Client]
         public void ClientLootItem(NetworkIdentity loot, Guid itemId)
@@ -116,19 +108,7 @@ namespace BialskyShooter.InventoryModule
         [Client]
         void ClientPickupItem(ItemInformation itemInformation)
         {
-            var displayItem = new ItemDisplay(itemInformation);
-            if (CompareTag("Player")) inventoryDisplay.DisplayItem(displayItem);
-        }
-
-        [Client]
-        public IEnumerable<ItemDisplay> GetItemDisplays()
-        {
-            var itemDisplays = new List<ItemDisplay>();
-            foreach (var item in syncItemInformations)
-            {
-                itemDisplays.Add(new ItemDisplay(item));
-            }
-            return itemDisplays;
+            clientOnInventoryChanged?.Invoke();
         }
 
         #endregion

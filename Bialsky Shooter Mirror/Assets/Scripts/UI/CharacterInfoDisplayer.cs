@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BialskyShooter.UI
+namespace BialskyShooter.CharacterModule.UI
 {
     public class CharacterInfoDisplayer : MonoBehaviour
     {

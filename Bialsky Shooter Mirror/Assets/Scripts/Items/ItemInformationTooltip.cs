@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace BialskyShooter.ItemSystem
+namespace BialskyShooter.ItemSystem.UI
 {
     public class ItemInformationTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

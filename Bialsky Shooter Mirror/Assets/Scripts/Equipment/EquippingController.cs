@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.InventoryModule;
 using BialskyShooter.ItemSystem;
+using BialskyShooter.ItemSystem.UI;
 using Mirror;
 using System;
 using System.Collections;
