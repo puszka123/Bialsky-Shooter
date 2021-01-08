@@ -12,7 +12,7 @@ namespace BialskyShooter.EquipmentSystem
 {
     [RequireComponent(typeof(Inventory))]
     [RequireComponent(typeof(Equipment))]
-    public class EquippingController : NetworkBehaviour
+    public class EquipmentController : NetworkBehaviour
     {
         [Inject] Inventory inventory = null;
         [Inject] Equipment equipment = null;
@@ -55,6 +55,22 @@ namespace BialskyShooter.EquipmentSystem
         {
             var item = equipment.Unequip(itemSlotType);
             if(item != null) inventory.PickupItem(item);
+        }
+
+        [Command]
+        void CmdUnequipAll()
+        {
+            ServerUnequipAll();
+        }
+
+        [Server]
+        public void ServerUnequipAll()
+        {
+            var unequippedItems = equipment.UnequipAll();
+            foreach (var item in unequippedItems)
+            {
+                inventory.PickupItem(item);
+            }
         }
 
         #endregion
@@ -105,6 +121,11 @@ namespace BialskyShooter.EquipmentSystem
         public void ClientEquipItem(Guid itemId)
         {
             CmdEquipItem(itemId);
+        }
+
+        public void ClientUnequipAll()
+        {
+            CmdUnequipAll();
         }
 
         #endregion

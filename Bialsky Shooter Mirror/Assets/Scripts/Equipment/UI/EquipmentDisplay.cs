@@ -15,7 +15,7 @@ namespace BialskyShooter.EquipmentSystem.UI
     {
         [SerializeField] List<EquipmentItemSlot> itemSlots = null;
         Equipment equipment;
-        EquippingController equippingController;
+        EquipmentController equippingController;
         bool readOnlyMode;
 
         private void Start()
@@ -35,7 +35,7 @@ namespace BialskyShooter.EquipmentSystem.UI
             itemSlots.ForEach(slot => slot.ReadOnly());
         }
 
-        public void SetupEquipmentDisplay(Equipment equipment, EquippingController equippingController)
+        public void SetupEquipmentDisplay(Equipment equipment, EquipmentController equippingController)
         {
             if (this.equipment != null) equipment.clientOnEquipmentChanged -= DisplayEquipment;
             if (equipment != null) equipment.clientOnEquipmentChanged += DisplayEquipment;
@@ -47,7 +47,7 @@ namespace BialskyShooter.EquipmentSystem.UI
         private void OnLocalCharacterInfoDisplayed()
         {
             var player = GetLocalPlayer();
-            SetupEquipmentDisplay(player.GetComponent<Equipment>(), player.GetComponent<EquippingController>());
+            SetupEquipmentDisplay(player.GetComponent<Equipment>(), player.GetComponent<EquipmentController>());
         }
 
         private GameObject GetLocalPlayer()

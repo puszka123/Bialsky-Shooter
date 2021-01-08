@@ -27,7 +27,7 @@ namespace BialskyShooter.CharacterModule.UI
             if (!selectedCreature.TryGetComponent(out Equipment equipment)) return;
             if (!selectedCreature.TryGetComponent(out CreatureStats stats)) return;
             if (selectedCreature.TryGetComponent(out LootTarget lootTarget)) return;
-            DisplayEquipment(equipment, selectedCreature.GetComponent<EquippingController>());
+            DisplayEquipment(equipment, selectedCreature.GetComponent<EquipmentController>());
             DisplayCreatureStats(stats);
             canvas.gameObject.SetActive(true);
         }
@@ -37,7 +37,7 @@ namespace BialskyShooter.CharacterModule.UI
             GetComponent<DisplayCharacterInfo>().GetComponent<CreatureStatsDisplay>().SetCreatureStats(stats);
         }
 
-        private void DisplayEquipment(Equipment equipment, EquippingController equippingController)
+        private void DisplayEquipment(Equipment equipment, EquipmentController equippingController)
         {
             var equipmentDisplay = GetComponent<DisplayCharacterInfo>().GetComponent<EquipmentDisplay>();
             if (!equipment.hasAuthority) equipmentDisplay.ReadOnly();

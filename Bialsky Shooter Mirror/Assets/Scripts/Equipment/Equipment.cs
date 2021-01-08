@@ -81,12 +81,24 @@ namespace BialskyShooter.EquipmentSystem
         public IItem Unequip(ItemSlotType itemSlotType)
         {
             var item = equipmentItems[itemSlotType];
-            if (item != null)
+            if (item != null && item.GetId() != Guid.Empty)
             {
                 RemoveFromSyncItems(item.GetId());
                 equipmentItems[itemSlotType] = null;
             }
             return item;
+        }
+
+        [Server]
+        public IEnumerable<IItem> UnequipAll()
+        {
+            var unequippedItems = new List<IItem>();
+            foreach (var key in equipmentItems.Keys.ToList())
+            {
+                var item = Unequip(key);
+                if (item != null && item.GetId() != Guid.Empty) unequippedItems.Add(item);
+            }
+            return unequippedItems;
         }
 
         [Server]

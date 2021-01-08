@@ -32,7 +32,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.Control.PlayerSkillController
     - BialskyShooter.Core.PlayerCameraSpawner
     - BialskyShooter.EquipmentSystem.Equipment
-    - BialskyShooter.EquipmentSystem.EquippingController
+    - BialskyShooter.EquipmentSystem.EquipmentController
     - BialskyShooter.EquipmentSystem.UI.EquipmentDisplay
     - BialskyShooter.EquipmentSystem.UI.EquipmentDisplayContainer
     - BialskyShooter.InventoryModule.Inventory
@@ -344,6 +344,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15896}
     - Class: 114
       Script: {instanceID: 15904}
+    - Class: 114
+      Script: {instanceID: 16924}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -447,8 +449,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11580}
     - Class: 114
       Script: {instanceID: 11602}
-    - Class: 114
-      Script: {instanceID: 11666}
     - Class: 114
       Script: {instanceID: 11714}
     - Class: 114
@@ -646,7 +646,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15922}
     - Class: 114
-      Script: {instanceID: 20034}
+      Script: {instanceID: 16924}
+    - Class: 114
+      Script: {instanceID: 20364}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -940,12 +942,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: Mirror
     className: NetworkManager
-  - hash:
-      serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
-    assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.EquipmentSystem
-    className: EquippingController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -3058,6 +3054,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: EquipmentController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

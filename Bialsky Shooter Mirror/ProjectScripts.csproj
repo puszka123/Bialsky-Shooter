@@ -106,7 +106,7 @@
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
-    <Compile Include="Assets\Scripts\Equipment\EquippingController.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquipmentController.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplay.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplayContainer.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\IEquipmentSlotsContainer.cs" />

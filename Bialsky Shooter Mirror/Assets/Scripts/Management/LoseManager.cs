@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BialskyShooter.InventoryModule;
+using BialskyShooter.EquipmentSystem;
 
 namespace BialskyShooter.ManagementModule
 {
@@ -19,12 +20,22 @@ namespace BialskyShooter.ManagementModule
 
         public override void OnStartServer()
         {
-            GetComponent<Health>().serverOnCreatureLose += OnCreatureLose;
+            GetComponent<Health>().serverOnCreatureLose += ServerOnCreatureLose;
         }
 
         public override void OnStopServer()
         {
-            GetComponent<Health>().serverOnCreatureLose -= OnCreatureLose;
+            GetComponent<Health>().serverOnCreatureLose -= ServerOnCreatureLose;
+        }
+
+        [Server]
+        void ServerOnCreatureLose()
+        {
+            if (TryGetComponent(out EquipmentController equipmentController))
+            {
+                equipmentController.ServerUnequipAll();
+            }
+            OnCreatureLose();
         }
 
         #endregion
@@ -35,14 +46,24 @@ namespace BialskyShooter.ManagementModule
         public override void OnStartClient()
         {
             if (NetworkServer.active) return;
-            GetComponent<Health>().clientOnCreatureLose += OnCreatureLose;
+            GetComponent<Health>().clientOnCreatureLose += ClientOnCreatureLose;
             if (GetComponent<Health>().IsDefeated) OnCreatureLose();
         }
 
         public override void OnStopClient()
         {
             if (NetworkServer.active) return;
-            GetComponent<Health>().clientOnCreatureLose -= OnCreatureLose;
+            GetComponent<Health>().clientOnCreatureLose -= ClientOnCreatureLose;
+        }
+
+        [Client]
+        void ClientOnCreatureLose()
+        {
+            if (TryGetComponent(out EquipmentController equipmentController))
+            {
+                equipmentController.ClientUnequipAll();
+            }
+            OnCreatureLose();
         }
 
         #endregion
