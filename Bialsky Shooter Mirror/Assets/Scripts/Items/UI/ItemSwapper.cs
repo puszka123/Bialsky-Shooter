@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BialskyShooter.InventoryModule.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,6 +66,13 @@ namespace BialskyShooter.ItemSystem.UI
             if (sourceSlotMock.GetItemId() != Guid.Empty) destination.InjectItem(sourceSlotMock);
             if(destinationSlotMock.GetItemId() != Guid.Empty) source.InjectItem(destinationSlotMock);
             return true;
+        }
+
+        internal static void SwapItems(IItemSlot source, IInventorySlotsContainer container)
+        {
+            var destination = container.GetSlot(source.GetItemId());
+            if (destination == null) destination = container.GetFirstAvailableSlot();
+            SwapItems(source, destination);
         }
     }
 }

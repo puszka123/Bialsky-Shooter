@@ -104,7 +104,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         void DragItemTo(IInventorySlotsContainer container)
         {
-            ItemSwapper.SwapItems(draggingItemSlot, container.GetFirstAvailableSlot());
+            ItemSwapper.SwapItems(draggingItemSlot, container);
         }
 
         void DropItem()

@@ -214,5 +214,10 @@ namespace BialskyShooter.InventoryModule.UI
             var slot = GetFirstAvailableSlot();
             slot.InjectItem(itemSlot);
         }
+
+        public IItemSlot GetSlot(Guid itemId)
+        {
+            return slots.Select(slot => slot.GetComponent<IItemSlot>()).FirstOrDefault(slot => slot.GetItemId() == itemId);
+        }
     }
 }
