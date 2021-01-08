@@ -21,6 +21,7 @@ namespace BialskyShooter.ItemSystem.UI
         public void OnBeginDrag(PointerEventData eventData)
         {
             draggingItemSlot = GetComponent<IItemSlot>();
+            if (draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(false);
             dragItemMockPrefab = Resources.Load<DragItemMock>("DragItemMock");
             dragItemMockInstance = Instantiate(dragItemMockPrefab);
@@ -28,13 +29,16 @@ namespace BialskyShooter.ItemSystem.UI
         }
 
         public void OnDrag(PointerEventData eventData)
-        {;
-
-            dragItemMockInstance.SetPosition(Mouse.current.position.ReadValue());
+        {
+            if (dragItemMockInstance != null)
+            {
+                dragItemMockInstance.SetPosition(Mouse.current.position.ReadValue());
+            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            if (draggingItemSlot == null || draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(true);
             var itemSlot = TryToGet<IItemSlot>(eventData);
             var isDragged = DragToSlot(itemSlot);
