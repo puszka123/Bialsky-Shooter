@@ -1,4 +1,5 @@
 using BialskyShooter.AI;
+using BialskyShooter.AI.Pathfinding;
 using BialskyShooter.Multiplayer;
 using BialskyShooter.ResourcesModule;
 using UnityEngine;
@@ -10,10 +11,12 @@ namespace BialskyShooter.Zenject
     public class ProjectInstaller : ScriptableObjectInstaller<ProjectInstaller>
     {
         [SerializeField] GameObject networkManagerPrefab = null;
+        [SerializeField] GameObject graphPrefab = null;
         
         public override void InstallBindings()
         {
             Container.Bind<MyNetworkManager>().FromComponentInNewPrefab(networkManagerPrefab).AsSingle().NonLazy();
+            Container.Bind<Graph>().FromComponentInNewPrefab(graphPrefab).AsSingle().NonLazy();
         }
     }
 }

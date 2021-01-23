@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   networkManagerPrefab: {fileID: 1087170427319808519, guid: 3975d9236318a00489cba75cec0e0a2a,
     type: 3}
-  humanEnemyPrefab: {fileID: 7744607722170757279, guid: 0eff7170a0d880c459c8a5f4ab7ab070,
+  graphPrefab: {fileID: 2011449094082417888, guid: 4f81883189730f94e822c1cec4880e24,
     type: 3}

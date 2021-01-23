@@ -1,4 +1,5 @@
 using BialskyShooter.AI;
+using BialskyShooter.AI.Pathfinding;
 using BialskyShooter.ClassSystem;
 using BialskyShooter.Combat;
 using BialskyShooter.EquipmentSystem;
@@ -19,7 +20,8 @@ namespace BialskyShooter.Zenject
             Container.Bind(convention => convention
                                     .AllClasses()
                                     .InNamespace("BialskyShooter")
-                                    .DerivingFrom<MonoBehaviour>())
+                                    .DerivingFrom<MonoBehaviour>()
+                                    .Where(e => !e.IsAssignableFrom(typeof(Graph))))
                 .FromComponentOn(gameObject).AsSingle();
             Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<MovementSystem>().AsSingle();

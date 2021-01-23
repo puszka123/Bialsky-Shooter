@@ -85,6 +85,7 @@ namespace BialskyShooter.InventoryModule
 
         #endregion
 
+
         #region Client
         public event Action clientOnInventoryChanged;
 
