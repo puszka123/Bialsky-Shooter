@@ -28,7 +28,6 @@ namespace BialskyShooter.AI.Pathfinding
         {
             var startPosition = graph.ToNode(transform.position);
              var targetPosition = graph.ToNode(destination);
-            print(destination);
             frontier.Clear();
             frontier.Enqueue(startPosition, 0);
             var cameFrom = new Dictionary<Guid, Node>();
@@ -47,6 +46,7 @@ namespace BialskyShooter.AI.Pathfinding
                     {
                         costSoFar[next.Id] = newCost;
                         var priority = newCost + Heuristic(targetPosition, next);
+                        if (frontier.Contains(next)) frontier.Remove(next);
                         frontier.Enqueue(next, priority);
                         cameFrom[next.Id] = current;
                     }
@@ -65,6 +65,8 @@ namespace BialskyShooter.AI.Pathfinding
                 start = cameFrom[start.Id];
             }
             desiredPath.Reverse();
+            graph.Remove(startPosition.Id);
+            graph.Remove(targetPosition.Id);
             return desiredPath.Select(n => n.Position);
         }
 

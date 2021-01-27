@@ -19,12 +19,15 @@ namespace BialskyShooter.AI
                 player = GameObject.FindGameObjectWithTag("Player");
                 if (player == null) return false;
             }
-            LayerMask layerMask = LayerMask.GetMask("Object");
+            LayerMask layerMask = LayerMask.GetMask("Object", "Terrain");
             RaycastHit hit;
-            bool result = Physics.Linecast(transform.position, player.transform.position, out hit, layerMask);
+            var myHeight = GetComponent<CapsuleCollider>().height;
+            var playerHeight = player.GetComponent<CapsuleCollider>().height;
+            var myPosition = new Vector3(transform.position.x, transform.position.y + myHeight, transform.position.z);
+            var playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + playerHeight, player.transform.position.z);
+            bool result = Physics.Linecast(myPosition, playerPosition, out hit, layerMask);
             if(!result || (result && (hit.transform.CompareTag("Enemy") || hit.transform.CompareTag("Player"))))
             {
-
                 return true;
             }
             return false;

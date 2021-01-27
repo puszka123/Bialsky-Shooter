@@ -32,5 +32,14 @@ namespace BialskyShooter.AI.Pathfinding
             node.AddSelfToNeighbours();
             return node;
         }
+
+        public void Remove(Guid id)
+        {
+            foreach (var node in AllNodes.Values)
+            {
+                node.Remove(id);
+            }
+            AllNodes.Remove(id);
+        }
     }
 }

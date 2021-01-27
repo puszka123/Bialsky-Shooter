@@ -41,6 +41,11 @@ namespace BialskyShooter.AI.Pathfinding
             return neighbours;
         }
 
+        internal void Remove(Guid id)
+        {
+            Neighbours.Remove(id);
+        }
+
         public void AddSelfToNeighbours()
         {
             foreach (var node in Neighbours.Values)

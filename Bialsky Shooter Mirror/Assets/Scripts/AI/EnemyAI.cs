@@ -30,19 +30,26 @@ namespace BialskyShooter.AI
         {
             if(player == null) player = GameObject.FindGameObjectWithTag("Player");
 
-            //if (enemySight.CanSeePlayer())
-            //{
-            //    aiMovement.Move(player.transform.position);
-            //    skillUser.UseRandomSkill();
-            //}
-
-            if(path == null) path = pathFinder.FindPath(player.transform.position).ToArray();
-            foreach (var item in path)
+            if (enemySight.CanSeePlayer())
             {
-                print(item);
+                path = null;
+                aiMovement.Move(player.transform.position);
+                skillUser.UseRandomSkill();
             }
-            if (Vector3.Distance(path[index], transform.position) <= 2f) ++index;
-            aiMovement.Move(path[index]);
+            else
+            {
+                if (path == null || (index >= path.Length))
+                {
+                    print("New path");
+                    path = pathFinder.FindPath(player.transform.position).ToArray();
+                    index = 0;
+                }
+                if (path.Length > 0)
+                {
+                    if (Vector3.Distance(path[index], transform.position) <= 2f) ++index;
+                    aiMovement.Move(path[index]);
+                }
+            }
         }
 
         #endregion
