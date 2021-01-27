@@ -299,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 5456388127205547646, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: moveFactor
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6046221686394258682, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}

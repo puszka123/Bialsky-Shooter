@@ -28,7 +28,7 @@ namespace BialskyShooter.AI
         [ServerCallback]
         void Update()
         {
-            if(player == null) player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) player = GameObject.FindGameObjectWithTag("Player");
 
             if (enemySight.CanSeePlayer())
             {
@@ -44,11 +44,8 @@ namespace BialskyShooter.AI
                     path = pathFinder.FindPath(player.transform.position).ToArray();
                     index = 0;
                 }
-                if (path.Length > 0)
-                {
-                    if (Vector3.Distance(path[index], transform.position) <= 2f) ++index;
-                    aiMovement.Move(path[index]);
-                }
+                if ((index < path.Length) && Vector3.Distance(path[index], transform.position) <= 2f) ++index;
+                if (index < path.Length) aiMovement.Move(path[index]);
             }
         }
 
