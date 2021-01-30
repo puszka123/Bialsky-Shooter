@@ -2386,6 +2386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillsUseDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 3477533242243679799, guid: 43bb9667f9f7db74ea552d78e6b41b9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4681017701672188353, guid: 43bb9667f9f7db74ea552d78e6b41b9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2449,7 +2454,7 @@ PrefabInstance:
     - target: {fileID: 4983079005522786521, guid: 43bb9667f9f7db74ea552d78e6b41b9a,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7822265584530262843, guid: 43bb9667f9f7db74ea552d78e6b41b9a,
         type: 3}

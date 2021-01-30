@@ -10,12 +10,14 @@ namespace BialskyShooter.AI
 {
     [RequireComponent(typeof(AIMovement))]
     [RequireComponent(typeof(EnemySight))]
+    [RequireComponent(typeof(Aggravate))]
     public class Fight : NetworkBehaviour, IAction
     {
         [Inject] EnemySight enemySight = null;
         [Inject] AIMovement aiMovement = null;
         [Inject] PathFinder pathFinder = null;
         [Inject] SkillUser skillUser = null;
+        [Inject] Aggravate aggravate = null;
         GameObject player;
         Vector3[] path;
         int index = 0;
@@ -86,7 +88,7 @@ namespace BialskyShooter.AI
 
         public bool CanExecute()
         {
-            return false;
+            return !Mathf.Approximately(aggravate.AggravateValue, 0f);
         }
     }
 }

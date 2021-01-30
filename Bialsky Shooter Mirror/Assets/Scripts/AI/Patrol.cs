@@ -7,6 +7,7 @@ using Zenject;
 namespace BialskyShooter.AI
 {
     [RequireComponent(typeof(AIMovement))]
+    [RequireComponent(typeof(Aggravate))]
     public class Patrol : MonoBehaviour, IAction
     {
         [SerializeField] float patrolTime = 5f;
@@ -14,6 +15,7 @@ namespace BialskyShooter.AI
         [SerializeField] int newPatrolPlaceAttempts = 30;
         [SerializeField] float distanceToPatrolPosition = 2f;
         [Inject] AIMovement aiMovement = null;
+        [Inject] Aggravate aggravate = null;
         bool patrol = false;
         bool movingToNewPosition = false;
         Vector3 patrolPosition;
@@ -84,7 +86,7 @@ namespace BialskyShooter.AI
 
         public bool CanExecute()
         {
-            return true;
+            return Mathf.Approximately(aggravate.AggravateValue, 0f);
         }
     }
 }
