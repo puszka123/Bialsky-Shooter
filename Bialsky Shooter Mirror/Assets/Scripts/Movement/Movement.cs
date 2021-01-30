@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.ClassSystem;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,12 @@ namespace BialskyShooter.Movement
         {
             Vector3 moveForce = ComputeMoveForce(moveVector);
             Move(moveForce);
+        }
+
+        internal void StopMove()
+        {
+            rb.isKinematic = true;
+            rb.isKinematic = false;
         }
 
         [Server]

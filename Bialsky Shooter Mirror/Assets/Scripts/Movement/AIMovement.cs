@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using BialskyShooter.AI;
 using Mirror;
@@ -35,6 +36,11 @@ namespace BialskyShooter.Movement
             float goalWeight = 1.0f;
             float finalAngle = goalWeight * goalAngle + avoidanceWeight * avoidanceAngle;
             return finalAngle;
+        }
+
+        internal void StopMove()
+        {
+            movement.StopMove();
         }
 
         [Server]
