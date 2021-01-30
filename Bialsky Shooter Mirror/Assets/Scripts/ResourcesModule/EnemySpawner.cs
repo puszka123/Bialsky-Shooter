@@ -5,16 +5,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 namespace BialskyShooter.ResourcesModule
 {
     public class EnemySpawner : NetworkBehaviour
     {
-        [SerializeField] float spawnRange = 5f;
-        [SerializeField] float spawnCreaturesCount = 5f; 
-        CreatureFactoryBehaviour.CreatureFactory creatureFactory;
-        MyNetworkManager networkManager;
+        [SerializeField] protected float spawnRange = 5f;
+        [SerializeField] protected float spawnCreaturesCount = 5f; 
+        protected CreatureFactoryBehaviour.CreatureFactory creatureFactory;
+        protected MyNetworkManager networkManager;
 
         [ServerCallback]
         private IEnumerator Start()
@@ -22,14 +21,6 @@ namespace BialskyShooter.ResourcesModule
 
             yield return new WaitForSeconds(1f);
             SpawnEnemies();
-        }
-
-        [Inject]
-        public void Construct(CreatureFactoryBehaviour.CreatureFactory creatureFactory, MyNetworkManager networkManager)
-        {
-            if (NetworkServer.active) NetworkServer.Spawn(gameObject);
-            this.creatureFactory = creatureFactory;
-            this.networkManager = networkManager;
         }
 
         private void SpawnEnemies()

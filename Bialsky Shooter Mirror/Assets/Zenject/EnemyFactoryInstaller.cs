@@ -10,8 +10,10 @@ namespace BialskyShooter.Zenject
     [CreateAssetMenu(fileName = "EnemyFactoryInstaller", menuName = "Installers/EnemyFactoryInstaller")]
     public class EnemyFactoryInstaller : ScriptableObjectInstaller<EnemyFactoryInstaller>
     {
-        [SerializeField] GameObject enemySpawnerPrefab = null;
+        [SerializeField] GameObject humanEnemySpawnerPrefab = null;
+        [SerializeField] GameObject boxEnemySpawnerPrefab = null;
         [SerializeField] GameObject humanEnemyPrefab = null;
+        [SerializeField] GameObject boxEnemyPrefab = null;
         public override void InstallBindings()
         {
             Container.Bind<Vector3>().AsSingle();
@@ -19,9 +21,12 @@ namespace BialskyShooter.Zenject
             Container.Bind<float>().AsSingle();
             if (NetworkServer.active)
             {
-                Container.BindFactory<Vector3, Quaternion, CreatureFactoryBehaviour, CreatureFactoryBehaviour.CreatureFactory>()
+                Container.BindFactory<Vector3, Quaternion, CreatureFactoryBehaviour, CreatureFactoryBehaviour.HumanEnemyFactory>()
                     .FromSubContainerResolve().ByNewContextPrefab<CreatureSpawnInstaller>(humanEnemyPrefab);
-                Container.Bind<EnemySpawner>().FromComponentInNewPrefab(enemySpawnerPrefab).AsSingle().NonLazy();
+                Container.BindFactory<Vector3, Quaternion, CreatureFactoryBehaviour, CreatureFactoryBehaviour.BoxEnemyFactory>()
+                    .FromSubContainerResolve().ByNewContextPrefab<CreatureSpawnInstaller>(boxEnemyPrefab);
+                Container.Bind<HumanEnemySpawner>().FromComponentInNewPrefab(humanEnemySpawnerPrefab).AsSingle().NonLazy();
+                Container.Bind<BoxEnemySpawner>().FromComponentInNewPrefab(boxEnemySpawnerPrefab).AsSingle().NonLazy();
             }
         }
     }

@@ -166,8 +166,10 @@
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MyNetworkManager.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\BoxEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\CreatureFactoryBehaviour.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\HumanEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Skills\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\DragSkill.cs" />

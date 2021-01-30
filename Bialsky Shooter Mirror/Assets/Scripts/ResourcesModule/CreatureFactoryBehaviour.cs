@@ -18,5 +18,15 @@ namespace BialskyShooter.ResourcesModule
         {
 
         }
+
+        public class HumanEnemyFactory : CreatureFactory
+        {
+            
+        }
+
+        public class BoxEnemyFactory : CreatureFactory
+        { 
+
+        }
     }
 }

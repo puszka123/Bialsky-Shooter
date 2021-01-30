@@ -21,7 +21,9 @@ namespace BialskyShooter.AI
             }
             LayerMask layerMask = LayerMask.GetMask("Object", "Terrain");
             RaycastHit hit;
-            var myHeight = GetComponent<CapsuleCollider>().height;
+            var myHeight = 0f;
+            if(GetComponent<CapsuleCollider>() != null) myHeight = GetComponent<CapsuleCollider>().height;
+            else myHeight = GetComponent<BoxCollider>().size.y;
             var playerHeight = player.GetComponent<CapsuleCollider>().height;
             var myPosition = new Vector3(transform.position.x, transform.position.y + myHeight, transform.position.z);
             var playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + playerHeight, player.transform.position.z);

@@ -16,7 +16,7 @@ namespace BialskyShooter.Movement
         [Inject] Movement movement = null;
         [Inject] CollisionDetection collisionDetection = null;
 
-        [SerializeField] float ApproximateDistance = 5f; 
+        [SerializeField] float ApproximateDistance = 1f; 
 
         #region Server
 

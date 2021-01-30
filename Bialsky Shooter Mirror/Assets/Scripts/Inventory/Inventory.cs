@@ -98,7 +98,6 @@ namespace BialskyShooter.InventoryModule
             }
         }
 
-
         [ClientRpc]
         void RpcPickupItem(ItemInformation itemInformation)
         {
