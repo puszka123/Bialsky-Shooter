@@ -7,9 +7,9 @@ namespace BialskyShooter.ItemSystem.UI
 {
     public class DragItemMock : MonoBehaviour
     {
-        [SerializeField] Image image;
-        [SerializeField] RectTransform rectTransform;
-        [SerializeField] Canvas canvas;
+        [SerializeField] Image image = null;
+        [SerializeField] RectTransform rectTransform = null;
+        [SerializeField] Canvas canvas = null;
 
         public void SetSprite(Sprite sprite)
         {

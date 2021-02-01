@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - LocalUserPlate
   - LocalCharacterInfo
+  - Creature
   layers:
   - Default
   - TransparentFX

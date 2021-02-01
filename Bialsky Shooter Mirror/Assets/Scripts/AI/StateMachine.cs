@@ -9,9 +9,9 @@ namespace BialskyShooter.AI
     [RequireComponent(typeof(ActionScheduler))]
     public class StateMachine : MonoBehaviour
     {
-        [Inject] ActionScheduler actionScheduler;
-        [Inject] Patrol patrol;
-        [Inject] Fight fight;
+        [Inject] ActionScheduler actionScheduler = null;
+        [Inject] Patrol patrol = null;
+        [Inject] Fight fight = null;
 
         Dictionary<IAction, IAction[]> actionsGraph;
 

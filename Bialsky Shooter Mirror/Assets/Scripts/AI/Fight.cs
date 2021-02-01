@@ -18,16 +18,14 @@ namespace BialskyShooter.AI
         [Inject] PathFinder pathFinder = null;
         [Inject] SkillUser skillUser = null;
         [Inject] Aggravate aggravate = null;
-        GameObject player;
         Vector3[] path;
         int index = 0;
         bool execute = false;
 
         private void Update()
         {
-            if (!execute) return;
-            TryToFindPlayer();
-            if (enemySight.CanSeePlayer())
+            if (!execute || aggravate.NearbyTarget == null) return;
+            if (enemySight.CanSeeTarget(aggravate.NearbyTarget))
             {
                 ClearPath();
                 GoDirectlyToTarget();
@@ -37,11 +35,6 @@ namespace BialskyShooter.AI
                 TryToFindPath();
                 FollowPathToFindTarget();
             }
-        }
-
-        private void TryToFindPlayer()
-        {
-            if (player == null) player = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void ClearPath()
@@ -65,13 +58,13 @@ namespace BialskyShooter.AI
 
         private void FindPath()
         {
-            path = pathFinder.FindPath(player.transform.position).ToArray();
+            path = pathFinder.FindPath(aggravate.NearbyTarget.transform.position).ToArray();
             index = 0;
         }
 
         private void GoDirectlyToTarget()
         {
-            aiMovement.Move(player.transform.position);
+            aiMovement.Move(aggravate.NearbyTarget.transform.position);
             skillUser.UseRandomSkill();
         }
 

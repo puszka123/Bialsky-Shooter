@@ -102,6 +102,12 @@
     <Compile Include="Assets\Scripts\AI\Pathfinding\PathFinder.cs" />
     <Compile Include="Assets\Scripts\AI\Patrol.cs" />
     <Compile Include="Assets\Scripts\AI\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\AI\Targeter.cs" />
+    <Compile Include="Assets\Scripts\AI\TeamAllocator.cs" />
+    <Compile Include="Assets\Scripts\AI\TeamChecker.cs" />
+    <Compile Include="Assets\Scripts\AI\TeamManager.cs" />
+    <Compile Include="Assets\Scripts\AI\TeamMember.cs" />
+    <Compile Include="Assets\Scripts\AI\TeamType.cs" />
     <Compile Include="Assets\Scripts\Characters\CreaturePlateDisplay.cs" />
     <Compile Include="Assets\Scripts\Characters\DisplayCharacterInfo.cs" />
     <Compile Include="Assets\Scripts\Characters\EnemyPlateDisplay.cs" />

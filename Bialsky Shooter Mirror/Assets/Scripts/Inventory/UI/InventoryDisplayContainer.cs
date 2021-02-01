@@ -8,7 +8,7 @@ namespace BialskyShooter.InventoryModule.UI
 {
     public class InventoryDisplayContainer : MonoBehaviour, IInventorySlotsContainer
     {
-        [SerializeField] InventoryDisplay inventoryDisplay;
+        [SerializeField] InventoryDisplay inventoryDisplay = null;
 
         public IItemSlot GetFirstAvailableSlot()
         {

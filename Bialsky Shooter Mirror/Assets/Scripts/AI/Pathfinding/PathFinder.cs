@@ -10,9 +10,9 @@ namespace BialskyShooter.AI.Pathfinding
 {
     public class PathFinder : MonoBehaviour
     {
-        [SerializeField] int maxNodes;
-        [Inject] Graph graph;
-        FastPriorityQueue<Node> frontier;
+        [SerializeField] int maxNodes = default;
+        [Inject] Graph graph = null;
+        FastPriorityQueue<Node> frontier = null;
 
         private void Awake()
         {

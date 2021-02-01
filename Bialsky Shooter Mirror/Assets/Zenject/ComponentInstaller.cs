@@ -23,6 +23,7 @@ namespace BialskyShooter.Zenject
                                     .DerivingFrom<MonoBehaviour>()
                                     .Where(e => !e.IsAssignableFrom(typeof(Graph))))
                 .FromComponentOn(gameObject).AsSingle();
+            Container.Unbind<TeamManager>();
             Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<MovementSystem>().AsSingle();
         }

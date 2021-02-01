@@ -16,3 +16,5 @@ MonoBehaviour:
     type: 3}
   graphPrefab: {fileID: 2011449094082417888, guid: 4f81883189730f94e822c1cec4880e24,
     type: 3}
+  teamManagerPrefab: {fileID: 5406200202218502591, guid: 913695487614da646b4c9131fdcfa3c8,
+    type: 3}

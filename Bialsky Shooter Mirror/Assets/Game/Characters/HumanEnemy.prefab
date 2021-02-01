@@ -195,6 +195,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576133f5cf5911c43970063317240186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7976830905931457655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744607722170757279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6662a370fb91246a4f481ffdb776f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9131072325419828432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,11 +365,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HumanEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 971237985703913530, guid: e1fe6c7866506774ca3ccb908125b1fb,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2006935726027745882, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
