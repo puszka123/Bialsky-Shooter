@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.AI;
+using BialskyShooter.Gameplay;
 using BialskyShooter.Multiplayer;
 using Mirror;
 using System;
@@ -8,18 +9,21 @@ using UnityEngine;
 
 namespace BialskyShooter.ResourcesModule
 {
-    public class EnemySpawner : NetworkBehaviour
+    public class EnemySpawner : NetworkBehaviour, IRunnable
     {
         [SerializeField] protected float spawnRange = 5f;
-        [SerializeField] protected float spawnCreaturesCount = 5f; 
+        [SerializeField] protected float spawnCreaturesCount = 5f;
+        [SerializeField] protected BattleSceneManager.Priority priority = default;
         protected CreatureFactoryBehaviour.CreatureFactory creatureFactory;
         protected MyNetworkManager networkManager;
 
-        [ServerCallback]
-        private IEnumerator Start()
+        public int Priority()
         {
+            return (int)priority;
+        }
 
-            yield return new WaitForSeconds(1f);
+        public void Run()
+        {
             SpawnEnemies();
         }
 

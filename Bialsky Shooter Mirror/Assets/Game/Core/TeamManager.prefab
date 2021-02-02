@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6548347267090510165}
   - component: {fileID: -4895831233891269725}
   - component: {fileID: -1618446931404870698}
+  - component: {fileID: 5713017764138886155}
+  - component: {fileID: 3024293780685180884}
   m_Layer: 0
   m_Name: TeamManager
   m_TagString: Untagged
@@ -56,3 +58,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c82f07a5636e0042bc62a6a105f20b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  priority: 1
+--- !u!114 &5713017764138886155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406200202218502591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &3024293780685180884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406200202218502591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d761358b133ecb42bc3b01c2435816f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1

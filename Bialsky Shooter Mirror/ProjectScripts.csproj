@@ -134,6 +134,9 @@
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplay.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplayContainer.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\IEquipmentSlotsContainer.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\BattleSceneManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\IRunnable.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Runnable.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootController.cs" />
     <Compile Include="Assets\Scripts\Inventory\LootTarget.cs" />
