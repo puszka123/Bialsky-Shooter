@@ -71,6 +71,7 @@ MonoBehaviour:
   item1: {fileID: 0}
   item2: {fileID: 0}
   item3: {fileID: 0}
+  priority: 2
 --- !u!114 &2905721895135717109
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,3 +20,5 @@ MonoBehaviour:
     type: 3}
   boxEnemyPrefab: {fileID: 6560450083684393582, guid: 4795c4d72f0aa6340aac5358cf256f65,
     type: 3}
+  playerEnemyPrefab: {fileID: 3270224146236951598, guid: 8f972f176797ab54ba3761522eff57f5,
+    type: 3}

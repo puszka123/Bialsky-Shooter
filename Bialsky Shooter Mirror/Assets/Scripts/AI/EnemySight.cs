@@ -16,9 +16,13 @@ namespace BialskyShooter.AI
             LayerMask layerMask = LayerMask.GetMask("Object", "Terrain");
             RaycastHit hit;
             var myHeight = 0f;
+            var targetHeight = 0f;
             if(GetComponent<CapsuleCollider>() != null) myHeight = GetComponent<CapsuleCollider>().height;
             else myHeight = GetComponent<BoxCollider>().size.y;
-            var targetHeight = target.GetComponent<CapsuleCollider>().height;
+            if (target.GetComponent<CapsuleCollider>() != null) targetHeight = target.GetComponent<CapsuleCollider>().height;
+            else targetHeight = target.GetComponent<BoxCollider>().size.y;
+
+
             var myPosition = new Vector3(transform.position.x, transform.position.y + myHeight, transform.position.z);
             var targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + targetHeight, target.transform.position.z);
             bool result = Physics.Linecast(myPosition, targetPosition, out hit, layerMask);

@@ -37,6 +37,8 @@ namespace BialskyShooter.ResourcesModule
                 NetworkServer.Spawn(enemyInstance);
                 enemyInstance.GetComponent<Patrol>().SpawnerPosition = transform.position;
                 enemyInstance.GetComponent<Patrol>().SpawnRange = spawnRange;
+                //debug
+                if (name.StartsWith("Player")) enemyInstance.name = "Ally";
             }
         }
 

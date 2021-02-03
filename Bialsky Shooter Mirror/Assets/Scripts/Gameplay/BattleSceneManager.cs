@@ -16,6 +16,7 @@ namespace BialskyShooter.Gameplay
         {
             TeamUp = 1,
             Spawn = 0,
+            GenerateInventory = 2,
         }
 
         IEnumerator Start()

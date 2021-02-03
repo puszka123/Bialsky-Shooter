@@ -15,7 +15,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   spawnRange: 25
-  spawnCreaturesCount: 2
+  spawnCreaturesCount: 10
   priority: 0
 --- !u!1001 &1862043272863014188
 PrefabInstance:
