@@ -76,6 +76,12 @@ namespace BialskyShooter.ManagementModule
             if (TryGetComponent(out PlayerMoveController ctrl)) ctrl.enabled = false;
             if (TryGetComponent(out PlayerSkillController skillCtrl)) skillCtrl.enabled = false;
             if (TryGetComponent(out CombatTarget target)) target.enabled = false;
+            if (TryGetComponent(out StateMachine stateMachine)) stateMachine.enabled = false;
+            if (TryGetComponent(out ActionScheduler actionScheduler))
+            {
+                actionScheduler.TryCancelCurrentAction();
+                actionScheduler.enabled = false;
+            }
             if (TryGetComponent(out BoxCollider boxCollider))
             {
                 boxCollider.isTrigger = true;

@@ -17,11 +17,11 @@ namespace BialskyShooter.AI
 
         public void UpdateCurrentAction(IAction action)
         {
-            TryToCancelCurrentAction();
+            TryCancelCurrentAction();
             SetCurrentAction(action);
         }
 
-        void TryToCancelCurrentAction()
+        public void TryCancelCurrentAction()
         {
             if(currentAction != null) currentAction.Cancel();
         }

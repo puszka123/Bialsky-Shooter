@@ -15,12 +15,11 @@ namespace BialskyShooter.InventoryModule
 
         public IList<ItemInformation> SyncItemInformations { get { return syncItemInformations; } }
 
-        private IEnumerator Start()
+        private void Start()
         {
             //debug only
             if (NetworkServer.active && item1 != null)
             {
-                yield return new WaitForSeconds(1f);
                 item1 = Instantiate(item1);
                 item2 = Instantiate(item2);
                 item3 = Instantiate(item3);

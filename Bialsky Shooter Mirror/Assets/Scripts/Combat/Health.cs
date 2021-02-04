@@ -1,4 +1,5 @@
-﻿using BialskyShooter.ClassSystem;
+﻿using BialskyShooter.AI;
+using BialskyShooter.ClassSystem;
 using BialskyShooter.InventoryModule;
 using Mirror;
 using System;
@@ -13,7 +14,7 @@ namespace BialskyShooter.Combat
     public class Health : NetworkBehaviour
     {
         [Inject] CreatureStats creatureStats = null;
-
+        [Inject] TeamChecker teamChecker;
         public event Action serverOnCreatureLose;
         public event Action clientOnCreatureLose;
         [SyncVar] float currentHealth;
@@ -47,7 +48,10 @@ namespace BialskyShooter.Combat
         [Server]
         public void TakeDamage(NetworkIdentity attacker, float damage)
         {
-            currentHealth -= damage;
+            if (teamChecker.GetTeamType(attacker.GetComponent<TeamMember>().TeamId) == TeamType.Enemy)
+            {
+                currentHealth -= damage;
+            }
             if(currentHealth <= 1f)
             {
                 currentHealth = 1f;

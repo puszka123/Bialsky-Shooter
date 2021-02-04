@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 821
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -422,9 +422,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 445d0000
+      m_SelectedIDs: 16ceffff
       m_LastClickedID: 0
-      m_ExpandedIDs: e6c7feff9801ffffdc44ffffaa47ffffc247ffff5e52ffffa452fffff652ffffe654ffffb26bffff6e6dffff866dffff3a6fffffc879ffff647affff587cffff9094ffff92acffff4caeffff8ab1ffff3cb3ffff2cb7ffff58fbfffff4ffffff
+      m_ExpandedIDs: b292ffff54ceffff90d9ffff58fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -484,9 +484,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.564046, y: 11.379173, z: 7.7242894}
+    m_Target: {x: 0.9528965, y: 3.0351765, z: -0.25992003}
     speed: 2
-    m_Value: {x: 7.564046, y: 11.379173, z: 7.7242894}
+    m_Value: {x: 0.9528965, y: 3.0351765, z: -0.25992003}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -532,9 +532,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.19599964, y: -0.7592416, z: 0.2655137, w: 0.56102103}
+    m_Target: {x: -0.0037990953, y: -0.96585965, z: 0.25890788, w: -0.013258502}
     speed: 2
-    m_Value: {x: 0.19683044, y: -0.75880235, z: 0.26663828, w: 0.56069684}
+    m_Value: {x: -0.0037988897, y: -0.9658074, z: 0.25889388, w: -0.013257785}
   m_Size:
     m_Target: 2.7247446
     speed: 2
@@ -695,19 +695,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game/Core
+    - Assets/Scripts/Inventory
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Game/Core
+  - Assets/Scripts/Inventory
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\unity-projects\bialsky-shooter-mirror\Bialsky Shooter Mirror
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 22}
-    m_SelectedIDs: f4410000
-    m_LastClickedID: 16884
+    scrollPos: {x: 0, y: 442}
+    m_SelectedIDs: 24420000
+    m_LastClickedID: 16932
     m_ExpandedIDs: 00000000ba410000bc410000be410000c0410000c2410000c4410000c6410000c8410000ca410000cc410000ce410000d0410000d2410000d4410000d6410000d8410000da410000dc410000de410000e0410000e2410000e441000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -761,8 +761,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 445d0000
-    m_LastClickedInstanceID: 23876
+    m_SelectedInstanceIDs: f6370000
+    m_LastClickedInstanceID: 14326
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000e64b00003a2e000086550000482e00003031000060310000ac2e000064310000de4b00009a3100003e3d000000000000f26f0000b43f00007a3d00007c3d000084430000
     m_RenameOverlay:

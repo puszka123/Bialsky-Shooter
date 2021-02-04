@@ -16,5 +16,11 @@ namespace BialskyShooter.AI
             MemberId = memberId;
             TeamId = teamId;
         }
+
+        public void Clear()
+        {
+            MemberId = Guid.Empty;
+            TeamId = Guid.Empty;
+        }
     }
 }

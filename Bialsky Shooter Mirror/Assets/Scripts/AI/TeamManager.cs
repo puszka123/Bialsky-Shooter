@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BialskyShooter.AI
@@ -34,6 +35,16 @@ namespace BialskyShooter.AI
                 teamMember.Init(newMemberId, Id);
                 Members.Add(teamMember);
             }
+
+            public void RemoveMember(TeamMember teamMember)
+            {
+                if (MembersDictionary.ContainsKey(teamMember.MemberId))
+                {
+                    MembersDictionary.Remove(teamMember.MemberId);
+                    Members.Remove(teamMember);
+                    teamMember.Clear();
+                }
+            }
         }
         public Dictionary<Guid, Team> TeamsDictionary { get; private set; }
 
@@ -58,7 +69,7 @@ namespace BialskyShooter.AI
 
         public void AddToNeutral(TeamMember teamMember)
         {
-            if(!TeamsDictionary.ContainsKey(Team.NeutralId))
+            if (!TeamsDictionary.ContainsKey(Team.NeutralId))
             {
                 var neutralTeam = new Team(Team.NeutralId, "Neutral");
                 TeamsDictionary[Team.NeutralId] = neutralTeam;
@@ -75,6 +86,14 @@ namespace BialskyShooter.AI
                 enemies.AddRange(pair.Value.Members);
             }
             return enemies;
+        }
+
+        public void RemoveFromTeam(TeamMember teamMember)
+        {
+            foreach(var team in TeamsDictionary.Select(pair => pair.Value))
+            {
+                team.RemoveMember(teamMember);
+            }
         }
     }
 }
