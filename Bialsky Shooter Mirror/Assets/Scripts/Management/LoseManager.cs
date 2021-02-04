@@ -82,6 +82,11 @@ namespace BialskyShooter.ManagementModule
                 actionScheduler.TryCancelCurrentAction();
                 actionScheduler.enabled = false;
             }
+            if (TryGetComponent(out TeamMember teamMember))
+            {
+                FindObjectOfType<TeamManager>().RemoveFromTeam(teamMember);
+                teamMember.enabled = false;
+            }
             if (TryGetComponent(out BoxCollider boxCollider))
             {
                 boxCollider.isTrigger = true;

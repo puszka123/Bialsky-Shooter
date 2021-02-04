@@ -13,7 +13,6 @@ namespace BialskyShooter.AI
 
         public TeamType GetTeamType(Guid teamId)
         {
-            if (TeamManager.Team.NeutralId == teamId) return TeamType.Neutral;
             if (teamMember.TeamId == teamId) return TeamType.Own;
             return TeamType.Enemy;
         }

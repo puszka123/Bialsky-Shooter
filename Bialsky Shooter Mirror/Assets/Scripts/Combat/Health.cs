@@ -48,11 +48,12 @@ namespace BialskyShooter.Combat
         [Server]
         public void TakeDamage(NetworkIdentity attacker, float damage)
         {
-            if (teamChecker.GetTeamType(attacker.GetComponent<TeamMember>().TeamId) == TeamType.Enemy)
+            if (teamChecker.GetTeamType(attacker.GetComponent<TeamMember>().TeamId) == TeamType.Enemy
+                && !attacker.GetComponent<Health>().IsDefeated)
             {
                 currentHealth -= damage;
             }
-            if(currentHealth <= 1f)
+            if (currentHealth <= 1f)
             {
                 currentHealth = 1f;
                 Lose();

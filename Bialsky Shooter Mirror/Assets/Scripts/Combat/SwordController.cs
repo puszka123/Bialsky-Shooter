@@ -16,7 +16,7 @@ namespace BialskyShooter.Combat
         #region Server
 
         [ServerCallback]
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.gameObject == parent 
                 || !inProgress
