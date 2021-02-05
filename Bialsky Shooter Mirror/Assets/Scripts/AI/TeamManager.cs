@@ -88,6 +88,11 @@ namespace BialskyShooter.AI
             return enemies;
         }
 
+        public IList<TeamMember> GetAllAllies(Guid teamId)
+        {
+            return TeamsDictionary[teamId].Members;
+        }
+
         public void RemoveFromTeam(TeamMember teamMember)
         {
             foreach(var team in TeamsDictionary.Select(pair => pair.Value))
