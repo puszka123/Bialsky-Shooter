@@ -39,7 +39,7 @@ namespace BialskyShooter.Combat
         IEnumerator ControlInProgress()
         {
             inProgress = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForFixedUpdate();
             inProgress = false;
         }
 

@@ -92,10 +92,14 @@
     <Compile Include="Assets\Scripts\AI\Aggravate.cs" />
     <Compile Include="Assets\Scripts\AI\AllyBoxSelector.cs" />
     <Compile Include="Assets\Scripts\AI\CollisionDetection.cs" />
+    <Compile Include="Assets\Scripts\AI\Command.cs" />
+    <Compile Include="Assets\Scripts\AI\CommandGiver.cs" />
+    <Compile Include="Assets\Scripts\AI\CommandReceiver.cs" />
     <Compile Include="Assets\Scripts\AI\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\AI\EnemySight.cs" />
     <Compile Include="Assets\Scripts\AI\Fight.cs" />
     <Compile Include="Assets\Scripts\AI\IAction.cs" />
+    <Compile Include="Assets\Scripts\AI\ICommand.cs" />
     <Compile Include="Assets\Scripts\AI\MovementRules.cs" />
     <Compile Include="Assets\Scripts\AI\MovementSystem.cs" />
     <Compile Include="Assets\Scripts\AI\Pathfinding\Graph.cs" />

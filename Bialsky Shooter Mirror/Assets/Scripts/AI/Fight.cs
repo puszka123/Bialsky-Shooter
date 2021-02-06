@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.AI.Pathfinding;
+using BialskyShooter.Combat;
 using BialskyShooter.Movement;
 using BialskyShooter.SkillSystem;
 using Mirror;
@@ -11,7 +12,7 @@ namespace BialskyShooter.AI
     [RequireComponent(typeof(AIMovement))]
     [RequireComponent(typeof(EnemySight))]
     [RequireComponent(typeof(Aggravate))]
-    public class Fight : NetworkBehaviour, IAction
+    public class Fight : NetworkBehaviour, ICommand
     {
         [Inject] EnemySight enemySight = null;
         [Inject] AIMovement aiMovement = null;
@@ -21,11 +22,16 @@ namespace BialskyShooter.AI
         Vector3[] path;
         int index = 0;
         bool execute = false;
+        GameObject commandTarget;
+        Health commandTargetHealth;
+        GameObject currentTarget;
 
+        [ServerCallback]
         private void Update()
         {
-            if (!execute || aggravate.NearbyTarget == null) return;
-            if (enemySight.CanSeeTarget(aggravate.NearbyTarget))
+            currentTarget = commandTarget != null ? commandTarget : aggravate.NearbyTarget;
+            if (!execute || currentTarget == null) return;
+            if (enemySight.CanSeeTarget(currentTarget))
             {
                 ClearPath();
                 GoDirectlyToTarget();
@@ -37,11 +43,13 @@ namespace BialskyShooter.AI
             }
         }
 
+        [Server]
         private void ClearPath()
         {
             path = null;
         }
 
+        [Server]
         private void TryToFindPath()
         {
             if (path == null || (index >= path.Length))
@@ -50,38 +58,62 @@ namespace BialskyShooter.AI
             }
         }
 
+        [Server]
         private void FollowPathToFindTarget()
         {
             if ((index < path.Length) && Vector3.Distance(path[index], transform.position) <= 2f) ++index;
             if (index < path.Length) aiMovement.Move(path[index]);
         }
 
+        [Server]
         private void FindPath()
         {
-            path = pathFinder.FindPath(aggravate.NearbyTarget.transform.position).ToArray();
+            path = pathFinder.FindPath(currentTarget.transform.position).ToArray();
             index = 0;
         }
 
+        [Server]
         private void GoDirectlyToTarget()
         {
-            aiMovement.Move(aggravate.NearbyTarget.transform.position);
+            aiMovement.Move(currentTarget.transform.position);
             skillUser.UseRandomSkill();
         }
 
+        [Server]
         public void Cancel()
         {
             execute = false;
             aiMovement.StopMove();
         }
 
+        [Server]
         public void Execute()
         {
             execute = true;
         }
 
+        [Server]
         public bool CanExecute()
         {
             return !Mathf.Approximately(aggravate.AggravateValue, 0f);
+        }
+
+        [Server]
+        public bool Completed()
+        {
+            return commandTargetHealth.IsDefeated;
+        }
+
+        [Server]
+        public void SetTarget(dynamic target)
+        {
+            commandTarget = target;
+            commandTargetHealth = commandTarget.GetComponent<Health>();
+        }
+
+        public Command.CommandId GetCommandId()
+        {
+            return Command.CommandId.Fight;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace BialskyShooter.Combat
     public class Health : NetworkBehaviour
     {
         [Inject] CreatureStats creatureStats = null;
-        [Inject] TeamChecker teamChecker;
+        [Inject] TeamChecker teamChecker = null;
         public event Action serverOnCreatureLose;
         public event Action clientOnCreatureLose;
         [SyncVar] float currentHealth;

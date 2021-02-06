@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.Movement;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace BialskyShooter.AI
 {
     [RequireComponent(typeof(AIMovement))]
     [RequireComponent(typeof(Aggravate))]
-    public class Patrol : MonoBehaviour, IAction
+    public class Patrol : NetworkBehaviour, IAction
     {
         [SerializeField] float patrolTime = 5f;
         [SerializeField] float patrolRange = 5f;
@@ -24,6 +25,7 @@ namespace BialskyShooter.AI
         public Vector3 SpawnerPosition { get; set; }
         public float SpawnRange { get; set; }
 
+        [ServerCallback]
         void Update()
         {
             if (!execute) return;
@@ -39,6 +41,7 @@ namespace BialskyShooter.AI
             }
         }
 
+        [Server]
         IEnumerator PatrolArea()
         {
             aiMovement.StopMove();
@@ -48,6 +51,7 @@ namespace BialskyShooter.AI
             UpdatePatrolPosition();
         }
 
+        [Server]
         private void UpdatePatrolPosition()
         {
             for (int i = 0; i < newPatrolPlaceAttempts; i++)
@@ -66,6 +70,7 @@ namespace BialskyShooter.AI
             }
         }
 
+        [Server]
         private Vector3 GetPatrolPosition()
         {
             var seed = Random.insideUnitCircle * patrolRange;
@@ -73,17 +78,20 @@ namespace BialskyShooter.AI
             return newPatrolPosition;
         }
 
+        [Server]
         public void Execute()
         {
             execute = true;
         }
 
+        [Server]
         public void Cancel()
         {
             execute = false;
             aiMovement.StopMove();
         }
 
+        [Server]
         public bool CanExecute()
         {
             return Mathf.Approximately(aggravate.AggravateValue, 0f);
