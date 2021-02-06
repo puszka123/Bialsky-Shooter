@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  spawnRange: 25
-  spawnCreaturesCount: 5
+  spawnRange: 40
+  spawnCreaturesCount: 15
   priority: 0
 --- !u!1001 &5117751923591968344
 PrefabInstance:

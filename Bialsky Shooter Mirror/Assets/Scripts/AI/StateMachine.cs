@@ -39,7 +39,7 @@ namespace BialskyShooter.AI
         {
             if(commandReceiver != null)
             {
-                commandReceiver.ExecuteCommand();
+                HandleCommand();
                 if (commandReceiver.Executing) return;
             }
 
@@ -49,5 +49,14 @@ namespace BialskyShooter.AI
             }
         }
 
+        private void HandleCommand()
+        {
+            var command = commandReceiver.GetCommandToExecute();
+            if (command != null && !commandReceiver.Executing)
+            {
+                actionScheduler.UpdateCurrentAction(command.CommandToExecute);
+                command.Start();
+            }
+        }
     }
 }

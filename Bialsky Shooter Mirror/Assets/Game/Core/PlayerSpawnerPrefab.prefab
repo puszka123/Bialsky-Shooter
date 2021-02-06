@@ -75,7 +75,12 @@ PrefabInstance:
     - target: {fileID: 8135553505463306658, guid: a28e280e905fb9b4e9403341607e945e,
         type: 3}
       propertyPath: spawnCreaturesCount
-      value: 10
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135553505463306658, guid: a28e280e905fb9b4e9403341607e945e,
+        type: 3}
+      propertyPath: spawnRange
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a28e280e905fb9b4e9403341607e945e, type: 3}

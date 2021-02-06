@@ -51,8 +51,18 @@ namespace BialskyShooter.AI
         {
             if (Started) return;
             Started = true;
-            CommandToExecute.SetTarget(Target);
-            CommandToExecute.Execute();
+            SetTarget();
         }
+
+        public void Stop()
+        {
+            CommandToExecute.Cancel();
+        }
+
+        public void SetTarget()
+        {
+            CommandToExecute.SetTarget(Target);
+        }
+
     }
 }

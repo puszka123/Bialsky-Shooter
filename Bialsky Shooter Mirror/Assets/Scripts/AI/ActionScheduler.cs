@@ -14,7 +14,10 @@ namespace BialskyShooter.AI
         [ServerCallback]
         void Update()
         {
-            currentAction.Execute();
+            if (currentAction != null)
+            {
+                currentAction.Execute();
+            }
         }
 
         [Server]

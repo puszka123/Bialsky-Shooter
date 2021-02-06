@@ -29,10 +29,10 @@ namespace BialskyShooter.Movement
         [Server]
         float ComputeAngle(Vector3 destination)
         {
-            float goalAngle = GetBearing(transform.position, destination);
+            float goalAngle = GetBearing(destination);
             collisionDetection.UpdateCollisions(out float frontDist, out float rightDist, out float leftDist);
             movementSystem.Calculate(frontDist, rightDist, leftDist, out float avoidanceAngle);
-            float avoidanceWeight = 1.0f;
+            float avoidanceWeight = 0f;
             float goalWeight = 1.0f;
             float finalAngle = goalWeight * goalAngle + avoidanceWeight * avoidanceAngle;
             return finalAngle;
@@ -44,10 +44,10 @@ namespace BialskyShooter.Movement
         }
 
         [Server]
-        float GetBearing(Vector3 locationA, Vector3 locationB)
+        float GetBearing(Vector3 destination)
         {
 
-            return Vector3.SignedAngle(locationB - locationA, transform.forward, Vector3.up) * (-1f);
+            return Vector3.SignedAngle(transform.forward, destination - transform.position, Vector3.up);
         }
 
         [Server]

@@ -31,6 +31,7 @@ namespace BialskyShooter.AI
         {
             currentTarget = commandTarget != null ? commandTarget : aggravate.NearbyTarget;
             if (!execute || currentTarget == null) return;
+            //print($"cmd: {commandTarget} aggr: {aggravate.NearbyTarget}");
             if (enemySight.CanSeeTarget(currentTarget))
             {
                 ClearPath();
@@ -38,6 +39,7 @@ namespace BialskyShooter.AI
             }
             else
             {
+                print("can't see");
                 TryToFindPath();
                 FollowPathToFindTarget();
             }
@@ -75,6 +77,7 @@ namespace BialskyShooter.AI
         [Server]
         private void GoDirectlyToTarget()
         {
+            //print($"{name} target: {currentTarget.transform.position}");
             aiMovement.Move(currentTarget.transform.position);
             skillUser.UseRandomSkill();
         }
@@ -82,7 +85,9 @@ namespace BialskyShooter.AI
         [Server]
         public void Cancel()
         {
+            print("Cancel");
             execute = false;
+            commandTarget = null;
             aiMovement.StopMove();
         }
 
@@ -107,6 +112,7 @@ namespace BialskyShooter.AI
         [Server]
         public void SetTarget(dynamic target)
         {
+            print("SetTarget");
             commandTarget = target;
             commandTargetHealth = commandTarget.GetComponent<Health>();
         }

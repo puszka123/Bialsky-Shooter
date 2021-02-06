@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  spawnRange: 25
+  spawnRange: 30
   spawnCreaturesCount: 5
   priority: 0
 --- !u!1001 &1862043272863014188
