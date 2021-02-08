@@ -25,35 +25,32 @@ namespace BialskyShooter.AI
 
         private void Awake()
         {
-            layerMask = LayerMask.GetMask("Object");
+            layerMask = LayerMask.GetMask("Object", "Terrain");
             allyBoxSelector = FindObjectOfType<AllyBoxSelector>();
         }
 
         #region Server
 
         [Command]
-        public void CmdCommandAllies(List<NetworkIdentity> allies, CommandId commandId, Vector2 mousePosition)
+        public void CmdCommandAllies(List<NetworkIdentity> allies, Vector2 mousePosition)
         {
-            CommandAllies(allies, commandId, mousePosition);
+            CommandAllies(allies, mousePosition);
         }
 
         [Server]
-        void CommandAllies(List<NetworkIdentity> allies, CommandId commandId, Vector2 mousePosition)
+        void CommandAllies(List<NetworkIdentity> allies, Vector2 mousePosition)
         {
-            switch (commandId)
+            var ray = GetMyCamera().ScreenPointToRay(mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
             {
-                case CommandId.Fight:
-                    var ray = GetMyCamera().ScreenPointToRay(mousePosition);
-                    if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
-                    {
-                        if (hit.transform.TryGetComponent<CombatTarget>(out CombatTarget combatTarget))
-                        {
-                            SendCommandToAllies(allies, new CommandArgs(commandId, hit.transform.gameObject));
-                        }
-                    }
-                    break;
-                default:
-                    break;
+                if (hit.transform.TryGetComponent<CombatTarget>(out CombatTarget combatTarget))
+                {
+                    SendCommandToAllies(allies, new CommandArgs(ActionId.Fight, hit.transform.gameObject));
+                }
+                else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+                {
+                    SendCommandToAllies(allies, new CommandArgs(ActionId.Move, hit.point));
+                }
             }
         }
 
@@ -79,11 +76,11 @@ namespace BialskyShooter.AI
         [ClientCallback]
         private void Update()
         {
-            if(Mouse.current.rightButton.wasPressedThisFrame)
+            if (Mouse.current.rightButton.wasPressedThisFrame)
             {
 
                 var mousePosition = Mouse.current.position.ReadValue();
-                CmdCommandAllies(allyBoxSelector.SelectedAllies.ToList(), CommandId.Fight, mousePosition);
+                CmdCommandAllies(allyBoxSelector.SelectedAllies.ToList(), mousePosition);
             }
         }
         #endregion

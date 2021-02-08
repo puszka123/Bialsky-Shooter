@@ -88,6 +88,7 @@
     <Compile Include="Assets\Plugins\SMC Pack 1\Demo\DemoAssets\V_SMC_Camera.cs" />
     <Compile Include="Assets\Plugins\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
     <Compile Include="Assets\Plugins\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
+    <Compile Include="Assets\Scripts\AI\ActionId.cs" />
     <Compile Include="Assets\Scripts\AI\ActionScheduler.cs" />
     <Compile Include="Assets\Scripts\AI\Aggravate.cs" />
     <Compile Include="Assets\Scripts\AI\AllyBoxSelector.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\AI\Fight.cs" />
     <Compile Include="Assets\Scripts\AI\IAction.cs" />
     <Compile Include="Assets\Scripts\AI\ICommand.cs" />
+    <Compile Include="Assets\Scripts\AI\Move.cs" />
     <Compile Include="Assets\Scripts\AI\MovementRules.cs" />
     <Compile Include="Assets\Scripts\AI\MovementSystem.cs" />
     <Compile Include="Assets\Scripts\AI\Pathfinding\Graph.cs" />
@@ -107,7 +109,9 @@
     <Compile Include="Assets\Scripts\AI\Pathfinding\NodeGO.cs" />
     <Compile Include="Assets\Scripts\AI\Pathfinding\PathFinder.cs" />
     <Compile Include="Assets\Scripts\AI\Patrol.cs" />
+    <Compile Include="Assets\Scripts\AI\StateGraph.cs" />
     <Compile Include="Assets\Scripts\AI\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\AI\Stay.cs" />
     <Compile Include="Assets\Scripts\AI\Targeter.cs" />
     <Compile Include="Assets\Scripts\AI\TeamAllocator.cs" />
     <Compile Include="Assets\Scripts\AI\TeamChecker.cs" />

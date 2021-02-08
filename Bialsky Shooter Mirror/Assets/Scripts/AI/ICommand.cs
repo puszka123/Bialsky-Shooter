@@ -9,6 +9,5 @@ namespace BialskyShooter.AI
     {
         bool Completed();
         void SetTarget(dynamic target);
-        CommandId GetCommandId();
     }
 }

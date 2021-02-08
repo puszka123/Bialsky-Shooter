@@ -9,5 +9,6 @@ namespace BialskyShooter.AI
         void Execute();
         void Cancel();
         bool CanExecute();
+        ActionId GetActionId();
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using System.Linq;
 using Mirror;
+using System;
 
 namespace BialskyShooter.AI
 {
@@ -11,10 +12,8 @@ namespace BialskyShooter.AI
     public class StateMachine : NetworkBehaviour
     {
         [Inject] ActionScheduler actionScheduler = null;
-        [Inject] Patrol patrol = null;
-        [Inject] Fight fight = null;
+        [SerializeField] StateGraph stateGraph;
         CommandReceiver commandReceiver;
-
         Dictionary<IAction, IAction[]> actionsGraph;
 
         [ServerCallback]
@@ -26,12 +25,29 @@ namespace BialskyShooter.AI
         [ServerCallback]
         private void Start()
         {
-            actionsGraph = new Dictionary<IAction, IAction[]>
+            if (stateGraph != null)
             {
-                { patrol, new IAction[] { fight }  },
-                { fight, new IAction[] { patrol }  },
-            };
+                InitActionsGraph();
+                actionScheduler.UpdateCurrentAction(actionsGraph.Keys.First());
+            }
+        }
+
+        public void Init(StateGraph stateGraph)
+        {
+            this.stateGraph = stateGraph;
+            InitActionsGraph();
             actionScheduler.UpdateCurrentAction(actionsGraph.Keys.First());
+        }
+
+        private void InitActionsGraph()
+        {
+            actionsGraph = new Dictionary<IAction, IAction[]>();
+            foreach (var node in stateGraph.actionNodes)
+            {
+                var action = GetComponents<IAction>().First(a => a.GetActionId() == node.action);
+                var actionConnections = GetComponents<IAction>().Where(a => node.actionConnections.Contains(a.GetActionId()));
+                actionsGraph[action] = actionConnections.ToArray();
+            }
         }
 
         [ServerCallback]
@@ -43,6 +59,11 @@ namespace BialskyShooter.AI
                 if (commandReceiver.Executing) return;
             }
 
+            if (actionsGraph == null) return;
+            if(!actionsGraph.ContainsKey(actionScheduler.CurrentAction))
+            {
+                actionScheduler.UpdateCurrentAction(actionsGraph.Keys.First());
+            }
             foreach (var action in actionsGraph[actionScheduler.CurrentAction])
             {
                 if (action.CanExecute()) actionScheduler.UpdateCurrentAction(action);

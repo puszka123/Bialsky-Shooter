@@ -43,6 +43,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggravateValue: 0
   aggravateRange: 10
+--- !u!114 &-1239958152783433179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744607722170757279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590b88d96dc4e24ebf84ce4fb0c2188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-976312539426970349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3002fd777f50724da1dbf9c146308ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   patrolTime: 10
   patrolRange: 5
   newPatrolPlaceAttempts: 30
@@ -101,6 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a733ba5219f4a4429a3bf959e31c30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  stateGraph: {fileID: 0}
 --- !u!114 &2960685193064544021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576133f5cf5911c43970063317240186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &7976830905931457655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +240,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &-1266601221447020876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744607722170757279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ba902d23d535146b51bf06c8884c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7350112625776351397
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ namespace BialskyShooter.AI
         public void AddCommand(CommandArgs commandArgs, IList<ICommand> commands)
         {
             ClearCommands();
-            var command = commands.First(c => c.GetCommandId() == commandArgs.CommandId);
+            var command = commands.First(c => c.GetActionId() == commandArgs.ActionId);
             CommandsToExecute.Add(new Command(command, commandArgs.TargetValue));
         }
 

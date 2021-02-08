@@ -7,22 +7,17 @@ namespace BialskyShooter.AI
 {
     public class Command
     {
-        public enum CommandId
-        { 
-            Fight,
-        }
-
         [Serializable]
         public class CommandArgs
         {
-            public CommandId CommandId { get; private set; }
+            public ActionId ActionId { get; private set; }
             public object TargetValue;
 
             public CommandArgs() { }
 
-            public CommandArgs(CommandId commandId, object targetValue)
+            public CommandArgs(ActionId actionId, object targetValue)
             {
-                CommandId = commandId;
+                ActionId = actionId;
                 TargetValue = targetValue;
             }
         }

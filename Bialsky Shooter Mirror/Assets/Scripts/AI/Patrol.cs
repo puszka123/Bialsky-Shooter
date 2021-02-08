@@ -96,5 +96,10 @@ namespace BialskyShooter.AI
         {
             return Mathf.Approximately(aggravate.AggravateValue, 0f);
         }
+
+        public ActionId GetActionId()
+        {
+            return ActionId.Patrol;
+        }
     }
 }

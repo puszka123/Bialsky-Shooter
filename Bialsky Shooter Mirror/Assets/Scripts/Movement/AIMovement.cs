@@ -32,7 +32,7 @@ namespace BialskyShooter.Movement
             float goalAngle = GetBearing(destination);
             collisionDetection.UpdateCollisions(out float frontDist, out float rightDist, out float leftDist);
             movementSystem.Calculate(frontDist, rightDist, leftDist, out float avoidanceAngle);
-            float avoidanceWeight = 0f;
+            float avoidanceWeight = 1.0f;
             float goalWeight = 1.0f;
             float finalAngle = goalWeight * goalAngle + avoidanceWeight * avoidanceAngle;
             return finalAngle;
