@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 4690310976249256030}
   - component: {fileID: 7398068632237183928}
   - component: {fileID: -8680688207676925668}
+  - component: {fileID: -4700349421721287775}
   m_Layer: 10
   m_Name: Creature
   m_TagString: Creature
@@ -262,3 +263,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70db0849b4571ed4fb39eaaa4f9e9002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &-4700349421721287775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995792351427308607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775210d83d8fc1241b867f0e79e7bd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1

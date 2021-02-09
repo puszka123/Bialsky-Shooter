@@ -14,8 +14,8 @@ namespace BialskyShooter.AI
     public class TeamAllocator : NetworkBehaviour, IRunnable
     {
         [SerializeField] BattleSceneManager.Priority priority = default;
-        [SerializeField] StateGraph neutralStateGraph;
-        [SerializeField] StateGraph allyStateGraph;
+        [SerializeField] StateGraph neutralStateGraph = null;
+        [SerializeField] StateGraph allyStateGraph = null;
         [Inject] TeamManager teamManager = null;
 
         public int Priority()

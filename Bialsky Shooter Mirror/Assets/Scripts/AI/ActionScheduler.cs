@@ -16,7 +16,7 @@ namespace BialskyShooter.AI
         {
             if (currentAction != null)
             {
-                currentAction.Execute();
+                currentAction.Execute(this);
             }
         }
 

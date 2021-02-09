@@ -15,8 +15,8 @@ namespace BialskyShooter.Combat
     {
         [Inject] CreatureStats creatureStats = null;
         [Inject] TeamChecker teamChecker = null;
-        public event Action serverOnCreatureLose;
-        public event Action clientOnCreatureLose;
+        public event System.Action serverOnCreatureLose;
+        public event System.Action clientOnCreatureLose;
         [SyncVar] float currentHealth;
         [SyncVar] float maxHealth;
         [SyncVar] bool isDefeated;

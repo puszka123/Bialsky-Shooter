@@ -14,6 +14,7 @@ namespace BialskyShooter.InventoryModule
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
 
         public IList<ItemInformation> SyncItemInformations { get { return syncItemInformations; } }
+        
 
         private void Start()
         {

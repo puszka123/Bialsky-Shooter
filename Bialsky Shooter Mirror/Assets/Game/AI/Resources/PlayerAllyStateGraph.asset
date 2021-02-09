@@ -17,3 +17,9 @@ MonoBehaviour:
     actionConnections: 02000000
   - action: 2
     actionConnections: 00000000
+  actions:
+  - {fileID: 11400000, guid: c18307581ab8acb48bff3cb6bab8343a, type: 2}
+  - {fileID: 11400000, guid: 844e7b6f51dcd354384b4d2ce47b2107, type: 2}
+  commands:
+  - {fileID: 11400000, guid: 844e7b6f51dcd354384b4d2ce47b2107, type: 2}
+  - {fileID: 11400000, guid: 7b4df2de6f094b1458f6d32ca0239611, type: 2}

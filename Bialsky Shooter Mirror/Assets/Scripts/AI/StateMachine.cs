@@ -12,7 +12,9 @@ namespace BialskyShooter.AI
     public class StateMachine : NetworkBehaviour
     {
         [Inject] ActionScheduler actionScheduler = null;
-        [SerializeField] StateGraph stateGraph;
+        StateGraph stateGraph;
+        IAction[] actions;
+        ICommand[] commands;
         CommandReceiver commandReceiver;
         Dictionary<IAction, IAction[]> actionsGraph;
 
@@ -35,6 +37,9 @@ namespace BialskyShooter.AI
         public void Init(StateGraph stateGraph)
         {
             this.stateGraph = stateGraph;
+            actions = stateGraph.actions.Select(a => { var copy = Instantiate(a); return (copy as IAction).SetSelf(gameObject); }).ToArray();
+            commands = stateGraph.commands.Select(a => { var copy = Instantiate(a); return (copy as IAction).SetSelf(gameObject) as ICommand; }).ToArray();
+            commandReceiver.Init(commands);
             InitActionsGraph();
             actionScheduler.UpdateCurrentAction(actionsGraph.Keys.First());
         }
@@ -44,8 +49,8 @@ namespace BialskyShooter.AI
             actionsGraph = new Dictionary<IAction, IAction[]>();
             foreach (var node in stateGraph.actionNodes)
             {
-                var action = GetComponents<IAction>().First(a => a.GetActionId() == node.action);
-                var actionConnections = GetComponents<IAction>().Where(a => node.actionConnections.Contains(a.GetActionId()));
+                var action = actions.First(a => a.GetActionId() == node.action);
+                var actionConnections = actions.Where(a => node.actionConnections.Contains(a.GetActionId()));
                 actionsGraph[action] = actionConnections.ToArray();
             }
         }

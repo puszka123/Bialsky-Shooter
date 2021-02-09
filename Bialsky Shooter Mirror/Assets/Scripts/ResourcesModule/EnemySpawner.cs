@@ -17,6 +17,8 @@ namespace BialskyShooter.ResourcesModule
         protected CreatureFactoryBehaviour.CreatureFactory creatureFactory;
         protected MyNetworkManager networkManager;
 
+        public float SpawnRange { get { return spawnRange; } }
+
         public int Priority()
         {
             return (int)priority;
@@ -35,8 +37,7 @@ namespace BialskyShooter.ResourcesModule
                     .Create(GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
                 NetworkServer.Spawn(enemyInstance);
-                enemyInstance.GetComponent<Patrol>().SpawnerPosition = transform.position;
-                enemyInstance.GetComponent<Patrol>().SpawnRange = spawnRange;
+                enemyInstance.GetComponent<Memory>().SetSpawn(this);
                 //debug
                 if (name.StartsWith("Player")) enemyInstance.name = "Ally";
             }

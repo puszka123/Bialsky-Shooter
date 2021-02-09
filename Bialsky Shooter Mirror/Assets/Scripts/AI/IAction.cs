@@ -6,9 +6,11 @@ namespace BialskyShooter.AI
 {
     public interface IAction
     {
-        void Execute();
+        void Execute(MonoBehaviour executor);
         void Cancel();
         bool CanExecute();
+        bool Executing();
         ActionId GetActionId();
+        IAction SetSelf(GameObject self);
     }
 }

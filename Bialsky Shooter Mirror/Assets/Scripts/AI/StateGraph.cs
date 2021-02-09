@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace BialskyShooter.AI
     public class StateGraph : ScriptableObject
     {
         public StateNode[] actionNodes;
+        public Action[] actions;
+        public Action[] commands;
 
         [Serializable]
         public class StateNode

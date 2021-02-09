@@ -10,6 +10,7 @@ namespace BialskyShooter.AI
     public class CommandReceiver : NetworkBehaviour
     {
         public IList<Command> CommandsToExecute { get; set; }
+        ICommand[] commands;
 
         public bool Executing 
         { 
@@ -29,13 +30,18 @@ namespace BialskyShooter.AI
             CommandsToExecute = new List<Command>();
         }
 
+        public void Init(ICommand[] commands)
+        {
+            this.commands = commands;
+        }
+
         [Server]
         public void ReceiveCommand(CommandArgs commandArgs)
         {
-            AddCommand(commandArgs, GetComponents<ICommand>());
+            AddCommand(commandArgs);
         }
 
-        public void AddCommand(CommandArgs commandArgs, IList<ICommand> commands)
+        public void AddCommand(CommandArgs commandArgs)
         {
             ClearCommands();
             var command = commands.First(c => c.GetActionId() == commandArgs.ActionId);
