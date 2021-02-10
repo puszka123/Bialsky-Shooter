@@ -39,7 +39,7 @@ namespace BialskyShooter.ItemSystem
             this.iconPath = item.GetItem().IconPath;
             this.itemName = item.GetItem().UniqueName;
             this.slotType = slotType;
-            this.stats = new List<ItemStat>(item.GetItem().Stats.StatsList);
+            this.stats = new List<ItemStat>(item.GetItem().ItemStatsBook.StatsList);
         }
     }
 }

@@ -1,15 +1,20 @@
-﻿using BialskyShooter.ItemSystem;
+﻿using BialskyShooter.ClassSystem;
+using BialskyShooter.ItemSystem;
 using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.EquipmentSystem
 {
-    public class Equipment : NetworkBehaviour
+    [RequireComponent(typeof(CreatureStats))]
+    public class Equipment : NetworkBehaviour, IStatsModifier
     {
+        [Inject] CreatureStats creatureStats;
+
         public IWeapon Weapon { get; private set; }
         public IShield Shield { get; private set; }
         public IChest Chest { get; private set; }
@@ -28,6 +33,11 @@ namespace BialskyShooter.EquipmentSystem
         {
             weapon = Instantiate(weapon);
             Weapon = (IWeapon)weapon;
+            InitEquipmentItems();
+        }
+
+        private void InitEquipmentItems()
+        {
             equipmentItems = new Dictionary<ItemSlotType, IEquipmentItem>();
             equipmentItems[ItemSlotType.Boots] = Boots;
             equipmentItems[ItemSlotType.Chest] = Chest;
@@ -56,9 +66,10 @@ namespace BialskyShooter.EquipmentSystem
                     item.GetItem().IconPath,
                     item.GetItem().UniqueName,
                     item.GetItemSlotType(),
-                    item.GetItem().Stats.StatsList);
+                    item.GetItem().ItemStatsBook.StatsList);
             syncItemInformations.Add(itemInformation);
             RpcEquipmentChanged();
+            creatureStats.UpdateStats();
             return itemInformation;
         }
 
@@ -71,6 +82,7 @@ namespace BialskyShooter.EquipmentSystem
                 {
                     RemoveFromSyncItems(itemId);
                     equipmentItems[equipmentItem.GetItemSlotType()] = null;
+                    creatureStats.UpdateStats();
                     return equipmentItem;
                 }
             }
@@ -85,6 +97,7 @@ namespace BialskyShooter.EquipmentSystem
             {
                 RemoveFromSyncItems(item.GetId());
                 equipmentItems[itemSlotType] = null;
+                creatureStats.UpdateStats();
             }
             return item;
         }
@@ -107,6 +120,23 @@ namespace BialskyShooter.EquipmentSystem
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
             syncItemInformations.Remove(itemToRemove);
             RpcEquipmentChanged();
+        }
+
+        [Server]
+        public float GetStatModifier(ClassStatType statType)
+        {
+            float statTotalValue = 0f;
+            if (equipmentItems == null) InitEquipmentItems();
+            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItem()))
+            {
+                var stats = item.ItemStatsBook.ClassStats;
+                foreach (var stat in stats)
+                {
+                    if (stat.statType != statType) continue;
+                    statTotalValue += stat.value;
+                }
+            }
+            return statTotalValue;
         }
 
         #endregion

@@ -15,9 +15,18 @@ MonoBehaviour:
   prefab: {fileID: 0}
   uniqueName: Leather Chest
   iconPath: Leather Chest
-  stats:
+  itemStatsBook:
     statsList:
     - nameToDisplay: Armor
       value: 5
+      display: 1
+      statType: 3
+    classStats:
+    - nameToDisplay: Health
+      value: 100
+      display: 1
+      statType: 0
+    - nameToDisplay: Agility
+      value: 10
       display: 1
       statType: 3

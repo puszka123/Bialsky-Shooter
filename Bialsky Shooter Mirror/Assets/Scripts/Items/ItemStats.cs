@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BialskyShooter.ClassSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,11 @@ namespace BialskyShooter.ItemSystem
     public class ItemStats
     {
         [SerializeField] List<ItemStat> statsList = default;
+        [SerializeField] protected ClassStat[] classStats = default;
 
         public IEnumerable<ItemStat> StatsList { get { return statsList; } }
+        public ClassStat[] ClassStats { get { return classStats; } }
+
         Dictionary<ItemStatType, ItemStat> statsBook;
 
         public ItemStat GetStat(ItemStatType statType)

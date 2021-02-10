@@ -79,7 +79,7 @@ namespace BialskyShooter.InventoryModule
             var itemInformation = new ItemInformation(item.GetId().ToString(),
                 item.GetItem().IconPath,
                 item.GetItem().UniqueName,
-                item.GetItem().Stats.StatsList);
+                item.GetItem().ItemStatsBook.StatsList);
             syncItemInformations.Add(itemInformation);
             RpcPickupItem(itemInformation);
         }

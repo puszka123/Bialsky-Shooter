@@ -14,19 +14,19 @@ namespace BialskyShooter.ClassSystem
 
         [SerializeField] Progression progression = null;
         [SerializeField] ClassType classType = default;
-        [SyncVar] Stat health = null;
-        [SyncVar] Stat power = null;
-        [SyncVar] Stat stamina = null;
-        [SyncVar] Stat agility = null;
-        [SyncVar] Stat strength = null;
+        [SyncVar] ClassStat health = null;
+        [SyncVar] ClassStat power = null;
+        [SyncVar] ClassStat stamina = null;
+        [SyncVar] ClassStat agility = null;
+        [SyncVar] ClassStat strength = null;
         [SyncVar] int level = 1;
 
 
-        public Stat Health { get { return health; } }
-        public Stat Power { get { return power; } }
-        public Stat Stamina { get { return stamina; } }
-        public Stat Agility { get { return agility; } }
-        public Stat Strength { get { return strength; } }
+        public ClassStat Health { get { return health; } }
+        public ClassStat Power { get { return power; } }
+        public ClassStat Stamina { get { return stamina; } }
+        public ClassStat Agility { get { return agility; } }
+        public ClassStat Strength { get { return strength; } }
         public ClassType ClassType { get { return classType; } }
 
         public int Level { get { return level; } }
@@ -50,11 +50,11 @@ namespace BialskyShooter.ClassSystem
         [Server]
         private void InitStats()
         {
-            health = progression.GetStatDefinition(StatType.Health);
-            power = progression.GetStatDefinition(StatType.Power);
-            stamina = progression.GetStatDefinition(StatType.Stamina);
-            agility = progression.GetStatDefinition(StatType.Agility);
-            strength = progression.GetStatDefinition(StatType.Strength);
+            health = progression.GetStatDefinition(ClassStatType.Health);
+            power = progression.GetStatDefinition(ClassStatType.Power);
+            stamina = progression.GetStatDefinition(ClassStatType.Stamina);
+            agility = progression.GetStatDefinition(ClassStatType.Agility);
+            strength = progression.GetStatDefinition(ClassStatType.Strength);
             level = GetLevel();
         }
 
@@ -80,9 +80,9 @@ namespace BialskyShooter.ClassSystem
         }
 
         [Server]
-        public void UpdateStat(Stat stat)
+        public void UpdateStat(ClassStat stat)
         {
-            stat.value = progression.GetStat(classType, stat.statType, GetLevel());
+            stat.value = GetStatValue(stat.statType);
         }
 
         [Server]
@@ -92,9 +92,20 @@ namespace BialskyShooter.ClassSystem
         }
 
         [Server]
-        public float GetStatValue(StatType statType)
+        public float GetStatValue(ClassStatType statType)
         {
-            return progression.GetStat(classType, statType, level);
+            return progression.GetStat(classType, statType, level) + GetTotalStatModifier(statType);
+        }
+
+        [Server]
+        float GetTotalStatModifier(ClassStatType statType)
+        {
+            float totalStatModifier = 0f;
+            foreach (var statsModifier in GetComponents<IStatsModifier>())
+            {
+                totalStatModifier += statsModifier.GetStatModifier(statType);
+            }
+            return totalStatModifier;
         }
 
         #endregion

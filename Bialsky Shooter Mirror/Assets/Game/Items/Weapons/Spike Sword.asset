@@ -15,9 +15,10 @@ MonoBehaviour:
   prefab: {fileID: 5472748743282065801, guid: 519bbf15098ba78449db79389978bb50, type: 3}
   uniqueName: Spike Sword
   iconPath: Spike Sword
-  stats:
+  itemStatsBook:
     statsList:
     - nameToDisplay: Damage
       value: 25
       display: 1
       statType: 0
+    classStats: []
