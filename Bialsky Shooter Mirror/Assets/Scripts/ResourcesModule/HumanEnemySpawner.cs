@@ -7,14 +7,13 @@ using Zenject;
 
 namespace BialskyShooter.ResourcesModule
 {
-    public class HumanEnemySpawner : EnemySpawner
+    public class HumanEnemySpawner : NeutralCreaturesSpawner
     {
         [Inject]
-        public void Construct(CreatureFactoryBehaviour.HumanEnemyFactory creatureFactory, MyNetworkManager networkManager)
+        public void Construct(CreatureFactoryBehaviour.HumanEnemyFactory creatureFactory)
         {
             if (NetworkServer.active) NetworkServer.Spawn(gameObject);
             this.creatureFactory = creatureFactory;
-            this.networkManager = networkManager;
         }
     }
 }

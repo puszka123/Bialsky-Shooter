@@ -15,6 +15,11 @@ namespace BialskyShooter.Control
         Vector2 previousInput;
         [Inject] PlayerMovement movement = null;
 
+        private void Awake()
+        {
+            movement = GetComponent<PlayerMovement>();
+        }
+
         #region Client
 
         public override void OnStartAuthority()

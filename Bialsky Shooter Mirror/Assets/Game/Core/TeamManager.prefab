@@ -60,9 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  priority: 1
-  neutralStateGraph: {fileID: 11400000, guid: 8f4b57c6170bb484aa61ee3fb5f524c0, type: 2}
-  allyStateGraph: {fileID: 11400000, guid: 0225f8a53004b984a817ebd18604e7e6, type: 2}
+  priority: 0
 --- !u!114 &5713017764138886155
 MonoBehaviour:
   m_ObjectHideFlags: 0

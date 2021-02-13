@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a7220540b979746a79238b778c8254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   aggravateValue: 0
   aggravateRange: 5
 --- !u!114 &4052413150008549236
@@ -115,6 +117,18 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
+--- !u!114 &5218018429180642610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560450083684393582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452db9a43b8903e4e97802beaa0a7f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6126655933407940063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06cdf7bb0df9a2045a7944ffd71b3523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   maxNodes: 100
 --- !u!114 &7167352148839239949
 MonoBehaviour:
@@ -396,6 +412,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1674559179482424834, guid: b17270eb8d5839d4e9e07e338471a6c0,
+        type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1674559179482424834, guid: b17270eb8d5839d4e9e07e338471a6c0,
+        type: 3}
+      propertyPath: _monoInstallers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5218018429180642610}
     - target: {fileID: -552161123578679713, guid: b17270eb8d5839d4e9e07e338471a6c0,
         type: 3}
       propertyPath: m_AssetId

@@ -67,7 +67,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         GameObject GetLocalPlayer()
         {
-            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+            foreach (var player in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
             {
                 if (player.GetComponent<NetworkIdentity>().hasAuthority) return player;
             }

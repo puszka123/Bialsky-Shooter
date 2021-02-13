@@ -9,6 +9,7 @@ TagManager:
   - LocalUserPlate
   - LocalCharacterInfo
   - Creature
+  - PlayerCharacter
   layers:
   - Default
   - TransparentFX

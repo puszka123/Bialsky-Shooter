@@ -12,9 +12,16 @@ namespace BialskyShooter.Multiplayer
     {
         #region Server
 
+        public override void OnServerAddPlayer(NetworkConnection conn)
+        {
+            base.OnServerAddPlayer(conn);
+            FindObjectOfType<PlayerSpawner>().SpawnPlayer(conn);
+        }
+
         #endregion
 
         #region Client
+
 
         #endregion
     }

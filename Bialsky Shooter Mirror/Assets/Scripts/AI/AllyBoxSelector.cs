@@ -28,7 +28,7 @@ namespace BialskyShooter.AI
 
         private void GetPlayer()
         {
-            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+            foreach (var player in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
             {
                 if (player.GetComponent<NetworkIdentity>().hasAuthority)
                 {
@@ -68,7 +68,7 @@ namespace BialskyShooter.AI
             SelectedAllies = new List<NetworkIdentity>();
             foreach (var ally in allies)
             {
-                if (ally.CompareTag("Player")) continue;
+                if (ally.CompareTag("PlayerCharacter")) continue;
                 var allyScreenPosition = Camera.main.WorldToScreenPoint(ally.transform.position);
                 var min = selectionArea.anchoredPosition;
                 var max = selectionArea.anchoredPosition + selectionArea.sizeDelta;

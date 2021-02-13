@@ -1,4 +1,5 @@
-﻿using Priority_Queue;
+﻿using Mirror;
+using Priority_Queue;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,22 +9,25 @@ using Zenject;
 
 namespace BialskyShooter.AI.Pathfinding
 {
-    public class PathFinder : MonoBehaviour
+    public class PathFinder : NetworkBehaviour
     {
         [SerializeField] int maxNodes = default;
         [Inject] Graph graph = null;
         FastPriorityQueue<Node> frontier = null;
 
+        [ServerCallback]
         private void Awake()
         {
             frontier = new FastPriorityQueue<Node>(maxNodes);
         }
 
+        [ServerCallback]
         private void Start()
         {
             graph.Init();
         }
 
+        [Server]
         public IEnumerable<Vector3> FindPath(Vector3 destination)
         {
             var startPosition = graph.ToNode(transform.position);
@@ -70,6 +74,7 @@ namespace BialskyShooter.AI.Pathfinding
             return desiredPath.Select(n => n.Position);
         }
 
+        [Server]
         float Heuristic(Node a, Node b)
         {
             return Vector3.Distance(a.Position, b.Position);

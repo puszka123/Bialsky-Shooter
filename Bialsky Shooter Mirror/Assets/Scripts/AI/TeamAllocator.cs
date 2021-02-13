@@ -14,8 +14,6 @@ namespace BialskyShooter.AI
     public class TeamAllocator : NetworkBehaviour, IRunnable
     {
         [SerializeField] BattleSceneManager.Priority priority = default;
-        [SerializeField] StateGraph neutralStateGraph = null;
-        [SerializeField] StateGraph allyStateGraph = null;
         [Inject] TeamManager teamManager = null;
 
         public int Priority()
@@ -25,7 +23,7 @@ namespace BialskyShooter.AI
 
         public void Run()
         {
-            AssignTeams();
+            
         }
 
         void Awake()
@@ -33,26 +31,23 @@ namespace BialskyShooter.AI
             teamManager.Init();
         }
 
-        //debug
-        void AssignTeams()
+        public void AssignToNeutral(TeamMember teamMember)
         {
-            var player = FindObjectsOfType<TeamMember>().First(e => e.CompareTag("Player"));
-            teamManager.AddToNewTeam(player, Guid.NewGuid().ToString());
-            foreach (var teamMember in FindObjectsOfType<TeamMember>())
-            {
-                if (teamMember.CompareTag("Player") || teamMember.name.Contains("Spawner")) continue;
-                if (teamMember.name.StartsWith("Ally"))
-                {
-                    teamManager.AddToTeam(teamMember, player.TeamId);
-                    teamMember.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
-                    teamMember.GetComponent<StateMachine>().Init(allyStateGraph);
-                }
-                else
-                {
-                    teamManager.AddToNeutral(teamMember);
-                    teamMember.GetComponent<StateMachine>().Init(neutralStateGraph);
-                }
-            }
+            teamManager.AddToNeutral(teamMember);
+        }
+
+        public float AssignToTeam(TeamMember teamMember, Guid teamId)
+        {
+            float value = teamManager.TeamsDictionary.Keys.ToList().IndexOf(teamId) / teamManager.TeamsDictionary.Keys.ToList().Count;
+            teamManager.AddToTeam(teamMember, teamId);
+            return value;
+        }
+
+        public float AssignToNewTeam(TeamMember teamMember)
+        {
+            var teamId = teamManager.AddToNewTeam(teamMember, teamMember.name);
+            float value = teamManager.TeamsDictionary.Keys.ToList().IndexOf(teamId) / teamManager.TeamsDictionary.Keys.ToList().Count;
+            return value;
         }
     }
 }

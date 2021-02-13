@@ -14,6 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &-4508787587274703897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788995692344120177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452db9a43b8903e4e97802beaa0a7f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4003236342781241510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788995692344120177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775210d83d8fc1241b867f0e79e7bd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &-3036284427132401760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,19 +55,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weapon: {fileID: 11400000, guid: 3b5fdc541c93df14a9c243ba2dc98189, type: 2}
---- !u!114 &-2521735252590908131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788995692344120177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _containerSource: 0
 --- !u!114 &-1344151271467110101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +103,20 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   skillsProgression: {fileID: 11400000, guid: d3b623f4229c6ef418bb717a78ea91fc, type: 2}
+--- !u!114 &3818893202115145348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788995692344120177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689c1108f0e26e440a82dc7f2c8d9b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0
 --- !u!114 &5124044646688164302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,20 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
---- !u!114 &3818893202115145348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788995692344120177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689c1108f0e26e440a82dc7f2c8d9b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0
 --- !u!1001 &1560864335178201931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,6 +290,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 814729623038844411, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 814729623038844411, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: _monoInstallers.Array.data[1]
+      value: 
+      objectReference: {fileID: -4508787587274703897}
     - target: {fileID: 971237985703913530, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: m_Name
@@ -285,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 971237985703913530, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 2006935726027745882, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}

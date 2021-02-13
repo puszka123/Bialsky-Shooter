@@ -31,8 +31,9 @@ namespace BialskyShooter.AI
             public void AddMember(TeamMember teamMember)
             {
                 var newMemberId = Guid.NewGuid();
-                MembersDictionary[newMemberId] = teamMember;
                 teamMember.Init(newMemberId, Id);
+                if (teamMember.CompareTag("Player")) return;
+                MembersDictionary[newMemberId] = teamMember;
                 Members.Add(teamMember);
             }
 

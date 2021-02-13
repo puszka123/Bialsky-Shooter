@@ -58,7 +58,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 1788995692344120177, guid: 6d5b4189916ca554fa3fe9cda4844ee2,
+  playerPrefab: {fileID: 5254709836948416135, guid: 4d1af14ed8d9c024b9a98a840b6230ea,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
@@ -67,6 +67,9 @@ MonoBehaviour:
   - {fileID: 4474042706183947041, guid: a28e280e905fb9b4e9403341607e945e, type: 3}
   - {fileID: 6560450083684393582, guid: 4795c4d72f0aa6340aac5358cf256f65, type: 3}
   - {fileID: 6972795003867703381, guid: 2d47c01e632871f4bb709b02e3c36bf4, type: 3}
+  - {fileID: 1788995692344120177, guid: 6d5b4189916ca554fa3fe9cda4844ee2, type: 3}
+  - {fileID: 5254709836948416135, guid: 4d1af14ed8d9c024b9a98a840b6230ea, type: 3}
+  - {fileID: 5976211366999446503, guid: f2593cad8b756b240be607801c1e55cf, type: 3}
 --- !u!114 &7558256964619850026
 MonoBehaviour:
   m_ObjectHideFlags: 0

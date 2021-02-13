@@ -21,9 +21,10 @@ namespace BialskyShooter.Zenject
                                     .AllClasses()
                                     .InNamespace("BialskyShooter")
                                     .DerivingFrom<MonoBehaviour>()
-                                    .Where(e => !e.IsAssignableFrom(typeof(Graph))))
+                                    .Where(e => !e.IsAssignableFrom(typeof(Graph)) && !e.IsAbstract))
                 .FromComponentOn(gameObject).AsSingle();
             Container.Unbind<TeamManager>();
+            Container.Unbind<MyNetworkManager>();
             Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<MovementSystem>().AsSingle();
         }

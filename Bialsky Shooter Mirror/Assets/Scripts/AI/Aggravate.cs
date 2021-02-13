@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.Combat;
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using Zenject;
 
 namespace BialskyShooter.AI
 {
-    public class Aggravate : MonoBehaviour
+    public class Aggravate : NetworkBehaviour
     {
         [SerializeField] float aggravateValue = 0f;
         [SerializeField] float aggravateRange = 5f;
@@ -15,6 +16,7 @@ namespace BialskyShooter.AI
 
         public float AggravateValue { get { return aggravateValue; } }
 
+        [ServerCallback]
         private void Update()
         {
             NearbyTarget = targeter.GetClosestTarget(aggravateRange);

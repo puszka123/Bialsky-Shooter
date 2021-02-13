@@ -24,6 +24,11 @@ namespace BialskyShooter.Combat
         public float CurrentHealth { get { return currentHealth; } }
         public float MaxHealth { get { return creatureStats.Health.value; } }
 
+        private void Awake()
+        {
+            creatureStats = GetComponent<CreatureStats>();
+        }
+
         #region Server
 
         public override void OnStartServer()

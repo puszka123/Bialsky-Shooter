@@ -26,7 +26,7 @@ namespace BialskyShooter.AI
             var myPosition = new Vector3(transform.position.x, transform.position.y + myHeight, transform.position.z);
             var targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + targetHeight, target.transform.position.z);
             bool result = Physics.Linecast(myPosition, targetPosition, out hit, layerMask);
-            if(!result || (result && (hit.transform.CompareTag("Creature") || hit.transform.CompareTag("Player"))))
+            if(!result || (result && (hit.transform.CompareTag("Creature") || hit.transform.CompareTag("PlayerCharacter"))))
             {
                 return true;
             }

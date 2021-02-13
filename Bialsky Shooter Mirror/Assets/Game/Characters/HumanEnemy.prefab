@@ -41,6 +41,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a7220540b979746a79238b778c8254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   aggravateValue: 0
   aggravateRange: 10
 --- !u!114 &375003460045717274
@@ -154,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06cdf7bb0df9a2045a7944ffd71b3523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   maxNodes: 100
 --- !u!114 &7517599619663680184
 MonoBehaviour:

@@ -16,9 +16,11 @@ MonoBehaviour:
     type: 3}
   boxEnemySpawnerPrefab: {fileID: 6972795003867703381, guid: 2d47c01e632871f4bb709b02e3c36bf4,
     type: 3}
+  playerSpawnerPrefab: {fileID: 5976211366999446503, guid: f2593cad8b756b240be607801c1e55cf,
+    type: 3}
   humanEnemyPrefab: {fileID: 7744607722170757279, guid: 0eff7170a0d880c459c8a5f4ab7ab070,
     type: 3}
   boxEnemyPrefab: {fileID: 6560450083684393582, guid: 4795c4d72f0aa6340aac5358cf256f65,
     type: 3}
-  playerEnemyPrefab: {fileID: 3270224146236951598, guid: 8f972f176797ab54ba3761522eff57f5,
+  playerPrefab: {fileID: 1788995692344120177, guid: 6d5b4189916ca554fa3fe9cda4844ee2,
     type: 3}
