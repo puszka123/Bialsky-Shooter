@@ -17,7 +17,7 @@ MonoBehaviour:
   priority: 1
   stateGraph: {fileID: 11400000, guid: 8f4b57c6170bb484aa61ee3fb5f524c0, type: 2}
   spawnRange: 30
-  spawnCreaturesCount: 5
+  spawnCreaturesCount: 1
 --- !u!1001 &1862043272863014188
 PrefabInstance:
   m_ObjectHideFlags: 0

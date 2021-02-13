@@ -12,7 +12,6 @@ namespace BialskyShooter.InventoryModule
     public class Inventory : NetworkBehaviour
     {
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
-
         public IList<ItemInformation> SyncItemInformations { get { return syncItemInformations; } }
         
 

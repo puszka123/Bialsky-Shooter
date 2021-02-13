@@ -14,6 +14,11 @@ namespace BialskyShooter.Control
     {
         [Inject] SkillUser skillUser = null;
 
+        private void Awake()
+        {
+            skillUser = GetComponent<SkillUser>();
+        }
+
         #region Client
 
         public override void OnStartClient()

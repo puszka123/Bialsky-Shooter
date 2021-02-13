@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionArea: {fileID: 4474595377745619902}
-  canvas: {fileID: 4415791610663460218}
 --- !u!1 &4243056874678832999
 GameObject:
   m_ObjectHideFlags: 0

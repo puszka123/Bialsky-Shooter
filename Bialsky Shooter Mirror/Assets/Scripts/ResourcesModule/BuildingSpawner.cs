@@ -3,33 +3,67 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace BialskyShooter.ResourcesModule
 {
     public class BuildingSpawner : Spawner
     {
-        [Inject] TeamMember teamMember;
-        [Inject] TeamAllocator teamAllocator;
+        [Inject] protected TeamMember teamMember;
+        [Inject] protected TeamManager teamManager;
 
         [SerializeField] protected GameObject spawn;
-        public override void Run()
+
+        #region server
+
+        [Command]
+        public void CmdSpawnCreature()
         {
             SpawnCreatures();
         }
 
+        [Server]
+        public override void Run()
+        {
+
+        }
+
+        [Server]
         protected override Vector3 GetSpawnPosition()
         {
             return spawn.transform.position;
         }
 
-        protected override void SpawnCreatures(NetworkConnection conn = null)
+        [Server]
+        protected void SpawnCreatures(NetworkConnection conn = null)
         {
             var creatureInstance = creatureFactory
                     .Create(GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
             NetworkServer.Spawn(creatureInstance);
-            teamAllocator.AssignToTeam(creatureInstance.GetComponent<TeamMember>(), teamMember.TeamId);
+            var color = teamManager.GetComponent<TeamAllocator>().AssignToTeam(creatureInstance.GetComponent<TeamMember>(), teamMember.TeamId);
+            creatureInstance.GetComponent<StateMachine>().Init(stateGraph);
+            creatureInstance.GetComponent<Memory>().SetColor(color);
         }
+
+        #endregion
+
+
+        #region client
+
+        [ClientCallback]
+        void Update()
+        {
+            if (!hasAuthority) return;
+            if (Keyboard.current.leftCtrlKey.isPressed
+                && Keyboard.current.leftShiftKey.isPressed
+                && Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                CmdSpawnCreature();
+            }
+        }
+
+        #endregion
     }
 }

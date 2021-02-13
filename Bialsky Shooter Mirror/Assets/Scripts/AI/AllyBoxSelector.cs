@@ -6,37 +6,35 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Mirror;
 using System;
+using BialskyShooter.ResourcesModule;
 
 namespace BialskyShooter.AI
 {
     public class AllyBoxSelector : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] RectTransform selectionArea = null;
-        TeamManager teamManager;
-        TeamMember player;
-        public IList<NetworkIdentity> SelectedAllies { get; private set; }
+        AllySelector allySelector;
 
-        private void Start()
-        {
-            teamManager = FindObjectOfType<TeamManager>();
-        }
-
+        [ClientCallback]
         private void Update()
         {
-            if (player == null) GetPlayer();
+            if (allySelector == null) GetAllySelector();
         }
 
-        private void GetPlayer()
+        [Client]
+        private void GetAllySelector()
         {
-            foreach (var player in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
+            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
             {
                 if (player.GetComponent<NetworkIdentity>().hasAuthority)
                 {
-                    this.player = player.GetComponent<TeamMember>();
+                    allySelector = player.GetComponent<AllySelector>();
                     break;
                 }
             }
         }
+
+
 
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -52,23 +50,16 @@ namespace BialskyShooter.AI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            ReselectAllies();
+            allySelector.CmdReselectAllies(selectedTeamMembers());
             selectionArea.sizeDelta = Vector2.zero;
         }
 
-        private void ReselectAllies()
+        List<NetworkIdentity> selectedTeamMembers()
         {
-            DeselectAllies();
-            SelectAllies();
-        }
-
-        private void SelectAllies()
-        {
-            var allies = teamManager.GetAllAllies(player.TeamId);
-            SelectedAllies = new List<NetworkIdentity>();
-            foreach (var ally in allies)
+            var selectedAlliesPositions = new List<NetworkIdentity>();
+            foreach (var ally in FindObjectsOfType<TeamMember>())
             {
-                if (ally.CompareTag("PlayerCharacter")) continue;
+                if (ally.CompareTag("PlayerCharacter") || ally.GetComponent<Spawner>() != null) continue;
                 var allyScreenPosition = Camera.main.WorldToScreenPoint(ally.transform.position);
                 var min = selectionArea.anchoredPosition;
                 var max = selectionArea.anchoredPosition + selectionArea.sizeDelta;
@@ -77,19 +68,11 @@ namespace BialskyShooter.AI
                     && allyScreenPosition.y >= min.y
                     && allyScreenPosition.y <= max.y)
                 {
-                    SelectedAllies.Add(ally.GetComponent<NetworkIdentity>());
+                    selectedAlliesPositions.Add(ally.GetComponent<NetworkIdentity>());
                     ally.GetComponentInChildren<Renderer>().material.color = Color.black;
                 }
             }
-        }
-
-        private void DeselectAllies()
-        {
-            if (SelectedAllies == null) return;
-            foreach (var ally in SelectedAllies)
-            {
-                ally.GetComponentInChildren<Renderer>().material.color = Color.yellow;
-            }
+            return selectedAlliesPositions;
         }
     }
 }

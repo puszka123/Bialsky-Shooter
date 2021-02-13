@@ -19,6 +19,5 @@ namespace BialskyShooter.ResourcesModule
 
         public abstract void Run();
         protected abstract Vector3 GetSpawnPosition();
-        protected abstract void SpawnCreatures(NetworkConnection conn = null);
     }
 }

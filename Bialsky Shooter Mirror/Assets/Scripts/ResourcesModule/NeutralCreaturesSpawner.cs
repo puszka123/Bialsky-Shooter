@@ -35,7 +35,7 @@ namespace BialskyShooter.ResourcesModule
         }
 
         [Server]
-        protected override void SpawnCreatures(NetworkConnection conn = null)
+        protected void SpawnCreatures(NetworkConnection conn = null)
         {
             for (int i = 0; i < spawnCreaturesCount; i++)
             {

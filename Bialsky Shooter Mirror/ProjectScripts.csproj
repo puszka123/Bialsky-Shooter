@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\AI\Actions\Stay.cs" />
     <Compile Include="Assets\Scripts\AI\Aggravate.cs" />
     <Compile Include="Assets\Scripts\AI\AllyBoxSelector.cs" />
+    <Compile Include="Assets\Scripts\AI\AllySelector.cs" />
     <Compile Include="Assets\Scripts\AI\CollisionDetection.cs" />
     <Compile Include="Assets\Scripts\AI\Command.cs" />
     <Compile Include="Assets\Scripts\AI\CommandGiver.cs" />
@@ -190,7 +191,9 @@
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MyNetworkManager.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BoxEnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\BuildingConstructor.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingSpawner.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\BuildingSwordmanSpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\CreatureFactoryBehaviour.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\HumanEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\NeutralCreaturesSpawner.cs" />

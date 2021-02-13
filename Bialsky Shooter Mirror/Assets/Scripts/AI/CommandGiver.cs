@@ -6,58 +6,53 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 using static BialskyShooter.AI.Command;
 
 namespace BialskyShooter.AI
 {
     public class CommandGiver : NetworkBehaviour
     {
-        [Serializable]
-        public class SerializedVector2
-        {
-            public float x, y;
-            public SerializedVector2(Vector2 vector2) { x = vector2.x; y = vector2.y; }
-            public Vector2 ToVector2() { return new Vector2(x, y); }
-        }
+        [Inject] AllySelector allySelector;
 
-        AllyBoxSelector allyBoxSelector;
         LayerMask layerMask = default;
 
         private void Awake()
         {
             layerMask = LayerMask.GetMask("Object", "Terrain");
-            allyBoxSelector = FindObjectOfType<AllyBoxSelector>();
         }
 
         #region Server
 
         [Command]
-        public void CmdCommandAllies(List<NetworkIdentity> allies, Vector2 mousePosition)
+        public void CmdCommandAlliesMove(Vector3 movePosition)
         {
-            CommandAllies(allies, mousePosition);
+            var idk = allySelector.gameObject.GetInstanceID();
+            if (allySelector.SelectedAllies != null && allySelector.SelectedAllies.Count > 0)
+            {
+                CommandAllies(allySelector.SelectedAllies.ToList(), movePosition);
+            }
         }
 
-        [Server]
-        void CommandAllies(List<NetworkIdentity> allies, Vector2 mousePosition)
+        [Command]
+        public void CmdCommandAlliesFight(NetworkIdentity target)
         {
-            var ray = GetMyCamera().ScreenPointToRay(mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+            if (allySelector.SelectedAllies != null && allySelector.SelectedAllies.Count > 0)
             {
-                if (hit.transform.TryGetComponent<CombatTarget>(out CombatTarget combatTarget))
-                {
-                    SendCommandToAllies(allies, new CommandArgs(ActionId.Fight, hit.transform.gameObject));
-                }
-                else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
-                {
-                    SendCommandToAllies(allies, new CommandArgs(ActionId.Move, hit.point));
-                }
+                CommandAllies(allySelector.SelectedAllies.ToList(), target);
             }
         }
 
         [Server]
-        Camera GetMyCamera()
+        void CommandAllies(List<NetworkIdentity> allies, Vector3 movePosition)
         {
-            return Camera.main;
+            SendCommandToAllies(allies, new CommandArgs(ActionId.Move, movePosition));
+        }
+
+        [Server]
+        void CommandAllies(List<NetworkIdentity> allies, NetworkIdentity target)
+        {
+            SendCommandToAllies(allies, new CommandArgs(ActionId.Fight, target.gameObject));
         }
 
         [Server]
@@ -76,11 +71,22 @@ namespace BialskyShooter.AI
         [ClientCallback]
         private void Update()
         {
+            if (!hasAuthority) return;
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
-
                 var mousePosition = Mouse.current.position.ReadValue();
-                CmdCommandAllies(allyBoxSelector.SelectedAllies.ToList(), mousePosition);
+                var ray = Camera.main.ScreenPointToRay(mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+                {
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+                    {
+                        CmdCommandAlliesMove(hit.point);
+                    }
+                    else if (hit.transform.TryGetComponent(out NetworkIdentity networkIdentity))
+                    {
+                        CmdCommandAlliesFight(networkIdentity);
+                    }
+                }
             }
         }
         #endregion

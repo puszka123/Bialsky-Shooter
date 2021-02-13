@@ -1,5 +1,7 @@
-﻿using BialskyShooter.ResourcesModule;
+﻿using BialskyShooter.AI;
+using BialskyShooter.ResourcesModule;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +17,16 @@ namespace BialskyShooter.Multiplayer
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
             base.OnServerAddPlayer(conn);
-            FindObjectOfType<PlayerSpawner>().SpawnPlayer(conn);
+            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                var teamMember = player.GetComponent<TeamMember>();
+                if (teamMember.TeamId == Guid.Empty)
+                {
+                    FindObjectOfType<TeamAllocator>().AssignToNewTeam(teamMember);
+                    FindObjectOfType<PlayerSpawner>().SpawnPlayer(player.GetComponent<TeamMember>().TeamId, conn);
+                    break;
+                }
+            }
         }
 
         #endregion

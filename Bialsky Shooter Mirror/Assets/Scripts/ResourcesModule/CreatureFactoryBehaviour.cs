@@ -33,5 +33,10 @@ namespace BialskyShooter.ResourcesModule
         { 
 
         }
+
+        public class SwordmanFactory : CreatureFactory
+        {
+
+        }
     }
 }

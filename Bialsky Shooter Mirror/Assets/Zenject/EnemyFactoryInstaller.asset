@@ -18,9 +18,13 @@ MonoBehaviour:
     type: 3}
   playerSpawnerPrefab: {fileID: 5976211366999446503, guid: f2593cad8b756b240be607801c1e55cf,
     type: 3}
+  buildingSwordmanSpawnerPrefab: {fileID: 143128916582438755, guid: 998ef4781ec0b8342862af0795e0de03,
+    type: 3}
   humanEnemyPrefab: {fileID: 7744607722170757279, guid: 0eff7170a0d880c459c8a5f4ab7ab070,
     type: 3}
   boxEnemyPrefab: {fileID: 6560450083684393582, guid: 4795c4d72f0aa6340aac5358cf256f65,
     type: 3}
   playerPrefab: {fileID: 1788995692344120177, guid: 6d5b4189916ca554fa3fe9cda4844ee2,
+    type: 3}
+  swordmanPrefab: {fileID: 4871468857530991173, guid: babd399d1242bf442991a57ad73b71c5,
     type: 3}

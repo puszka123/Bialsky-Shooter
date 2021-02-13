@@ -1,6 +1,7 @@
 ﻿using BialskyShooter.AI;
 using BialskyShooter.Multiplayer;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,15 +28,15 @@ namespace BialskyShooter.ResourcesModule
             
         }
 
-        public void SpawnPlayer(NetworkConnection conn)
+        public void SpawnPlayer(Guid teamId, NetworkConnection conn)
         {
-            StartCoroutine(SpawnPlayerTimeout(conn));
+            StartCoroutine(SpawnPlayerTimeout(teamId, conn));
         }
 
-        IEnumerator SpawnPlayerTimeout(NetworkConnection conn)
+        IEnumerator SpawnPlayerTimeout(Guid teamId, NetworkConnection conn)
         {
             yield return new WaitForSeconds(0.01f);
-            SpawnCreatures(conn);
+            SpawnCreatures(teamId, conn);
         }
 
         protected override Vector3 GetSpawnPosition()
@@ -43,13 +44,15 @@ namespace BialskyShooter.ResourcesModule
             return myNetworkManager.GetStartPosition().position;
         }
 
-        protected override void SpawnCreatures(NetworkConnection conn = null)
+        protected void SpawnCreatures(Guid teamId, NetworkConnection conn = null)
         {
+            if (teamId == Guid.Empty) throw new Exception("TeamId is null!");
             var playerInstance = creatureFactory
                     .Create(GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
             NetworkServer.Spawn(playerInstance, conn);
-            teamManager.GetComponent<TeamAllocator>().AssignToNewTeam(playerInstance.GetComponent<TeamMember>());
+            teamManager.GetComponent<TeamAllocator>().AssignToTeam(playerInstance.GetComponent<TeamMember>(), teamId);
+
         }
     }
 }
