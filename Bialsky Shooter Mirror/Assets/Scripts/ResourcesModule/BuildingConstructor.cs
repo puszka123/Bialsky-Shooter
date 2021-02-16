@@ -1,5 +1,7 @@
 ﻿using BialskyShooter.AI;
+using BialskyShooter.ResourcesModule.UI;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +16,39 @@ namespace BialskyShooter.ResourcesModule
         [Inject] TeamManager teamManager;
 
         [SerializeField] GameObject swordmanBuildingPrefab = null;
-       
+
+
+        [Inject] BuildingsStorage buildingsStorage;
+
+        private void Awake()
+        {
+            BuildingSlot.clientOnBuildingPreviewEnd += OnBuildingPreviewEnd;
+        }
+
+        void OnDestroy()
+        {
+            BuildingSlot.clientOnBuildingPreviewEnd -= OnBuildingPreviewEnd;
+        }
+
         #region server
 
         [Command]
-        public void CmdConstructBuilding()
+        public void CmdConstructBuilding(Guid buildingId, Vector3 spawnPosition)
         {
-            var buildingInstance = Instantiate(swordmanBuildingPrefab, transform.position, Quaternion.identity);
+            foreach (var building in buildingsStorage.AvailableBuildings)
+            {
+                if (building.Id == buildingId)
+                {
+                    ConstructBuilding(building, spawnPosition);
+                    return;
+                }
+            }
+        }
+
+        [Server]
+        void ConstructBuilding(Building building, Vector3 spawnPosition)
+        {
+            var buildingInstance = Instantiate(building.BuildingConfig.BuildingPrefab, spawnPosition, Quaternion.identity);
             NetworkServer.Spawn(buildingInstance, connectionToClient);
             buildingInstance.GetComponent<NetworkIdentity>().AssignClientAuthority(connectionToClient);
             teamManager.GetComponent<TeamAllocator>().AssignToTeam(buildingInstance.GetComponent<TeamMember>(), teamMember.TeamId);
@@ -30,15 +58,9 @@ namespace BialskyShooter.ResourcesModule
 
         #region client
 
-        [ClientCallback]
-        private void Update()
+        void OnBuildingPreviewEnd(Guid buildingId, Vector3 spawnPosition)
         {
-            if (!hasAuthority) return;
-            if(Keyboard.current.leftCtrlKey.isPressed 
-                && Keyboard.current.qKey.wasPressedThisFrame)
-            {
-                CmdConstructBuilding();
-            }
+            CmdConstructBuilding(buildingId, spawnPosition);
         }
 
         #endregion

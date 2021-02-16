@@ -24,6 +24,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3594994453320427146, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
+        type: 3}
+      propertyPath: buildingConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: be42ff6ea752ced49b10e81f750a93ca,
+        type: 2}
     - target: {fileID: 5128897285756677235, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
         type: 3}
       propertyPath: m_AssetId
@@ -88,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SwordmanBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937593245525314965, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c, type: 3}

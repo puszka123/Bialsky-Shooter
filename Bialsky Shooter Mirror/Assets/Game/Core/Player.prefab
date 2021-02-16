@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: -3874113277165596826}
   - component: {fileID: -1600265912872956569}
   - component: {fileID: -5920589510473064387}
+  - component: {fileID: 1254441842518476122}
+  - component: {fileID: 7995091008071738919}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -151,3 +153,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &1254441842518476122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254709836948416135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860ed412eeaf5dc4e9e622ff959c7762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  buildings:
+  - {fileID: 3366482333362319842, guid: 998ef4781ec0b8342862af0795e0de03, type: 3}
+--- !u!114 &7995091008071738919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254709836948416135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc64d919c34bba54dad1b2c3503cf460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  swordmanBuildingPrefab: {fileID: 0}

@@ -74,22 +74,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
---- !u!114 &96296420202239585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788995692344120177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc64d919c34bba54dad1b2c3503cf460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  swordmanBuildingPrefab: {fileID: 143128916582438755, guid: 998ef4781ec0b8342862af0795e0de03,
-    type: 3}
 --- !u!114 &2496644803665957581
 MonoBehaviour:
   m_ObjectHideFlags: 0
