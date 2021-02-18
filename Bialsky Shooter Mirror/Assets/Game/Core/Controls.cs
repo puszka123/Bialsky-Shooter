@@ -65,6 +65,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ResourceExtractor"",
+                    ""type"": ""Button"",
+                    ""id"": ""a782d501-0351-49a6-8f9b-b4a17b1a6eb0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -386,6 +394,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdcdd6bf-eb36-4ae1-afb2-b1e73c712e4a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ResourceExtractor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -417,6 +436,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_CharacterInfo = m_Player.FindAction("CharacterInfo", throwIfNotFound: true);
         m_Player_EnemyPlate = m_Player.FindAction("EnemyPlate", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_ResourceExtractor = m_Player.FindAction("ResourceExtractor", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -472,6 +492,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_CharacterInfo;
     private readonly InputAction m_Player_EnemyPlate;
     private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_ResourceExtractor;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -482,6 +503,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @CharacterInfo => m_Wrapper.m_Player_CharacterInfo;
         public InputAction @EnemyPlate => m_Wrapper.m_Player_EnemyPlate;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @ResourceExtractor => m_Wrapper.m_Player_ResourceExtractor;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -509,6 +531,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @ResourceExtractor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResourceExtractor;
+                @ResourceExtractor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResourceExtractor;
+                @ResourceExtractor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResourceExtractor;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -531,6 +556,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @ResourceExtractor.started += instance.OnResourceExtractor;
+                @ResourceExtractor.performed += instance.OnResourceExtractor;
+                @ResourceExtractor.canceled += instance.OnResourceExtractor;
             }
         }
     }
@@ -552,5 +580,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnCharacterInfo(InputAction.CallbackContext context);
         void OnEnemyPlate(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnResourceExtractor(InputAction.CallbackContext context);
     }
 }

@@ -51,6 +51,7 @@ namespace BialskyShooter.ResourcesModule
                     .Create(GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
             NetworkServer.Spawn(playerInstance, conn);
+            playerInstance.GetComponent<NetworkIdentity>().AssignClientAuthority(conn);
             teamManager.GetComponent<TeamAllocator>().AssignToTeam(playerInstance.GetComponent<TeamMember>(), teamId);
 
         }

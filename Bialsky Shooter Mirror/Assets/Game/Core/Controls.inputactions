@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ResourceExtractor",
+                    "type": "Button",
+                    "id": "a782d501-0351-49a6-8f9b-b4a17b1a6eb0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -371,6 +379,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdcdd6bf-eb36-4ae1-afb2-b1e73c712e4a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ResourceExtractor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

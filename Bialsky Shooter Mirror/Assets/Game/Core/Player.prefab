@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7489968496710978913}
   - component: {fileID: 6126497379431440323}
   - component: {fileID: 2341135372297923170}
-  - component: {fileID: 2134119526974632263}
   - component: {fileID: 2408454017354380820}
   - component: {fileID: 9209813363403477119}
   - component: {fileID: -3874113277165596826}
@@ -19,6 +18,8 @@ GameObject:
   - component: {fileID: -5920589510473064387}
   - component: {fileID: 1254441842518476122}
   - component: {fileID: 7995091008071738919}
+  - component: {fileID: 98306713109335665}
+  - component: {fileID: -7199904579528518099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -68,20 +69,6 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &2134119526974632263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5254709836948416135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd2ff4abba879749a1f02b63906b47a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
 --- !u!114 &2408454017354380820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +171,35 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   swordmanBuildingPrefab: {fileID: 0}
+--- !u!114 &98306713109335665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254709836948416135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ac275ffc129c459ed496881671698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &-7199904579528518099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254709836948416135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed90630ecd63a33448d4b44a1ea42c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  capacity: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
