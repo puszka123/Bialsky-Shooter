@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.Combat;
+using BialskyShooter.ResourcesModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -35,7 +36,7 @@ namespace BialskyShooter.AI
         }
 
         [Command]
-        public void CmdCommandAlliesFight(NetworkIdentity target)
+        public void CmdCommandAlliesTarget(NetworkIdentity target)
         {
             if (allySelector.SelectedAllies != null && allySelector.SelectedAllies.Count > 0)
             {
@@ -52,7 +53,9 @@ namespace BialskyShooter.AI
         [Server]
         void CommandAllies(List<NetworkIdentity> allies, NetworkIdentity target)
         {
-            SendCommandToAllies(allies, new CommandArgs(ActionId.Fight, target.gameObject));
+            var actionId = ActionId.Fight; //to do
+            if (target.GetComponent<ResourceSource>() != null) actionId = ActionId.Extract;
+            SendCommandToAllies(allies, new CommandArgs(actionId, target.gameObject));
         }
 
         [Server]
@@ -84,7 +87,7 @@ namespace BialskyShooter.AI
                     }
                     else if (hit.transform.TryGetComponent(out NetworkIdentity networkIdentity))
                     {
-                        CmdCommandAlliesFight(networkIdentity);
+                        CmdCommandAlliesTarget(networkIdentity);
                     }
                 }
             }

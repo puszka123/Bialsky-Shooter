@@ -18,11 +18,12 @@ namespace BialskyShooter.ResourcesModule.UI
         private void Awake()
         {
             resourceItems = new Dictionary<ResourceType, GameObject>();
+            ResourcesStore.onResourceChanged += OnResourceChanged;
         }
 
         private void OnDestroy()
         {
-            localResourcesStore.onResourceChanged -= OnResourceChanged;
+            ResourcesStore.onResourceChanged -= OnResourceChanged;
         }
 
         private void OnResourceChanged(Resource resource)
@@ -47,7 +48,6 @@ namespace BialskyShooter.ResourcesModule.UI
             {
                 var resourceItemInstance = Instantiate(resourceItemPrefab, resourcesPanel.transform);
                 resourceItems[resourceType] = resourceItemInstance;
-                localResourcesStore.onResourceChanged += OnResourceChanged;
             }
         }
 
@@ -66,8 +66,9 @@ namespace BialskyShooter.ResourcesModule.UI
 
         private void SetResourceItem(ResourceType resourceType, Resource resource)
         {
+            if (!resourceItems.ContainsKey(resourceType)) return;
             resourceItems[resourceType].transform.GetChild(0).GetComponent<TMP_Text>().text = resource.DisplayName;
-            resourceItems[resourceType].transform.GetChild(1).GetComponent<TMP_InputField>().textComponent.SetText(resource.Amount.ToString());
+            resourceItems[resourceType].transform.GetChild(1).GetComponent<TMP_Text>().text = resource.Amount.ToString();
         }
 
         private void GetLocalResourcesStore()

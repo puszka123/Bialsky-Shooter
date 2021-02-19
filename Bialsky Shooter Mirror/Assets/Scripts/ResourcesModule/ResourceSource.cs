@@ -19,7 +19,7 @@ namespace BialskyShooter.ResourcesModule
         public void Extract(float amount, NetworkIdentity extractor)
         { 
             var extractedResource = resource.Extract(amount);
-            extractor.GetComponent<ResourcesStore>().TargetGainResource(extractedResource);
+            extractor.GetComponent<ResourcesStore>().GainResource(extractedResource);
         }
     }
 }

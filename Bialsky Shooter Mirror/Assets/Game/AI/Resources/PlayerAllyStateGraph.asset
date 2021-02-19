@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerAllyStateGraph
   m_EditorClassIdentifier: 
   actionNodes:
-  - action: 0
-    actionConnections: 02000000
-  - action: 2
-    actionConnections: 00000000
+  - action: 1
+    actionConnections: 03000000
+  - action: 3
+    actionConnections: 01000000
   actions:
   - {fileID: 11400000, guid: c18307581ab8acb48bff3cb6bab8343a, type: 2}
   - {fileID: 11400000, guid: 844e7b6f51dcd354384b4d2ce47b2107, type: 2}

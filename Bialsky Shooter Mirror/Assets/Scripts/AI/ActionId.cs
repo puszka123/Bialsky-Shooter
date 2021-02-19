@@ -6,6 +6,6 @@ namespace BialskyShooter.AI
 {
     public enum ActionId
     {
-        Fight, Patrol, Stay, Move
+        None, Fight, Patrol, Stay, Move, Extract
     }
 }

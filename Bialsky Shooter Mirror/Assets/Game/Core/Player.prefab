@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7995091008071738919}
   - component: {fileID: 98306713109335665}
   - component: {fileID: -7199904579528518099}
+  - component: {fileID: 2674674227940475200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -156,6 +157,7 @@ MonoBehaviour:
   syncInterval: 0.1
   buildings:
   - {fileID: 3366482333362319842, guid: 998ef4781ec0b8342862af0795e0de03, type: 3}
+  - {fileID: 3366482333362319842, guid: b5935c29ebf41414a8e7eec4402fb105, type: 3}
 --- !u!114 &7995091008071738919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +205,15 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &2674674227940475200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254709836948416135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1e15dbbe77a5a43b71724cd2ed334b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -40,7 +40,7 @@ namespace BialskyShooter.ResourcesModule
             for (int i = 0; i < spawnCreaturesCount; i++)
             {
                 var creatureInstance = creatureFactory
-                    .Create(GetSpawnPosition(), Quaternion.identity)
+                    .Create(spawningCreaturePrefab, GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
                 NetworkServer.Spawn(creatureInstance);
                 var color = teamAllocator.AssignToTeam(creatureInstance.GetComponent<TeamMember>(), teamMember.TeamId);

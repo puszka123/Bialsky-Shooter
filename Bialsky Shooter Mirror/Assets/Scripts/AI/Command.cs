@@ -15,6 +15,12 @@ namespace BialskyShooter.AI
 
             public CommandArgs() { }
 
+            public CommandArgs(object targetValue)
+            {
+                ActionId = ActionId.None;
+                TargetValue = targetValue;
+            }
+
             public CommandArgs(ActionId actionId, object targetValue)
             {
                 ActionId = actionId;

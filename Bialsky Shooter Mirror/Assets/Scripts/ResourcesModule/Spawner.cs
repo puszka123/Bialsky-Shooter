@@ -4,6 +4,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace BialskyShooter.ResourcesModule
 {
@@ -11,7 +12,8 @@ namespace BialskyShooter.ResourcesModule
     {
         [SerializeField] protected BattleSceneManager.Priority priority = default;
         [SerializeField] protected StateGraph stateGraph = null;
-        protected CreatureFactoryBehaviour.CreatureFactory creatureFactory;
+        [SerializeField] protected GameObject spawningCreaturePrefab;
+        [Inject] protected CreatureFactoryBehaviour.CreatureFactory creatureFactory;
         public int Priority()
         {
             return (int)priority;

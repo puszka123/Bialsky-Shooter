@@ -14,10 +14,6 @@ namespace BialskyShooter.ResourcesModule
     {
         [Inject] TeamMember teamMember;
         [Inject] TeamManager teamManager;
-
-        [SerializeField] GameObject swordmanBuildingPrefab = null;
-
-
         [Inject] BuildingsStorage buildingsStorage;
 
         private void Awake()
@@ -58,8 +54,10 @@ namespace BialskyShooter.ResourcesModule
 
         #region client
 
+        [Client]
         void OnBuildingPreviewEnd(Guid buildingId, Vector3 spawnPosition)
         {
+            if (!hasAuthority) return;
             CmdConstructBuilding(buildingId, spawnPosition);
         }
 

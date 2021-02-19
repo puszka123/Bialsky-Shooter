@@ -16,6 +16,8 @@ MonoBehaviour:
   syncInterval: 0.1
   priority: 1
   stateGraph: {fileID: 0}
+  spawningCreaturePrefab: {fileID: 1788995692344120177, guid: 6d5b4189916ca554fa3fe9cda4844ee2,
+    type: 3}
 --- !u!1001 &3169640176111036062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,6 +84,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AssetId
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874408638046332669, guid: a40889c313d546246b66d6d2beffdad6,
+        type: 3}
+      propertyPath: serverOnly
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8724341510797063545, guid: a40889c313d546246b66d6d2beffdad6,
         type: 3}

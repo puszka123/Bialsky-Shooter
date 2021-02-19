@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\AI\ActionId.cs" />
     <Compile Include="Assets\Scripts\AI\ActionScheduler.cs" />
     <Compile Include="Assets\Scripts\AI\Actions\Action.cs" />
+    <Compile Include="Assets\Scripts\AI\Actions\Extract.cs" />
     <Compile Include="Assets\Scripts\AI\Actions\Fight.cs" />
     <Compile Include="Assets\Scripts\AI\Actions\Move.cs" />
     <Compile Include="Assets\Scripts\AI\Actions\Patrol.cs" />
@@ -190,16 +191,13 @@
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MyNetworkManager.cs" />
-    <Compile Include="Assets\Scripts\ResourcesModule\BoxEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\Building.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingConfig.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingConstructor.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingCreator.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingSpawner.cs" />
-    <Compile Include="Assets\Scripts\ResourcesModule\BuildingSwordmanSpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingsStorage.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\CreatureFactoryBehaviour.cs" />
-    <Compile Include="Assets\Scripts\ResourcesModule\HumanEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\NeutralCreaturesSpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\PlayerResourceExtractor.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\PlayerSpawner.cs" />

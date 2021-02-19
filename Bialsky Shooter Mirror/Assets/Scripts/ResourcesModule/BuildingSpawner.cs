@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.AI;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,10 +39,12 @@ namespace BialskyShooter.ResourcesModule
         [Server]
         protected void SpawnCreatures(NetworkConnection conn = null)
         {
+            if (teamMember.TeamId == Guid.Empty) throw new Exception("BuildingSpawner: teamMember.TeamId == Guid.Empty"); 
             var creatureInstance = creatureFactory
-                    .Create(GetSpawnPosition(), Quaternion.identity)
+                    .Create(spawningCreaturePrefab, GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
             NetworkServer.Spawn(creatureInstance);
+            creatureInstance.GetComponent<NetworkIdentity>().AssignClientAuthority(connectionToClient);
             var color = teamManager.GetComponent<TeamAllocator>().AssignToTeam(creatureInstance.GetComponent<TeamMember>(), teamMember.TeamId);
             creatureInstance.GetComponent<StateMachine>().Init(stateGraph);
             creatureInstance.GetComponent<Memory>().SetColor(color);

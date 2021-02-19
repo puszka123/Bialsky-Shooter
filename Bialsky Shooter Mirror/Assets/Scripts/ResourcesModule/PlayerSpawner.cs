@@ -15,12 +15,9 @@ namespace BialskyShooter.ResourcesModule
         [Inject] MyNetworkManager myNetworkManager;
         [Inject] TeamManager teamManager;
 
-        [Inject]
-        public void Construct(CreatureFactoryBehaviour.PlayerFactory creatureFactory)
+        private void Awake()
         {
-            if (NetworkServer.active) NetworkServer.Spawn(gameObject);
-            this.creatureFactory = creatureFactory;
-
+            NetworkServer.Spawn(gameObject);
         }
 
         public override void Run()
@@ -48,7 +45,7 @@ namespace BialskyShooter.ResourcesModule
         {
             if (teamId == Guid.Empty) throw new Exception("TeamId is null!");
             var playerInstance = creatureFactory
-                    .Create(GetSpawnPosition(), Quaternion.identity)
+                    .Create(spawningCreaturePrefab, GetSpawnPosition(), Quaternion.identity)
                     .gameObject;
             NetworkServer.Spawn(playerInstance, conn);
             playerInstance.GetComponent<NetworkIdentity>().AssignClientAuthority(conn);
