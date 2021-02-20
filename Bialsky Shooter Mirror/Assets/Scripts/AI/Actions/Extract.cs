@@ -39,30 +39,65 @@ namespace BialskyShooter.AI
         {
             execute = true;
             extracted = resourceHolder.IsHolding;
-            if (!extracted && !extracting && Vector3.Distance(self.transform.position, target.transform.position) > 2f)
+            if (FreeToExtract() && Vector3.Distance(self.transform.position, target.transform.position) > 2f)
             {
-                aiMovement.Move(target.transform.position);
+                GoToResourceSource();
             }
-            else if (!extracted && !extracting)
+            else if (FreeToExtract())
             {
-                target.Extract(resourceHolder.Capacity, self.GetComponent<NetworkIdentity>());
-                aiMovement.StopMove();
-                executor.StartCoroutine(Extracting());
+                ExtractFromResourceSource(executor);
             }
-            else if(extracted && !extracting)
+            else if (extracted && !extracting)
             {
-                if (resourceDestination == null) resourceDestination = GetNearestResourceDestination();
-                if (resourceDestination == null) return;
-                if (Vector3.Distance(self.transform.position, resourceDestination.transform.position) > 2f)
-                {
-                    aiMovement.Move(resourceDestination.transform.position);
-                }
-                else
-                {
-                    aiMovement.StopMove();
-                    resourceDestination.GainResource(resourceHolder.GiveBackResource());
-                }
+                DeliverExtractedResource();
             }
+        }
+
+        private bool FreeToExtract()
+        {
+            return !extracted && !extracting;
+        }
+
+        private void DeliverExtractedResource()
+        {
+            FindResourceSource();
+            if (resourceDestination == null) return;
+            if (Vector3.Distance(self.transform.position, resourceDestination.transform.position) > 2f)
+            {
+                GoToResourceDestination();
+            }
+            else
+            {
+                GiveBackExtractedResource();
+            }
+        }
+
+        private void GiveBackExtractedResource()
+        {
+            aiMovement.StopMove();
+            resourceDestination.GainResource(resourceHolder.GiveBackResource());
+        }
+
+        private void GoToResourceDestination()
+        {
+            aiMovement.Move(resourceDestination.transform.position);
+        }
+
+        private void FindResourceSource()
+        {
+            if (resourceDestination == null) resourceDestination = GetNearestResourceDestination();
+        }
+
+        private void ExtractFromResourceSource(MonoBehaviour executor)
+        {
+            target.Extract(resourceHolder.Capacity, self.GetComponent<NetworkIdentity>());
+            aiMovement.StopMove();
+            executor.StartCoroutine(Extracting());
+        }
+
+        private void GoToResourceSource()
+        {
+            aiMovement.Move(target.transform.position);
         }
 
         private ResourceDestination GetNearestResourceDestination()

@@ -43,7 +43,6 @@ namespace BialskyShooter.ResourcesModule
         public void GainResource(Resource resource)
         {
             resources[resource.ResourceType].Amount += resource.Amount;
-            //onResourceChanged?.Invoke(resources[resource.ResourceType]);
             TargetGainResource(resources[resource.ResourceType]);
         }
 
@@ -61,4 +60,3 @@ namespace BialskyShooter.ResourcesModule
         #endregion
     }
 }
-
