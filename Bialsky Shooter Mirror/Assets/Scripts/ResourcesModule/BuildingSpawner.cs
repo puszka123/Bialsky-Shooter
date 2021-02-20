@@ -15,13 +15,26 @@ namespace BialskyShooter.ResourcesModule
         [Inject] protected TeamManager teamManager;
 
         [SerializeField] protected GameObject spawn;
+        ResourcesStore resourcesStore;
 
         #region server
+
+        [Server]
+        public void Init(ResourcesStore resourcesStore)
+        {
+            this.resourcesStore = resourcesStore;
+        }
 
         [Command]
         public void CmdSpawnCreature()
         {
-            SpawnCreatures();
+            if (resourcesStore == null) throw new Exception($"{name}: Building Spawner not initialized!");
+            var spawnRequirements = spawningCreaturePrefab.GetComponent<SpawnRequirements>();
+            if (resourcesStore.Affordable(spawnRequirements.SpawnCost))
+            {
+                SpawnCreature();
+                resourcesStore.ExtractResources(spawnRequirements.SpawnCost);
+            }
         }
 
         [Server]
@@ -37,7 +50,7 @@ namespace BialskyShooter.ResourcesModule
         }
 
         [Server]
-        protected void SpawnCreatures(NetworkConnection conn = null)
+        protected void SpawnCreature(NetworkConnection conn = null)
         {
             if (teamMember.TeamId == Guid.Empty) throw new Exception("BuildingSpawner: teamMember.TeamId == Guid.Empty"); 
             var creatureInstance = creatureFactory

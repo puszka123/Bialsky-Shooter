@@ -37,7 +37,19 @@ namespace BialskyShooter.ResourcesModule
             return resources.Keys;
         }
 
+        public bool Affordable(IList<Resource> resources)
+        {
+            foreach (var resource in resources)
+            {
+                if (!this.resources.ContainsKey(resource.ResourceType)) return false;
+                if (this.resources[resource.ResourceType].Amount < resource.Amount) return false;
+            }
+            return true;
+        }
+
         #region server
+
+
 
         [Server]
         public void GainResource(Resource resource)
@@ -46,12 +58,35 @@ namespace BialskyShooter.ResourcesModule
             TargetGainResource(resources[resource.ResourceType]);
         }
 
+        [Server]
+        public void ExtractResource(Resource resource)
+        {
+            resources[resource.ResourceType].Amount -= resource.Amount;
+            TargetExtractResource(resources[resource.ResourceType]);
+        }
+
+        [Server]
+        public void ExtractResources(IList<Resource> resources)
+        {
+            foreach (var resource in resources)
+            {
+                ExtractResource(resource);
+            }
+        }
+
         #endregion
 
         #region client
 
         [TargetRpc]
         void TargetGainResource(Resource resource)
+        {
+            if (!hasAuthority) return;
+            onResourceChanged?.Invoke(resource);
+        }
+
+        [TargetRpc]
+        void TargetExtractResource(Resource resource)
         {
             if (!hasAuthority) return;
             onResourceChanged?.Invoke(resource);

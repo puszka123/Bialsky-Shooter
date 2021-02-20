@@ -207,6 +207,7 @@
     <Compile Include="Assets\Scripts\ResourcesModule\ResourceSource.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\ResourceType.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\ResourcesStore.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\SpawnRequirements.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\Spawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\UI\BuildingDisplay.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\UI\BuildingPreview.cs" />

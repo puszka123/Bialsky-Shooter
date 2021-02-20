@@ -159,6 +159,21 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 5945198198939924269}
+    - target: {fileID: 939443503141538573, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
+        type: 3}
+      propertyPath: spawnCost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 939443503141538573, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
+        type: 3}
+      propertyPath: spawnCost.Array.data[0].Amount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 939443503141538573, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
+        type: 3}
+      propertyPath: spawnCost.Array.data[0].DisplayName
+      value: Gold
+      objectReference: {fileID: 0}
     - target: {fileID: 5128897285756677235, guid: 6bbf952bdc79b4d4fafa4cc184de2a8c,
         type: 3}
       propertyPath: m_AssetId

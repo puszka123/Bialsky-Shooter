@@ -88,6 +88,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.ResourcesModule.ResourceHolder
     - BialskyShooter.ResourcesModule.ResourceSource
     - BialskyShooter.ResourcesModule.ResourcesStore
+    - BialskyShooter.ResourcesModule.SpawnRequirements
     - BialskyShooter.ResourcesModule.UI.BuildingDisplay
     - BialskyShooter.ResourcesModule.UI.BuildingSlot
     - BialskyShooter.ResourcesModule.UI.ResourcesDisplay
@@ -414,6 +415,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16018}
     - Class: 114
       Script: {instanceID: 16026}
+    - Class: 114
+      Script: {instanceID: 17084}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -782,7 +785,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16044}
     - Class: 114
-      Script: {instanceID: 20820}
+      Script: {instanceID: 17084}
+    - Class: 114
+      Script: {instanceID: 23638}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -2764,7 +2769,7 @@ ScriptsOnlyBuild:
     className: CinemachineImpulseSource
   - hash:
       serializedVersion: 2
-      Hash: d9d5611eab349c28d6590da89d1cf3ae
+      Hash: b26a0256aa295026dbeac4232aa020b5
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.ResourcesModule
     className: ResourceSource
@@ -3428,6 +3433,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 76c55dd87e313a890bce1ba06be69c56
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.ResourcesModule
+    className: SpawnRequirements
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

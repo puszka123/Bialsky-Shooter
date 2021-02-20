@@ -15,6 +15,7 @@ namespace BialskyShooter.ResourcesModule
         [Inject] TeamMember teamMember;
         [Inject] TeamManager teamManager;
         [Inject] BuildingsStorage buildingsStorage;
+        [Inject] ResourcesStore resourcesStore;
 
         private void Awake()
         {
@@ -35,7 +36,12 @@ namespace BialskyShooter.ResourcesModule
             {
                 if (building.Id == buildingId)
                 {
-                    ConstructBuilding(building, spawnPosition);
+                    var requirements = building.GetComponent<SpawnRequirements>();
+                    if (resourcesStore.Affordable(requirements.SpawnCost))
+                    {
+                        ConstructBuilding(building, spawnPosition);
+                        resourcesStore.ExtractResources(requirements.SpawnCost);
+                    }
                     return;
                 }
             }
@@ -49,6 +55,8 @@ namespace BialskyShooter.ResourcesModule
             buildingInstance.GetComponent<NetworkIdentity>().AssignClientAuthority(connectionToClient);
             teamManager.GetComponent<TeamAllocator>().AssignToTeam(buildingInstance.GetComponent<TeamMember>(), teamMember.TeamId);
             if (buildingInstance.TryGetComponent(out ResourceDestination resourceDestination)) resourceDestination.ResourceStore = GetComponent<ResourcesStore>();
+            if (buildingInstance.TryGetComponent(out BuildingSpawner buildingSpawner)) buildingSpawner.Init(GetComponent<ResourcesStore>());
+            
         }
 
         #endregion

@@ -9,7 +9,7 @@ namespace BialskyShooter.ResourcesModule
     public class Resource
     {
         public float Amount;
-        [HideInInspector] public ResourceType ResourceType { get; set; }
+        public ResourceType ResourceType;
         public string DisplayName;
 
         public Resource Extract(float amount)
