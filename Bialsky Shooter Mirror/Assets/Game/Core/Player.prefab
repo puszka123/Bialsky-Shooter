@@ -158,6 +158,7 @@ MonoBehaviour:
   buildings:
   - {fileID: 3366482333362319842, guid: 998ef4781ec0b8342862af0795e0de03, type: 3}
   - {fileID: 3366482333362319842, guid: b5935c29ebf41414a8e7eec4402fb105, type: 3}
+  - {fileID: 1167102496535076716, guid: 8837a802f18239c48bae16a636348447, type: 3}
 --- !u!114 &7995091008071738919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  swordmanBuildingPrefab: {fileID: 0}
 --- !u!114 &98306713109335665
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -202,6 +202,8 @@
     <Compile Include="Assets\Scripts\ResourcesModule\PlayerResourceExtractor.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\PlayerSpawner.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\Resource.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\ResourceDestination.cs" />
+    <Compile Include="Assets\Scripts\ResourcesModule\ResourceHolder.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\ResourceSource.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\ResourceType.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\ResourcesStore.cs" />

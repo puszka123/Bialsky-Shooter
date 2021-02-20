@@ -48,6 +48,7 @@ namespace BialskyShooter.ResourcesModule
             NetworkServer.Spawn(buildingInstance, connectionToClient);
             buildingInstance.GetComponent<NetworkIdentity>().AssignClientAuthority(connectionToClient);
             teamManager.GetComponent<TeamAllocator>().AssignToTeam(buildingInstance.GetComponent<TeamMember>(), teamMember.TeamId);
+            if (buildingInstance.TryGetComponent(out ResourceDestination resourceDestination)) resourceDestination.ResourceStore = GetComponent<ResourcesStore>();
         }
 
         #endregion

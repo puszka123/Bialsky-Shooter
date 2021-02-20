@@ -14,7 +14,10 @@ namespace BialskyShooter.AI
         bool execute;
         Transform self;
         ResourceSource target;
-        bool resting;
+        ResourceHolder resourceHolder;
+        bool extracted;
+        bool extracting;
+        ResourceDestination resourceDestination;
 
         public override void Cancel()
         {
@@ -35,23 +38,54 @@ namespace BialskyShooter.AI
         public override void Execute(MonoBehaviour executor)
         {
             execute = true;
-            if (Vector3.Distance(self.transform.position, target.transform.position) > 4f)
+            extracted = resourceHolder.IsHolding;
+            if (!extracted && !extracting && Vector3.Distance(self.transform.position, target.transform.position) > 2f)
             {
                 aiMovement.Move(target.transform.position);
             }
-            else if(!resting)
+            else if (!extracted && !extracting)
             {
-                target.Extract(5f, self.GetComponent<NetworkIdentity>());
+                target.Extract(resourceHolder.Capacity, self.GetComponent<NetworkIdentity>());
                 aiMovement.StopMove();
-                executor.StartCoroutine(Rest());
+                executor.StartCoroutine(Extracting());
+            }
+            else if(extracted && !extracting)
+            {
+                if (resourceDestination == null) resourceDestination = GetNearestResourceDestination();
+                if (resourceDestination == null) return;
+                if (Vector3.Distance(self.transform.position, resourceDestination.transform.position) > 2f)
+                {
+                    aiMovement.Move(resourceDestination.transform.position);
+                }
+                else
+                {
+                    aiMovement.StopMove();
+                    resourceDestination.GainResource(resourceHolder.GiveBackResource());
+                }
             }
         }
 
-        IEnumerator Rest()
+        private ResourceDestination GetNearestResourceDestination()
         {
-            resting = true;
+            float nearestResourceDestinationDistance = Mathf.Infinity;
+            ResourceDestination nearestResourceDestination = null;
+            foreach (var item in FindObjectsOfType<ResourceDestination>())
+            {
+                if (item.GetComponent<TeamMember>().TeamId != self.GetComponent<TeamMember>().TeamId) continue;
+                if(Vector3.Distance(self.transform.position, item.transform.position) < nearestResourceDestinationDistance)
+                {
+                    nearestResourceDestinationDistance = Vector3.Distance(self.transform.position, item.transform.position);
+                    nearestResourceDestination = item;
+                }
+            }
+            return nearestResourceDestination;
+        }
+
+        IEnumerator Extracting()
+        {
+            extracting = true;
             yield return new WaitForSeconds(1f);
-            resting = false;
+            extracting = false;
         }
 
         public override bool Executing()
@@ -68,6 +102,7 @@ namespace BialskyShooter.AI
         public override IAction SetSelf(GameObject self)
         {
             aiMovement = self.GetComponent<AIMovement>();
+            resourceHolder = self.GetComponent<ResourceHolder>();
             this.self = self.transform;
             return this;
         }
