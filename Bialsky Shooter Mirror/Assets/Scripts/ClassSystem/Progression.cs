@@ -28,7 +28,7 @@ namespace BialskyShooter.ClassSystem
             if (progressionBook == null) InitProgressionBook();
             var stats = progressionBook[classType][statType];
             if (level >= stats.Length) return stats[stats.Length - 1];
-            else return stats[level];
+            else return stats[level-1];
         }
 
         public ClassStat GetStatDefinition(ClassStatType statType)
