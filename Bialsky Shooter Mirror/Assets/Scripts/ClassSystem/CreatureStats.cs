@@ -14,6 +14,7 @@ namespace BialskyShooter.ClassSystem
 
         [SerializeField] Progression progression = null;
         [SerializeField] ClassType classType = default;
+        [SerializeField] CreatureType creatureType = default;
         [SyncVar] ClassStat health = null;
         [SyncVar] ClassStat power = null;
         [SyncVar] ClassStat stamina = null;
@@ -28,6 +29,7 @@ namespace BialskyShooter.ClassSystem
         public ClassStat Agility { get { return agility; } }
         public ClassStat Strength { get { return strength; } }
         public ClassType ClassType { get { return classType; } }
+        public CreatureType CreatureType { get { return creatureType; } }
 
         public int Level { get { return level; } }
 
@@ -94,7 +96,7 @@ namespace BialskyShooter.ClassSystem
         [Server]
         public float GetStatValue(ClassStatType statType)
         {
-            return progression.GetStat(classType, statType, level) + GetTotalStatModifier(statType);
+            return progression.GetStat(classType, creatureType, statType, level) + GetTotalStatModifier(statType);
         }
 
         [Server]
