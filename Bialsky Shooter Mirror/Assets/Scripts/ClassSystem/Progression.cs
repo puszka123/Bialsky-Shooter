@@ -33,7 +33,7 @@ namespace BialskyShooter.ClassSystem
             var stats = progressionBook[classType][statType];
             float statModifier = 0f;
             var constraintedLevel = Mathf.Min(level - 1, stats.Length - 1);
-            if (progressionModifiersBook[creatureType].ContainsKey(statType))
+            if (progressionModifiersBook.ContainsKey(creatureType) && progressionModifiersBook[creatureType].ContainsKey(statType))
             {
                 statModifier = progressionModifiersBook[creatureType][statType][constraintedLevel];
             }
@@ -44,7 +44,7 @@ namespace BialskyShooter.ClassSystem
         {
             foreach (var stat in statsDefinitions)
             {
-                if (stat.statType == statType) return stat;
+                if (stat.statType == statType) return stat.GetCopy();
             }
             throw new System.NullReferenceException();
         }

@@ -10,6 +10,8 @@ namespace BialskyShooter.ClassSystem
     [RequireComponent(typeof(Experience))]
     public class CreatureStats : NetworkBehaviour
     {
+        [Inject] Experience experience = null;
+
         public event Action<int> serverOnLevelUp;
 
         [SerializeField] Progression progression = null;
@@ -22,7 +24,6 @@ namespace BialskyShooter.ClassSystem
         [SyncVar] ClassStat strength = null;
         [SyncVar] int level = 1;
 
-
         public ClassStat Health { get { return health; } }
         public ClassStat Power { get { return power; } }
         public ClassStat Stamina { get { return stamina; } }
@@ -33,7 +34,6 @@ namespace BialskyShooter.ClassSystem
 
         public int Level { get { return level; } }
 
-        [Inject] Experience experience = null;
 
         #region Server
 
@@ -68,6 +68,7 @@ namespace BialskyShooter.ClassSystem
             {
                 level = lvl;
                 serverOnLevelUp?.Invoke(level);
+                UpdateStats();
             }
         }
 
@@ -79,12 +80,23 @@ namespace BialskyShooter.ClassSystem
             UpdateStat(stamina);
             UpdateStat(agility);
             UpdateStat(strength);
+            ForceStatsUpdate();
         }
 
         [Server]
         public void UpdateStat(ClassStat stat)
         {
             stat.value = GetStatValue(stat.statType);
+        }
+
+        [Server]
+        private void ForceStatsUpdate()
+        {
+            health = health.GetCopy();
+            power = power.GetCopy();
+            stamina = stamina.GetCopy();
+            agility = agility.GetCopy();
+            strength = strength.GetCopy();
         }
 
         [Server]

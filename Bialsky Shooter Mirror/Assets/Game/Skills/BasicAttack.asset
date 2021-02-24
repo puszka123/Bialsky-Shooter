@@ -17,4 +17,4 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  cooldownBase: 1
+  cooldownBase: 0

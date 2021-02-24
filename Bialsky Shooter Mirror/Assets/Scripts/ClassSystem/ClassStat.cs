@@ -11,5 +11,16 @@ namespace BialskyShooter.ClassSystem
         public float value;
         public bool display;
         public ClassStatType statType;
+
+        public ClassStat GetCopy()
+        {
+            return new ClassStat
+            {
+                nameToDisplay = nameToDisplay,
+                value = value,
+                display = display,
+                statType = statType,
+            };
+        }
     }
 }

@@ -27,7 +27,6 @@ namespace BialskyShooter.SkillSystem
             skillBindings = new Dictionary<string, Skill>();
             skillsAvailability = new Dictionary<Guid, bool>();
             availableSkillsDict = new Dictionary<Guid, Skill>();
-            creatureStats = GetComponent<CreatureStats>();
             creatureStats.serverOnLevelUp += OnLevelUp;
             UpdateAvailableSkills();
         }
