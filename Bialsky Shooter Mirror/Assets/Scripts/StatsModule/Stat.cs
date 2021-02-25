@@ -5,12 +5,22 @@ using UnityEngine;
 namespace BialskyShooter.StatsModule
 {
     [System.Serializable]
-    public abstract class Stat
+    public class Stat
     {
         public string nameToDisplay;
         public float value;
         public bool display;
+        public StatType type;
 
-        public abstract T GetCopy<T>() where T: Stat, new();
+        public Stat GetCopy()
+        {
+            return new Stat
+            {
+                nameToDisplay = nameToDisplay,
+                value = value,
+                display = display,
+                type = type,
+            };
+        }
     }
 }

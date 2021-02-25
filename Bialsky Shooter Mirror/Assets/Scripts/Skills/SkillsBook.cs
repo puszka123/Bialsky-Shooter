@@ -19,6 +19,8 @@ namespace BialskyShooter.SkillSystem
         Dictionary<Guid, Skill> availableSkillsDict;
         Dictionary<string, Skill> skillBindings;
         Dictionary<Guid, bool> skillsAvailability;
+        SyncList<SkillDisplayData> skillDisplayData = new SyncList<SkillDisplayData>();
+        public IList<SkillDisplayData> SkillDisplayData { get { return skillDisplayData; } }
 
         #region Server
 
@@ -57,6 +59,7 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public void BindSkill(string keyBinding, Skill skill)
         {
+            print($"{keyBinding} {skill.UniqueName}");
             skillBindings[keyBinding] = skill;
             if (!skillsAvailability.ContainsKey(skill.Id))
             {
@@ -67,6 +70,7 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public void BindSkill(string keyBinding, Guid skillId)
         {
+            print($"{keyBinding} {skillId}");
             skillBindings[keyBinding] = GetSkill(skillId);
             if (!skillsAvailability.ContainsKey(skillId))
             {
@@ -106,8 +110,10 @@ namespace BialskyShooter.SkillSystem
                 creatureStats.Level)
                 .ToList();
             availableSkillsDict = new Dictionary<Guid, Skill>();
+            skillDisplayData.Clear();
             foreach (var skill in availableSkills)
             {
+                skillDisplayData.Add(new SkillDisplayData { id = skill.Id, iconPath = skill.Icon.name });
                 availableSkillsDict[skill.Id] = skill;
                 if (!skillsAvailability.ContainsKey(skill.Id))
                 {

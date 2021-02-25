@@ -9,15 +9,13 @@ namespace BialskyShooter.StatsModule
     [System.Serializable]
     public class ItemStats
     {
-        [SerializeField] List<ItemStat> statsList = default;
-        [SerializeField] protected ClassStat[] classStats = default;
+        [SerializeField] List<Stat> statsList = default;
 
-        public IEnumerable<ItemStat> StatsList { get { return statsList; } }
-        public ClassStat[] ClassStats { get { return classStats; } }
+        public IEnumerable<Stat> StatsList { get { return statsList; } }
 
-        Dictionary<ItemStatType, ItemStat> statsBook;
+        Dictionary<StatType, Stat> statsBook;
 
-        public ItemStat GetStat(ItemStatType statType)
+        public Stat GetStat(StatType statType)
         {
             if (statsBook == null) InitStatsBook();
             if(statsBook.ContainsKey(statType))
@@ -32,10 +30,10 @@ namespace BialskyShooter.StatsModule
 
         private void InitStatsBook()
         {
-            statsBook = new Dictionary<ItemStatType, ItemStat>();
+            statsBook = new Dictionary<StatType, Stat>();
             foreach (var stat in statsList)
             {
-                statsBook[stat.statType] = stat;
+                statsBook[stat.type] = stat;
             }
         }
     }

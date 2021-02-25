@@ -1,4 +1,5 @@
-﻿using BialskyShooter.Combat;
+﻿using BialskyShooter.BuffsModule;
+using BialskyShooter.Combat;
 using BialskyShooter.EquipmentSystem;
 using Mirror;
 using System;
@@ -17,6 +18,7 @@ namespace BialskyShooter.SkillSystem
         [Inject] SkillsBook skillsBook = null;
         [Inject] Equipment equipment = null;
         [Inject] WeaponUser weaponUser = null;
+        [Inject] BuffsReceiver buffsReceiver = null;
 
         #region Server
 
@@ -75,6 +77,11 @@ namespace BialskyShooter.SkillSystem
         public void UseWeapon()
         {
             weaponUser.UseWeapon(equipment.Weapon);
+        }
+
+        public void ReceiveBuff(Buff buff)
+        {
+            buffsReceiver.AddBuff(buff);
         }
 
         #endregion

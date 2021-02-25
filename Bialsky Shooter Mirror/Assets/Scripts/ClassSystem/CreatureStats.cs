@@ -1,4 +1,5 @@
-﻿using BialskyShooter.StatsModule;
+﻿using BialskyShooter.BuffsModule;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -9,27 +10,30 @@ using Zenject;
 namespace BialskyShooter.ClassSystem
 {
     [RequireComponent(typeof(Experience))]
+    [RequireComponent(typeof(BuffsReceiver))]
     public class CreatureStats : NetworkBehaviour
     {
         [Inject] Experience experience = null;
+        [Inject] BuffsReceiver buffsReceiver = null;
+
 
         public event Action<int> serverOnLevelUp;
 
         [SerializeField] Progression progression = null;
         [SerializeField] ClassType classType = default;
         [SerializeField] CreatureType creatureType = default;
-        [SyncVar] ClassStat health = null;
-        [SyncVar] ClassStat power = null;
-        [SyncVar] ClassStat stamina = null;
-        [SyncVar] ClassStat agility = null;
-        [SyncVar] ClassStat strength = null;
+        [SyncVar] Stat health = null;
+        [SyncVar] Stat power = null;
+        [SyncVar] Stat stamina = null;
+        [SyncVar] Stat agility = null;
+        [SyncVar] Stat strength = null;
         [SyncVar] int level = 1;
 
-        public ClassStat Health { get { return health; } }
-        public ClassStat Power { get { return power; } }
-        public ClassStat Stamina { get { return stamina; } }
-        public ClassStat Agility { get { return agility; } }
-        public ClassStat Strength { get { return strength; } }
+        public Stat Health { get { return health; } }
+        public Stat Power { get { return power; } }
+        public Stat Stamina { get { return stamina; } }
+        public Stat Agility { get { return agility; } }
+        public Stat Strength { get { return strength; } }
         public ClassType ClassType { get { return classType; } }
         public CreatureType CreatureType { get { return creatureType; } }
 
@@ -41,6 +45,7 @@ namespace BialskyShooter.ClassSystem
         public override void OnStartServer()
         {
             experience.serverOnExperienceGained += OnExperienceGained;
+            buffsReceiver.serverBuffChanged += BuffChanged;
             InitStats();
             UpdateStats();
         }
@@ -48,16 +53,17 @@ namespace BialskyShooter.ClassSystem
         public override void OnStopServer()
         {
             experience.serverOnExperienceGained -= OnExperienceGained;
+            buffsReceiver.serverBuffChanged -= BuffChanged;
         }
 
         [Server]
         private void InitStats()
         {
-            health = progression.GetStatDefinition(ClassStatType.Health);
-            power = progression.GetStatDefinition(ClassStatType.Power);
-            stamina = progression.GetStatDefinition(ClassStatType.Stamina);
-            agility = progression.GetStatDefinition(ClassStatType.Agility);
-            strength = progression.GetStatDefinition(ClassStatType.Strength);
+            health = progression.GetStatDefinition(StatType.Health);
+            power = progression.GetStatDefinition(StatType.Power);
+            stamina = progression.GetStatDefinition(StatType.Stamina);
+            agility = progression.GetStatDefinition(StatType.Agility);
+            strength = progression.GetStatDefinition(StatType.Strength);
             level = GetLevel();
         }
 
@@ -74,6 +80,12 @@ namespace BialskyShooter.ClassSystem
         }
 
         [Server]
+        private void BuffChanged(Buff buff, bool added)
+        {
+            UpdateStats();
+        }
+
+        [Server]
         public void UpdateStats()
         {
             UpdateStat(health);
@@ -85,19 +97,19 @@ namespace BialskyShooter.ClassSystem
         }
 
         [Server]
-        public void UpdateStat(ClassStat stat)
+        public void UpdateStat(Stat stat)
         {
-            stat.value = GetStatValue(stat.statType);
+            stat.value = GetStatValue(stat.type);
         }
 
         [Server]
         private void ForceStatsUpdate()
         {
-            health = health.GetCopy<ClassStat>();
-            power = power.GetCopy<ClassStat>();
-            stamina = stamina.GetCopy<ClassStat>();
-            agility = agility.GetCopy<ClassStat>();
-            strength = strength.GetCopy<ClassStat>();
+            health = health.GetCopy();
+            power = power.GetCopy();
+            stamina = stamina.GetCopy();
+            agility = agility.GetCopy();
+            strength = strength.GetCopy();
         }
 
         [Server]
@@ -107,13 +119,13 @@ namespace BialskyShooter.ClassSystem
         }
 
         [Server]
-        public float GetStatValue(ClassStatType statType)
+        public float GetStatValue(StatType statType)
         {
             return progression.GetStat(classType, creatureType, statType, level) + GetTotalStatModifier(statType);
         }
 
         [Server]
-        float GetTotalStatModifier(ClassStatType statType)
+        float GetTotalStatModifier(StatType statType)
         {
             float totalStatModifier = 0f;
             foreach (var statsModifier in GetComponents<IStatsModifier>())

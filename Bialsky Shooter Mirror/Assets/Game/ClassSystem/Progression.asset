@@ -16,23 +16,23 @@ MonoBehaviour:
   - nameToDisplay: Health
     value: 150
     display: 1
-    statType: 0
+    type: 0
   - nameToDisplay: Power
     value: 1
     display: 1
-    statType: 1
+    type: 1
   - nameToDisplay: Stamina
     value: 1
     display: 1
-    statType: 2
+    type: 2
   - nameToDisplay: Agility
     value: 1
     display: 1
-    statType: 3
+    type: 3
   - nameToDisplay: Strength
     value: 2
     display: 1
-    statType: 4
+    type: 4
   creatureClasses:
   - classType: 0
     stats:

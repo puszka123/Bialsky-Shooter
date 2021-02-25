@@ -20,5 +20,4 @@ MonoBehaviour:
     - nameToDisplay: Damage
       value: 25
       display: 1
-      statType: 0
-    classStats: []
+      type: 8

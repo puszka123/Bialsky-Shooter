@@ -43,7 +43,7 @@ namespace BialskyShooter.ItemSystem.UI
             itemName.text = name;
         }
 
-        private void DisplayItemStats(IEnumerable<ItemStat> stats)
+        private void DisplayItemStats(IEnumerable<Stat> stats)
         {
             if (stats == null) return;
             var statDisplayRect = statDisplayPrefab.GetComponent<RectTransform>();
@@ -59,7 +59,7 @@ namespace BialskyShooter.ItemSystem.UI
             }
         }
 
-        private void SetStatDisplay(GameObject statDisplayInstance, ItemStat stat)
+        private void SetStatDisplay(GameObject statDisplayInstance, Stat stat)
         {
             var label = statDisplayInstance.transform.GetChild(0).GetComponent<TMP_Text>();
             var value = statDisplayInstance.transform.GetChild(1).GetComponent<TMP_Text>();

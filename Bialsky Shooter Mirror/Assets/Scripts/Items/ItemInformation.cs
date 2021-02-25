@@ -13,25 +13,25 @@ namespace BialskyShooter.ItemSystem
         public string itemName;
         public string iconPath;
         public ItemSlotType slotType;
-        public List<ItemStat> stats;
+        public List<Stat> stats;
 
         public ItemInformation() { }
 
-        public ItemInformation(string id, string iconPath, string itemName, IEnumerable<ItemStat> stats)
+        public ItemInformation(string id, string iconPath, string itemName, IEnumerable<Stat> stats)
         {
             itemId = id;
             this.iconPath = iconPath;
             this.itemName = itemName;
-            this.stats = new List<ItemStat>(stats);
+            this.stats = new List<Stat>(stats);
         }
 
-        public ItemInformation(string id, string iconPath, string itemName, ItemSlotType slotType, IEnumerable<ItemStat> stats)
+        public ItemInformation(string id, string iconPath, string itemName, ItemSlotType slotType, IEnumerable<Stat> stats)
         {
             itemId = id;
             this.iconPath = iconPath;
             this.itemName = itemName;
             this.slotType = slotType;
-            this.stats = new List<ItemStat>(stats);
+            this.stats = new List<Stat>(stats);
         }
 
         public ItemInformation(IItem item, ItemSlotType slotType)
@@ -40,7 +40,7 @@ namespace BialskyShooter.ItemSystem
             this.iconPath = item.GetItem().IconPath;
             this.itemName = item.GetItem().UniqueName;
             this.slotType = slotType;
-            this.stats = new List<ItemStat>(item.GetItem().ItemStatsBook.StatsList);
+            this.stats = new List<Stat>(item.GetItem().ItemStatsBook.StatsList);
         }
     }
 }

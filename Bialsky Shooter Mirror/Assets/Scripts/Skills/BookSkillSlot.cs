@@ -9,33 +9,33 @@ namespace BialskyShooter.SkillSystem
     public class BookSkillSlot : MonoBehaviour, ISkillSlot
     {
         [SerializeField] Image skillImage = default;
-        Skill skill;
+        SkillDisplayData skill;
 
-        public Skill Skill { get { return skill; } }
+        public SkillDisplayData Skill { get { return skill; } }
 
         public Sprite GetSkillIcon()
         {
-            return Skill.Icon;
+            return Resources.Load<Sprite>(Skill.iconPath);
         }
 
         public Guid GetSkillId()
         {
-            return Skill.Id;
+            return Skill.id;
         }
 
         public void InjectSkill(ISkillSlot skillSlot) { }
 
         public void RemoveSkill() { }
 
-        public void SetSkill(Skill skill)
+        public void SetSkill(SkillDisplayData skill)
         {
             this.skill = skill;
             DisplaySkill(skill);
         }
 
-        void DisplaySkill(Skill skill)
+        void DisplaySkill(SkillDisplayData skill)
         {
-            skillImage.sprite = skill.Icon;
+            skillImage.sprite = Resources.Load<Sprite>(skill.iconPath);
             skillImage.color = new Color(1f, 1f, 1f, 1f);
         }
     }

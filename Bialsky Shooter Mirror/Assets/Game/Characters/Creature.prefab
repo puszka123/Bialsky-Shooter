@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: -4700349421721287775}
   - component: {fileID: -799934495676832566}
   - component: {fileID: 4847083341144667187}
+  - component: {fileID: 5410553122206192898}
+  - component: {fileID: 6123321209548460155}
   m_Layer: 10
   m_Name: Creature
   m_TagString: Creature
@@ -171,6 +173,7 @@ MonoBehaviour:
   syncInterval: 0.1
   progression: {fileID: 11400000, guid: 256bebf9057d1fa4f981b11106a4857a, type: 2}
   classType: 0
+  creatureType: 0
 --- !u!114 &5351562959127060175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +312,32 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   spawnCost: []
+--- !u!114 &5410553122206192898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995792351427308607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4250e814c1b0d8438bec475e60c4b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &6123321209548460155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995792351427308607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c5e095d4111e54fa2a2fe08d762185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  buffsToRemove: []

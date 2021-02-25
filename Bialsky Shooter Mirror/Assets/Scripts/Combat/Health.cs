@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.AI;
+using BialskyShooter.BuffsModule;
 using BialskyShooter.ClassSystem;
 using BialskyShooter.InventoryModule;
 using BialskyShooter.StatsModule;
@@ -12,10 +13,12 @@ using Zenject;
 namespace BialskyShooter.Combat
 {
     [RequireComponent(typeof(CreatureStats))]
+    [RequireComponent(typeof(BuffsReceiver))]
     public class Health : NetworkBehaviour
     {
         [Inject] CreatureStats creatureStats = null;
         [Inject] TeamChecker teamChecker = null;
+        [Inject] BuffsReceiver buffsReceiver = null;
         public event System.Action serverOnCreatureLose;
         public event System.Action clientOnCreatureLose;
         [SyncVar] float currentHealth;
@@ -34,13 +37,32 @@ namespace BialskyShooter.Combat
 
         public override void OnStartServer()
         {
-            currentHealth = creatureStats.GetStatValue(ClassStatType.Health);
+            currentHealth = creatureStats.GetStatValue(StatType.Health);
+            buffsReceiver.serverBuffChanged += BuffChanged;
+        }
+
+        public override void OnStopServer()
+        {
+            buffsReceiver.serverBuffChanged -= BuffChanged;
         }
 
         [Command]
         public void CmdTakeDamage(NetworkIdentity attacker, float damage)
         {
             TakeDamage(attacker, damage);
+        }
+
+        private void BuffChanged(Buff buff, bool added)
+        {
+            var currentHealthModifier = 0f;
+            foreach (var buffStat in buff.buffStats)
+            {
+                if(buffStat.type == StatType.Health)
+                {
+                    currentHealthModifier = added ? buffStat.value : -buffStat.value;
+                }
+            }
+            currentHealth += currentHealthModifier;
         }
 
         [Server]
@@ -57,7 +79,7 @@ namespace BialskyShooter.Combat
                 Lose();
                 attacker
                     .GetComponent<Experience>()
-                    .GainExperience(creatureStats.GetStatValue(ClassStatType.ExperienceReward));
+                    .GainExperience(creatureStats.GetStatValue(StatType.ExperienceReward));
             }
         }
 

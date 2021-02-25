@@ -17,6 +17,7 @@ MonoBehaviour:
     progressionSkills:
     - skills:
       - {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
+      - {fileID: 11400000, guid: da066e79d7ea3204298fa8a064907470, type: 2}
     - skills:
       - {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
     - skills:

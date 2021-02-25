@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BialskyShooter.BuffsModule;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,17 @@ namespace BialskyShooter.SkillSystem
         [SerializeField] protected string uniqueName = default;
         [SerializeField] protected LayerMask layerMask = new LayerMask();
         [SerializeField] protected float cooldownBase;
+        [SerializeField] protected List<Buff> buffs;
 
         public Guid Id { get { return id; } }
         public string UniqueName { get { return uniqueName; } }
 
         public Sprite Icon { get { return icon; } }
+
+        private void OnEnable()
+        {
+            id = Guid.NewGuid();
+        }
 
         public abstract void Use(ISkillUser skillUser);
 

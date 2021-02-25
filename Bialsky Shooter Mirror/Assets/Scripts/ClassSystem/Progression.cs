@@ -8,18 +8,18 @@ namespace BialskyShooter.ClassSystem
     [CreateAssetMenu(fileName = "Progression", menuName = "ScriptableObjects/Progression")]
     public class Progression : ScriptableObject
     {
-        public ClassStat[] statsDefinitions;
+        public Stat[] statsDefinitions;
         public ProgressionCreatureClass[] creatureClasses = new ProgressionCreatureClass[0];
         public ProgressionCreatureModifier[] creatureModifiers = new ProgressionCreatureModifier[0];
-        Dictionary<ClassType, Dictionary<ClassStatType, float[]>> progressionBook;
-        Dictionary<CreatureType, Dictionary<ClassStatType, float[]>> progressionModifiersBook;
+        Dictionary<ClassType, Dictionary<StatType, float[]>> progressionBook;
+        Dictionary<CreatureType, Dictionary<StatType, float[]>> progressionModifiersBook;
 
         public int GetLevel(ClassType classType, float experiencePoints)
         {
             if (progressionBook == null) InitProgressionBook();
             if (progressionModifiersBook == null) InitProgressionModifiersBook();
             int level = 1;
-            foreach (var expToLevelUp in progressionBook[classType][ClassStatType.LevelBasedOnExperience])
+            foreach (var expToLevelUp in progressionBook[classType][StatType.LevelBasedOnExperience])
             {
                 if (experiencePoints < expToLevelUp) return level;
                 ++level;
@@ -27,7 +27,7 @@ namespace BialskyShooter.ClassSystem
             return level;
         }
 
-        public float GetStat(ClassType classType, CreatureType creatureType, ClassStatType statType, int level)
+        public float GetStat(ClassType classType, CreatureType creatureType, StatType statType, int level)
         {
             if (progressionBook == null) InitProgressionBook();
             if (progressionModifiersBook == null) InitProgressionModifiersBook();
@@ -41,21 +41,21 @@ namespace BialskyShooter.ClassSystem
             return stats[level-1] + statModifier;
         }
 
-        public ClassStat GetStatDefinition(ClassStatType statType)
+        public Stat GetStatDefinition(StatType statType)
         {
             foreach (var stat in statsDefinitions)
             {
-                if (stat.statType == statType) return stat.GetCopy<ClassStat>();
+                if (stat.type == statType) return stat.GetCopy();
             }
             throw new System.NullReferenceException();
         }
 
         private void InitProgressionBook()
         {
-            progressionBook = new Dictionary<ClassType, Dictionary<ClassStatType, float[]>>();
+            progressionBook = new Dictionary<ClassType, Dictionary<StatType, float[]>>();
             foreach (var creatureClass in creatureClasses)
             {
-                progressionBook[creatureClass.classType] = new Dictionary<ClassStatType, float[]>();
+                progressionBook[creatureClass.classType] = new Dictionary<StatType, float[]>();
                 foreach (var stat in creatureClass.stats)
                 {
                     progressionBook[creatureClass.classType][stat.stat] = stat.values;
@@ -65,10 +65,10 @@ namespace BialskyShooter.ClassSystem
 
         private void InitProgressionModifiersBook()
         {
-            progressionModifiersBook = new Dictionary<CreatureType, Dictionary<ClassStatType, float[]>>();
+            progressionModifiersBook = new Dictionary<CreatureType, Dictionary<StatType, float[]>>();
             foreach (var creatureType in creatureModifiers)
             {
-                progressionModifiersBook[creatureType.creatureType] = new Dictionary<ClassStatType, float[]>();
+                progressionModifiersBook[creatureType.creatureType] = new Dictionary<StatType, float[]>();
                 foreach (var stat in creatureType.stats)
                 {
                     progressionModifiersBook[creatureType.creatureType][stat.stat] = stat.values;

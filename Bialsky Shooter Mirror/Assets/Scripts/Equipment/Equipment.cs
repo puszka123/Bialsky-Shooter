@@ -124,16 +124,16 @@ namespace BialskyShooter.EquipmentSystem
         }
 
         [Server]
-        public float GetStatModifier(ClassStatType statType)
+        public float GetStatModifier(StatType statType)
         {
             float statTotalValue = 0f;
             if (equipmentItems == null) InitEquipmentItems();
             foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItem()))
             {
-                var stats = item.ItemStatsBook.ClassStats;
+                var stats = item.ItemStatsBook.StatsList;
                 foreach (var stat in stats)
                 {
-                    if (stat.statType != statType) continue;
+                    if (stat.type != statType) continue;
                     statTotalValue += stat.value;
                 }
             }

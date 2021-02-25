@@ -8,7 +8,7 @@ namespace BialskyShooter.ClassSystem
     [System.Serializable]
     public class ProgressionStat
     {
-        public ClassStatType stat;
+        public StatType stat;
         public float[] values;
     }
 }

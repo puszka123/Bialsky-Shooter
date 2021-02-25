@@ -16,9 +16,9 @@ namespace BialskyShooter.SkillSystem
         [SerializeField] GameObject slotImagePrefab = null;
         [SerializeField] Canvas canvas;
         [SerializeField] int rowsCount = 10;
-        [SerializeField] int columnsCount = 10;
-        [SerializeField] SkillsProgression skillsProgression = default;      
+        [SerializeField] int columnsCount = 10; 
         CreatureStats creatureStats;
+        SkillsBook skillsBookComponent;
         List<Skill> availableSkills;
         bool panelInitialized;
         List<GameObject> skillsSlots; 
@@ -33,45 +33,45 @@ namespace BialskyShooter.SkillSystem
         private void Update()
         {
             if (!skillsBook) return;
-
-            if (skillsProgression != null && availableSkills == null)
+            if(skillsBookComponent == null || creatureStats == null)
             {
-                GetAvailableSkills();
+                var localCreature = GetLocalCreature();
+                if (localCreature != null)
+                {
+                    skillsBookComponent = localCreature.GetComponent<SkillsBook>();
+                    creatureStats = localCreature.GetComponent<CreatureStats>();
+                }
             }
-            if(!panelInitialized && availableSkills != null) InitSkillsPanel();
+            if(!panelInitialized && SkillsReady()) InitSkillsPanel();
 
         }
 
-        private void GetAvailableSkills()
+        bool SkillsReady()
         {
-            if (skillsProgression != null)
-            {
-                GetLocalCreatureStats();
-                if (creatureStats == null) return;
-                availableSkills = new List<Skill>(skillsProgression
-                    .GetAvailableSkills(creatureStats.ClassType, creatureStats.Level));
-            }
+            return skillsBookComponent != null && skillsBookComponent.SkillDisplayData.Count > 0;
         }
 
-        private void GetLocalCreatureStats()
+        private GameObject GetLocalCreature()
         {
             foreach (var creatureStats in FindObjectsOfType<CreatureStats>())
             {
                 if (creatureStats.hasAuthority)
                 {
-                    this.creatureStats = creatureStats;
-                    break;
+                    return creatureStats.gameObject;
                 }
             }
+            return null;
         }
 
         void InitSkillsPanel()
         {
+            print(panelInitialized);
+            panelInitialized = true;
             skillsSlots = new List<GameObject>();
             var slotRect = slotImagePrefab.GetComponent<RectTransform>();
             ComputePanelSize(slotRect);
             PlaceSlots(slotRect);
-            panelInitialized = true;
+            print(panelInitialized);
         }
 
         private void PlaceSlots(RectTransform slotRect)
@@ -91,8 +91,11 @@ namespace BialskyShooter.SkillSystem
 
         private void SetBookSkillSlot(GameObject slotInstance, int index)
         {
-            if (!skillsBook || availableSkills == null || availableSkills.Count <= index) return;
-            slotInstance.GetComponent<BookSkillSlot>().SetSkill(availableSkills[index]);
+            if (!skillsBook || !SkillsReady()) return;
+            if (index < skillsBookComponent.SkillDisplayData.Count)
+            {
+                slotInstance.GetComponent<BookSkillSlot>().SetSkill(skillsBookComponent.SkillDisplayData[index]);
+            }
         }
 
         private void ComputePanelSize(RectTransform slotRect)

@@ -7,6 +7,6 @@ namespace BialskyShooter.ClassSystem
 {
     public interface IStatsModifier
     {
-        float GetStatModifier(ClassStatType statType);
+        float GetStatModifier(StatType statType);
     }
 }

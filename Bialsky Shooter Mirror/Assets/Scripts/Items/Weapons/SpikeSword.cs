@@ -11,7 +11,7 @@ namespace BialskyShooter.ItemSystem
     {
         public float GetDamage()
         {
-            return ItemStatsBook.GetStat(ItemStatType.Damage).value;
+            return ItemStatsBook.GetStat(StatType.Damage).value;
         }
 
         public ItemSlotType GetItemSlotType()

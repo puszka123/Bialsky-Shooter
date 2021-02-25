@@ -1,4 +1,5 @@
-﻿using BialskyShooter.Combat;
+﻿using BialskyShooter.BuffsModule;
+using BialskyShooter.Combat;
 using BialskyShooter.ItemSystem;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,5 +11,6 @@ namespace BialskyShooter.SkillSystem
     {
         void UseWeapon();
         Transform GetTransform();
+        void ReceiveBuff(Buff buff);
     }
 }

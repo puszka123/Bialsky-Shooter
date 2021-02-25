@@ -11,12 +11,12 @@ namespace BialskyShooter.ItemSystem.UI
     {
         Sprite icon;
         Guid itemId;
-        List<ItemStat> itemStats;
+        List<Stat> itemStats;
         string itemName;
 
         public Guid ItemId { get { return itemId; } }
         public Sprite Icon { get { return icon; } }
-        public IEnumerable<ItemStat> ItemStats { get { return itemStats; } }
+        public IEnumerable<Stat> ItemStats { get { return itemStats; } }
         public string ItemName { get { return itemName; } }
 
         public ItemDisplay(ItemInformation itemInformation)
