@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BialskyShooter.StatsModule;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,7 +45,7 @@ namespace BialskyShooter.ClassSystem
         {
             foreach (var stat in statsDefinitions)
             {
-                if (stat.statType == statType) return stat.GetCopy();
+                if (stat.statType == statType) return stat.GetCopy<ClassStat>();
             }
             throw new System.NullReferenceException();
         }

@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using BialskyShooter.StatsModule;
+using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -92,11 +93,11 @@ namespace BialskyShooter.ClassSystem
         [Server]
         private void ForceStatsUpdate()
         {
-            health = health.GetCopy();
-            power = power.GetCopy();
-            stamina = stamina.GetCopy();
-            agility = agility.GetCopy();
-            strength = strength.GetCopy();
+            health = health.GetCopy<ClassStat>();
+            power = power.GetCopy<ClassStat>();
+            stamina = stamina.GetCopy<ClassStat>();
+            agility = agility.GetCopy<ClassStat>();
+            strength = strength.GetCopy<ClassStat>();
         }
 
         [Server]

@@ -1,6 +1,7 @@
 ﻿using BialskyShooter.AI;
 using BialskyShooter.ClassSystem;
 using BialskyShooter.InventoryModule;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;

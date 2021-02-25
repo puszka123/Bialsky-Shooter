@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.ClassSystem;
 using BialskyShooter.ItemSystem;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;
