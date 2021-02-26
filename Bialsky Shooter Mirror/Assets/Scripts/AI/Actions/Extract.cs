@@ -1,4 +1,4 @@
-﻿using BialskyShooter.Movement;
+﻿using BialskyShooter.MovementModule;
 using BialskyShooter.ResourcesModule;
 using Mirror;
 using System.Collections;

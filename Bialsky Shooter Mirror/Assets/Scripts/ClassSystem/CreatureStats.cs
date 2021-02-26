@@ -121,18 +121,32 @@ namespace BialskyShooter.ClassSystem
         [Server]
         public float GetStatValue(StatType statType)
         {
-            return progression.GetStat(classType, creatureType, statType, level) + GetTotalStatModifier(statType);
+            return progression.GetStat(classType, creatureType, statType, level) 
+                + (progression.GetStat(classType, creatureType, statType, level) 
+                * GetTotalStatPercentageModifier(statType)) 
+                + GetTotalStatAdditiveModifier(statType);
         }
 
         [Server]
-        float GetTotalStatModifier(StatType statType)
+        float GetTotalStatAdditiveModifier(StatType statType)
         {
             float totalStatModifier = 0f;
             foreach (var statsModifier in GetComponents<IStatsModifier>())
             {
-                totalStatModifier += statsModifier.GetStatModifier(statType);
+                totalStatModifier += statsModifier.GetStatAdditiveModifier(statType);
             }
             return totalStatModifier;
+        }
+
+        [Server]
+        float GetTotalStatPercentageModifier(StatType statType)
+        {
+            float totalStatModifier = 0f;
+            foreach (var statsModifier in GetComponents<IStatsModifier>())
+            {
+                totalStatModifier += statsModifier.GetStatPercentageModifier(statType);
+            }
+            return totalStatModifier / 100;
         }
 
         #endregion

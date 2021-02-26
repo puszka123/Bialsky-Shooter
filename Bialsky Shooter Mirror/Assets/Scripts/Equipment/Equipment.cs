@@ -124,7 +124,7 @@ namespace BialskyShooter.EquipmentSystem
         }
 
         [Server]
-        public float GetStatModifier(StatType statType)
+        public float GetStatAdditiveModifier(StatType statType)
         {
             float statTotalValue = 0f;
             if (equipmentItems == null) InitEquipmentItems();
@@ -135,6 +135,23 @@ namespace BialskyShooter.EquipmentSystem
                 {
                     if (stat.type != statType) continue;
                     statTotalValue += stat.value;
+                }
+            }
+            return statTotalValue;
+        }
+
+        [Server]
+        public float GetStatPercentageModifier(StatType statType)
+        {
+            float statTotalValue = 0f;
+            if (equipmentItems == null) InitEquipmentItems();
+            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItem()))
+            {
+                var stats = item.ItemStatsBook.StatsList;
+                foreach (var stat in stats)
+                {
+                    if (stat.type != statType) continue;
+                    statTotalValue += stat.percentageValue;
                 }
             }
             return statTotalValue;

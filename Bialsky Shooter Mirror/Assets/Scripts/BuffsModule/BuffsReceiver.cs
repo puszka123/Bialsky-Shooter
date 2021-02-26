@@ -17,15 +17,28 @@ namespace BialskyShooter.BuffsModule
         public IEnumerable<Buff> ActiveBuffs { get { return activeBuffs; } } 
 
         [Server]
-        public float GetStatModifier(StatType statType)
+        public float GetStatAdditiveModifier(StatType statType)
         {
             var modifier = 0f;
             foreach (var stat in activeBuffs.SelectMany(b => b.buffStats))
             {
                 if(stat.type == statType)
                 {
-                    modifier = stat.value;
-                    break;
+                    modifier += stat.value;
+                }
+            }
+            return modifier;
+        }
+
+        [Server]
+        public float GetStatPercentageModifier(StatType statType)
+        {
+            var modifier = 0f;
+            foreach (var stat in activeBuffs.SelectMany(b => b.buffStats))
+            {
+                if (stat.type == statType)
+                {
+                    modifier += stat.percentageValue;
                 }
             }
             return modifier;

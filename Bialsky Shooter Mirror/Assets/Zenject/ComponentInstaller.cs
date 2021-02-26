@@ -4,7 +4,7 @@ using BialskyShooter.ClassSystem;
 using BialskyShooter.Combat;
 using BialskyShooter.EquipmentSystem;
 using BialskyShooter.InventoryModule;
-using BialskyShooter.Movement;
+using BialskyShooter.MovementModule;
 using BialskyShooter.Multiplayer;
 using BialskyShooter.ResourcesModule;
 using BialskyShooter.SkillSystem;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace BialskyShooter.Movement
+namespace BialskyShooter.MovementModule
 {
     [RequireComponent(typeof(Movement))]
     public class PlayerMovement : NetworkBehaviour

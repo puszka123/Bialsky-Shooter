@@ -1,6 +1,8 @@
 ﻿using BialskyShooter.BuffsModule;
 using BialskyShooter.Combat;
+using BialskyShooter.EnhancementsModule;
 using BialskyShooter.EquipmentSystem;
+using BialskyShooter.MovementModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -13,12 +15,15 @@ namespace BialskyShooter.SkillSystem
     [RequireComponent(typeof(Equipment))]
     [RequireComponent(typeof(SkillsBook))]
     [RequireComponent(typeof(WeaponUser))]
+    [RequireComponent(typeof(EnhancementReceiver))]
     public class SkillUser : NetworkBehaviour, ISkillUser
     {
         [Inject] SkillsBook skillsBook = null;
         [Inject] Equipment equipment = null;
         [Inject] WeaponUser weaponUser = null;
         [Inject] BuffsReceiver buffsReceiver = null;
+        [Inject] Movement movement = null;
+        [Inject] EnhancementReceiver enhancementReceiver = null;
 
         #region Server
 
@@ -82,6 +87,16 @@ namespace BialskyShooter.SkillSystem
         public void ReceiveBuff(Buff buff)
         {
             buffsReceiver.AddBuff(buff);
+        }
+
+        public Movement GetMovement()
+        {
+            return movement;
+        }
+
+        public void ReceiveAttackEnhancement(AttackEnhancement attackEnhancement)
+        {
+            enhancementReceiver.Receive(attackEnhancement);
         }
 
         #endregion

@@ -150,6 +150,10 @@
     <Compile Include="Assets\Scripts\Control\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
+    <Compile Include="Assets\Scripts\EnhancementsModule\AttackEnhancement.cs" />
+    <Compile Include="Assets\Scripts\EnhancementsModule\AttackType.cs" />
+    <Compile Include="Assets\Scripts\EnhancementsModule\EnhancementReceiver.cs" />
+    <Compile Include="Assets\Scripts\EnhancementsModule\EnhancementSender.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentController.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplay.cs" />
@@ -217,6 +221,8 @@
     <Compile Include="Assets\Scripts\ResourcesModule\UI\ResourcesDisplay.cs" />
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\BasicAttack.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\PowerfulAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Shield.cs" />
     <Compile Include="Assets\Scripts\Skills\DragSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillSlot.cs" />

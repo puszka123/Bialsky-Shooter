@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.BuffsModule;
+using BialskyShooter.EnhancementsModule;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace BialskyShooter.SkillSystem
         [SerializeField] protected LayerMask layerMask = new LayerMask();
         [SerializeField] protected float cooldownBase;
         [SerializeField] protected List<Buff> buffs;
+        [SerializeField] protected List<AttackEnhancement> attackEnhancements;
 
         public Guid Id { get { return id; } }
         public string UniqueName { get { return uniqueName; } }

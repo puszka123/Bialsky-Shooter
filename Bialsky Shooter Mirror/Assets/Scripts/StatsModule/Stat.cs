@@ -9,6 +9,7 @@ namespace BialskyShooter.StatsModule
     {
         public string nameToDisplay;
         public float value;
+        public float percentageValue;
         public bool display;
         public StatType type;
 
@@ -18,6 +19,7 @@ namespace BialskyShooter.StatsModule
             {
                 nameToDisplay = nameToDisplay,
                 value = value,
+                percentageValue = percentageValue,
                 display = display,
                 type = type,
             };

@@ -8,6 +8,6 @@ namespace BialskyShooter.Combat
 {
     public interface WeaponController
     {
-        void StartControl(IWeapon weapon);
+        void StartControl(GameObject user, IWeapon weapon);
     }
 }

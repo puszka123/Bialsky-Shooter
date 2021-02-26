@@ -20,7 +20,7 @@ namespace BialskyShooter.Combat
         [Server]
         public void UseWeapon(IWeapon weapon)
         {
-            weaponController.StartControl(weapon);
+            weaponController.StartControl(gameObject, weapon);
         }
 
         #endregion

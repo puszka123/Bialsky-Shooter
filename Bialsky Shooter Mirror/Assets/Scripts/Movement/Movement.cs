@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace BialskyShooter.Movement
+namespace BialskyShooter.MovementModule
 {
     [RequireComponent(typeof(CreatureStats))]
     [RequireComponent(typeof(Rigidbody))]
@@ -60,6 +60,12 @@ namespace BialskyShooter.Movement
                 rb.velocity.magnitude,
                 0f,
                 moveFactor * creatureStats.Agility.value);
+        }
+
+        [Server]
+        public void MoveForce(Vector3 force)
+        {
+            rb.AddForce(force, ForceMode.Force);
         }
 
         [Server]

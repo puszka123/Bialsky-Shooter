@@ -65,13 +65,11 @@ namespace BialskyShooter.SkillSystem
 
         void InitSkillsPanel()
         {
-            print(panelInitialized);
             panelInitialized = true;
             skillsSlots = new List<GameObject>();
             var slotRect = slotImagePrefab.GetComponent<RectTransform>();
             ComputePanelSize(slotRect);
             PlaceSlots(slotRect);
-            print(panelInitialized);
         }
 
         private void PlaceSlots(RectTransform slotRect)

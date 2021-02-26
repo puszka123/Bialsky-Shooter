@@ -70,7 +70,6 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public void BindSkill(string keyBinding, Guid skillId)
         {
-            print($"{keyBinding} {skillId}");
             skillBindings[keyBinding] = GetSkill(skillId);
             if (!skillsAvailability.ContainsKey(skillId))
             {

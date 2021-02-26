@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d39da7fa1b11e4393e1f01f15db70e, type: 3}
+  m_Name: PowerfulAttack
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 94b0e873d745c1f458b1b2b03f92c2a7, type: 3}
+  uniqueName: Powerful Attack
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  cooldownBase: 5
+  buffs: []
+  attackEnhancements:
+  - value: 0
+    percentageValue: 20
+    attackType: 0
+    used: 0

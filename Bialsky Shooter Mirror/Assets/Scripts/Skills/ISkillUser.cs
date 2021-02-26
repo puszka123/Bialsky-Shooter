@@ -4,6 +4,8 @@ using BialskyShooter.ItemSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BialskyShooter.MovementModule;
+using BialskyShooter.EnhancementsModule;
 
 namespace BialskyShooter.SkillSystem
 {
@@ -12,5 +14,7 @@ namespace BialskyShooter.SkillSystem
         void UseWeapon();
         Transform GetTransform();
         void ReceiveBuff(Buff buff);
+        void ReceiveAttackEnhancement(AttackEnhancement attackEnhancement);
+        Movement GetMovement();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BialskyShooter.AI;
 using BialskyShooter.Combat;
-using BialskyShooter.Movement;
+using BialskyShooter.MovementModule;
 using BialskyShooter.SkillSystem;
 using BialskyShooter.Control;
 using Mirror;

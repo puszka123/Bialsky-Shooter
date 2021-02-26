@@ -1,6 +1,6 @@
 ﻿using BialskyShooter.AI.Pathfinding;
 using BialskyShooter.Combat;
-using BialskyShooter.Movement;
+using BialskyShooter.MovementModule;
 using BialskyShooter.SkillSystem;
 using Mirror;
 using System.Linq;

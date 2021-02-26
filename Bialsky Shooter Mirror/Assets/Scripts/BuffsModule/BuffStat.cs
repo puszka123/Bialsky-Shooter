@@ -10,5 +10,6 @@ namespace BialskyShooter.BuffsModule
     {
         public StatType type;
         public float value;
+        public float percentageValue;
     }
 }
