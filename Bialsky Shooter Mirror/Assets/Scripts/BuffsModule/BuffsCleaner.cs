@@ -17,13 +17,14 @@ namespace BialskyShooter.BuffsModule
         {
             foreach (var buff in buffsReceiver.ActiveBuffs)
             {
-                buff.duration -= Time.deltaTime;
+                buff.duration -= Time.fixedDeltaTime;
                 if (buff.duration <= 0f) buffsToRemove.Add(buff);
             }
             foreach (var buffToRemove in buffsToRemove)
             {
                 buffsReceiver.RemoveBuff(buffToRemove);
             }
+            buffsToRemove.Clear();
         }
     }
 }

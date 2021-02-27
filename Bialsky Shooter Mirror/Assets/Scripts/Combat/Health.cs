@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.AI;
+using BialskyShooter.BarriersModule;
 using BialskyShooter.BuffsModule;
 using BialskyShooter.ClassSystem;
 using BialskyShooter.InventoryModule;
@@ -19,6 +20,8 @@ namespace BialskyShooter.Combat
         [Inject] CreatureStats creatureStats = null;
         [Inject] TeamChecker teamChecker = null;
         [Inject] BuffsReceiver buffsReceiver = null;
+        [Inject] BarrierHandler barrierHandler = null;
+
         public event System.Action serverOnCreatureLose;
         public event System.Action clientOnCreatureLose;
         [SyncVar] float currentHealth;
@@ -71,6 +74,7 @@ namespace BialskyShooter.Combat
             if (teamChecker.GetTeamType(attacker.GetComponent<TeamMember>().TeamId) == TeamType.Enemy
                 && !attacker.GetComponent<Health>().IsDefeated)
             {
+                damage = barrierHandler.Absorb(damage, MaxHealth, BarrierType.Health);
                 currentHealth -= damage;
             }
             if (currentHealth <= 1f)

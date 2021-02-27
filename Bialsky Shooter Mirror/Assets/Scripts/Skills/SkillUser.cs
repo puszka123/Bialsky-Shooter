@@ -1,4 +1,5 @@
-﻿using BialskyShooter.BuffsModule;
+﻿using BialskyShooter.BarriersModule;
+using BialskyShooter.BuffsModule;
 using BialskyShooter.Combat;
 using BialskyShooter.EnhancementsModule;
 using BialskyShooter.EquipmentSystem;
@@ -24,6 +25,7 @@ namespace BialskyShooter.SkillSystem
         [Inject] BuffsReceiver buffsReceiver = null;
         [Inject] Movement movement = null;
         [Inject] EnhancementReceiver enhancementReceiver = null;
+        [Inject] BarrierReceiver barrierReceiver;
 
         #region Server
 
@@ -79,24 +81,34 @@ namespace BialskyShooter.SkillSystem
             return transform;
         }
 
+        [Server]
         public void UseWeapon()
         {
             weaponUser.UseWeapon(equipment.Weapon);
         }
 
+        [Server]
         public void ReceiveBuff(Buff buff)
         {
             buffsReceiver.AddBuff(buff);
         }
 
+        [Server]
         public Movement GetMovement()
         {
             return movement;
         }
 
+        [Server]
         public void ReceiveAttackEnhancement(AttackEnhancement attackEnhancement)
         {
             enhancementReceiver.Receive(attackEnhancement);
+        }
+
+        [Server]
+        public void ReceiveBarrier(BarriersModule.Barrier barrier)
+        {
+            barrierReceiver.Receive(barrier);
         }
 
         #endregion

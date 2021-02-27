@@ -15,6 +15,7 @@ namespace BialskyShooter.SkillSystem
         Transform GetTransform();
         void ReceiveBuff(Buff buff);
         void ReceiveAttackEnhancement(AttackEnhancement attackEnhancement);
+        void ReceiveBarrier(BarriersModule.Barrier barrier);
         Movement GetMovement();
     }
 }

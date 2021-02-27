@@ -123,6 +123,11 @@
     <Compile Include="Assets\Scripts\AI\TeamManager.cs" />
     <Compile Include="Assets\Scripts\AI\TeamMember.cs" />
     <Compile Include="Assets\Scripts\AI\TeamType.cs" />
+    <Compile Include="Assets\Scripts\BarriersModule\Barrier.cs" />
+    <Compile Include="Assets\Scripts\BarriersModule\BarrierCleaner.cs" />
+    <Compile Include="Assets\Scripts\BarriersModule\BarrierHandler.cs" />
+    <Compile Include="Assets\Scripts\BarriersModule\BarrierReceiver.cs" />
+    <Compile Include="Assets\Scripts\BarriersModule\BarrierType.cs" />
     <Compile Include="Assets\Scripts\BuffsModule\Buff.cs" />
     <Compile Include="Assets\Scripts\BuffsModule\BuffStat.cs" />
     <Compile Include="Assets\Scripts\BuffsModule\BuffType.cs" />
@@ -220,6 +225,7 @@
     <Compile Include="Assets\Scripts\ResourcesModule\UI\BuildingSlot.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\UI\ResourcesDisplay.cs" />
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\Barrier.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\PowerfulAttack.cs" />
