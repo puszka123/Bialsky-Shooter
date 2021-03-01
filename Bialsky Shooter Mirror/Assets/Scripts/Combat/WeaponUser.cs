@@ -8,13 +8,13 @@ namespace BialskyShooter.Combat
 {
     public class WeaponUser : NetworkBehaviour
     {
-        WeaponController weaponController;
+        IWeaponController weaponController;
 
         #region Server
 
         public override void OnStartServer()
         {
-            weaponController = gameObject.GetComponentInChildren<WeaponController>();
+            weaponController = gameObject.GetComponentInChildren<IWeaponController>();
         }
 
         [Server]

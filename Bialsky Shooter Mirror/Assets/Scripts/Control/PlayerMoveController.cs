@@ -40,15 +40,11 @@ namespace BialskyShooter.Control
         void FixedUpdate()
         {
             if (!hasAuthority) return;
-            movement.CmdMove(previousInput);
-        }
-
-        [ClientCallback]
-        private void Update()
-        {
-            if (!hasAuthority) return;
+            movement.ClientMove(previousInput, Time.fixedDeltaTime);
+            movement.CmdMove(previousInput, Time.fixedDeltaTime);
             var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) return;
+            movement.ClientRotate(hit.point);
             movement.CmdRotate(hit.point);
         }
 

@@ -9,7 +9,7 @@ using UnityEngine;
 namespace BialskyShooter.Combat
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class SwordController : NetworkBehaviour, WeaponController
+    public class SwordController : NetworkBehaviour, IWeaponController
     {
         GameObject user;
         EnhancementSender userEnhancementSender;

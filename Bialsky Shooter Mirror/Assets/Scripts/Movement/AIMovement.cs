@@ -58,7 +58,7 @@ namespace BialskyShooter.MovementModule
             //var moveVector3 = destination - transform.position;
             var moveVector3 = transform.forward;
             var moveVector2 = new Vector2(moveVector3.x, moveVector3.z);
-            movement.Move(moveVector2);
+            movement.Move(moveVector2, Time.fixedDeltaTime);
         }
 
         #endregion

@@ -20,29 +20,21 @@ namespace BialskyShooter.MovementModule
 
         #region Server
 
-        [Server]
+        
         Vector3 ComputeMoveForce(Vector2 moveVector)
         {
             Vector3 moveForce = Vector3.zero;
-            if (moveVector.x == 0f || Mathf.Sign(rb.velocity.x) != Mathf.Sign(moveVector.x)) //brake
-            {
-                moveForce.x = -rb.velocity.x * brakeFactor * creatureStats.Agility.value;
-            }
-            if (moveVector.y == 0f || Mathf.Sign(rb.velocity.z) != Mathf.Sign(moveVector.y)) //brake
-            {
-                moveForce.z = -rb.velocity.z * brakeFactor * creatureStats.Agility.value;
-            }
             moveForce.x += moveVector.x * moveFactor * creatureStats.Agility.value;
             moveForce.z += moveVector.y * moveFactor * creatureStats.Agility.value;
 
             return moveForce;
         }
 
-        [Server]
-        public void Move(Vector2 moveVector)
+        
+        public void Move(Vector2 moveVector, float fixedDeltaTime)
         {
             Vector3 moveForce = ComputeMoveForce(moveVector);
-            Move(moveForce);
+            Move(moveForce, fixedDeltaTime);
         }
 
         internal void StopMove()
@@ -51,15 +43,10 @@ namespace BialskyShooter.MovementModule
             rb.isKinematic = false;
         }
 
-        [Server]
-        public void Move(Vector3 moveForce)
+        
+        public void Move(Vector3 moveForce, float fixedDeltaTime)
         {
-            rb.AddForce(moveForce, ForceMode.Force);
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.velocity = rb.velocity.normalized * Mathf.Clamp(
-                rb.velocity.magnitude,
-                0f,
-                moveFactor * creatureStats.Agility.value);
+            rb.MovePosition(transform.position + moveForce * fixedDeltaTime);
         }
 
         [Server]
@@ -68,7 +55,6 @@ namespace BialskyShooter.MovementModule
             rb.AddForce(force, ForceMode.Force);
         }
 
-        [Server]
         public void Rotate(Vector3 lookAt)
         {
             lookAt.y = transform.position.y;

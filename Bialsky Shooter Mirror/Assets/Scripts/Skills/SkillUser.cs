@@ -70,7 +70,7 @@ namespace BialskyShooter.SkillSystem
         }
 
         [Server]
-        public WeaponController GetWeaponController()
+        public IWeaponController GetWeaponController()
         {
             return null;
         }

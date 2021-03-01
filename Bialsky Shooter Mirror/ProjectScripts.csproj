@@ -147,13 +147,16 @@
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureClass.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureModifier.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionStat.cs" />
+    <Compile Include="Assets\Scripts\Combat\BowController.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatTarget.cs" />
     <Compile Include="Assets\Scripts\Combat\Health.cs" />
+    <Compile Include="Assets\Scripts\Combat\IWeaponController.cs" />
+    <Compile Include="Assets\Scripts\Combat\Projectile.cs" />
     <Compile Include="Assets\Scripts\Combat\SwordController.cs" />
-    <Compile Include="Assets\Scripts\Combat\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Combat\WeaponUser.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
+    <Compile Include="Assets\Scripts\Control\SyncRotation.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
     <Compile Include="Assets\Scripts\EnhancementsModule\AttackEnhancement.cs" />
     <Compile Include="Assets\Scripts\EnhancementsModule\AttackType.cs" />
@@ -196,6 +199,7 @@
     <Compile Include="Assets\Scripts\Items\UI\ItemSwapper.cs" />
     <Compile Include="Assets\Scripts\Items\UI\LootItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />
+    <Compile Include="Assets\Scripts\Items\Weapons\SimpleBow.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\SpikeSword.cs" />
     <Compile Include="Assets\Scripts\Management\LoseManager.cs" />
     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />

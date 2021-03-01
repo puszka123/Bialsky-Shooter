@@ -15,9 +15,9 @@ namespace BialskyShooter.MovementModule
         #region Server
 
         [Command]
-        public void CmdMove(Vector2 moveVector)
+        public void CmdMove(Vector2 moveVector, float fixedDeltaTime)
         {
-            movement.Move(moveVector);
+            movement.Move(moveVector, fixedDeltaTime);
         }
 
         [Command]
@@ -27,5 +27,15 @@ namespace BialskyShooter.MovementModule
         }
 
         #endregion
+
+        public void ClientMove(Vector2 moveVector, float fixedDeltaTime)
+        {
+            movement.Move(moveVector, fixedDeltaTime);
+        }
+
+        public void ClientRotate(Vector3 lookAt)
+        {
+            movement.Rotate(lookAt);
+        }
     }
 }

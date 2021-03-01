@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ecc0c19c7b92d41955afe20592bafb, type: 3}
+  m_Name: Simple Bow
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5472748743282065801, guid: f309cefd7d1ad184483a9af2b03a3ea2, type: 3}
+  uniqueName: Simple Bow
+  iconPath: Spike Sword
+  itemStatsBook:
+    statsList:
+    - nameToDisplay: Damage
+      value: 25
+      percentageValue: 0
+      display: 1
+      type: 8
