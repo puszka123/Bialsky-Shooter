@@ -16,39 +16,24 @@ namespace BialskyShooter.EquipmentSystem
     {
         [Inject] CreatureStats creatureStats;
 
-        public IWeapon Weapon { get; private set; }
-        public IShield Shield { get; private set; }
-        public IChest Chest { get; private set; }
-        public IHelmet Helmet { get; private set; }
-        public ILegs Legs { get; private set; }
-        public IBoots Boots { get; private set; }
-
         Dictionary<ItemSlotType, IEquipmentItem> equipmentItems;
 
         SyncList<ItemInformation> syncItemInformations = new SyncList<ItemInformation>();
 
-        [SerializeField] Item weapon;
+        
 
         [ServerCallback]
-        private void Start()
+        private void Awake()
         {
-            weapon = Instantiate(weapon);
-            Weapon = (IWeapon)weapon;
             InitEquipmentItems();
         }
 
         private void InitEquipmentItems()
         {
             equipmentItems = new Dictionary<ItemSlotType, IEquipmentItem>();
-            equipmentItems[ItemSlotType.Boots] = Boots;
-            equipmentItems[ItemSlotType.Chest] = Chest;
-            equipmentItems[ItemSlotType.Helmet] = Helmet;
-            equipmentItems[ItemSlotType.Weapon] = Weapon;
-            equipmentItems[ItemSlotType.Legs] = Legs;
-            equipmentItems[ItemSlotType.Shield] = Shield;
         }
 
-        public IEnumerable<ItemInformation> ItemInformations { get { return syncItemInformations; } }
+        public IList<ItemInformation> ItemInformations { get { return syncItemInformations; } }
 
         public ItemInformation GetItemInformation(Guid itemId)
         {
@@ -57,6 +42,8 @@ namespace BialskyShooter.EquipmentSystem
 
 
         #region Server
+
+        public event Action serverOnEquipmentChanged;
 
         [Server]
         public ItemInformation Equip(IEquipmentItem item)
@@ -69,6 +56,7 @@ namespace BialskyShooter.EquipmentSystem
                     item.GetItemSlotType(),
                     item.GetItem().ItemStatsBook.StatsList);
             syncItemInformations.Add(itemInformation);
+            serverOnEquipmentChanged?.Invoke();
             RpcEquipmentChanged();
             creatureStats.UpdateStats();
             return itemInformation;
@@ -120,6 +108,7 @@ namespace BialskyShooter.EquipmentSystem
         {
             var itemToRemove = syncItemInformations.Find(e => Guid.Parse(e.itemId) == itemId);
             syncItemInformations.Remove(itemToRemove);
+            serverOnEquipmentChanged?.Invoke();
             RpcEquipmentChanged();
         }
 
@@ -155,6 +144,13 @@ namespace BialskyShooter.EquipmentSystem
                 }
             }
             return statTotalValue;
+        }
+
+        [Server]
+        public T GetItem<T>(ItemSlotType itemSlotType)
+        {
+            if (!equipmentItems.ContainsKey(itemSlotType)) return default;
+            return (T)equipmentItems[itemSlotType];
         }
 
         #endregion

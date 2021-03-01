@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BialskyShooter.Combat
 {
-    public class BowController : NetworkBehaviour, IWeaponController
+    public class BowController : MonoBehaviour, IWeaponController
     {
         [SerializeField] GameObject projectilePrefab;
         GameObject user;

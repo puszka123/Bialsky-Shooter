@@ -16,8 +16,19 @@ namespace BialskyShooter.EquipmentSystem
     {
         [Inject] Inventory inventory = null;
         [Inject] Equipment equipment = null;
+        [SerializeField] Item weapon;
 
         #region Server
+
+        [ServerCallback]
+        IEnumerator Start()
+        {
+            yield return new WaitForSeconds(0.1f);
+            if (weapon != null)
+            {
+                EquipItem(Instantiate(weapon));
+            }
+        }
 
         [Command]
         void CmdEquipItem(Guid itemId)
@@ -33,6 +44,16 @@ namespace BialskyShooter.EquipmentSystem
             {
                 var equipmentItem = (IEquipmentItem)item;
                 UnequipItem(equipmentItem.GetItemSlotType());
+                var itemInformation = equipment.Equip(equipmentItem);
+            }
+        }
+
+        [Server]
+        void EquipItem(Item item)
+        {
+            if (item != null && item is IEquipmentItem)
+            {
+                var equipmentItem = (IEquipmentItem)item;
                 var itemInformation = equipment.Equip(equipmentItem);
             }
         }

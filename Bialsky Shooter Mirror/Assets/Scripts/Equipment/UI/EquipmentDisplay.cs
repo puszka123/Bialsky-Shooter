@@ -37,7 +37,7 @@ namespace BialskyShooter.EquipmentSystem.UI
 
         public void SetupEquipmentDisplay(Equipment equipment, EquipmentController equippingController)
         {
-            if (this.equipment != null) equipment.clientOnEquipmentChanged -= DisplayEquipment;
+            if (this.equipment != null) this.equipment.clientOnEquipmentChanged -= DisplayEquipment;
             if (equipment != null) equipment.clientOnEquipmentChanged += DisplayEquipment;
             this.equipment = equipment;
             this.equippingController = equippingController;

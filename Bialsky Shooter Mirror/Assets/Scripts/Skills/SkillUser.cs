@@ -3,6 +3,7 @@ using BialskyShooter.BuffsModule;
 using BialskyShooter.Combat;
 using BialskyShooter.EnhancementsModule;
 using BialskyShooter.EquipmentSystem;
+using BialskyShooter.ItemSystem;
 using BialskyShooter.MovementModule;
 using Mirror;
 using System;
@@ -84,7 +85,7 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public void UseWeapon()
         {
-            weaponUser.UseWeapon(equipment.Weapon);
+            weaponUser.UseWeapon(equipment.GetItem<IWeapon>(ItemSlotType.Weapon));
         }
 
         [Server]

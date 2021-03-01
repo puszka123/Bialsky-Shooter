@@ -16,7 +16,7 @@ MonoBehaviour:
   syncInterval: 0.1
   priority: 1
   stateGraph: {fileID: 0}
-  spawningCreaturePrefab: {fileID: 2205021561312849153, guid: f7da699188cda7446bf57bf1c0a66c79,
+  spawningCreaturePrefab: {fileID: 1788995692344120177, guid: 6d5b4189916ca554fa3fe9cda4844ee2,
     type: 3}
 --- !u!1001 &3169640176111036062
 PrefabInstance:

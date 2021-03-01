@@ -164,6 +164,7 @@
     <Compile Include="Assets\Scripts\EnhancementsModule\EnhancementSender.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentController.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Equipmentnstantiator.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplay.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\EquipmentDisplayContainer.cs" />
     <Compile Include="Assets\Scripts\Equipment\UI\IEquipmentSlotsContainer.cs" />
