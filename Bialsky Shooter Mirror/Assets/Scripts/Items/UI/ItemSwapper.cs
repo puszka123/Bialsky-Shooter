@@ -32,7 +32,7 @@ namespace BialskyShooter.ItemSystem.UI
 
             #region unused
 
-            public void InjectItem(IItemSlot itemSlot)
+            public void DragInItem(IItemSlot itemSlot)
             {
                 throw new NotImplementedException();
             }
@@ -51,6 +51,11 @@ namespace BialskyShooter.ItemSystem.UI
             {
                 throw new NotImplementedException();
             }
+
+            public Guid DragOutItem()
+            {
+                throw new NotImplementedException();
+            }
             #endregion
         }
 
@@ -61,14 +66,14 @@ namespace BialskyShooter.ItemSystem.UI
                                                 source?.GetItemIcon());
             var destinationSlotMock = new ItemSlotMock(destination?.GetItemId() ?? Guid.Empty,
                                                 destination?.GetItemIcon());
-            source.ClearItem();
-            destination.ClearItem();
-            if (sourceSlotMock.GetItemId() != Guid.Empty) destination.InjectItem(sourceSlotMock);
-            if(destinationSlotMock.GetItemId() != Guid.Empty) source.InjectItem(destinationSlotMock);
+            source.DragOutItem();
+            destination.DragOutItem();
+            if (sourceSlotMock.GetItemId() != Guid.Empty) destination.DragInItem(sourceSlotMock);
+            if(destinationSlotMock.GetItemId() != Guid.Empty) source.DragInItem(destinationSlotMock);
             return true;
         }
 
-        internal static void SwapItems(IItemSlot source, IInventorySlotsContainer container)
+        public static void SwapItems(IItemSlot source, IInventorySlotsContainer container)
         {
             var destination = container.GetSlot(source.GetItemId());
             if (destination == null) destination = container.GetFirstAvailableSlot();

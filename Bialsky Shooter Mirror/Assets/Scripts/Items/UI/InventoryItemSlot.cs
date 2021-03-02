@@ -12,8 +12,8 @@ namespace BialskyShooter.ItemSystem.UI
     public class InventoryItemSlot : MonoBehaviour, IItemSlot
     {
         public static event Action<Guid> clientOnItemSelected;
-        public static event Action<Guid> clientOnItemCleared;
-        public static event Action<Guid> clientOnItemInjected;
+        public static event Action<Guid> clientOnItemDraggedIn;
+        public static event Action<Guid> clientOnItemDraggedOut;
         public Guid itemId;
         RectTransform rect;
         bool readOnlyMode = default;
@@ -34,8 +34,7 @@ namespace BialskyShooter.ItemSystem.UI
         private void InventoryPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
-            if (this.itemId == Guid.Empty) return;
-            var itemId = ClearItem();
+            if (itemId == Guid.Empty) return;
             clientOnItemSelected?.Invoke(itemId);
         }
 
@@ -43,7 +42,6 @@ namespace BialskyShooter.ItemSystem.UI
         {
             if (readOnlyMode) return Guid.Empty;
             var clearedItemId = itemId;
-            clientOnItemCleared?.Invoke(clearedItemId);
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
@@ -58,12 +56,19 @@ namespace BialskyShooter.ItemSystem.UI
             image.color = new Color(1, 1, 1, 1);
             image.sprite = icon;
             this.itemId = itemId;
-            clientOnItemInjected?.Invoke(itemId);
         }
 
-        public void InjectItem(IItemSlot itemSlot)
+        public void DragInItem(IItemSlot itemSlot)
         {
             InjectItem(itemSlot.GetItemId(), itemSlot.GetItemIcon());
+            clientOnItemDraggedIn?.Invoke(itemId);
+        }
+
+        public Guid DragOutItem()
+        {
+            var itemId = ClearItem();
+            clientOnItemDraggedOut?.Invoke(itemId);
+            return itemId;
         }
 
         public Guid GetItemId()

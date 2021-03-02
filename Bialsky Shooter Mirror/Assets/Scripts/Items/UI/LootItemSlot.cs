@@ -9,7 +9,8 @@ namespace BialskyShooter.InventoryModule.UI
     public class LootItemSlot : MonoBehaviour, IPointerClickHandler, IItemSlot
     {
         public static event Action<Guid> clientOnItemSelected;
-        public static event Action<Guid> clientOnItemInjected;
+        public static event Action<Guid> clientOnItemDraggedIn;
+        public static event Action<Guid> clientOnItemDraggedOut;
         public Guid itemId;
         bool readOnlyMode = default;
 
@@ -17,7 +18,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            ClearItem();
+            clientOnItemSelected?.Invoke(itemId);
         }
 
         void InjectItem(Guid itemId, Sprite icon)
@@ -27,7 +28,6 @@ namespace BialskyShooter.InventoryModule.UI
             image.color = new Color(1, 1, 1, 1);
             image.sprite = icon;
             this.itemId = itemId;
-            clientOnItemInjected?.Invoke(itemId);
         }
 
         public Guid GetItemId()
@@ -40,19 +40,22 @@ namespace BialskyShooter.InventoryModule.UI
             return transform.GetChild(0).GetComponent<Image>().sprite;
         }
 
-        public void ItemDragged()
-        {
-            
-        }
-
         public bool ReadyOnly()
         {
             return readOnlyMode;
         }
 
-        public void InjectItem(IItemSlot itemSlot)
+        public void DragInItem(IItemSlot itemSlot)
         {
             InjectItem(itemSlot.GetItemId(), itemSlot.GetItemIcon());
+            clientOnItemDraggedIn?.Invoke(itemId);
+        }
+
+        public Guid DragOutItem()
+        {
+            var itemId = ClearItem();
+            clientOnItemDraggedOut?.Invoke(itemId);
+            return itemId;
         }
 
         public Guid ClearItem()
@@ -62,7 +65,6 @@ namespace BialskyShooter.InventoryModule.UI
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
-            clientOnItemSelected?.Invoke(itemId);
             itemId = Guid.Empty;
             return clearedItemId;
         }

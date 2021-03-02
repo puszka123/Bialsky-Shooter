@@ -26,16 +26,14 @@ namespace BialskyShooter.InventoryModule.UI
         {
             SetupInventoryDisplay();
             InventoryItemSlot.clientOnItemSelected += OnItemSelected;
-            InventoryItemSlot.clientOnItemCleared += OnItemCleared;
-            InventoryItemSlot.clientOnItemInjected += OnItemInjected;
+            InventoryItemSlot.clientOnItemDraggedIn += OnItemDraggedIn;
             ToggleInventoryDisplay.clientOnInventoryToggled += onInventoryToggled;
         }
 
         void OnDestroy()
         {
             InventoryItemSlot.clientOnItemSelected -= OnItemSelected;
-            InventoryItemSlot.clientOnItemCleared -= OnItemCleared;
-            InventoryItemSlot.clientOnItemInjected -= OnItemInjected;
+            InventoryItemSlot.clientOnItemDraggedIn -= OnItemDraggedIn;
             ToggleInventoryDisplay.clientOnInventoryToggled -= onInventoryToggled;
         }
 
@@ -79,12 +77,7 @@ namespace BialskyShooter.InventoryModule.UI
             var slot = SetSlotAvailability(itemId, true);
         }
 
-        void OnItemCleared(Guid itemId)
-        {
-            var slot = SetSlotAvailability(itemId, true);
-        }
-
-        void OnItemInjected(Guid itemId)
+        void OnItemDraggedIn(Guid itemId)
         {
             var slot = SetSlotAvailability(itemId, false);
             SetItemInformationTooltip(slot,
@@ -212,7 +205,7 @@ namespace BialskyShooter.InventoryModule.UI
         public void InjectItem(IItemSlot itemSlot)
         {
             var slot = GetFirstAvailableSlot();
-            slot.InjectItem(itemSlot);
+            slot.DragInItem(itemSlot);
         }
 
         public IItemSlot GetSlot(Guid itemId)

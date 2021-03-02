@@ -447,17 +447,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15520}
     - Class: 114
-      Script: {instanceID: 15814}
+      Script: {instanceID: 15766}
     - Class: 114
-      Script: {instanceID: 15840}
+      Script: {instanceID: 15816}
     - Class: 114
-      Script: {instanceID: 15936}
+      Script: {instanceID: 15842}
     - Class: 114
-      Script: {instanceID: 16066}
+      Script: {instanceID: 15938}
     - Class: 114
-      Script: {instanceID: 16074}
+      Script: {instanceID: 16068}
     - Class: 114
-      Script: {instanceID: 31726}
+      Script: {instanceID: 16076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -830,35 +830,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15722}
     - Class: 114
-      Script: {instanceID: 15816}
+      Script: {instanceID: 15766}
     - Class: 114
-      Script: {instanceID: 15850}
+      Script: {instanceID: 15818}
     - Class: 114
-      Script: {instanceID: 15896}
+      Script: {instanceID: 15852}
     - Class: 114
-      Script: {instanceID: 15936}
+      Script: {instanceID: 15898}
     - Class: 114
-      Script: {instanceID: 15946}
+      Script: {instanceID: 15938}
     - Class: 114
-      Script: {instanceID: 15952}
+      Script: {instanceID: 15948}
     - Class: 114
-      Script: {instanceID: 16008}
+      Script: {instanceID: 15954}
     - Class: 114
-      Script: {instanceID: 16034}
+      Script: {instanceID: 16010}
     - Class: 114
-      Script: {instanceID: 16050}
+      Script: {instanceID: 16036}
     - Class: 114
-      Script: {instanceID: 16066}
+      Script: {instanceID: 16052}
     - Class: 114
-      Script: {instanceID: 16074}
+      Script: {instanceID: 16068}
     - Class: 114
-      Script: {instanceID: 16090}
+      Script: {instanceID: 16076}
     - Class: 114
       Script: {instanceID: 16092}
     - Class: 114
-      Script: {instanceID: 23452}
+      Script: {instanceID: 16094}
     - Class: 114
-      Script: {instanceID: 31726}
+      Script: {instanceID: 24626}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -3386,6 +3386,12 @@ ScriptsOnlyBuild:
     className: NetworkProximityChecker
   - hash:
       serializedVersion: 2
+      Hash: 19978f3482b8d44b50d41a07dacd2325
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.EquipmentSystem
+    className: Equipmentnstantiator
+  - hash:
+      serializedVersion: 2
       Hash: 88e3b86c3ab08e02b94869c8fc5ce863
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
@@ -3606,12 +3612,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
-  - hash:
-      serializedVersion: 2
-      Hash: 19978f3482b8d44b50d41a07dacd2325
-    assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.EquipmentSystem
-    className: Equipmentnstantiator
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

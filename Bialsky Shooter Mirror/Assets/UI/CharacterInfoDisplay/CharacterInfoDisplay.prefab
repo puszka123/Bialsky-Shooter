@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ae880ae137565469d5e0c05d3c6334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureStatsDisplay: {fileID: 0}
   canvas: {fileID: 3463993205796374029}
 --- !u!114 &1817979433665951672
 MonoBehaviour:

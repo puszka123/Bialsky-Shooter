@@ -18,7 +18,7 @@ namespace BialskyShooter.EquipmentSystem.UI
         EquipmentController equippingController;
         bool readOnlyMode;
 
-        private void Start()
+        private void Awake()
         {
             ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed += OnLocalCharacterInfoDisplayed;
         }
@@ -26,7 +26,8 @@ namespace BialskyShooter.EquipmentSystem.UI
         private void OnDestroy()
         {
             ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed -= OnLocalCharacterInfoDisplayed;
-            if (equipment != null) equipment.clientOnEquipmentChanged -= DisplayEquipment;
+            equippingController.clientOnItemEquipped -= DisplayItem;
+            equippingController.clientOnItemUnequipped -= StopDisplayItem;
         }
 
 
@@ -37,10 +38,15 @@ namespace BialskyShooter.EquipmentSystem.UI
 
         public void SetupEquipmentDisplay(Equipment equipment, EquipmentController equippingController)
         {
-            if (this.equipment != null) this.equipment.clientOnEquipmentChanged -= DisplayEquipment;
-            if (equipment != null) equipment.clientOnEquipmentChanged += DisplayEquipment;
+            if (this.equippingController != null)
+            {
+                this.equippingController.clientOnItemEquipped -= DisplayItem;
+                this.equippingController.clientOnItemUnequipped -= StopDisplayItem;
+            }
             this.equipment = equipment;
             this.equippingController = equippingController;
+            this.equippingController.clientOnItemEquipped += DisplayItem;
+            this.equippingController.clientOnItemUnequipped += StopDisplayItem;
             DisplayEquipment();
         }
 
@@ -75,18 +81,28 @@ namespace BialskyShooter.EquipmentSystem.UI
 
         void DisplayItem(ItemInformation itemInformation)
         {
-            var foundSlot = itemSlots.FirstOrDefault(slot => slot.ItemSlotType == itemInformation.slotType);
+            var foundSlot = itemSlots.FirstOrDefault(slot =>
+            slot.ItemSlotType == itemInformation.slotType
+            && slot.GetItemId() != Guid.Parse(itemInformation.itemId));
             if (foundSlot != null) SetSlot(foundSlot.gameObject, itemInformation);
+        }
+
+        private void StopDisplayItem(Guid itemId)
+        {
+            var found = itemSlots.FirstOrDefault(e => e.itemId == itemId);
+            if (found != null) UnsetSlot(found);
         }
 
         private void SetSlot(GameObject slot, ItemInformation itemInformation)
         {
-            var image = slot.transform.GetChild(0).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 1);
             var icon = Resources.Load<Sprite>(itemInformation.iconPath);
-            image.sprite = icon;
-            slot.GetComponent<EquipmentItemSlot>().itemId = Guid.Parse(itemInformation.itemId);
+            slot.GetComponent<EquipmentItemSlot>().InjectItem(Guid.Parse(itemInformation.itemId), icon);
             SetItemInformationToggle(slot, new ItemDisplay(itemInformation));
+        }
+
+        private void UnsetSlot(EquipmentItemSlot slot)
+        {
+            slot.ClearItem();
         }
 
         private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)

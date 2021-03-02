@@ -12,8 +12,8 @@ namespace BialskyShooter.ItemSystem.UI
         Sprite GetItemIcon();
         bool ReadyOnly();
 
-        void InjectItem(IItemSlot itemSlot);
-        Guid ClearItem();
+        void DragInItem(IItemSlot itemSlot);
+        Guid DragOutItem();
         void SetItemVisibility(bool visibility);
     }
 }

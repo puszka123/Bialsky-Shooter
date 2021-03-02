@@ -12,8 +12,8 @@ namespace BialskyShooter.ItemSystem.UI
     public class EquipmentItemSlot : MonoBehaviour, IItemSlot
     {
         public static event Action<Guid> clientOnItemSelected;
-        public static event Action<Guid> clientOnItemCleared;
         public static event Action<Guid> clientOnItemDraggedIn;
+        public static event Action<Guid> clientOnItemDraggedOut;
 
         [SerializeField] ItemSlotType itemSlotType = default;
         public Guid itemId;
@@ -47,9 +47,18 @@ namespace BialskyShooter.ItemSystem.UI
         private void EquipmentPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
-            if (this.itemId == Guid.Empty) return;
-            var itemId = ClearItem();
+            if (itemId == Guid.Empty) return;
             clientOnItemSelected?.Invoke(itemId);
+        }
+
+        public void InjectItem(Guid itemId, Sprite icon)
+        {
+            if (readOnlyMode) return;
+
+            var image = transform.GetChild(0).GetComponent<Image>();
+            image.color = new Color(1, 1, 1, 1);
+            image.sprite = icon;
+            this.itemId = itemId;
         }
 
         public Guid ClearItem()
@@ -57,7 +66,6 @@ namespace BialskyShooter.ItemSystem.UI
             if (readOnlyMode) return Guid.Empty;
 
             var clearedItemId = itemId;
-            clientOnItemCleared?.Invoke(clearedItemId);
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
@@ -80,10 +88,18 @@ namespace BialskyShooter.ItemSystem.UI
             return readOnlyMode;
         }
 
-        public void InjectItem(IItemSlot itemSlot)
+        public void DragInItem(IItemSlot itemSlot)
         {
             if (readOnlyMode) return;
             clientOnItemDraggedIn?.Invoke(itemSlot.GetItemId());
+        }
+
+        public Guid DragOutItem()
+        {
+            if (readOnlyMode) return Guid.Empty;
+            var itemId = ClearItem();
+            clientOnItemDraggedOut?.Invoke(itemId);
+            return itemId;
         }
 
         public void SetItemVisibility(bool visibility)

@@ -21,7 +21,9 @@ namespace BialskyShooter.ItemSystem.UI
         public void OnBeginDrag(PointerEventData eventData)
         {
             draggingItemSlot = GetComponent<IItemSlot>();
-            if (draggingItemSlot.ReadyOnly()) return;
+            if (draggingItemSlot == null
+                || draggingItemSlot.GetItemId() == Guid.Empty
+                || draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(false);
             dragItemMockPrefab = Resources.Load<DragItemMock>("DragItemMock");
             dragItemMockInstance = Instantiate(dragItemMockPrefab);
@@ -38,7 +40,9 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (draggingItemSlot == null || draggingItemSlot.ReadyOnly()) return;
+            if (draggingItemSlot == null 
+                || draggingItemSlot.GetItemId() == Guid.Empty
+                || draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(true);
             var itemSlot = TryToGet<IItemSlot>(eventData);
             var isDragged = DragToSlot(itemSlot);
@@ -103,7 +107,8 @@ namespace BialskyShooter.ItemSystem.UI
         void DragItemTo(IEquipmentSlotsContainer container)
         {
             container.InjectItem(draggingItemSlot);
-            draggingItemSlot.ClearItem();
+            if (draggingItemSlot is EquipmentItemSlot) return;
+            draggingItemSlot.DragOutItem();
         }
 
         void DragItemTo(IInventorySlotsContainer container)
@@ -113,7 +118,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         void DropItem()
         {
-            draggingItemSlot.ClearItem();
+            draggingItemSlot.DragOutItem();
         }
     }
 }

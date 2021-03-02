@@ -153,6 +153,12 @@ namespace BialskyShooter.EquipmentSystem
             return (T)equipmentItems[itemSlotType];
         }
 
+        [Server]
+        public bool Exists(Guid itemId)
+        {
+            return ItemInformations.FirstOrDefault(e => e.itemId == itemId.ToString()) != null;
+        }
+
         #endregion
 
         #region Client
