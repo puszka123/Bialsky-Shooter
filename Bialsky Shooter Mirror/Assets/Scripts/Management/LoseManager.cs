@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BialskyShooter.InventoryModule;
 using BialskyShooter.EquipmentSystem;
+using BialskyShooter.Core;
 
 namespace BialskyShooter.ManagementModule
 {
@@ -31,9 +32,9 @@ namespace BialskyShooter.ManagementModule
         [Server]
         void ServerOnCreatureLose()
         {
-            if (TryGetComponent(out EquipmentController equipmentController))
+            if (TryGetComponent(out ItemsSlotsJoint itemsSlotsJoint))
             {
-                equipmentController.ServerUnequipAll();
+                itemsSlotsJoint.ServerUnequipAll();
             }
             OnCreatureLose();
         }
@@ -59,9 +60,9 @@ namespace BialskyShooter.ManagementModule
         [Client]
         void ClientOnCreatureLose()
         {
-            if (TryGetComponent(out EquipmentController equipmentController))
+            if (TryGetComponent(out ItemsSlotsJoint itemsSlotsJoint))
             {
-                equipmentController.ClientUnequipAll();
+                itemsSlotsJoint.ClientUnequipAll();
             }
             OnCreatureLose();
         }

@@ -1,4 +1,5 @@
-﻿using BialskyShooter.ItemSystem;
+﻿using BialskyShooter.Core;
+using BialskyShooter.ItemSystem;
 using BialskyShooter.ItemSystem.UI;
 using BialskyShooter.UI;
 using Mirror;
@@ -15,7 +16,7 @@ namespace BialskyShooter.EquipmentSystem.UI
     {
         [SerializeField] List<EquipmentItemSlot> itemSlots = null;
         Equipment equipment;
-        EquipmentController equippingController;
+        ItemsSlotsJoint itemsSlotsJoint;
         bool readOnlyMode;
 
         private void Awake()
@@ -26,10 +27,10 @@ namespace BialskyShooter.EquipmentSystem.UI
         private void OnDestroy()
         {
             ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed -= OnLocalCharacterInfoDisplayed;
-            if (equippingController != null)
+            if (itemsSlotsJoint != null)
             {
-                equippingController.clientOnItemEquipped -= DisplayItem;
-                equippingController.clientOnItemUnequipped -= StopDisplayItem;
+                itemsSlotsJoint.clientOnItemEquipped -= DisplayItem;
+                itemsSlotsJoint.clientOnItemUnequipped -= StopDisplayItem;
             }
         }
 
@@ -38,24 +39,24 @@ namespace BialskyShooter.EquipmentSystem.UI
             itemSlots.ForEach(slot => slot.ReadOnly());
         }
 
-        public void SetupEquipmentDisplay(Equipment equipment, EquipmentController equippingController)
+        public void SetupEquipmentDisplay(Equipment equipment, ItemsSlotsJoint itemsSlotsJoint)
         {
-            if (this.equippingController != null)
+            if (this.itemsSlotsJoint != null)
             {
-                this.equippingController.clientOnItemEquipped -= DisplayItem;
-                this.equippingController.clientOnItemUnequipped -= StopDisplayItem;
+                this.itemsSlotsJoint.clientOnItemEquipped -= DisplayItem;
+                this.itemsSlotsJoint.clientOnItemUnequipped -= StopDisplayItem;
             }
             this.equipment = equipment;
-            this.equippingController = equippingController;
-            this.equippingController.clientOnItemEquipped += DisplayItem;
-            this.equippingController.clientOnItemUnequipped += StopDisplayItem;
+            this.itemsSlotsJoint = itemsSlotsJoint;
+            this.itemsSlotsJoint.clientOnItemEquipped += DisplayItem;
+            this.itemsSlotsJoint.clientOnItemUnequipped += StopDisplayItem;
             DisplayEquipment();
         }
 
         private void OnLocalCharacterInfoDisplayed()
         {
             var player = GetLocalPlayer();
-            SetupEquipmentDisplay(player.GetComponent<Equipment>(), player.GetComponent<EquipmentController>());
+            SetupEquipmentDisplay(player.GetComponent<Equipment>(), player.GetComponent<ItemsSlotsJoint>());
         }
 
         private GameObject GetLocalPlayer()
@@ -115,9 +116,9 @@ namespace BialskyShooter.EquipmentSystem.UI
 
         public void InjectItem(IItemSlot itemSlot)
         {
-            if (equippingController != null)
+            if (itemsSlotsJoint != null)
             {
-                equippingController.ClientEquipItem(itemSlot.GetItemId());
+                itemsSlotsJoint.ClientEquipItem(itemSlot.GetItemId());
             }
         }
     }

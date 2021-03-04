@@ -1,4 +1,5 @@
-﻿using BialskyShooter.EquipmentSystem;
+﻿using BialskyShooter.Core;
+using BialskyShooter.EquipmentSystem;
 using BialskyShooter.ItemSystem;
 using BialskyShooter.ItemSystem.UI;
 using BialskyShooter.UI;
@@ -21,7 +22,7 @@ namespace BialskyShooter.InventoryModule.UI
         [SerializeField] int columnsCount = 10;
         GameObject[] slots;
         Inventory inventory;
-        EquipmentController equipmentController;
+        ItemsSlotsJoint itemsSlotsJoint;
 
         private void Awake()
         {
@@ -40,20 +41,20 @@ namespace BialskyShooter.InventoryModule.UI
             InventoryItemSlot.clientOnItemSelected -= OnItemSelected;
             InventoryItemSlot.clientOnItemDraggedIn -= OnItemDraggedIn;
             ToggleInventoryDisplay.clientOnInventoryToggled -= onInventoryToggled;
-            equipmentController.clientOnItemUnequipped -= OnItemUnequipped;
-            equipmentController.clientOnItemEquipped -= OnItemEquipped;
+            itemsSlotsJoint.clientOnItemUnequipped -= OnItemUnequipped;
+            itemsSlotsJoint.clientOnItemEquipped -= OnItemEquipped;
         }
 
         private void Update()
         {
-            if (equipmentController != null) return;
+            if (itemsSlotsJoint != null) return;
             foreach (var player in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
             {
                 if (player.GetComponent<NetworkIdentity>().hasAuthority)
                 {
-                    equipmentController = player.GetComponent<EquipmentController>();
-                    equipmentController.clientOnItemUnequipped += OnItemUnequipped;
-                    equipmentController.clientOnItemEquipped += OnItemEquipped;
+                    itemsSlotsJoint = player.GetComponent<ItemsSlotsJoint>();
+                    itemsSlotsJoint.clientOnItemUnequipped += OnItemUnequipped;
+                    itemsSlotsJoint.clientOnItemEquipped += OnItemEquipped;
                     return;
                 }
             }
