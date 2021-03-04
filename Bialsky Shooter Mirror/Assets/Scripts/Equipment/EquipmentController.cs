@@ -74,7 +74,7 @@ namespace BialskyShooter.EquipmentSystem
             if (item != null)
             {
                 inventory.PickupItem(item);
-                RpcUneuipItem(itemId);
+                RpcUneuipItem(new ItemInformation(item, item.GetItemSlotType()));
             }
         }
 
@@ -85,7 +85,7 @@ namespace BialskyShooter.EquipmentSystem
             if (item != null)
             {
                 inventory.PickupItem(item);
-                RpcUneuipItem(item.GetId());
+                RpcUneuipItem(new ItemInformation(item, item.GetItemSlotType()));
             }
         }
 
@@ -109,7 +109,7 @@ namespace BialskyShooter.EquipmentSystem
 
         #region Client
         public event Action<ItemInformation> clientOnItemEquipped;
-        public event Action<Guid> clientOnItemUnequipped;
+        public event Action<ItemInformation> clientOnItemUnequipped;
 
         public override void OnStartAuthority()
         {
@@ -171,9 +171,9 @@ namespace BialskyShooter.EquipmentSystem
         }
 
         [ClientRpc]
-        public void RpcUneuipItem(Guid itemId)
+        public void RpcUneuipItem(ItemInformation itemInformation)
         {
-            clientOnItemUnequipped?.Invoke(itemId);
+            clientOnItemUnequipped?.Invoke(itemInformation);
         }
 
         #endregion

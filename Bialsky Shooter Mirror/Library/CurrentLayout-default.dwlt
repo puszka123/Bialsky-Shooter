@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 678, y: 342}
   m_MaxSize: {x: 12003, y: 8042}
   vertical: 1
-  controlID: 101
+  controlID: 59
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 678, y: 342}
   m_MaxSize: {x: 12003, y: 8042}
   vertical: 0
-  controlID: 102
+  controlID: 60
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -424,7 +424,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c8f0fbffe8f0fbff86f6fbff8af6fbffec0efcff080ffcff1011fcff1411fcff6a11fcff8611fcff8e13fcff9213fcffe013fcff0014fcff9e19fcffa219fcffae6dfcffce6dfcff6c73fcff7073fcff3c94fcff5c94fcfffa99fcfffe99fcffce9afcffee9afcff8ca0fcff90a0fcff001ffdff201ffdffbe24fdffc224fdffaa66fdffc666fdffce68fdffd268fdff2a69fdff4669fdff4e6bfdff526bfdffa26bfdffc26bfdff6071fdff6471fdff4095fdff5c95fdff6497fdff6897fdffb097fdffd097fdff6e9dfdff729dfdff0206feff2206feffc00bfeffc40bfeffbc76feffdc76feff7a7cfeff7e7cfeff30abfeff50abfeffeeb0fefff2b0feff4cbefeff6cbefeff0ac4feff0ec4feff042cffff242cffffc231ffffc631ffff60e4ffff00e5ffff58fbffff
+      m_ExpandedIDs: baabfeff6eacfeff8eacfeff2cb2feff30b2feff126affff326affffd06fffffd46fffffdeadffff2aceffff4aceffffe8d3ffffecd3ffff58fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -695,20 +695,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/BuffsModule
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/BuffsModule
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\unity-projects\bialsky-shooter-mirror\Bialsky Shooter Mirror
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 26}
-    m_SelectedIDs: 6c420000
-    m_LastClickedID: 17004
-    m_ExpandedIDs: 000000006c4200006e42000070420000724200007442000076420000784200007a4200007c4200007e42000080420000824200008442000086420000884200008a4200008c4200008e42000090420000924200009442000096420000f242000000ca9a3b
+    scrollPos: {x: 0, y: 506}
+    m_SelectedIDs: e2420000
+    m_LastClickedID: 17122
+    m_ExpandedIDs: 000000006c4200006e42000070420000724200007442000076420000784200007a4200007c4200007e42000080420000824200008442000086420000884200008a4200008c4200008e4200009042000092420000944200009642000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -761,8 +761,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 362f0000
+    m_LastClickedInstanceID: 12086
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000e64b00003a2e000086550000482e00003031000060310000ac2e000064310000de4b00009a3100003e3d0000f26f0000b43f00007a3d00007c3d000084430000dc4e0000000000007253000098510000
     m_RenameOverlay:

@@ -26,8 +26,11 @@ namespace BialskyShooter.EquipmentSystem.UI
         private void OnDestroy()
         {
             ToggleCharacterInfoDisplay.clientOnCharacterInfoDisplayed -= OnLocalCharacterInfoDisplayed;
-            equippingController.clientOnItemEquipped -= DisplayItem;
-            equippingController.clientOnItemUnequipped -= StopDisplayItem;
+            if (equippingController != null)
+            {
+                equippingController.clientOnItemEquipped -= DisplayItem;
+                equippingController.clientOnItemUnequipped -= StopDisplayItem;
+            }
         }
 
 
@@ -87,9 +90,9 @@ namespace BialskyShooter.EquipmentSystem.UI
             if (foundSlot != null) SetSlot(foundSlot.gameObject, itemInformation);
         }
 
-        private void StopDisplayItem(Guid itemId)
+        private void StopDisplayItem(ItemInformation itemInformation)
         {
-            var found = itemSlots.FirstOrDefault(e => e.itemId == itemId);
+            var found = itemSlots.FirstOrDefault(e => e.itemId == Guid.Parse(itemInformation.itemId));
             if (found != null) UnsetSlot(found);
         }
 

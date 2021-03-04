@@ -1,4 +1,5 @@
-﻿using BialskyShooter.ItemSystem;
+﻿using BialskyShooter.EquipmentSystem;
+using BialskyShooter.ItemSystem;
 using BialskyShooter.ItemSystem.UI;
 using BialskyShooter.UI;
 using Mirror;
@@ -19,15 +20,19 @@ namespace BialskyShooter.InventoryModule.UI
         [SerializeField] int rowsCount = 10;
         [SerializeField] int columnsCount = 10;
         GameObject[] slots;
-        Dictionary<GameObject, bool> slotsAvailability;
         Inventory inventory;
+        EquipmentController equipmentController;
+
+        private void Awake()
+        {
+            InventoryItemSlot.clientOnItemSelected += OnItemSelected;
+            InventoryItemSlot.clientOnItemDraggedIn += OnItemDraggedIn;
+            ToggleInventoryDisplay.clientOnInventoryToggled += onInventoryToggled;
+        }
 
         void Start()
         {
             SetupInventoryDisplay();
-            InventoryItemSlot.clientOnItemSelected += OnItemSelected;
-            InventoryItemSlot.clientOnItemDraggedIn += OnItemDraggedIn;
-            ToggleInventoryDisplay.clientOnInventoryToggled += onInventoryToggled;
         }
 
         void OnDestroy()
@@ -35,6 +40,35 @@ namespace BialskyShooter.InventoryModule.UI
             InventoryItemSlot.clientOnItemSelected -= OnItemSelected;
             InventoryItemSlot.clientOnItemDraggedIn -= OnItemDraggedIn;
             ToggleInventoryDisplay.clientOnInventoryToggled -= onInventoryToggled;
+            equipmentController.clientOnItemUnequipped -= OnItemUnequipped;
+            equipmentController.clientOnItemEquipped -= OnItemEquipped;
+        }
+
+        private void Update()
+        {
+            if (equipmentController != null) return;
+            foreach (var player in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
+            {
+                if (player.GetComponent<NetworkIdentity>().hasAuthority)
+                {
+                    equipmentController = player.GetComponent<EquipmentController>();
+                    equipmentController.clientOnItemUnequipped += OnItemUnequipped;
+                    equipmentController.clientOnItemEquipped += OnItemEquipped;
+                    return;
+                }
+            }
+        }
+
+        private void OnItemEquipped(ItemInformation itemInformation)
+        {
+            if (Guid.Parse(itemInformation.itemId) == Guid.Empty) return;
+            StopDisplayItem(Guid.Parse(itemInformation.itemId));
+        }
+
+        private void OnItemUnequipped(ItemInformation itemInformation)
+        {
+            if (Guid.Parse(itemInformation.itemId) == Guid.Empty) return;
+            DisplayItem(new ItemDisplay(itemInformation));
         }
 
         void onInventoryToggled(bool active)
@@ -74,29 +108,18 @@ namespace BialskyShooter.InventoryModule.UI
 
         void OnItemSelected(Guid itemId)
         {
-            var slot = SetSlotAvailability(itemId, true);
+
         }
 
         void OnItemDraggedIn(Guid itemId)
         {
-            var slot = SetSlotAvailability(itemId, false);
-            SetItemInformationTooltip(slot,
+            SetItemInformationTooltip(GetSlotGO(itemId),
                 GetItemDisplays(inventory.SyncItemInformations).FirstOrDefault(e => e.ItemId == itemId));
-        }
-
-        GameObject SetSlotAvailability(Guid itemId, bool availability)
-        {
-            GameObject slot = slotsAvailability.Keys
-                            .FirstOrDefault(s => s.GetComponent<InventoryItemSlot>().itemId == itemId);
-            if (slot == null) return null;
-            slotsAvailability[slot] = availability;
-            return slot;
         }
 
         void SetupInventoryDisplay()
         {
             slots = new GameObject[rowsCount * columnsCount];
-            slotsAvailability = new Dictionary<GameObject, bool>();
             InitInventoryPanel();
         }
 
@@ -109,11 +132,27 @@ namespace BialskyShooter.InventoryModule.UI
 
         public IItemSlot GetFirstAvailableSlot()
         {
-            foreach (var pair in slotsAvailability)
+            foreach (var slot in slots)
             {
-                if (pair.Value) return pair.Key.GetComponent<IItemSlot>();
+                var inventorySlot = slot.GetComponent<IItemSlot>();
+                if (inventorySlot.GetItemId() != Guid.Empty) return inventorySlot;
             }
             return null;
+        }
+
+        public GameObject GetFirstAvailableSlotGO()
+        {
+            foreach (var slot in slots)
+            {
+                var inventorySlot = slot.GetComponent<IItemSlot>();
+                if (inventorySlot.GetItemId() == Guid.Empty) return slot;
+            }
+            return null;
+        }
+
+        public GameObject GetSlotGO(Guid itemId)
+        {
+            return slots.FirstOrDefault(s => s.GetComponent<IItemSlot>().GetItemId() == itemId);
         }
 
         void DisplayInventoryItems()
@@ -153,7 +192,6 @@ namespace BialskyShooter.InventoryModule.UI
         {
             if (slots == null) return;
             slots[index] = slotInstance;
-            slotsAvailability[slotInstance] = true;
         }
 
         void SetInventoryItemSlot(GameObject slotInstance, Guid itemId)
@@ -162,10 +200,22 @@ namespace BialskyShooter.InventoryModule.UI
             slotItemSlot.itemId = itemId;
         }
 
+        void UnsetInventoryItemSlot(GameObject slotInstance)
+        {
+            var slotItemSlot = slotInstance.GetComponent<InventoryItemSlot>();
+            slotItemSlot.ClearItem();
+        }
+
         void SetItemInformationTooltip(GameObject slot, ItemDisplay displayItem)
         {
             if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
             slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
+        }
+
+        void UnsetItemInformationTooltip(GameObject slot)
+        {
+            if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
+            slot.GetComponent<ItemInformationTooltip>().UnsetItemDisplay();
         }
 
         void DisplayItem(GameObject slotInstance, Sprite icon)
@@ -178,11 +228,18 @@ namespace BialskyShooter.InventoryModule.UI
         void DisplayItem(ItemDisplay displayItem)
         {
             if (ItemExists(displayItem)) return;
-            var slot = slotsAvailability.First(pair => pair.Value).Key;
+            var slot = GetFirstAvailableSlotGO();
             DisplayItem(slot, displayItem.Icon);
             SetInventoryItemSlot(slot, displayItem.ItemId);
             SetItemInformationTooltip(slot, displayItem);
-            slotsAvailability[slot] = false;
+        }
+
+        void StopDisplayItem(Guid itemId)
+        {
+            var slot = GetSlotGO(itemId);
+            if (slot == null) return;
+            UnsetInventoryItemSlot(slot);
+            UnsetItemInformationTooltip(slot);
         }
 
         bool ItemExists(ItemDisplay displayItem)

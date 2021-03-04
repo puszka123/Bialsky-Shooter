@@ -63,7 +63,7 @@ namespace BialskyShooter.EquipmentSystem
         }
 
         [Server]
-        public IItem Unequip(Guid itemId)
+        public IEquipmentItem Unequip(Guid itemId)
         {
             foreach (var equipmentItem in equipmentItems.Values)
             {
@@ -79,7 +79,7 @@ namespace BialskyShooter.EquipmentSystem
         }
 
         [Server]
-        public IItem Unequip(ItemSlotType itemSlotType)
+        public IEquipmentItem Unequip(ItemSlotType itemSlotType)
         {
             var item = equipmentItems[itemSlotType];
             if (item != null && item.GetId() != Guid.Empty)

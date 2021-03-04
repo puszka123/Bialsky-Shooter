@@ -46,6 +46,12 @@ namespace BialskyShooter.ItemSystem.UI
             this.itemDisplay = itemDisplay;
         }
 
+        public void UnsetItemDisplay()
+        {
+            SetItemDisplay(null);
+            Destroy(itemInformationDisplayInstance);
+        }
+
         private void DisplayItemInformation(ItemInformationDisplay itemInformationDisplay)
         {
             if (itemInformationDisplay == null || itemDisplay == null || itemDisplay.ItemId == Guid.Empty) return;
