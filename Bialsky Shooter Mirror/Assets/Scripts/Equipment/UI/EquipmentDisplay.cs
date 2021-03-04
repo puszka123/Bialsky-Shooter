@@ -33,7 +33,6 @@ namespace BialskyShooter.EquipmentSystem.UI
             }
         }
 
-
         public void ReadOnly()
         {
             itemSlots.ForEach(slot => slot.ReadOnly());

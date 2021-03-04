@@ -53,8 +53,6 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void InjectItem(Guid itemId, Sprite icon)
         {
-            if (readOnlyMode) return;
-
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
             image.sprite = icon;
@@ -63,8 +61,6 @@ namespace BialskyShooter.ItemSystem.UI
 
         public Guid ClearItem()
         {
-            if (readOnlyMode) return Guid.Empty;
-
             var clearedItemId = itemId;
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
