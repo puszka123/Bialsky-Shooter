@@ -23,11 +23,23 @@ namespace BialskyShooter.InventoryModule
         #region Client
 
         [ClientCallback]
+        private void Awake()
+        {
+            LootItemSlot.clientOnItemDraggedOut += OnLootItemSelected;
+        }
+
+        [ClientCallback]
         private void Start()
         {
             if (!hasAuthority) return;
             inventory = GetComponent<Inventory>();
             InitInputSystem();
+        }
+
+        [ClientCallback]
+        private void OnDestroy()
+        {
+            LootItemSlot.clientOnItemDraggedOut -= OnLootItemSelected;
         }
 
         private void InitInputSystem()
@@ -63,6 +75,7 @@ namespace BialskyShooter.InventoryModule
         [Client]
         void OnLootItemSelected(Guid itemId)
         {
+            if (!hasAuthority) return;
             inventory.ClientLootItem(loot.GetComponent<NetworkIdentity>(), itemId);
         }
 
