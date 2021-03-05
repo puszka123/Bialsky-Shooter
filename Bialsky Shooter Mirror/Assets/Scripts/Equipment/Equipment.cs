@@ -78,6 +78,7 @@ namespace BialskyShooter.EquipmentSystem
             return null;
         }
 
+
         [Server]
         public IEquipmentItem Unequip(ItemSlotType itemSlotType)
         {

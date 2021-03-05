@@ -87,7 +87,7 @@ namespace BialskyShooter.InventoryModule
 
 
         #region Client
-        public event Action clientOnInventoryChanged;
+        public event Action<ItemInformation> clientOnInventoryChanged;
 
         [Client]
         public void ClientLootItem(NetworkIdentity loot, Guid itemId)
@@ -108,7 +108,7 @@ namespace BialskyShooter.InventoryModule
         [Client]
         void ClientPickupItem(ItemInformation itemInformation)
         {
-            clientOnInventoryChanged?.Invoke();
+            clientOnInventoryChanged?.Invoke(itemInformation);
         }
 
         #endregion

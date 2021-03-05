@@ -43,21 +43,24 @@ namespace BialskyShooter.InventoryModule.UI
             ToggleInventoryDisplay.clientOnInventoryToggled -= onInventoryToggled;
             itemsSlotsJoint.clientOnItemUnequipped -= OnItemUnequipped;
             itemsSlotsJoint.clientOnItemEquipped -= OnItemEquipped;
+            inventory.clientOnInventoryChanged -= OnInventoryChanged;
         }
 
         private void Update()
         {
-            if (itemsSlotsJoint != null) return;
-            foreach (var player in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
-            {
-                if (player.GetComponent<NetworkIdentity>().hasAuthority)
-                {
-                    itemsSlotsJoint = player.GetComponent<ItemsSlotsJoint>();
-                    itemsSlotsJoint.clientOnItemUnequipped += OnItemUnequipped;
-                    itemsSlotsJoint.clientOnItemEquipped += OnItemEquipped;
-                    return;
-                }
-            }
+            if (itemsSlotsJoint != null && inventory != null) return;
+            var player = GetLocalPlayer();
+            if (player == null) return;
+            itemsSlotsJoint = player.GetComponent<ItemsSlotsJoint>();
+            itemsSlotsJoint.clientOnItemUnequipped += OnItemUnequipped;
+            itemsSlotsJoint.clientOnItemEquipped += OnItemEquipped;
+            inventory = player.GetComponent<Inventory>();
+            inventory.clientOnInventoryChanged += OnInventoryChanged;
+        }
+
+        private void OnInventoryChanged(ItemInformation itemInformation)
+        {
+            DisplayItem(new ItemDisplay(itemInformation));
         }
 
         private void OnItemEquipped(ItemInformation itemInformation)
@@ -77,25 +80,12 @@ namespace BialskyShooter.InventoryModule.UI
             if (active)
             {
                 DisplayInventory();
-                inventory.clientOnInventoryChanged += DisplayInventory;
-            }
-            else
-            {
-                inventory.clientOnInventoryChanged -= DisplayInventory;
             }
         }
 
         void DisplayInventory()
         {
-            if (inventory == null) inventory = GetLocalInventory();
             DisplayInventoryItems();
-        }
-
-        Inventory GetLocalInventory()
-        {
-            var player = GetLocalPlayer();
-            if (player == null) return null;
-            return player.GetComponent<Inventory>();
         }
 
         GameObject GetLocalPlayer()

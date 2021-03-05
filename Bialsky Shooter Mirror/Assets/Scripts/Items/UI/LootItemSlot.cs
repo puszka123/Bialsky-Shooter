@@ -18,6 +18,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            var itemId = ClearItem();
             clientOnItemSelected?.Invoke(itemId);
         }
 

@@ -60,11 +60,11 @@ ScriptsOnlyBuild:
     - BialskyShooter.Combat.WeaponUser
     - BialskyShooter.Control.PlayerMoveController
     - BialskyShooter.Control.PlayerSkillController
+    - BialskyShooter.Core.ItemsSlotsJoint
     - BialskyShooter.Core.PlayerCameraSpawner
     - BialskyShooter.EnhancementsModule.EnhancementReceiver
     - BialskyShooter.EnhancementsModule.EnhancementSender
     - BialskyShooter.EquipmentSystem.Equipment
-    - BialskyShooter.EquipmentSystem.EquipmentController
     - BialskyShooter.EquipmentSystem.Equipmentnstantiator
     - BialskyShooter.EquipmentSystem.UI.EquipmentDisplay
     - BialskyShooter.EquipmentSystem.UI.EquipmentDisplayContainer
@@ -858,7 +858,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16094}
     - Class: 114
-      Script: {instanceID: 19238}
+      Script: {instanceID: 19466}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -2674,8 +2674,8 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 0495506fdab3cc2133b052d13b3ad19e
     assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.EquipmentSystem
-    className: EquipmentController
+    namespaceName: BialskyShooter.Core
+    className: ItemsSlotsJoint
   - hash:
       serializedVersion: 2
       Hash: e9539b36af987b1fc4d5169f5d2f3d29
