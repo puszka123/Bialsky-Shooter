@@ -237,6 +237,7 @@
     <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\PowerfulAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Shield.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\Super Speed.cs" />
     <Compile Include="Assets\Scripts\Skills\DragSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillUser.cs" />
