@@ -129,6 +129,12 @@ namespace BialskyShooter.SkillSystem
             barrierReceiver.Receive(barrier);
         }
 
+        [Server]
+        public void ExecuteCoroutine(IEnumerator method)
+        {
+            StartCoroutine(method);
+        }
+
         #endregion
     }
 }

@@ -17,5 +17,6 @@ namespace BialskyShooter.SkillSystem
         void ReceiveAttackEnhancement(AttackEnhancement attackEnhancement);
         void ReceiveBarrier(BarriersModule.Barrier barrier);
         Movement GetMovement();
+        void ExecuteCoroutine(IEnumerator method);
     }
 }

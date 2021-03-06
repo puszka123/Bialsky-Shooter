@@ -22,6 +22,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: b9b6e090e08e11b48960167edcdd8c9e, type: 2}
       - {fileID: 11400000, guid: b7b0675ed665fce4cbd5b8dd8eb69f7c, type: 2}
       - {fileID: 11400000, guid: 8388f22523e47dd49b273f85584330b9, type: 2}
+      - {fileID: 11400000, guid: 8f015213330e94a41958fbd171545310, type: 2}
     - skills:
       - {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
     - skills:
@@ -35,6 +36,7 @@ MonoBehaviour:
     - skills:
       - {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
       - {fileID: 11400000, guid: 8388f22523e47dd49b273f85584330b9, type: 2}
+      - {fileID: 11400000, guid: 8f015213330e94a41958fbd171545310, type: 2}
   - classType: 2
     progressionSkills:
     - skills:

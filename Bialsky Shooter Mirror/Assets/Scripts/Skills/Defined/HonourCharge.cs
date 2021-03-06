@@ -11,7 +11,6 @@ namespace BialskyShooter.SkillSystem
         public override void Use(ISkillUser skillUser)
         {
             skillUser.GetMovement().MoveForce(skillUser.GetTransform().forward * moveForce);
-
         }
     }
 }

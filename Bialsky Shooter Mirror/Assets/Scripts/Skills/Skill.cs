@@ -18,7 +18,6 @@ namespace BialskyShooter.SkillSystem
         [SerializeField] protected List<Buff> buffs;
         [SerializeField] protected List<AttackEnhancement> attackEnhancements;
         [SerializeField] protected List<BarriersModule.Barrier> barriers;
-        [SerializeField] protected List<Skill> blockedSkills;
 
         public Guid Id { get { return id; } }
         public string UniqueName { get { return uniqueName; } }

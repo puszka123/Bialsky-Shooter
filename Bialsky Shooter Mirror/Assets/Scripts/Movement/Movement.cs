@@ -49,6 +49,11 @@ namespace BialskyShooter.MovementModule
             rb.MovePosition(transform.position + moveForce * fixedDeltaTime);
         }
 
+        public void Move(Vector3 moveForce)
+        {
+            rb.MovePosition(transform.position + moveForce);
+        }
+
         [Server]
         public void MoveForce(Vector3 force)
         {
