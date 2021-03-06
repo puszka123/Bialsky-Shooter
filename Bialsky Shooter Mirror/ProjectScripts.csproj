@@ -142,7 +142,6 @@
     <Compile Include="Assets\Scripts\ClassSystem\CreatureStatsDisplay.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\CreatureType.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\Experience.cs" />
-    <Compile Include="Assets\Scripts\ClassSystem\IStatsModifier.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\Progression.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureClass.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureModifier.cs" />
@@ -234,6 +233,7 @@
     <Compile Include="Assets\Scripts\Skills\Defined\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\BasicDefence.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Dodge.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\Great Volley.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\PowerfulAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Shield.cs" />
@@ -250,6 +250,7 @@
     <Compile Include="Assets\Scripts\Skills\SkillsBook.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsDisplay.cs" />
     <Compile Include="Assets\Scripts\Skills\SkillsProgression.cs" />
+    <Compile Include="Assets\Scripts\StatsModule\IStatsModifier.cs" />
     <Compile Include="Assets\Scripts\StatsModule\ItemStats.cs" />
     <Compile Include="Assets\Scripts\StatsModule\Stat.cs" />
     <Compile Include="Assets\Scripts\StatsModule\StatType.cs" />

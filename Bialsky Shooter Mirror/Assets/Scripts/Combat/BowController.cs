@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.EnhancementsModule;
 using BialskyShooter.ItemSystem;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -20,6 +21,7 @@ namespace BialskyShooter.Combat
         bool attack;
         float defenceTimer = 0f;
         IWeapon weapon;
+        Dictionary<StatType, Vector2> buffs;
         public Action<bool> OnStartControl { get; set; }
         public Action OnStopControl { get; set; }
 
@@ -32,12 +34,17 @@ namespace BialskyShooter.Combat
             defenceTimer -= Time.fixedDeltaTime;
         }
 
-        public void StartControl(GameObject user, IWeapon weapon, bool attack = true)
+        public void StartControl(GameObject user, 
+            IWeapon weapon, 
+            Dictionary<StatType, Vector2> buffs, 
+            bool attack = true)
         {
+
             userEnhancementSender = user.GetComponent<EnhancementSender>();
             userNetworkIdentity = user.GetComponent<NetworkIdentity>();
             GetAttackEnhancements();
             this.weapon = weapon;
+            this.buffs = buffs;
             this.attack = attack;
             if (!inProgress)
             {
@@ -88,7 +95,7 @@ namespace BialskyShooter.Combat
             OnStartControl?.Invoke(true);
             inProgress = true;
             Fire();
-            yield return new WaitForSeconds(weapon.GetCooldown());
+            yield return new WaitForSeconds(GetCooldown());
             inProgress = false;
             StopControl();
             OnStopControl?.Invoke();
@@ -123,6 +130,14 @@ namespace BialskyShooter.Combat
             userEnhancementSender = null;
             user = null;
             userNetworkIdentity = null;
+            buffs = null;
+        }
+
+        [Server]
+        private float GetCooldown()
+        {
+            var buff = buffs[StatType.Cooldown];
+            return buff.x + buff.x * buff.y;
         }
 
         public void ResetDefenceTimer()

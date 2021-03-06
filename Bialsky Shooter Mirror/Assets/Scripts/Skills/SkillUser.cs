@@ -135,6 +135,12 @@ namespace BialskyShooter.SkillSystem
             StartCoroutine(method);
         }
 
+        [Server]
+        public void ResetWeapon()
+        {
+            weaponUser.Terminate();
+        }
+
         #endregion
     }
 }

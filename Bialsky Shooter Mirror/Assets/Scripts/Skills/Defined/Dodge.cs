@@ -20,6 +20,7 @@ namespace BialskyShooter.SkillSystem
             {
                 yield return new WaitForFixedUpdate();
                 time -= Time.fixedDeltaTime;
+                skillUser.GetMovement().TargetMove(-skillUser.GetTransform().forward * moveForce, Time.fixedDeltaTime);
                 skillUser.GetMovement().Move(-skillUser.GetTransform().forward * moveForce, Time.fixedDeltaTime);
             }
         }

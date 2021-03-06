@@ -17,7 +17,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  cooldownBase: 5
+  cooldownBase: 1
   buffs: []
   attackEnhancements: []
-  moveForce: 1500
+  barriers: []
+  moveForce: 35
+  moveTime: 0.2

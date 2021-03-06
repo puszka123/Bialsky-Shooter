@@ -18,7 +18,7 @@ MonoBehaviour:
   itemStatsBook:
     statsList:
     - nameToDisplay: Cooldown
-      value: 0.5
+      value: 1.5
       percentageValue: 0
       display: 1
       type: 9

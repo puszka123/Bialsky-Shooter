@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.EnhancementsModule;
 using BialskyShooter.ItemSystem;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -16,6 +17,7 @@ namespace BialskyShooter.Combat
         EnhancementSender userEnhancementSender;
         NetworkIdentity userNetworkIdentity;
         IEnumerable<AttackEnhancement> enhancements;
+        Dictionary<StatType, Vector2> buffs;
         bool inProgress;
         bool attack;
         float defenceTimer = 0f;
@@ -81,13 +83,17 @@ namespace BialskyShooter.Combat
         }
 
         [Server]
-        public void StartControl(GameObject user, IWeapon weapon, bool attack = true)
+        public void StartControl(GameObject user,
+            IWeapon weapon,
+            Dictionary<StatType, Vector2> buffs,
+            bool attack = true)
         {
             userEnhancementSender = user.GetComponent<EnhancementSender>();
             userNetworkIdentity = user.GetComponent<NetworkIdentity>();
             GetAttackEnhancements();
             this.weapon = weapon;
             this.attack = attack;
+            this.buffs = buffs;
             if (!inProgress)
             {
                 StartCoroutine(ControlInProgress());
@@ -97,7 +103,7 @@ namespace BialskyShooter.Combat
         [Server]
         IEnumerator ControlInProgress()
         {
-            if(attack) yield return ControlAttack();
+            if (attack) yield return ControlAttack();
             else yield return ControlDefence();
         }
 
@@ -106,7 +112,7 @@ namespace BialskyShooter.Combat
         {
             OnStartControl?.Invoke(true);
             inProgress = true;
-            yield return new WaitForSeconds(weapon.GetCooldown());
+            yield return new WaitForSeconds(GetCooldown());
             inProgress = false;
             StopControl();
             OnStopControl?.Invoke();
@@ -131,6 +137,13 @@ namespace BialskyShooter.Combat
             userEnhancementSender = null;
             user = null;
             userNetworkIdentity = null;
+        }
+
+        [Server]
+        private float GetCooldown()
+        {
+            var buff = buffs[StatType.Cooldown];
+            return buff.x + buff.x * buff.y;
         }
 
         [Server]

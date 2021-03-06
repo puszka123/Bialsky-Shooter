@@ -1,5 +1,7 @@
-﻿using BialskyShooter.EquipmentSystem;
+﻿using BialskyShooter.ClassSystem;
+using BialskyShooter.EquipmentSystem;
 using BialskyShooter.ItemSystem;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -60,7 +62,16 @@ namespace BialskyShooter.Combat
         [Server]
         public void UseWeapon(IWeapon weapon, bool attack = true)
         {
-            weaponController.StartControl(gameObject, weapon, attack);
+            var buffs = new Dictionary<StatType, Vector2>
+            {
+                { 
+                    StatType.Cooldown, 
+                    new Vector2(
+                            GetTotalStatAdditiveModifier(StatType.Cooldown),
+                            GetTotalStatPercentageModifier(StatType.Cooldown))
+                },
+            };
+            weaponController.StartControl(gameObject, weapon, buffs, attack);
         }
 
         [Server]
@@ -73,6 +84,28 @@ namespace BialskyShooter.Combat
         internal void Terminate()
         {
             weaponController.Terminate();
+        }
+
+        [Server]
+        float GetTotalStatAdditiveModifier(StatType statType)
+        {
+            float totalStatModifier = 0f;
+            foreach (var statsModifier in GetComponents<IStatsModifier>())
+            {
+                totalStatModifier += statsModifier.GetStatAdditiveModifier(statType);
+            }
+            return totalStatModifier;
+        }
+
+        [Server]
+        float GetTotalStatPercentageModifier(StatType statType)
+        {
+            float totalStatModifier = 0f;
+            foreach (var statsModifier in GetComponents<IStatsModifier>())
+            {
+                totalStatModifier += statsModifier.GetStatPercentageModifier(statType);
+            }
+            return totalStatModifier / 100;
         }
 
         #endregion

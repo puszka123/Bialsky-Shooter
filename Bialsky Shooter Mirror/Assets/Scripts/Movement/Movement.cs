@@ -43,7 +43,12 @@ namespace BialskyShooter.MovementModule
             rb.isKinematic = false;
         }
 
-        
+        [TargetRpc]
+        public void TargetMove(Vector3 moveForce, float fixedDeltaTime)
+        {
+            Move(moveForce, fixedDeltaTime);
+        }
+
         public void Move(Vector3 moveForce, float fixedDeltaTime)
         {
             rb.MovePosition(transform.position + moveForce * fixedDeltaTime);
@@ -52,12 +57,6 @@ namespace BialskyShooter.MovementModule
         public void Move(Vector3 moveForce)
         {
             rb.MovePosition(transform.position + moveForce);
-        }
-
-        [Server]
-        public void MoveForce(Vector3 force)
-        {
-            rb.AddForce(force, ForceMode.Force);
         }
 
         public void Rotate(Vector3 lookAt)

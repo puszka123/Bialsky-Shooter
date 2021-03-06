@@ -18,5 +18,6 @@ namespace BialskyShooter.SkillSystem
         void ReceiveBarrier(BarriersModule.Barrier barrier);
         Movement GetMovement();
         void ExecuteCoroutine(IEnumerator method);
+        void ResetWeapon();
     }
 }

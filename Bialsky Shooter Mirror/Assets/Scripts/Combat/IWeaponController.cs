@@ -1,4 +1,5 @@
 ﻿using BialskyShooter.ItemSystem;
+using BialskyShooter.StatsModule;
 using Mirror;
 using System;
 using System.Collections;
@@ -11,7 +12,10 @@ namespace BialskyShooter.Combat
     {
         Action<bool> OnStartControl { get; set; }
         Action OnStopControl { get; set; }
-        void StartControl(GameObject user, IWeapon weapon, bool attack = true);
+        void StartControl(GameObject user, 
+            IWeapon weapon,
+            Dictionary<StatType, Vector2> buffs,
+            bool attack = true);
         void ResetDefenceTimer();
         void Terminate();
     }
