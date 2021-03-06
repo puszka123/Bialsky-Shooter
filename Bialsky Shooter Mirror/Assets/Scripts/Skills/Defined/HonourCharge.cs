@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BialskyShooter.SkillSystem
 {
-    [CreateAssetMenu(fileName = "Honour Charge", menuName = "ScriptableObjects/Skills/Honour Charge")]
+    [CreateAssetMenu(fileName = "HonourCharge", menuName = "ScriptableObjects/Skills/HonourCharge")]
     public class HonourCharge : Skill
     {
         [SerializeField] float moveForce;

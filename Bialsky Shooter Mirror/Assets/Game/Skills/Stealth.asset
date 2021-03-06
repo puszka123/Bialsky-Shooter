@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a36eb9de881ef4f86be11676cf922f, type: 3}
+  m_Name: Stealth
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 28f4a64773b2ef141bc72c59d67db866, type: 3}
+  uniqueName: Stealth
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  cooldownBase: 1
+  buffs: []
+  attackEnhancements: []
+  barriers: []
+  stealthTime: 5
+  opaque: {fileID: 2100000, guid: 14b556178f3145a45b2c3cb019f74a1c, type: 2}
+  transparent: {fileID: 2100000, guid: b786f0189f42f814c9588504896a83fd, type: 2}

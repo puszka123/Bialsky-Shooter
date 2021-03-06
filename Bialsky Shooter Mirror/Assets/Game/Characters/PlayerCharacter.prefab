@@ -409,6 +409,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1911522688267739271, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: myRenderer
+      value: 
+      objectReference: {fileID: 5062383811381460913}
     - target: {fileID: 2006935726027745882, guid: e1fe6c7866506774ca3ccb908125b1fb,
         type: 3}
       propertyPath: m_AssetId
@@ -445,6 +450,12 @@ GameObject:
 --- !u!4 &1274278909220116768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 290033839093916267, guid: e1fe6c7866506774ca3ccb908125b1fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1560864335178201931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5062383811381460913 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6046221686394258682, guid: e1fe6c7866506774ca3ccb908125b1fb,
     type: 3}
   m_PrefabInstance: {fileID: 1560864335178201931}
   m_PrefabAsset: {fileID: 0}

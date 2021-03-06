@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BialskyShooter.SkillSystem
 {
-    [CreateAssetMenu(fileName = "Basic Defence", menuName = "ScriptableObjects/Skills/Basic Defence")]
+    [CreateAssetMenu(fileName = "BasicDefence", menuName = "ScriptableObjects/Skills/BasicDefence")]
     public class BasicDefence : Skill
     {
         public override void Use(ISkillUser skillUser)
