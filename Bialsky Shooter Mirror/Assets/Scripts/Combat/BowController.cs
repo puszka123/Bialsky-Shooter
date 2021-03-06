@@ -1,6 +1,7 @@
 ﻿using BialskyShooter.EnhancementsModule;
 using BialskyShooter.ItemSystem;
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,16 +17,28 @@ namespace BialskyShooter.Combat
         NetworkIdentity userNetworkIdentity;
         IEnumerable<AttackEnhancement> enhancements;
         bool inProgress;
+        bool attack;
+        float defenceTimer = 0f;
         IWeapon weapon;
+        public Action<bool> OnStartControl { get; set; }
+        public Action OnStopControl { get; set; }
 
         #region Server
 
-        public void StartControl(GameObject user, IWeapon weapon)
+        [ServerCallback]
+        private void Update()
+        {
+            if (!inProgress) return;
+            defenceTimer -= Time.fixedDeltaTime;
+        }
+
+        public void StartControl(GameObject user, IWeapon weapon, bool attack = true)
         {
             userEnhancementSender = user.GetComponent<EnhancementSender>();
             userNetworkIdentity = user.GetComponent<NetworkIdentity>();
             GetAttackEnhancements();
             this.weapon = weapon;
+            this.attack = attack;
             if (!inProgress)
             {
                 StartCoroutine(ControlInProgress());
@@ -65,16 +78,38 @@ namespace BialskyShooter.Combat
         [Server]
         IEnumerator ControlInProgress()
         {
+            if (attack) yield return ControlAttack();
+            else yield return ControlDefence(); 
+        }
+
+        [Server]
+        IEnumerator ControlAttack()
+        {
+            OnStartControl?.Invoke(true);
             inProgress = true;
             Fire();
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(weapon.GetCooldown());
             inProgress = false;
             StopControl();
+            OnStopControl?.Invoke();
+        }
+
+        [Server]
+        IEnumerator ControlDefence()
+        {
+            OnStartControl?.Invoke(false);
+            inProgress = true;
+            defenceTimer = weapon.GetCooldown();
+            yield return new WaitUntil(() => defenceTimer <= 0f);
+            inProgress = false;
+            StopControl();
+            OnStopControl?.Invoke();
         }
 
         [Server]
         private void Fire()
         {
+            if (!attack) return;
             var damage = weapon.GetDamage() + (weapon.GetDamage() * GetPercentageEnhancement()) + GetAdditiveEnhancement();
             var projectileInstance = Instantiate(projectilePrefab, transform.position, transform.rotation);
             projectileInstance.GetComponent<Projectile>().Init(userNetworkIdentity, damage);
@@ -88,6 +123,20 @@ namespace BialskyShooter.Combat
             userEnhancementSender = null;
             user = null;
             userNetworkIdentity = null;
+        }
+
+        public void ResetDefenceTimer()
+        {
+            defenceTimer = weapon.GetCooldown();
+        }
+
+        [Server]
+        public void Terminate()
+        {
+            StopAllCoroutines();
+            inProgress = false;
+            StopControl();
+            OnStopControl?.Invoke();
         }
 
         #endregion

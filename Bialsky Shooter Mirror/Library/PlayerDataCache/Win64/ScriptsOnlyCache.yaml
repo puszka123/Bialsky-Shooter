@@ -76,6 +76,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.InventoryModule.UI.InventoryDisplayContainer
     - BialskyShooter.InventoryModule.UI.LootDisplay
     - BialskyShooter.ItemSystem.LeatherChest
+    - BialskyShooter.ItemSystem.SimpleBow
     - BialskyShooter.ItemSystem.SpikeSword
     - BialskyShooter.ItemSystem.UI.DragItem
     - BialskyShooter.ItemSystem.UI.DragItemMock
@@ -105,6 +106,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.ResourcesModule.UI.ResourcesDisplay
     - BialskyShooter.SkillSystem.Barrier
     - BialskyShooter.SkillSystem.BasicAttack
+    - BialskyShooter.SkillSystem.BasicDefence
     - BialskyShooter.SkillSystem.BookSkillSlot
     - BialskyShooter.SkillSystem.DragSkill
     - BialskyShooter.SkillSystem.HonourCharge
@@ -458,6 +460,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16068}
     - Class: 114
       Script: {instanceID: 16076}
+    - Class: 114
+      Script: {instanceID: 21624}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -858,7 +862,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16094}
     - Class: 114
-      Script: {instanceID: 19326}
+      Script: {instanceID: 21624}
+    - Class: 114
+      Script: {instanceID: 24224}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -1454,7 +1460,7 @@ ScriptsOnlyBuild:
     className: WeaponUser
   - hash:
       serializedVersion: 2
-      Hash: b728276000f5ac174e1d60be684d0fa1
+      Hash: e881e287e7d11479946443e058dec85a
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.SkillSystem
     className: BasicAttack
@@ -1724,7 +1730,7 @@ ScriptsOnlyBuild:
     className: MonsterMovement
   - hash:
       serializedVersion: 2
-      Hash: b728276000f5ac174e1d60be684d0fa1
+      Hash: e881e287e7d11479946443e058dec85a
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.SkillSystem
     className: Barrier
@@ -2108,7 +2114,7 @@ ScriptsOnlyBuild:
     className: BuffType
   - hash:
       serializedVersion: 2
-      Hash: b728276000f5ac174e1d60be684d0fa1
+      Hash: e881e287e7d11479946443e058dec85a
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.SkillSystem
     className: Shield
@@ -2234,7 +2240,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: b728276000f5ac174e1d60be684d0fa1
+      Hash: e881e287e7d11479946443e058dec85a
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.SkillSystem
     className: PowerfulAttack
@@ -2480,7 +2486,7 @@ ScriptsOnlyBuild:
     className: EquipmentDisplay
   - hash:
       serializedVersion: 2
-      Hash: 4d7d7f6b23da4af36a33a40f339c10c5
+      Hash: 6a86b8b8a1d50a2f6972f24fb8634b36
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.SkillSystem
     className: HonourCharge
@@ -3612,6 +3618,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: e881e287e7d11479946443e058dec85a
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: BasicDefence
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

@@ -19,5 +19,11 @@ MonoBehaviour:
     statsList:
     - nameToDisplay: Damage
       value: 25
+      percentageValue: 0
       display: 1
       type: 8
+    - nameToDisplay: Cooldown
+      value: 1
+      percentageValue: 0
+      display: 1
+      type: 9

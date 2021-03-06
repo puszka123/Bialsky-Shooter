@@ -83,9 +83,26 @@ namespace BialskyShooter.SkillSystem
         }
 
         [Server]
-        public void UseWeapon()
+        public void UseWeapon(bool attack = true)
         {
-            weaponUser.UseWeapon(equipment.GetItem<IWeapon>(ItemSlotType.Weapon));
+            if (UsingWeaponAsAttack(attack)) return;
+            if (UsingWeaponAsDefence())
+            {
+                weaponUser.ResetDefence();
+                return;
+            }
+            weaponUser.Terminate();
+            weaponUser.UseWeapon(equipment.GetItem<IWeapon>(ItemSlotType.Weapon), attack);
+        }
+
+        private bool UsingWeaponAsDefence()
+        {
+            return weaponUser.WeaponInUse && weaponUser.WeaponAsDefence;
+        }
+
+        private bool UsingWeaponAsAttack(bool attack)
+        {
+            return weaponUser.WeaponInUse && attack;
         }
 
         [Server]

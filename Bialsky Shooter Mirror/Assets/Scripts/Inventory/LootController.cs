@@ -72,6 +72,7 @@ namespace BialskyShooter.InventoryModule
             return false;
         }
 
+
         [Client]
         void OnLootItemSelected(Guid itemId)
         {

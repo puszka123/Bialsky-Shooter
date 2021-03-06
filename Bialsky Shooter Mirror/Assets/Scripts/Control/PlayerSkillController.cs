@@ -13,6 +13,7 @@ namespace BialskyShooter.Control
     public class PlayerSkillController : NetworkBehaviour
     {
         [Inject] SkillUser skillUser = null;
+        Controls controls;
 
         private void Awake()
         {
@@ -24,15 +25,26 @@ namespace BialskyShooter.Control
         public override void OnStartClient()
         {
             if (!hasAuthority) return;
-            Controls controls = new Controls();
-            controls.Player.UseSkill.performed += ClientOnUseSkillPerformed;
+            controls = new Controls();
             controls.Enable();
         }
 
-        private void ClientOnUseSkillPerformed(InputAction.CallbackContext ctx)
+        [ClientCallback]
+        private void Update()
         {
             if (!hasAuthority) return;
-            var ctrl = ctx.control;
+            foreach (var control in controls.Player.UseSkill.controls)
+            {
+                if(control.IsPressed())
+                {
+                    ClientOnUseSkillPerformed(control);
+                }
+            }
+        }
+
+        private void ClientOnUseSkillPerformed(InputControl ctrl)
+        {
+            if (!hasAuthority) return;
             var bindingName = !string.IsNullOrEmpty(ctrl.shortDisplayName) ? ctrl.shortDisplayName : ctrl.displayName;
             skillUser.CmdUseSkill(bindingName);
         }

@@ -11,7 +11,7 @@ namespace BialskyShooter.SkillSystem
 {
     public interface ISkillUser
     {
-        void UseWeapon();
+        void UseWeapon(bool attack = true);
         Transform GetTransform();
         void ReceiveBuff(Buff buff);
         void ReceiveAttackEnhancement(AttackEnhancement attackEnhancement);

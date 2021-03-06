@@ -232,6 +232,7 @@
     <Compile Include="Assets\Scripts\Skills\BookSkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Barrier.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\BasicAttack.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\BasicDefence.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\PowerfulAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Shield.cs" />

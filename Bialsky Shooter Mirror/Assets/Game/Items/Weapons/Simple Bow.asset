@@ -17,8 +17,13 @@ MonoBehaviour:
   iconPath: Spike Sword
   itemStatsBook:
     statsList:
+    - nameToDisplay: Cooldown
+      value: 0.5
+      percentageValue: 0
+      display: 1
+      type: 9
     - nameToDisplay: Damage
-      value: 25
+      value: 10
       percentageValue: 0
       display: 1
       type: 8

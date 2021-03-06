@@ -13,6 +13,7 @@ namespace BialskyShooter.BuffsModule
     {
         public event Action<Buff, bool> serverBuffChanged;
         List<Buff> activeBuffs = new List<Buff>();
+        Dictionary<Guid, Buff> buffsBook = new Dictionary<Guid, Buff>();
 
         public IEnumerable<Buff> ActiveBuffs { get { return activeBuffs; } } 
 
@@ -47,15 +48,27 @@ namespace BialskyShooter.BuffsModule
         [Server]
         public void AddBuff(Buff buff)
         {
-            activeBuffs.Add(buff);
-            serverBuffChanged?.Invoke(buff, true);
+            if (buffsBook.ContainsKey(buff.id))
+            {
+                buffsBook[buff.id].duration = buff.duration;
+            }
+            else
+            {
+                buffsBook[buff.id] = buff;
+                activeBuffs.Add(buff);
+                serverBuffChanged?.Invoke(buff, true);
+            }
         }
 
         [Server]
         public bool RemoveBuff(Buff buff)
         {
             var success = activeBuffs.Remove(buff);
-            if (success) serverBuffChanged?.Invoke(buff, false);
+            if (success)
+            {
+                buffsBook.Remove(buff.id);
+                serverBuffChanged?.Invoke(buff, false);
+            }
             return success;
         }
 

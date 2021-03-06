@@ -429,6 +429,11 @@ PrefabInstance:
       propertyPath: creatureType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8614484133810035793, guid: e1fe6c7866506774ca3ccb908125b1fb,
+        type: 3}
+      propertyPath: classType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fe6c7866506774ca3ccb908125b1fb, type: 3}
 --- !u!1 &1788995692344120177 stripped

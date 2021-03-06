@@ -13,6 +13,11 @@ namespace BialskyShooter.ItemSystem
             return ItemStatsBook.GetStat(StatType.Damage).value;
         }
 
+        public float GetCooldown()
+        {
+            return ItemStatsBook.GetStat(StatType.Cooldown).value;
+        }
+
         public ItemSlotType GetItemSlotType()
         {
             return ItemSlotType.Weapon;

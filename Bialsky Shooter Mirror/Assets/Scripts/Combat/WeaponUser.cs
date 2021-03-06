@@ -14,6 +14,8 @@ namespace BialskyShooter.Combat
     {
         [Inject] Equipmentnstantiator equipmentInstantiator;
         IWeaponController weaponController;
+        public bool WeaponInUse { get; set; }
+        public bool WeaponAsDefence { get; set; }
 
         #region Server
 
@@ -36,13 +38,41 @@ namespace BialskyShooter.Combat
             if (itemSlotType == ItemSlotType.Weapon)
             {
                 weaponController = item.GetComponent<IWeaponController>();
+                weaponController.OnStartControl += OnStartControl;
+                weaponController.OnStopControl += OnStopControl;
             }
         }
 
         [Server]
-        public void UseWeapon(IWeapon weapon)
+        private void OnStartControl(bool attack)
         {
-            weaponController.StartControl(gameObject, weapon);
+            WeaponInUse = true;
+            WeaponAsDefence = !attack;
+        }
+
+        [Server]
+        private void OnStopControl()
+        {
+            WeaponInUse = false;
+        }
+
+
+        [Server]
+        public void UseWeapon(IWeapon weapon, bool attack = true)
+        {
+            weaponController.StartControl(gameObject, weapon, attack);
+        }
+
+        [Server]
+        public void ResetDefence()
+        {
+            weaponController.ResetDefenceTimer();
+        }
+
+        [Server]
+        internal void Terminate()
+        {
+            weaponController.Terminate();
         }
 
         #endregion

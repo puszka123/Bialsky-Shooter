@@ -17,11 +17,16 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  cooldownBase: 5
+  cooldownBase: 0
   buffs:
   - buffStats:
-    - type: 7
+    - type: 0
       value: 25
       percentageValue: 0
-    duration: 5
+    - type: 3
+      value: 0
+      percentageValue: -50
+    duration: 0.2
   attackEnhancements: []
+  barriers: []
+  blockedSkills: []
