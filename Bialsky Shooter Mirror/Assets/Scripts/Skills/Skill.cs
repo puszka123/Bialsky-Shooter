@@ -35,5 +35,15 @@ namespace BialskyShooter.SkillSystem
         {
             return cooldownBase;
         }
+
+        public virtual int GetUsesCount()
+        {
+            return 1;
+        }
+
+        public virtual float UseInterval()
+        {
+            return 0;
+        }
     }
 }

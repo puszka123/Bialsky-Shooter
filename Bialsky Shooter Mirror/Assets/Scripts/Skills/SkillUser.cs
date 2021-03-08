@@ -57,17 +57,31 @@ namespace BialskyShooter.SkillSystem
         {
             if (skillsBook.IsSkillAvailable(skill.Id))
             {
+                skillsBook.UpdateSkillAvailability(skill.Id, -1);
+                skillsBook.DisableSkill(skill.Id);
                 StartCoroutine(CooldownSkill(skill));
+                StartCoroutine(IntervalBetweenUses(skill));
                 skill.Use(this);
             }
         }
 
         [Server]
+        IEnumerator IntervalBetweenUses(Skill skill)
+        {
+            yield return new WaitForSeconds(skill.UseInterval());
+            skillsBook.EnableSkill(skill.Id);
+        }
+
+        [Server]
         IEnumerator CooldownSkill(Skill skill)
         {
-            skillsBook.SetSkillAvailability(skill.Id, false);
-            yield return new WaitForSeconds(skill.GetCooldown());
-            skillsBook.SetSkillAvailability(skill.Id, true);
+            if (skillsBook.IsSkillOnCooldown(skill.Id)) yield return null;
+            else
+            {
+                skillsBook.CooldownSkill(skill.Id);
+                yield return new WaitForSeconds(skill.GetCooldown());
+                skillsBook.ResetSkill(skill);
+            }
         }
 
         [Server]

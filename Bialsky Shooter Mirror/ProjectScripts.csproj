@@ -234,9 +234,11 @@
     <Compile Include="Assets\Scripts\Skills\Defined\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\BasicDefence.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Dodge.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\FlashySeries.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\GreatVolley.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\PowerfulAttack.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\Reflex.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Shield.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Stealth.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\SuperSpeed.cs" />
