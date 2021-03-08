@@ -18,7 +18,7 @@ namespace BialskyShooter.SkillSystem
         List<Skill> availableSkills;
         Dictionary<Guid, Skill> availableSkillsDict;
         Dictionary<string, Skill> skillBindings;
-        Dictionary<Guid, int> skillsAvailability;
+        Dictionary<Guid, int> skillsUses;
         Dictionary<Guid, bool> skillsActivity;
         Dictionary<Guid, bool> skillsCooldowns;
         SyncList<SkillDisplayData> skillDisplayData = new SyncList<SkillDisplayData>();
@@ -29,7 +29,7 @@ namespace BialskyShooter.SkillSystem
         public override void OnStartServer()
         {
             skillBindings = new Dictionary<string, Skill>();
-            skillsAvailability = new Dictionary<Guid, int>();
+            skillsUses = new Dictionary<Guid, int>();
             availableSkillsDict = new Dictionary<Guid, Skill>();
             skillsActivity = new Dictionary<Guid, bool>();
             skillsCooldowns = new Dictionary<Guid, bool>();
@@ -65,9 +65,9 @@ namespace BialskyShooter.SkillSystem
         {
             print($"{keyBinding} {skill.UniqueName}");
             skillBindings[keyBinding] = skill;
-            if (!skillsAvailability.ContainsKey(skill.Id))
+            if (!skillsUses.ContainsKey(skill.Id))
             {
-                skillsAvailability[skill.Id] = skill.GetUsesCount();
+                skillsUses[skill.Id] = skill.GetUsesCount();
             }
         }
 
@@ -75,9 +75,9 @@ namespace BialskyShooter.SkillSystem
         public void BindSkill(string keyBinding, Guid skillId)
         {
             skillBindings[keyBinding] = GetSkill(skillId);
-            if (!skillsAvailability.ContainsKey(skillId))
+            if (!skillsUses.ContainsKey(skillId))
             {
-                skillsAvailability[skillId] = skillBindings[keyBinding].GetUsesCount();
+                skillsUses[skillId] = skillBindings[keyBinding].GetUsesCount();
             }
         }
 
@@ -102,13 +102,13 @@ namespace BialskyShooter.SkillSystem
         [Server]
         public bool IsSkillAvailable(Guid skillId)
         {
-            return skillsAvailability[skillId] > 0 && IsSkillActive(skillId);
+            return skillsUses[skillId] > 0 && IsSkillActive(skillId);
         }
 
         [Server]
         public void ResetSkill(Skill skill)
         {
-            skillsAvailability[skill.Id] = skill.GetUsesCount();
+            skillsUses[skill.Id] = skill.GetUsesCount();
             skillsCooldowns[skill.Id] = false;
         }
 
@@ -131,9 +131,15 @@ namespace BialskyShooter.SkillSystem
         }
 
         [Server]
-        public void UpdateSkillAvailability(Guid skillId, int usesCount)
+        public void IncreaseSkillUses(Guid skillId)
         {
-            skillsAvailability[skillId] += usesCount;
+            skillsUses[skillId]++;
+        }
+
+        [Server]
+        public void DecreaseSkillUses(Guid skillId)
+        {
+            skillsUses[skillId]--;
         }
 
         [Server]
@@ -155,9 +161,9 @@ namespace BialskyShooter.SkillSystem
             {
                 skillDisplayData.Add(new SkillDisplayData { id = skill.Id, iconPath = skill.Icon.name });
                 availableSkillsDict[skill.Id] = skill;
-                if (!skillsAvailability.ContainsKey(skill.Id))
+                if (!skillsUses.ContainsKey(skill.Id))
                 {
-                    skillsAvailability[skill.Id] = skill.GetUsesCount();
+                    skillsUses[skill.Id] = skill.GetUsesCount();
                 }
             }
         }
