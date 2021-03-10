@@ -49,6 +49,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: ea06d4db3d87f724c95a453f70ac4d30, type: 2}
       - {fileID: 11400000, guid: 8388f22523e47dd49b273f85584330b9, type: 2}
       - {fileID: 11400000, guid: df25b4cb3277eed46894302d7d64ef6a, type: 2}
+      - {fileID: 11400000, guid: 463cd52543f03f247a631180f6d6b5e4, type: 2}
   - classType: 3
     progressionSkills:
     - skills:

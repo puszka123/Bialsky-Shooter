@@ -245,6 +245,7 @@
     <Compile Include="Assets\Scripts\Skills\Defined\Shield.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Stealth.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\SuperSpeed.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\Teleport.cs" />
     <Compile Include="Assets\Scripts\Skills\DragSkill.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillSlot.cs" />
     <Compile Include="Assets\Scripts\Skills\ISkillUser.cs" />

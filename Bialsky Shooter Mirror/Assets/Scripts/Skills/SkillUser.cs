@@ -27,6 +27,7 @@ namespace BialskyShooter.SkillSystem
         [Inject] Movement movement = null;
         [Inject] EnhancementReceiver enhancementReceiver = null;
         [Inject] BarrierReceiver barrierReceiver;
+        Vector3 mouseWorldPosition;
 
         #region Server
 
@@ -40,8 +41,9 @@ namespace BialskyShooter.SkillSystem
         }
 
         [Command]
-        public void CmdUseSkill(string keyBinding)
+        public void CmdUseSkill(string keyBinding, Vector3 mouseWorldPosition)
         {
+            this.mouseWorldPosition = mouseWorldPosition;
             UseSkill(keyBinding);
         }
 
@@ -159,6 +161,12 @@ namespace BialskyShooter.SkillSystem
         public Transform GetWeaponTransform()
         {
             return weaponUser.GetWeaponTransform();
+        }
+
+        [Server]
+        public Vector3 GetMouseWorldPosition()
+        {
+            return mouseWorldPosition;
         }
 
         #endregion

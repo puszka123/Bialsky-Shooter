@@ -59,6 +59,17 @@ namespace BialskyShooter.MovementModule
             rb.MovePosition(transform.position + moveForce);
         }
 
+        [TargetRpc]
+        public void TargetTeleport(Vector3 position)
+        {
+            Teleport(position);
+        }
+
+        public void Teleport(Vector3 position)
+        {
+            rb.MovePosition(position);
+        }
+
         public void Rotate(Vector3 lookAt)
         {
             lookAt.y = transform.position.y;

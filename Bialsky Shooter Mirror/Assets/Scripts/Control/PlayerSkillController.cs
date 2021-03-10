@@ -13,6 +13,8 @@ namespace BialskyShooter.Control
     public class PlayerSkillController : NetworkBehaviour
     {
         [Inject] SkillUser skillUser = null;
+
+        [SerializeField] LayerMask layerMask = new LayerMask();
         Controls controls;
 
         private void Awake()
@@ -46,7 +48,13 @@ namespace BialskyShooter.Control
         {
             if (!hasAuthority) return;
             var bindingName = !string.IsNullOrEmpty(ctrl.shortDisplayName) ? ctrl.shortDisplayName : ctrl.displayName;
-            skillUser.CmdUseSkill(bindingName);
+            var mouseWorldPosition = transform.position;
+            var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+            {
+                mouseWorldPosition = hit.point;
+            }            
+            skillUser.CmdUseSkill(bindingName, mouseWorldPosition);
         }
 
         #endregion

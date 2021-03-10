@@ -20,5 +20,6 @@ namespace BialskyShooter.SkillSystem
         void ExecuteCoroutine(IEnumerator method);
         void ResetWeapon();
         Transform GetWeaponTransform();
+        Vector3 GetMouseWorldPosition();
     }
 }
