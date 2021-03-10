@@ -155,6 +155,12 @@ namespace BialskyShooter.SkillSystem
             weaponUser.Terminate();
         }
 
+        [Server]
+        public Transform GetWeaponTransform()
+        {
+            return weaponUser.GetWeaponTransform();
+        }
+
         #endregion
     }
 }

@@ -16,6 +16,7 @@ namespace BialskyShooter.Combat
     {
         [Inject] Equipmentnstantiator equipmentInstantiator;
         IWeaponController weaponController;
+        Transform weaponTransform;
         public bool WeaponInUse { get; set; }
         public bool WeaponAsDefence { get; set; }
 
@@ -42,6 +43,7 @@ namespace BialskyShooter.Combat
                 weaponController = item.GetComponent<IWeaponController>();
                 weaponController.OnStartControl += OnStartControl;
                 weaponController.OnStopControl += OnStopControl;
+                weaponTransform = item.transform;
             }
         }
 
@@ -106,6 +108,12 @@ namespace BialskyShooter.Combat
                 totalStatModifier += statsModifier.GetStatPercentageModifier(statType);
             }
             return totalStatModifier / 100;
+        }
+
+        [Server]
+        public Transform GetWeaponTransform()
+        {
+            return weaponTransform;
         }
 
         #endregion

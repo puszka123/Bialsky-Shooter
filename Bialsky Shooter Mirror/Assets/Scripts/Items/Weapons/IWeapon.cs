@@ -1,4 +1,6 @@
-﻿namespace BialskyShooter.ItemSystem
+﻿using UnityEngine;
+
+namespace BialskyShooter.ItemSystem
 {
     public interface IWeapon : IItem, IEquipmentItem
     {

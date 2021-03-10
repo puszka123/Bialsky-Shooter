@@ -19,5 +19,6 @@ namespace BialskyShooter.SkillSystem
         Movement GetMovement();
         void ExecuteCoroutine(IEnumerator method);
         void ResetWeapon();
+        Transform GetWeaponTransform();
     }
 }

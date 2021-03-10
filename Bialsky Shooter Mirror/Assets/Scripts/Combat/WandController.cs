@@ -1,0 +1,159 @@
+﻿using BialskyShooter.EnhancementsModule;
+using BialskyShooter.ItemSystem;
+using BialskyShooter.StatsModule;
+using Mirror;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace BialskyShooter.Combat
+{
+    public class WandController : MonoBehaviour, IWeaponController
+    {
+        [SerializeField] GameObject projectilePrefab;
+        GameObject user;
+        EnhancementSender userEnhancementSender;
+        NetworkIdentity userNetworkIdentity;
+        IEnumerable<AttackEnhancement> enhancements;
+        bool inProgress;
+        bool attack;
+        float defenceTimer = 0f;
+        IWeapon weapon;
+        Dictionary<StatType, Vector2> buffs;
+        public Action<bool> OnStartControl { get; set; }
+        public Action OnStopControl { get; set; }
+
+        #region Server
+
+        [ServerCallback]
+        private void Update()
+        {
+            if (!inProgress) return;
+            defenceTimer -= Time.fixedDeltaTime;
+        }
+
+        public void StartControl(GameObject user,
+            IWeapon weapon,
+            Dictionary<StatType, Vector2> buffs,
+            bool attack = true)
+        {
+
+            userEnhancementSender = user.GetComponent<EnhancementSender>();
+            userNetworkIdentity = user.GetComponent<NetworkIdentity>();
+            GetAttackEnhancements();
+            this.weapon = weapon;
+            this.buffs = buffs;
+            this.attack = attack;
+            if (!inProgress)
+            {
+                StartCoroutine(ControlInProgress());
+            }
+        }
+
+        [Server]
+        void GetAttackEnhancements()
+        {
+            enhancements = userEnhancementSender.Get(AttackType.Weapon);
+        }
+
+        [Server]
+        float GetAdditiveEnhancement()
+        {
+            var enhancement = 0f;
+            foreach (var item in enhancements.Where(e => !e.used))
+            {
+                enhancement += item.value;
+                item.used = true;
+            }
+            return enhancement;
+        }
+
+        [Server]
+        float GetPercentageEnhancement()
+        {
+            var enhancement = 0f;
+            foreach (var item in enhancements.Where(e => !e.used))
+            {
+                enhancement += item.percentageValue;
+                item.used = true;
+            }
+            return enhancement / 100f;
+        }
+
+        [Server]
+        IEnumerator ControlInProgress()
+        {
+            if (attack) yield return ControlAttack();
+            else yield return ControlDefence();
+        }
+
+        [Server]
+        IEnumerator ControlAttack()
+        {
+            OnStartControl?.Invoke(true);
+            inProgress = true;
+            Fire();
+            yield return new WaitForSeconds(GetCooldown());
+            inProgress = false;
+            StopControl();
+            OnStopControl?.Invoke();
+        }
+
+        [Server]
+        IEnumerator ControlDefence()
+        {
+            OnStartControl?.Invoke(false);
+            inProgress = true;
+            defenceTimer = weapon.GetCooldown();
+            yield return new WaitUntil(() => defenceTimer <= 0f);
+            inProgress = false;
+            StopControl();
+            OnStopControl?.Invoke();
+        }
+
+        [Server]
+        private void Fire()
+        {
+            if (!attack) return;
+            var damage = weapon.GetDamage() + (weapon.GetDamage() * GetPercentageEnhancement()) + GetAdditiveEnhancement();
+            var projectileInstance = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            projectileInstance.GetComponent<Projectile>().Init(userNetworkIdentity, damage);
+            NetworkServer.Spawn(projectileInstance);
+        }
+
+        [Server]
+        private void StopControl()
+        {
+            enhancements = null;
+            userEnhancementSender = null;
+            user = null;
+            userNetworkIdentity = null;
+            buffs = null;
+        }
+
+        [Server]
+        private float GetCooldown()
+        {
+            var buff = buffs[StatType.Cooldown];
+            return buff.x + buff.x * buff.y;
+        }
+
+        public void ResetDefenceTimer()
+        {
+            defenceTimer = weapon.GetCooldown();
+        }
+
+        [Server]
+        public void Terminate()
+        {
+            StopAllCoroutines();
+            inProgress = false;
+            StopControl();
+            OnStopControl?.Invoke();
+        }
+
+        #endregion
+    }
+}

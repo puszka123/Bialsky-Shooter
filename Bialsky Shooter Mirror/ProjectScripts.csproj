@@ -152,6 +152,7 @@
     <Compile Include="Assets\Scripts\Combat\IWeaponController.cs" />
     <Compile Include="Assets\Scripts\Combat\Projectile.cs" />
     <Compile Include="Assets\Scripts\Combat\SwordController.cs" />
+    <Compile Include="Assets\Scripts\Combat\WandController.cs" />
     <Compile Include="Assets\Scripts\Combat\WeaponUser.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerSkillController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\SimpleBow.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\SpikeSword.cs" />
+    <Compile Include="Assets\Scripts\Items\Weapons\Wand.cs" />
     <Compile Include="Assets\Scripts\Management\LoseManager.cs" />
     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />
@@ -234,6 +236,7 @@
     <Compile Include="Assets\Scripts\Skills\Defined\BasicAttack.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\BasicDefence.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\Dodge.cs" />
+    <Compile Include="Assets\Scripts\Skills\Defined\EnergyBall.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\FlashySeries.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\GreatVolley.cs" />
     <Compile Include="Assets\Scripts\Skills\Defined\HonourCharge.cs" />
