@@ -126,6 +126,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.SkillSystem.SkillsProgression
     - BialskyShooter.SkillSystem.Stealth
     - BialskyShooter.SkillSystem.SuperSpeed
+    - BialskyShooter.SkillSystem.Swamp
     - BialskyShooter.SkillSystem.Teleport
     - BialskyShooter.UI.ToggleCharacterInfoDisplay
     - BialskyShooter.UI.ToggleInventoryDisplay
@@ -135,6 +136,7 @@ ScriptsOnlyBuild:
     - BialskyShooter.Zenject.EnemyFactoryInstaller
     - BialskyShooter.Zenject.ProjectInstaller
     - CreatureSpawnInstaller
+    - SwampController
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputActionReference
@@ -487,11 +489,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15960}
     - Class: 114
-      Script: {instanceID: 16090}
+      Script: {instanceID: 16008}
     - Class: 114
-      Script: {instanceID: 16098}
+      Script: {instanceID: 16092}
     - Class: 114
-      Script: {instanceID: 17290}
+      Script: {instanceID: 16100}
+    - Class: 114
+      Script: {instanceID: 20278}
+    - Class: 114
+      Script: {instanceID: 22684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -900,23 +906,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15976}
     - Class: 114
-      Script: {instanceID: 16032}
+      Script: {instanceID: 16008}
     - Class: 114
-      Script: {instanceID: 16058}
+      Script: {instanceID: 16034}
     - Class: 114
-      Script: {instanceID: 16074}
+      Script: {instanceID: 16060}
     - Class: 114
-      Script: {instanceID: 16090}
+      Script: {instanceID: 16076}
     - Class: 114
-      Script: {instanceID: 16098}
+      Script: {instanceID: 16092}
     - Class: 114
-      Script: {instanceID: 16114}
+      Script: {instanceID: 16100}
     - Class: 114
       Script: {instanceID: 16116}
     - Class: 114
-      Script: {instanceID: 17290}
+      Script: {instanceID: 16118}
     - Class: 114
-      Script: {instanceID: 24108}
+      Script: {instanceID: 20278}
+    - Class: 114
+      Script: {instanceID: 22684}
+    - Class: 114
+      Script: {instanceID: 24388}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -3660,6 +3670,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: 1261da4a03f4a6411f7deeb7bde867a8
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.SkillSystem
+    className: Teleport
+  - hash:
+      serializedVersion: 2
       Hash: 880d064aa7bf32abd8295b0fe07bcc13
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem
@@ -3738,10 +3754,16 @@ ScriptsOnlyBuild:
     className: KcpTransport
   - hash:
       serializedVersion: 2
-      Hash: 1261da4a03f4a6411f7deeb7bde867a8
+      Hash: 18120679c786f0312ac87df64e3466e7
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.SkillSystem
-    className: Teleport
+    className: Swamp
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProjectScripts.dll
+    namespaceName: 
+    className: SwampController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
