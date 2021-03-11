@@ -14,6 +14,10 @@ namespace BialskyShooter.ItemSystem
         public string iconPath;
         public ItemSlotType slotType;
         public List<Stat> stats;
+        public int count;
+        public bool stackable;
+
+        public Guid ItemId { get { return Guid.Parse(itemId); } }
 
         public ItemInformation() { }
 
@@ -34,13 +38,23 @@ namespace BialskyShooter.ItemSystem
             this.stats = new List<Stat>(stats);
         }
 
-        public ItemInformation(IItem item, ItemSlotType slotType)
+        public ItemInformation(IItem item, ItemSlotType slotType) : this(item)
+        {
+            this.slotType = slotType;
+        }
+
+        public ItemInformation(IStackable stackable) : this((IItem)stackable)
+        {
+            count = stackable.GetCount();
+            this.stackable = true;
+        }
+
+        public ItemInformation(IItem item)
         {
             itemId = item.GetId().ToString();
-            this.iconPath = item.GetItem().IconPath;
-            this.itemName = item.GetItem().UniqueName;
-            this.slotType = slotType;
-            this.stats = new List<Stat>(item.GetItem().ItemStatsBook.StatsList);
+            iconPath = item.GetItem().IconPath;
+            itemName = item.GetItem().UniqueName;
+            stats = new List<Stat>(item.GetItem().ItemStatsBook.StatsList);
         }
     }
 }

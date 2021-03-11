@@ -9,16 +9,16 @@ namespace BialskyShooter.ItemSystem.UI
     public class ItemInformationTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] GameObject itemInformationDisplayPrefab = default;
-        ItemDisplay itemDisplay;
+        ItemInformation itemInformation;
         GameObject itemInformationDisplayInstance;
         IItemSlot itemSlot;
 
         private void Update()
         {
             if (itemSlot == null) itemSlot = GetComponent<IItemSlot>();
-            if(itemSlot.GetItemId() == Guid.Empty && itemDisplay != null)
+            if(itemSlot.GetItemInformation() == null && itemInformation != null)
             {
-                SetItemDisplay(null);
+                SetItemInformation(null);
                 Destroy(itemInformationDisplayInstance);
             }
         }
@@ -30,7 +30,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (itemDisplay == null || itemDisplay.ItemId == Guid.Empty) return;
+            if (itemInformation == null || itemInformation.ItemId == Guid.Empty) return;
             itemInformationDisplayInstance = Instantiate(itemInformationDisplayPrefab);
             DisplayItemInformation(itemInformationDisplayInstance.GetComponent<ItemInformationDisplay>());
         }
@@ -41,21 +41,21 @@ namespace BialskyShooter.ItemSystem.UI
             Destroy(itemInformationDisplayInstance);
         }
 
-        public void SetItemDisplay(ItemDisplay itemDisplay)
+        public void SetItemInformation(ItemInformation itemInformation)
         {
-            this.itemDisplay = itemDisplay;
+            this.itemInformation = itemInformation;
         }
 
         public void UnsetItemDisplay()
         {
-            SetItemDisplay(null);
+            SetItemInformation(null);
             Destroy(itemInformationDisplayInstance);
         }
 
         private void DisplayItemInformation(ItemInformationDisplay itemInformationDisplay)
         {
-            if (itemInformationDisplay == null || itemDisplay == null || itemDisplay.ItemId == Guid.Empty) return;
-            itemInformationDisplay.setItemDisplay(itemDisplay, GetComponent<RectTransform>());
+            if (itemInformationDisplay == null || itemInformation == null || itemInformation.ItemId == Guid.Empty) return;
+            itemInformationDisplay.SetItemInformation(itemInformation, GetComponent<RectTransform>());
             itemInformationDisplay.Display();
         }
     }

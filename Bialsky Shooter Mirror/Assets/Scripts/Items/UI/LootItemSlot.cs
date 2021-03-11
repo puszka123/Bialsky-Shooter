@@ -1,4 +1,5 @@
-﻿using BialskyShooter.ItemSystem.UI;
+﻿using BialskyShooter.ItemSystem;
+using BialskyShooter.ItemSystem.UI;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,7 +12,7 @@ namespace BialskyShooter.InventoryModule.UI
         public static event Action<Guid> clientOnItemSelected;
         public static event Action<Guid> clientOnItemDraggedIn;
         public static event Action<Guid> clientOnItemDraggedOut;
-        public Guid itemId;
+        public ItemInformation itemInformation;
         bool readOnlyMode = default;
 
         private void Start() { }
@@ -22,23 +23,13 @@ namespace BialskyShooter.InventoryModule.UI
             clientOnItemSelected?.Invoke(itemId);
         }
 
-        void InjectItem(Guid itemId, Sprite icon)
+        void InjectItem(ItemInformation itemInformation)
         {
             if (readOnlyMode) return;
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
-            image.sprite = icon;
-            this.itemId = itemId;
-        }
-
-        public Guid GetItemId()
-        {
-            return itemId;
-        }
-
-        public Sprite GetItemIcon()
-        {
-            return transform.GetChild(0).GetComponent<Image>().sprite;
+            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
+            this.itemInformation = itemInformation;
         }
 
         public bool ReadyOnly()
@@ -48,8 +39,8 @@ namespace BialskyShooter.InventoryModule.UI
 
         public void DragInItem(IItemSlot itemSlot)
         {
-            InjectItem(itemSlot.GetItemId(), itemSlot.GetItemIcon());
-            clientOnItemDraggedIn?.Invoke(itemId);
+            InjectItem(itemSlot.GetItemInformation());
+            clientOnItemDraggedIn?.Invoke(itemSlot.GetItemId());
         }
 
         public Guid DragOutItem()
@@ -62,17 +53,27 @@ namespace BialskyShooter.InventoryModule.UI
         public Guid ClearItem()
         {
             if (readOnlyMode) return Guid.Empty;
-            var clearedItemId = itemId;
+            var clearedItemId = itemInformation.ItemId;
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
-            itemId = Guid.Empty;
+            itemInformation = null;
             return clearedItemId;
         }
 
         public void SetItemVisibility(bool visibility)
         {
             transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
+        }
+
+        public ItemInformation GetItemInformation()
+        {
+            return itemInformation;
+        }
+
+        public Guid GetItemId()
+        {
+            return itemInformation?.ItemId ?? Guid.Empty;
         }
     }
 }

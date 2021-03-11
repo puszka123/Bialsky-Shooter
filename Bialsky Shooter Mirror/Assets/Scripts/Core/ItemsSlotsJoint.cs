@@ -18,6 +18,7 @@ namespace BialskyShooter.Core
         [Inject] Inventory inventory = null;
         [Inject] Equipment equipment = null;
         [SerializeField] Item weapon;
+        [SerializeField] Item healthPotion;
 
         #region Server
 
@@ -28,6 +29,10 @@ namespace BialskyShooter.Core
             if (weapon != null)
             {
                 EquipItem(Instantiate(weapon));
+            }
+            if (healthPotion != null)
+            {
+                PickupItem(Instantiate(healthPotion));
             }
         }
 
@@ -60,6 +65,12 @@ namespace BialskyShooter.Core
                 var itemInformation = equipment.Equip(equipmentItem);
                 RpcEquipItem(itemInformation);
             }
+        }
+
+        [Server]
+        void PickupItem(Item item)
+        {
+            inventory.PickupItem(item);
         }
 
         [Command]

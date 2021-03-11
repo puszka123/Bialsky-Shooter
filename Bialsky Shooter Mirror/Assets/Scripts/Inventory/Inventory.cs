@@ -75,10 +75,8 @@ namespace BialskyShooter.InventoryModule
         public void PickupItem(IItem item)
         {
             itemsDict[item.GetId()] = item;
-            var itemInformation = new ItemInformation(item.GetId().ToString(),
-                item.GetItem().IconPath,
-                item.GetItem().UniqueName,
-                item.GetItem().ItemStatsBook.StatsList);
+            var itemInformation = new ItemInformation(item);
+            if (item as IStackable != null) itemInformation = new ItemInformation(item as IStackable);
             syncItemInformations.Add(itemInformation);
             RpcPickupItem(itemInformation);
         }

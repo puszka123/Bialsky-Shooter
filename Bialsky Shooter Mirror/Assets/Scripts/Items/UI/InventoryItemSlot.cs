@@ -6,15 +6,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Zenject;
 
 namespace BialskyShooter.ItemSystem.UI
 {
     public class InventoryItemSlot : MonoBehaviour, IItemSlot
     {
+        [Inject] ItemCountDisplay itemCountDisplay;
         public static event Action<Guid> clientOnItemSelected;
         public static event Action<Guid> clientOnItemDraggedIn;
         public static event Action<Guid> clientOnItemDraggedOut;
-        public Guid itemId;
+        public ItemInformation itemInformation;
         RectTransform rect;
         bool readOnlyMode = default;
 
@@ -34,34 +36,39 @@ namespace BialskyShooter.ItemSystem.UI
         private void InventoryPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
-            if (itemId == Guid.Empty) return;
-            clientOnItemSelected?.Invoke(itemId);
+            if (itemInformation == null) return;
+            clientOnItemSelected?.Invoke(itemInformation.ItemId);
         }
 
         public Guid ClearItem()
         {
             if (readOnlyMode) return Guid.Empty;
-            var clearedItemId = itemId;
-            var image = transform.GetChild(0).GetComponent<Image>();
+            var clearedItemId = itemInformation?.ItemId ?? Guid.Empty;
+            var image = transform.GetChild(1).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
-            itemId = Guid.Empty;
+            itemInformation = null;
+            GetComponent<ItemCountDisplay>().Disable();
             return clearedItemId;
         }
 
-        void InjectItem(Guid itemId, Sprite icon)
+        public void InjectItem(ItemInformation itemInformation)
         {
             if (readOnlyMode) return;
-            var image = transform.GetChild(0).GetComponent<Image>();
+            var image = transform.GetChild(1).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
-            image.sprite = icon;
-            this.itemId = itemId;
+            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
+            this.itemInformation = itemInformation;
+            if (itemInformation.stackable)
+            {
+                GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
+            }
         }
 
         public void DragInItem(IItemSlot itemSlot)
         {
-            InjectItem(itemSlot.GetItemId(), itemSlot.GetItemIcon());
-            clientOnItemDraggedIn?.Invoke(itemId);
+            InjectItem(itemSlot.GetItemInformation());
+            clientOnItemDraggedIn?.Invoke(itemSlot.GetItemId());
         }
 
         public Guid DragOutItem()
@@ -71,16 +78,6 @@ namespace BialskyShooter.ItemSystem.UI
             return itemId;
         }
 
-        public Guid GetItemId()
-        {
-            return itemId;
-        }
-
-        public Sprite GetItemIcon()
-        {
-            return transform.GetChild(0).GetComponent<Image>().sprite;
-        }
-
         public bool ReadyOnly()
         {
             return readOnlyMode;
@@ -88,7 +85,17 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void SetItemVisibility(bool visibility)
         {
-            transform.GetChild(0).GetComponent<Image>().color = new Color(1,1,1,visibility ? 1 : 0);
+            transform.GetChild(1).GetComponent<Image>().color = new Color(1,1,1,visibility ? 1 : 0);
+        }
+
+        public ItemInformation GetItemInformation()
+        {
+            return itemInformation;
+        }
+
+        public Guid GetItemId()
+        {
+            return itemInformation?.ItemId ?? Guid.Empty;
         }
     }
 }

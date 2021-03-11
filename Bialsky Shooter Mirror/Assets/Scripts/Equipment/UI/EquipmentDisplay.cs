@@ -86,21 +86,21 @@ namespace BialskyShooter.EquipmentSystem.UI
         {
             var foundSlot = itemSlots.FirstOrDefault(slot =>
             slot.ItemSlotType == itemInformation.slotType
-            && slot.GetItemId() != Guid.Parse(itemInformation.itemId));
+            && slot.GetItemId() != itemInformation.ItemId);
             if (foundSlot != null) SetSlot(foundSlot.gameObject, itemInformation);
         }
 
         private void StopDisplayItem(ItemInformation itemInformation)
         {
-            var found = itemSlots.FirstOrDefault(e => e.itemId == Guid.Parse(itemInformation.itemId));
+            var found = itemSlots.FirstOrDefault(e => e.GetItemId() == itemInformation.ItemId);
             if (found != null) UnsetSlot(found);
         }
 
         private void SetSlot(GameObject slot, ItemInformation itemInformation)
         {
             var icon = Resources.Load<Sprite>(itemInformation.iconPath);
-            slot.GetComponent<EquipmentItemSlot>().InjectItem(Guid.Parse(itemInformation.itemId), icon);
-            SetItemInformationToggle(slot, new ItemDisplay(itemInformation));
+            slot.GetComponent<EquipmentItemSlot>().InjectItem(itemInformation);
+            SetItemInformationToggle(slot, itemInformation);
         }
 
         private void UnsetSlot(EquipmentItemSlot slot)
@@ -108,10 +108,10 @@ namespace BialskyShooter.EquipmentSystem.UI
             slot.ClearItem();
         }
 
-        private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
+        private void SetItemInformationToggle(GameObject slot, ItemInformation itemInformation)
         {
             if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
-            slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
+            slot.GetComponent<ItemInformationTooltip>().SetItemInformation(itemInformation);
         }
 
         public void InjectItem(IItemSlot itemSlot)

@@ -16,7 +16,7 @@ namespace BialskyShooter.ItemSystem.UI
         [SerializeField] RectTransform contentPanel;
         [SerializeField] RectTransform body = default;
         [SerializeField] Canvas canvas = default;
-        ItemDisplay itemDisplay;
+        ItemInformation itemInformation;
         RectTransform slotRect;
 
         private void Update()
@@ -24,18 +24,18 @@ namespace BialskyShooter.ItemSystem.UI
             if (!slotRect.gameObject.activeInHierarchy) Destroy(gameObject);
         }
 
-        public void setItemDisplay(ItemDisplay itemDisplay, RectTransform slotRect)
+        public void SetItemInformation(ItemInformation itemInformation, RectTransform slotRect)
         {
-            this.itemDisplay = itemDisplay;
+            this.itemInformation = itemInformation;
             this.slotRect = slotRect;
         }
 
         public void Display()
         {
-            if (itemDisplay == null) return;
+            if (itemInformation == null) return;
             SetMainPanelPositionToMousePosition();
-            DisplayItemName(itemDisplay.ItemName);
-            DisplayItemStats(itemDisplay.ItemStats);
+            DisplayItemName(itemInformation.itemName);
+            DisplayItemStats(itemInformation.stats);
         }
 
         void DisplayItemName(string name)

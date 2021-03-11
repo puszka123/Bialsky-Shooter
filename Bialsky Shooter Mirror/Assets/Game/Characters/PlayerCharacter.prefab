@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,6 +253,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   weapon: {fileID: 11400000, guid: 891ec42e63742894892b3e61a9f44f31, type: 2}
+  healthPotion: {fileID: 11400000, guid: e77403e03eff79a47b72f9fe2b5b0c3e, type: 2}
 --- !u!114 &8851212847291505287
 MonoBehaviour:
   m_ObjectHideFlags: 0

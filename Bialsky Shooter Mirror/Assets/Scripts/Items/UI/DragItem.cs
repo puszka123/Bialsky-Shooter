@@ -22,12 +22,12 @@ namespace BialskyShooter.ItemSystem.UI
         {
             draggingItemSlot = GetComponent<IItemSlot>();
             if (draggingItemSlot == null
-                || draggingItemSlot.GetItemId() == Guid.Empty
+                || draggingItemSlot.GetItemInformation() == null
                 || draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(false);
             dragItemMockPrefab = Resources.Load<DragItemMock>("DragItemMock");
             dragItemMockInstance = Instantiate(dragItemMockPrefab);
-            dragItemMockInstance.SetSprite(draggingItemSlot.GetItemIcon());
+            dragItemMockInstance.SetSprite(Resources.Load<Sprite>(draggingItemSlot.GetItemInformation().iconPath));
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -41,7 +41,7 @@ namespace BialskyShooter.ItemSystem.UI
         public void OnEndDrag(PointerEventData eventData)
         {
             if (draggingItemSlot == null 
-                || draggingItemSlot.GetItemId() == Guid.Empty
+                || draggingItemSlot.GetItemInformation() == null
                 || draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(true);
             var itemSlot = TryToGet<IItemSlot>(eventData);

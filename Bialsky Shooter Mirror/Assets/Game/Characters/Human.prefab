@@ -133,7 +133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 323d7b4e2b8a67e4eaf9d64538e42cf7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,6 +240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722156135985915010, guid: b17270eb8d5839d4e9e07e338471a6c0,
+        type: 3}
+      propertyPath: opaque
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5005329142723679938, guid: b17270eb8d5839d4e9e07e338471a6c0, type: 3}

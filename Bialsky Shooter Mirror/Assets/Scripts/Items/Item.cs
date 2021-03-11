@@ -20,7 +20,7 @@ namespace BialskyShooter.ItemSystem
         public string IconPath { get { return iconPath; } }
         public ItemStats ItemStatsBook { get { return itemStatsBook; } }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             id = Guid.NewGuid();
         }

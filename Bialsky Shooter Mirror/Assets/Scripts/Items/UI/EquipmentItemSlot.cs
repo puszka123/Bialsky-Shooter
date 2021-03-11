@@ -16,7 +16,7 @@ namespace BialskyShooter.ItemSystem.UI
         public static event Action<Guid> clientOnItemDraggedOut;
 
         [SerializeField] ItemSlotType itemSlotType = default;
-        public Guid itemId;
+        ItemInformation itemInformation;
         RectTransform rect;
         Controls controls;
         bool readOnlyMode;
@@ -47,36 +47,26 @@ namespace BialskyShooter.ItemSystem.UI
         private void EquipmentPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
-            if (itemId == Guid.Empty) return;
-            clientOnItemSelected?.Invoke(itemId);
+            if (itemInformation == null) return;
+            clientOnItemSelected?.Invoke(itemInformation.ItemId);
         }
 
-        public void InjectItem(Guid itemId, Sprite icon)
+        public void InjectItem(ItemInformation itemInformation)
         {
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
-            image.sprite = icon;
-            this.itemId = itemId;
+            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
+            this.itemInformation = itemInformation;
         }
 
         public Guid ClearItem()
         {
-            var clearedItemId = itemId;
+            var clearedItemId = itemInformation?.ItemId ?? Guid.Empty;
             var image = transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
-            itemId = Guid.Empty;
+            itemInformation = null;
             return clearedItemId;
-        }
-
-        public Guid GetItemId()
-        {
-            return itemId;
-        }
-
-        public Sprite GetItemIcon()
-        {
-            return transform.GetChild(0).GetComponent<Image>().sprite;
         }
 
         public bool ReadyOnly()
@@ -101,6 +91,16 @@ namespace BialskyShooter.ItemSystem.UI
         public void SetItemVisibility(bool visibility)
         {
             transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
+        }
+
+        public ItemInformation GetItemInformation()
+        {
+            return itemInformation;
+        }
+
+        public Guid GetItemId()
+        {
+            return itemInformation?.ItemId ?? Guid.Empty;
         }
     }
 }

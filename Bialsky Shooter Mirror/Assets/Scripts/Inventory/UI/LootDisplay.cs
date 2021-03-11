@@ -18,7 +18,7 @@ namespace BialskyShooter.InventoryModule.UI
         [SerializeField] Canvas canvas = null;
         int rowsCount;
         int columnsCount;
-        List<ItemDisplay> itemDisplays;
+        List<ItemInformation> itemDisplays;
         List<GameObject> slots;
 
         public Inventory Loot { get; private set; }
@@ -35,7 +35,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         private void OnLootItemSelected(Guid itemId)
         {
-            var slot = slots.FirstOrDefault(e => e.GetComponent<LootItemSlot>().itemId == itemId);
+            var slot = slots.FirstOrDefault(e => e.GetComponent<LootItemSlot>().GetItemId() == itemId);
             if (slot != null)
             {
                 SetItemInformationToggle(slot, null);
@@ -44,12 +44,11 @@ namespace BialskyShooter.InventoryModule.UI
 
         public void Display(Inventory loot)
         {
-            var itemDisplays = GetItemDisplays(loot.SyncItemInformations);
-            if (itemDisplays == null) return;
+            if (loot.SyncItemInformations == null) return;
             Loot = loot;
-            this.itemDisplays = new List<ItemDisplay>(itemDisplays);
-            if (this.itemDisplays.Count == 0) return;
-            var count = this.itemDisplays.Count;
+            itemDisplays = new List<ItemInformation>(loot.SyncItemInformations);
+            if (itemDisplays.Count == 0) return;
+            var count = itemDisplays.Count;
             rowsCount = count / 2;
             columnsCount = count / 2;
             rowsCount += count % 2;
@@ -63,16 +62,6 @@ namespace BialskyShooter.InventoryModule.UI
             }
             InitLootPanel();
             SetMainPanelPositionToMousePosition();
-        }
-
-        IEnumerable<ItemDisplay> GetItemDisplays(IEnumerable<ItemInformation> itemInformations)
-        {
-            var itemDisplays = new List<ItemDisplay>();
-            foreach (var item in itemInformations)
-            {
-                itemDisplays.Add(new ItemDisplay(item));
-            }
-            return itemDisplays;
         }
 
         void InitLootPanel()
@@ -105,31 +94,31 @@ namespace BialskyShooter.InventoryModule.UI
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slots.Add(slotInstance);
                     slotInstance.AddComponent<LootItemSlot>();
-                    DisplayItem(slotInstance, itemDisplays[index].Icon);
-                    SetLootItemSelection(slotInstance, itemDisplays[index].ItemId);
+                    DisplayItem(slotInstance, itemDisplays[index]);
+                    SetLootItemSelection(slotInstance, itemDisplays[index]);
                     SetItemInformationToggle(slotInstance, itemDisplays[index]);
                     index++;
                 }
             }
         }
 
-        private void SetLootItemSelection(GameObject slotInstance, Guid itemId)
+        private void SetLootItemSelection(GameObject slotInstance, ItemInformation itemInformation)
         {
             var slotItemSelection = slotInstance.GetComponent<LootItemSlot>();
-            slotItemSelection.itemId = itemId;
+            slotItemSelection.itemInformation = itemInformation;
         }
 
-        private void SetItemInformationToggle(GameObject slot, ItemDisplay displayItem)
+        private void SetItemInformationToggle(GameObject slot, ItemInformation itemInformation)
         {
             if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
-            slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
+            slot.GetComponent<ItemInformationTooltip>().SetItemInformation(itemInformation);
         }
 
-        private void DisplayItem(GameObject slotInstance, Sprite icon)
+        private void DisplayItem(GameObject slotInstance, ItemInformation itemInformation)
         {
             var image = slotInstance.transform.GetChild(0).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
-            image.sprite = icon;
+            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
         }
 
         private void ComputePanelSize(RectTransform slotRect)

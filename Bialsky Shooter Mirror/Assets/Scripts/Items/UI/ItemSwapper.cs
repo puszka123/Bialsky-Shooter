@@ -11,24 +11,23 @@ namespace BialskyShooter.ItemSystem.UI
     {
         class ItemSlotMock : IItemSlot
         {
-            Guid id;
-            Sprite icon;
+            ItemInformation itemInformation;
 
-            public ItemSlotMock(Guid id, Sprite icon)
+            public ItemSlotMock(ItemInformation itemInformation)
             {
-                this.id = id;
-                this.icon = icon;
+                this.itemInformation = itemInformation;
             }
 
-            public Sprite GetItemIcon()
+            public ItemInformation GetItemInformation()
             {
-                return icon;
+                return itemInformation;
             }
 
             public Guid GetItemId()
             {
-                return id;
+                return itemInformation?.ItemId ?? Guid.Empty;
             }
+
 
             #region unused
 
@@ -56,20 +55,19 @@ namespace BialskyShooter.ItemSystem.UI
             {
                 throw new NotImplementedException();
             }
+            
             #endregion
         }
 
         public static bool SwapItems(IItemSlot source, IItemSlot destination)
         {
             if (source == null || destination == null) return false;
-            var sourceSlotMock = new ItemSlotMock(source?.GetItemId() ?? Guid.Empty,
-                                                source?.GetItemIcon());
-            var destinationSlotMock = new ItemSlotMock(destination?.GetItemId() ?? Guid.Empty,
-                                                destination?.GetItemIcon());
+            var sourceSlotMock = new ItemSlotMock(source?.GetItemInformation());
+            var destinationSlotMock = new ItemSlotMock(destination?.GetItemInformation());
             source.DragOutItem();
             destination.DragOutItem();
-            if (sourceSlotMock.GetItemId() != Guid.Empty) destination.DragInItem(sourceSlotMock);
-            if(destinationSlotMock.GetItemId() != Guid.Empty) source.DragInItem(destinationSlotMock);
+            if (sourceSlotMock.GetItemInformation() != null) destination.DragInItem(sourceSlotMock);
+            if(destinationSlotMock.GetItemInformation() != null) source.DragInItem(destinationSlotMock);
             return true;
         }
 

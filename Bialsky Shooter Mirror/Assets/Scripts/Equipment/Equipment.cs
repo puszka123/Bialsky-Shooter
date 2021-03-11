@@ -49,12 +49,7 @@ namespace BialskyShooter.EquipmentSystem
         public ItemInformation Equip(IEquipmentItem item)
         {
             equipmentItems[item.GetItemSlotType()] = item;
-            var itemInformation = new ItemInformation(
-                    item.GetId().ToString(),
-                    item.GetItem().IconPath,
-                    item.GetItem().UniqueName,
-                    item.GetItemSlotType(),
-                    item.GetItem().ItemStatsBook.StatsList);
+            var itemInformation = new ItemInformation(item, item.GetItemSlotType());
             syncItemInformations.Add(itemInformation);
             serverOnEquipmentChanged?.Invoke();
             RpcEquipmentChanged();

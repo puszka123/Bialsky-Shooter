@@ -8,8 +8,8 @@ namespace BialskyShooter.ItemSystem.UI
 {
     public interface IItemSlot
     {
+        ItemInformation GetItemInformation();
         Guid GetItemId();
-        Sprite GetItemIcon();
         bool ReadyOnly();
 
         void DragInItem(IItemSlot itemSlot);

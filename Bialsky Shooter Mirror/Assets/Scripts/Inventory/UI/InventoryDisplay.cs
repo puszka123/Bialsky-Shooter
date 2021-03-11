@@ -60,7 +60,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         private void OnInventoryChanged(ItemInformation itemInformation)
         {
-            DisplayItem(new ItemDisplay(itemInformation));
+            DisplayItem(itemInformation);
         }
 
         private void OnItemEquipped(ItemInformation itemInformation)
@@ -72,7 +72,7 @@ namespace BialskyShooter.InventoryModule.UI
         private void OnItemUnequipped(ItemInformation itemInformation)
         {
             if (Guid.Parse(itemInformation.itemId) == Guid.Empty) return;
-            DisplayItem(new ItemDisplay(itemInformation));
+            DisplayItem(itemInformation);
         }
 
         void onInventoryToggled(bool active)
@@ -105,7 +105,7 @@ namespace BialskyShooter.InventoryModule.UI
         void OnItemDraggedIn(Guid itemId)
         {
             SetItemInformationTooltip(GetSlotGO(itemId),
-                GetItemDisplays(inventory.SyncItemInformations).FirstOrDefault(e => e.ItemId == itemId));
+                inventory.SyncItemInformations.FirstOrDefault(e => e.ItemId == itemId));
         }
 
         void SetupInventoryDisplay()
@@ -126,7 +126,7 @@ namespace BialskyShooter.InventoryModule.UI
             foreach (var slot in slots)
             {
                 var inventorySlot = slot.GetComponent<IItemSlot>();
-                if (inventorySlot.GetItemId() != Guid.Empty) return inventorySlot;
+                if (inventorySlot.GetItemInformation() != null) return inventorySlot;
             }
             return null;
         }
@@ -143,25 +143,18 @@ namespace BialskyShooter.InventoryModule.UI
 
         public GameObject GetSlotGO(Guid itemId)
         {
-            return slots.FirstOrDefault(s => s.GetComponent<IItemSlot>().GetItemId() == itemId);
+            return slots
+                .FirstOrDefault(s => 
+                    s.GetComponent<IItemSlot>()
+                    .GetItemId() == itemId);
         }
 
         void DisplayInventoryItems()
         {
-            foreach (var itemDisplay in GetItemDisplays(inventory.SyncItemInformations))
+            foreach (var itemInformation in inventory.SyncItemInformations)
             {
-                DisplayItem(itemDisplay);
+                DisplayItem(itemInformation);
             }
-        }
-
-        IEnumerable<ItemDisplay> GetItemDisplays(IEnumerable<ItemInformation> itemInformations)
-        {
-            var itemDisplays = new List<ItemDisplay>();
-            foreach (var item in itemInformations)
-            {
-                itemDisplays.Add(new ItemDisplay(item));
-            }
-            return itemDisplays;
         }
 
         void PlaceSlots(RectTransform slotRect)
@@ -185,10 +178,10 @@ namespace BialskyShooter.InventoryModule.UI
             slots[index] = slotInstance;
         }
 
-        void SetInventoryItemSlot(GameObject slotInstance, Guid itemId)
+        void SetInventoryItemSlot(GameObject slotInstance, ItemInformation itemInformation)
         {
             var slotItemSlot = slotInstance.GetComponent<InventoryItemSlot>();
-            slotItemSlot.itemId = itemId;
+            slotItemSlot.itemInformation = itemInformation;
         }
 
         void UnsetInventoryItemSlot(GameObject slotInstance)
@@ -197,10 +190,10 @@ namespace BialskyShooter.InventoryModule.UI
             slotItemSlot.ClearItem();
         }
 
-        void SetItemInformationTooltip(GameObject slot, ItemDisplay displayItem)
+        void SetItemInformationTooltip(GameObject slot, ItemInformation itemInformation)
         {
             if (slot == null || slot.GetComponent<ItemInformationTooltip>() == null) return;
-            slot.GetComponent<ItemInformationTooltip>().SetItemDisplay(displayItem);
+            slot.GetComponent<ItemInformationTooltip>().SetItemInformation(itemInformation);
         }
 
         void UnsetItemInformationTooltip(GameObject slot)
@@ -209,20 +202,18 @@ namespace BialskyShooter.InventoryModule.UI
             slot.GetComponent<ItemInformationTooltip>().UnsetItemDisplay();
         }
 
-        void DisplayItem(GameObject slotInstance, Sprite icon)
+        void DisplayItem(GameObject slotInstance, ItemInformation itemInformation)
         {
-            var image = slotInstance.transform.GetChild(0).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 1);
-            image.sprite = icon;
+            slotInstance.GetComponent<InventoryItemSlot>().InjectItem(itemInformation);
         }
 
-        void DisplayItem(ItemDisplay displayItem)
+        void DisplayItem(ItemInformation itemInformation)
         {
-            if (ItemExists(displayItem)) return;
+            if (ItemExists(itemInformation)) return;
             var slot = GetFirstAvailableSlotGO();
-            DisplayItem(slot, displayItem.Icon);
-            SetInventoryItemSlot(slot, displayItem.ItemId);
-            SetItemInformationTooltip(slot, displayItem);
+            SetInventoryItemSlot(slot, itemInformation);
+            DisplayItem(slot, itemInformation);
+            SetItemInformationTooltip(slot, itemInformation);
         }
 
         void StopDisplayItem(Guid itemId)
@@ -233,11 +224,12 @@ namespace BialskyShooter.InventoryModule.UI
             UnsetItemInformationTooltip(slot);
         }
 
-        bool ItemExists(ItemDisplay displayItem)
+        bool ItemExists(ItemInformation itemInformation)
         {
             return slots
-                .Select(s => s.GetComponent<InventoryItemSlot>().itemId)
-                .Contains(displayItem.ItemId);
+                .Where(s => s.GetComponent<InventoryItemSlot>().itemInformation != null)
+                .Select(s => s.GetComponent<InventoryItemSlot>().itemInformation.ItemId)
+                .Contains(itemInformation.ItemId);
         }
 
         void ComputePanelSize(RectTransform slotRect)
@@ -258,7 +250,8 @@ namespace BialskyShooter.InventoryModule.UI
 
         public IItemSlot GetSlot(Guid itemId)
         {
-            return slots.Select(slot => slot.GetComponent<IItemSlot>()).FirstOrDefault(slot => slot.GetItemId() == itemId);
+            return slots.Select(slot => slot.GetComponent<IItemSlot>())
+                .FirstOrDefault(slot => slot.GetItemId() == itemId);
         }
     }
 }
