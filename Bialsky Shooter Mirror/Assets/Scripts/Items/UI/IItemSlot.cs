@@ -14,6 +14,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         void DragInItem(IItemSlot itemSlot);
         Guid DragOutItem();
+        void Stack(Guid sourceItemId, int count);
         void SetItemVisibility(bool visibility);
     }
 }

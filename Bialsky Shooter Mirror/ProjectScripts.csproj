@@ -202,6 +202,7 @@
     <Compile Include="Assets\Scripts\Items\UI\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationTooltip.cs" />
+    <Compile Include="Assets\Scripts\Items\UI\ItemStacker.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemSwapper.cs" />
     <Compile Include="Assets\Scripts\Items\UI\LootItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />

@@ -178,12 +178,6 @@ namespace BialskyShooter.InventoryModule.UI
             slots[index] = slotInstance;
         }
 
-        void SetInventoryItemSlot(GameObject slotInstance, ItemInformation itemInformation)
-        {
-            var slotItemSlot = slotInstance.GetComponent<InventoryItemSlot>();
-            slotItemSlot.itemInformation = itemInformation;
-        }
-
         void UnsetInventoryItemSlot(GameObject slotInstance)
         {
             var slotItemSlot = slotInstance.GetComponent<InventoryItemSlot>();
@@ -209,11 +203,20 @@ namespace BialskyShooter.InventoryModule.UI
 
         void DisplayItem(ItemInformation itemInformation)
         {
-            if (ItemExists(itemInformation)) return;
+            if (ItemExists(itemInformation))
+            {
+                UpdateItem(itemInformation);
+                return;
+            }
             var slot = GetFirstAvailableSlotGO();
-            SetInventoryItemSlot(slot, itemInformation);
             DisplayItem(slot, itemInformation);
             SetItemInformationTooltip(slot, itemInformation);
+        }
+
+        private void UpdateItem(ItemInformation itemInformation)
+        {
+            var slot = GetSlotGO(itemInformation.ItemId);
+            slot.GetComponent<InventoryItemSlot>().UpdateItem(itemInformation);
         }
 
         void StopDisplayItem(Guid itemId)

@@ -102,5 +102,10 @@ namespace BialskyShooter.ItemSystem.UI
         {
             return itemInformation?.ItemId ?? Guid.Empty;
         }
+
+        public void Stack(Guid sourceItemId, int count)
+        {
+            return;
+        }
     }
 }

@@ -12,10 +12,10 @@ namespace BialskyShooter.ItemSystem.UI
 {
     public class InventoryItemSlot : MonoBehaviour, IItemSlot
     {
-        [Inject] ItemCountDisplay itemCountDisplay;
         public static event Action<Guid> clientOnItemSelected;
         public static event Action<Guid> clientOnItemDraggedIn;
         public static event Action<Guid> clientOnItemDraggedOut;
+        public static event Action<Guid, Guid, int> clientOnItemStack;
         public ItemInformation itemInformation;
         RectTransform rect;
         bool readOnlyMode = default;
@@ -65,6 +65,12 @@ namespace BialskyShooter.ItemSystem.UI
             }
         }
 
+        public void UpdateItem(ItemInformation itemInformation)
+        {
+            if (itemInformation.stackable && itemInformation.count == 0) ClearItem();
+            else InjectItem(itemInformation);
+        }
+
         public void DragInItem(IItemSlot itemSlot)
         {
             InjectItem(itemSlot.GetItemInformation());
@@ -96,6 +102,13 @@ namespace BialskyShooter.ItemSystem.UI
         public Guid GetItemId()
         {
             return itemInformation?.ItemId ?? Guid.Empty;
+        }
+
+        public void Stack(Guid sourceItemId, int count)
+        {
+            itemInformation.count += count;
+            GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
+            clientOnItemStack?.Invoke(sourceItemId, itemInformation.ItemId, count);
         }
     }
 }

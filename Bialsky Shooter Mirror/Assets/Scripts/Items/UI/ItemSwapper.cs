@@ -55,7 +55,12 @@ namespace BialskyShooter.ItemSystem.UI
             {
                 throw new NotImplementedException();
             }
-            
+
+            public void Stack(Guid sourceItemId, int count)
+            {
+                throw new NotImplementedException();
+            }
+
             #endregion
         }
 

@@ -81,6 +81,23 @@ namespace BialskyShooter.InventoryModule
             RpcPickupItem(itemInformation);
         }
 
+        [Command]
+        public void CmdStackItem(Guid sourceItemId, Guid destinationItemId, int count)
+        {
+            StackItems(sourceItemId, destinationItemId, count);
+        }
+
+        [Server]
+        void StackItems(Guid sourceItemId, Guid destinationItemId, int count)
+        {
+            var sourceStack = itemsDict[sourceItemId] as IStackable;
+            var destinationStack = itemsDict[destinationItemId] as IStackable;
+            var stack = sourceStack.Pop(count);
+            destinationStack.Push(stack);
+            if(sourceStack.GetCount() <= 0) ThrowAwayItem(sourceItemId);
+            RpcOnStackItems(new ItemInformation(sourceStack), new ItemInformation(destinationStack));
+        }
+
         #endregion
 
 
@@ -107,6 +124,14 @@ namespace BialskyShooter.InventoryModule
         void ClientPickupItem(ItemInformation itemInformation)
         {
             clientOnInventoryChanged?.Invoke(itemInformation);
+        }
+
+        [ClientRpc]
+        public void RpcOnStackItems(ItemInformation source, ItemInformation destination)
+        {
+            if (!hasAuthority) return;
+            clientOnInventoryChanged?.Invoke(source);
+            clientOnInventoryChanged?.Invoke(destination);
         }
 
         #endregion

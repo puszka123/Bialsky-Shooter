@@ -75,5 +75,11 @@ namespace BialskyShooter.InventoryModule.UI
         {
             return itemInformation?.ItemId ?? Guid.Empty;
         }
+
+        public void Stack(Guid sourceItemId, int count)
+        {
+            itemInformation.count += count;
+            GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
+        }
     }
 }

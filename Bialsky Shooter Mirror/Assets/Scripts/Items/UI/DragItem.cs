@@ -40,14 +40,14 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (draggingItemSlot == null 
+            if (draggingItemSlot == null
                 || draggingItemSlot.GetItemInformation() == null
                 || draggingItemSlot.ReadyOnly()) return;
             draggingItemSlot.SetItemVisibility(true);
             var itemSlot = TryToGet<IItemSlot>(eventData);
             var isDragged = DragToSlot(itemSlot);
-            if(!isDragged) isDragged = DragToEquipmentContainer(eventData);
-            if(!isDragged) isDragged = DragToInventoryContainer(eventData);
+            if (!isDragged) isDragged = DragToEquipmentContainer(eventData);
+            if (!isDragged) isDragged = DragToInventoryContainer(eventData);
             if (!isDragged) DropItem();
             Destroy(dragItemMockInstance.gameObject);
         }
@@ -101,7 +101,8 @@ namespace BialskyShooter.ItemSystem.UI
 
         void DragItemTo(IItemSlot itemSlot)
         {
-            ItemSwapper.SwapItems(draggingItemSlot, itemSlot);
+            var result = ItemStacker.TryStackItems(draggingItemSlot, itemSlot);
+            if (!result) ItemSwapper.SwapItems(draggingItemSlot, itemSlot);
         }
 
         void DragItemTo(IEquipmentSlotsContainer container)

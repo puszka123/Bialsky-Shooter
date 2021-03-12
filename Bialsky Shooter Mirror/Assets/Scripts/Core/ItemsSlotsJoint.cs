@@ -33,6 +33,9 @@ namespace BialskyShooter.Core
             if (healthPotion != null)
             {
                 PickupItem(Instantiate(healthPotion));
+                PickupItem(Instantiate(healthPotion));
+                PickupItem(Instantiate(healthPotion));
+                PickupItem(Instantiate(healthPotion));
             }
         }
 
@@ -129,6 +132,7 @@ namespace BialskyShooter.Core
             EquipmentItemSlot.clientOnItemSelected += ClientOnEquipmentItemSelected;
             EquipmentItemSlot.clientOnItemDraggedIn += ClientOnEquipmentItemDraggedIn;
             EquipmentItemSlot.clientOnItemDraggedOut += ClientOnEquipmentItemDraggedOut;
+            InventoryItemSlot.clientOnItemStack += ClientOnInventoryItemStack;
         }
         public override void OnStopAuthority()
         {
@@ -136,7 +140,12 @@ namespace BialskyShooter.Core
             EquipmentItemSlot.clientOnItemSelected -= ClientOnEquipmentItemSelected;
             EquipmentItemSlot.clientOnItemDraggedIn -= ClientOnEquipmentItemDraggedIn;
             EquipmentItemSlot.clientOnItemDraggedOut -= ClientOnEquipmentItemDraggedOut;
+            InventoryItemSlot.clientOnItemStack -= ClientOnInventoryItemStack;
+        }
 
+        private void ClientOnInventoryItemStack(Guid sourceItemId, Guid destinationItemId, int count)
+        {
+            inventory.CmdStackItem(sourceItemId, destinationItemId, count);
         }
 
         [Client]
