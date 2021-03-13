@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd97f4aad56e3447a230eb3e4e7a919, type: 3}
+  m_Script: {fileID: 11500000, guid: 21e72b6d865905c4e8e837bca43bd2e7, type: 3}
   m_Name: Wand
   m_EditorClassIdentifier: 
   prefab: {fileID: 3664503001069949784, guid: 77c507cfc9d96ef47b3d1fc0b59c19d3, type: 3}
   uniqueName: Wand
-  iconPath: Spike Sword
+  icon: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
   itemStatsBook:
     statsList:
     - nameToDisplay: Damage
-      value: 5
+      value: 10
       percentageValue: 0
       display: 1
       type: 8

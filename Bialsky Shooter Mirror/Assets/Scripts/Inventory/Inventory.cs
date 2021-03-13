@@ -15,25 +15,11 @@ namespace BialskyShooter.InventoryModule
         public IList<ItemInformation> SyncItemInformations { get { return syncItemInformations; } }
         
 
-        private void Start()
-        {
-            //debug only
-            if (NetworkServer.active && item1 != null)
-            {
-                item1 = Instantiate(item1);
-                item2 = Instantiate(item2);
-                item3 = Instantiate(item3);
-                PickupItem(item1);
-                PickupItem(item2);
-                PickupItem(item3);
-            }
-        }
-
         #region Server
 
-        [SerializeField] Item item1 = default;
-        [SerializeField] Item item2 = default;
-        [SerializeField] Item item3 = default;
+        [SerializeField] ItemSettings item1 = default;
+        [SerializeField] ItemSettings item2 = default;
+        [SerializeField] ItemSettings item3 = default;
         [SerializeField] IItem testItemProperties3;
         Dictionary<Guid, IItem> itemsDict;
 

@@ -182,13 +182,14 @@
     <Compile Include="Assets\Scripts\Items\Boots\IBoots.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\IChest.cs" />
     <Compile Include="Assets\Scripts\Items\Chests\LeatherChest.cs" />
-    <Compile Include="Assets\Scripts\Items\Consumables\HealthPotion.cs" />
+    <Compile Include="Assets\Scripts\Items\Consumables\StackItem.cs" />
     <Compile Include="Assets\Scripts\Items\Helmets\IHelmet.cs" />
     <Compile Include="Assets\Scripts\Items\IEquipmentItem.cs" />
     <Compile Include="Assets\Scripts\Items\IItem.cs" />
     <Compile Include="Assets\Scripts\Items\IStackable.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\ItemInformation.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemSettings.cs" />
     <Compile Include="Assets\Scripts\Items\ItemSlotType.cs" />
     <Compile Include="Assets\Scripts\Items\Legs\ILegs.cs" />
     <Compile Include="Assets\Scripts\Items\Shields\IShield.cs" />
@@ -207,9 +208,7 @@
     <Compile Include="Assets\Scripts\Items\UI\LootItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\UI\StackModal.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />
-    <Compile Include="Assets\Scripts\Items\Weapons\SimpleBow.cs" />
-    <Compile Include="Assets\Scripts\Items\Weapons\SpikeSword.cs" />
-    <Compile Include="Assets\Scripts\Items\Weapons\Wand.cs" />
+    <Compile Include="Assets\Scripts\Items\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Management\LoseManager.cs" />
     <Compile Include="Assets\Scripts\Movement\AIMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />

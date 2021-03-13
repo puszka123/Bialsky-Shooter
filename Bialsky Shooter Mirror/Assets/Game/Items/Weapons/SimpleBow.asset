@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e72b6d865905c4e8e837bca43bd2e7, type: 3}
+  m_Name: SimpleBow
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5472748743282065801, guid: f309cefd7d1ad184483a9af2b03a3ea2, type: 3}
+  uniqueName: Simple Bow
+  icon: {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
+  itemStatsBook:
+    statsList:
+    - nameToDisplay: Damage
+      value: 15
+      percentageValue: 0
+      display: 1
+      type: 8
+    - nameToDisplay: Cooldown
+      value: 1
+      percentageValue: 0
+      display: 1
+      type: 9

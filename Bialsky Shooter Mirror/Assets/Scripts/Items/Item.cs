@@ -1,28 +1,20 @@
-﻿using BialskyShooter.StatsModule;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BialskyShooter.ItemSystem
 {
-    public abstract class Item : ScriptableObject, IItem
+    [Serializable]
+    public class Item : IItem
     {
-        [SerializeField] protected Guid id = default;
-        [SerializeField] protected GameObject prefab = default;
-        [SerializeField] protected string uniqueName = default;
-        [SerializeField] protected string iconPath = default;
-        [SerializeField] protected ItemStats itemStatsBook;
+        public Guid Id { get; private set; }
+        public ItemSettings ItemSettings { get; private set; }
 
-        public Guid Id { get { return id; } }
-        public string UniqueName { get { return uniqueName; } }
-        public GameObject Prefab { get { return prefab; } }
-        public string IconPath { get { return iconPath; } }
-        public ItemStats ItemStatsBook { get { return itemStatsBook; } }
-
-        protected virtual void OnEnable()
+        public Item(ItemSettings itemSettings)
         {
-            id = Guid.NewGuid();
+            Id = Guid.NewGuid();
+            ItemSettings = itemSettings;
         }
 
         public Guid GetId()
@@ -30,9 +22,9 @@ namespace BialskyShooter.ItemSystem
             return Id;
         }
 
-        public Item GetItem()
+        public ItemSettings GetItemSettings()
         {
-            return this;
+            return ItemSettings;
         }
     }
 }

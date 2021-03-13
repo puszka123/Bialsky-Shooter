@@ -113,7 +113,7 @@ namespace BialskyShooter.EquipmentSystem
         {
             float statTotalValue = 0f;
             if (equipmentItems == null) InitEquipmentItems();
-            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItem()))
+            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItemSettings()))
             {
                 var stats = item.ItemStatsBook.StatsList;
                 foreach (var stat in stats)
@@ -130,7 +130,7 @@ namespace BialskyShooter.EquipmentSystem
         {
             float statTotalValue = 0f;
             if (equipmentItems == null) InitEquipmentItems();
-            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItem()))
+            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItemSettings()))
             {
                 var stats = item.ItemStatsBook.StatsList;
                 foreach (var stat in stats)

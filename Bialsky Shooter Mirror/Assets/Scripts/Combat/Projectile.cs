@@ -26,7 +26,7 @@ namespace BialskyShooter.Combat
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject == user.gameObject
+            if (user == null || collision.gameObject == user.gameObject
                 || !collision.gameObject.TryGetComponent(out CombatTarget target)
                 || target.Health.IsDefeated) return;
             target.Health.TakeDamage(user, damage);

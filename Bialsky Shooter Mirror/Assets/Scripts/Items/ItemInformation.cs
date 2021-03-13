@@ -52,9 +52,9 @@ namespace BialskyShooter.ItemSystem
         public ItemInformation(IItem item)
         {
             itemId = item.GetId().ToString();
-            iconPath = item.GetItem().IconPath;
-            itemName = item.GetItem().UniqueName;
-            stats = new List<Stat>(item.GetItem().ItemStatsBook.StatsList);
+            iconPath = item.GetItemSettings().Icon.name;
+            itemName = item.GetItemSettings().UniqueName;
+            stats = new List<Stat>(item.GetItemSettings().ItemStatsBook.StatsList);
         }
     }
 }

@@ -116,7 +116,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         private void DisplayItem(GameObject slotInstance, ItemInformation itemInformation)
         {
-            var image = slotInstance.transform.GetChild(0).GetComponent<Image>();
+            var image = slotInstance.transform.GetChild(1).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
             image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
         }

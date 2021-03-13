@@ -26,7 +26,7 @@ namespace BialskyShooter.InventoryModule.UI
         void InjectItem(ItemInformation itemInformation)
         {
             if (readOnlyMode) return;
-            var image = transform.GetChild(0).GetComponent<Image>();
+            var image = transform.GetChild(1).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 1);
             image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
             this.itemInformation = itemInformation;
@@ -54,7 +54,7 @@ namespace BialskyShooter.InventoryModule.UI
         {
             if (readOnlyMode) return Guid.Empty;
             var clearedItemId = itemInformation.ItemId;
-            var image = transform.GetChild(0).GetComponent<Image>();
+            var image = transform.GetChild(1).GetComponent<Image>();
             image.color = new Color(1, 1, 1, 0);
             image.sprite = null;
             itemInformation = null;
@@ -63,7 +63,7 @@ namespace BialskyShooter.InventoryModule.UI
 
         public void SetItemVisibility(bool visibility)
         {
-            transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
+            transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
         }
 
         public ItemInformation GetItemInformation()

@@ -17,8 +17,8 @@ namespace BialskyShooter.Core
     {
         [Inject] Inventory inventory = null;
         [Inject] Equipment equipment = null;
-        [SerializeField] Item weapon;
-        [SerializeField] Item healthPotion;
+        [SerializeField] ItemSettings weapon;
+        [SerializeField] ItemSettings healthPotion;
 
         #region Server
 
@@ -28,14 +28,14 @@ namespace BialskyShooter.Core
             yield return new WaitForSeconds(0.1f);
             if (weapon != null)
             {
-                EquipItem(Instantiate(weapon));
+                EquipItem(new Weapon(weapon));
             }
             if (healthPotion != null)
             {
-                PickupItem(Instantiate(healthPotion));
-                PickupItem(Instantiate(healthPotion));
-                PickupItem(Instantiate(healthPotion));
-                PickupItem(Instantiate(healthPotion));
+                PickupItem(new StackItem(healthPotion));
+                PickupItem(new StackItem(healthPotion));
+                PickupItem(new StackItem(healthPotion));
+                PickupItem(new StackItem(healthPotion));
             }
         }
 
