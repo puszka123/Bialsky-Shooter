@@ -270,6 +270,7 @@
     <Compile Include="Assets\Scripts\StatsModule\ItemStats.cs" />
     <Compile Include="Assets\Scripts\StatsModule\Stat.cs" />
     <Compile Include="Assets\Scripts\StatsModule\StatType.cs" />
+    <Compile Include="Assets\Scripts\StatsModule\StatsModifierProvider.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterInfoDisplayer.cs" />
     <Compile Include="Assets\Scripts\UI\IDragRemovable.cs" />
     <Compile Include="Assets\Scripts\UI\ItemImage.cs" />

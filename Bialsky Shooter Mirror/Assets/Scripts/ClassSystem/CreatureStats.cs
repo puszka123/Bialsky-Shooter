@@ -11,10 +11,12 @@ namespace BialskyShooter.ClassSystem
 {
     [RequireComponent(typeof(Experience))]
     [RequireComponent(typeof(BuffsReceiver))]
+    [RequireComponent(typeof(StatsModifierProvider))]
     public class CreatureStats : NetworkBehaviour
     {
         [Inject] Experience experience = null;
         [Inject] BuffsReceiver buffsReceiver = null;
+        [Inject] StatsModifierProvider statsModifierProvider = null;
 
 
         public event Action<int> serverOnLevelUp;
@@ -123,30 +125,8 @@ namespace BialskyShooter.ClassSystem
         {
             return progression.GetStat(classType, creatureType, statType, level) 
                 + (progression.GetStat(classType, creatureType, statType, level) 
-                * GetTotalStatPercentageModifier(statType)) 
-                + GetTotalStatAdditiveModifier(statType);
-        }
-
-        [Server]
-        float GetTotalStatAdditiveModifier(StatType statType)
-        {
-            float totalStatModifier = 0f;
-            foreach (var statsModifier in GetComponents<IStatsModifier>())
-            {
-                totalStatModifier += statsModifier.GetStatAdditiveModifier(statType);
-            }
-            return totalStatModifier;
-        }
-
-        [Server]
-        float GetTotalStatPercentageModifier(StatType statType)
-        {
-            float totalStatModifier = 0f;
-            foreach (var statsModifier in GetComponents<IStatsModifier>())
-            {
-                totalStatModifier += statsModifier.GetStatPercentageModifier(statType);
-            }
-            return totalStatModifier / 100;
+                * statsModifierProvider.GetTotalStatPercentageModifier(statType)) 
+                + statsModifierProvider.GetTotalStatAdditiveModifier(statType);
         }
 
         #endregion

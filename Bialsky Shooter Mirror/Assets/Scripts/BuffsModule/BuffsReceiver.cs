@@ -20,26 +20,24 @@ namespace BialskyShooter.BuffsModule
         [Server]
         public float GetStatAdditiveModifier(StatType statType)
         {
-            var modifier = 0f;
-            foreach (var stat in activeBuffs.SelectMany(b => b.buffStats))
-            {
-                if(stat.type == statType)
-                {
-                    modifier += stat.value;
-                }
-            }
-            return modifier;
+            return GetStatModifier(statType);
         }
 
         [Server]
         public float GetStatPercentageModifier(StatType statType)
+        {
+            return GetStatModifier(statType, true);
+        }
+
+        [Server]
+        public float GetStatModifier(StatType statType, bool percentage = false)
         {
             var modifier = 0f;
             foreach (var stat in activeBuffs.SelectMany(b => b.buffStats))
             {
                 if (stat.type == statType)
                 {
-                    modifier += stat.percentageValue;
+                    modifier += percentage ? stat.percentageValue : stat.value;
                 }
             }
             return modifier;

@@ -12,9 +12,11 @@ using Zenject;
 namespace BialskyShooter.Combat
 {
     [RequireComponent(typeof(Equipmentnstantiator))]
+    [RequireComponent(typeof(StatsModifierProvider))]
     public class WeaponUser : NetworkBehaviour
     {
-        [Inject] Equipmentnstantiator equipmentInstantiator;
+        [Inject] Equipmentnstantiator equipmentInstantiator = null;
+        [Inject] StatsModifierProvider statsModifierProvider = null;
         IWeaponController weaponController;
         Transform weaponTransform;
         public bool WeaponInUse { get; set; }
@@ -69,8 +71,8 @@ namespace BialskyShooter.Combat
                 { 
                     StatType.Cooldown, 
                     new Vector2(
-                            GetTotalStatAdditiveModifier(StatType.Cooldown),
-                            GetTotalStatPercentageModifier(StatType.Cooldown))
+                            statsModifierProvider.GetTotalStatAdditiveModifier(StatType.Cooldown),
+                            statsModifierProvider.GetTotalStatPercentageModifier(StatType.Cooldown))
                 },
             };
             weaponController.StartControl(gameObject, weapon, buffs, attack);
@@ -86,28 +88,6 @@ namespace BialskyShooter.Combat
         internal void Terminate()
         {
             weaponController.Terminate();
-        }
-
-        [Server]
-        float GetTotalStatAdditiveModifier(StatType statType)
-        {
-            float totalStatModifier = 0f;
-            foreach (var statsModifier in GetComponents<IStatsModifier>())
-            {
-                totalStatModifier += statsModifier.GetStatAdditiveModifier(statType);
-            }
-            return totalStatModifier;
-        }
-
-        [Server]
-        float GetTotalStatPercentageModifier(StatType statType)
-        {
-            float totalStatModifier = 0f;
-            foreach (var statsModifier in GetComponents<IStatsModifier>())
-            {
-                totalStatModifier += statsModifier.GetStatPercentageModifier(statType);
-            }
-            return totalStatModifier / 100;
         }
 
         [Server]

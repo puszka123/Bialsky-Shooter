@@ -60,6 +60,7 @@ namespace BialskyShooter.EquipmentSystem
         [Server]
         public IEquipmentItem Unequip(Guid itemId)
         {
+            if (itemId == Guid.Empty) return null;
             foreach (var equipmentItem in equipmentItems.Values)
             {
                 if (equipmentItem?.GetId() == itemId)
@@ -73,18 +74,10 @@ namespace BialskyShooter.EquipmentSystem
             return null;
         }
 
-
         [Server]
         public IEquipmentItem Unequip(ItemSlotType itemSlotType)
         {
-            var item = equipmentItems[itemSlotType];
-            if (item != null && item.GetId() != Guid.Empty)
-            {
-                RemoveFromSyncItems(item.GetId());
-                equipmentItems[itemSlotType] = null;
-                creatureStats.UpdateStats();
-            }
-            return item;
+            return Unequip(equipmentItems[itemSlotType]?.GetId() ?? Guid.Empty);
         }
 
         [Server]
@@ -111,22 +104,17 @@ namespace BialskyShooter.EquipmentSystem
         [Server]
         public float GetStatAdditiveModifier(StatType statType)
         {
-            float statTotalValue = 0f;
-            if (equipmentItems == null) InitEquipmentItems();
-            foreach (var item in equipmentItems.Where(e => e.Value != null).Select(e => e.Value.GetItemSettings()))
-            {
-                var stats = item.ItemStatsBook.StatsList;
-                foreach (var stat in stats)
-                {
-                    if (stat.type != statType) continue;
-                    statTotalValue += stat.value;
-                }
-            }
-            return statTotalValue;
+            return GetStatModifier(statType);
         }
 
         [Server]
         public float GetStatPercentageModifier(StatType statType)
+        {
+            return GetStatModifier(statType, true);
+        }
+
+        [Server]
+        public float GetStatModifier(StatType statType, bool percentage = false)
         {
             float statTotalValue = 0f;
             if (equipmentItems == null) InitEquipmentItems();
@@ -136,7 +124,7 @@ namespace BialskyShooter.EquipmentSystem
                 foreach (var stat in stats)
                 {
                     if (stat.type != statType) continue;
-                    statTotalValue += stat.percentageValue;
+                    statTotalValue += percentage ? stat.percentageValue : stat.value;
                 }
             }
             return statTotalValue;
