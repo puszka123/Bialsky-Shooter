@@ -1,5 +1,4 @@
-﻿using BialskyShooter.Combat;
-using BialskyShooter.ResourcesModule;
+﻿using BialskyShooter.ResourcesModule;
 using Mirror;
 using System;
 using System.Collections;

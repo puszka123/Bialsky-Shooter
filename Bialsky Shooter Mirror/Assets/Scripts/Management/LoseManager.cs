@@ -9,7 +9,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BialskyShooter.InventoryModule;
-using BialskyShooter.EquipmentSystem;
 using BialskyShooter.Core;
 
 namespace BialskyShooter.ManagementModule

@@ -133,10 +133,6 @@
     <Compile Include="Assets\Scripts\BuffsModule\BuffType.cs" />
     <Compile Include="Assets\Scripts\BuffsModule\BuffsCleaner.cs" />
     <Compile Include="Assets\Scripts\BuffsModule\BuffsReceiver.cs" />
-    <Compile Include="Assets\Scripts\ClassSystem\Characters\CreaturePlateDisplay.cs" />
-    <Compile Include="Assets\Scripts\ClassSystem\Characters\DisplayCharacterInfo.cs" />
-    <Compile Include="Assets\Scripts\ClassSystem\Characters\EnemyPlateDisplay.cs" />
-    <Compile Include="Assets\Scripts\ClassSystem\Characters\LocalPlateDisplay.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ClassType.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\CreatureStats.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\CreatureStatsDisplay.cs" />
@@ -146,6 +142,11 @@
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureClass.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionCreatureModifier.cs" />
     <Compile Include="Assets\Scripts\ClassSystem\ProgressionStat.cs" />
+    <Compile Include="Assets\Scripts\ClassSystem\UI\CharacterInfoDisplayer.cs" />
+    <Compile Include="Assets\Scripts\ClassSystem\UI\CreaturePlateDisplay.cs" />
+    <Compile Include="Assets\Scripts\ClassSystem\UI\DisplayCharacterInfo.cs" />
+    <Compile Include="Assets\Scripts\ClassSystem\UI\EnemyPlateDisplay.cs" />
+    <Compile Include="Assets\Scripts\ClassSystem\UI\LocalPlateDisplay.cs" />
     <Compile Include="Assets\Scripts\Combat\BowController.cs" />
     <Compile Include="Assets\Scripts\Combat\CombatTarget.cs" />
     <Compile Include="Assets\Scripts\Combat\Health.cs" />
@@ -271,7 +272,6 @@
     <Compile Include="Assets\Scripts\StatsModule\Stat.cs" />
     <Compile Include="Assets\Scripts\StatsModule\StatType.cs" />
     <Compile Include="Assets\Scripts\StatsModule\StatsModifierProvider.cs" />
-    <Compile Include="Assets\Scripts\UI\CharacterInfoDisplayer.cs" />
     <Compile Include="Assets\Scripts\UI\IDragRemovable.cs" />
     <Compile Include="Assets\Scripts\UI\ItemImage.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleCharacterInfoDisplay.cs" />

@@ -1,5 +1,4 @@
 ﻿using BialskyShooter.Core;
-using BialskyShooter.EquipmentSystem;
 using BialskyShooter.ItemSystem;
 using BialskyShooter.ItemSystem.UI;
 using BialskyShooter.UI;

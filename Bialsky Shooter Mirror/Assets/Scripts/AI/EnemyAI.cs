@@ -1,11 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using BialskyShooter.AI.Pathfinding;
-using BialskyShooter.MovementModule;
-using BialskyShooter.SkillSystem;
-using Mirror;
-using UnityEngine;
-using System.Linq;
+﻿using Mirror;
+
 
 namespace BialskyShooter.AI
 {

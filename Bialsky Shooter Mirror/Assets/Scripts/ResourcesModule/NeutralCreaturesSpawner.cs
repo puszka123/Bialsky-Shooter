@@ -1,6 +1,4 @@
 ﻿using BialskyShooter.AI;
-using BialskyShooter.Gameplay;
-using BialskyShooter.Multiplayer;
 using Mirror;
 using System;
 using System.Collections;

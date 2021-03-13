@@ -2,7 +2,6 @@
 using BialskyShooter.BarriersModule;
 using BialskyShooter.BuffsModule;
 using BialskyShooter.ClassSystem;
-using BialskyShooter.InventoryModule;
 using BialskyShooter.StatsModule;
 using Mirror;
 using System;
