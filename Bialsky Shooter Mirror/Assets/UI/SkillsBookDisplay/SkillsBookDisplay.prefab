@@ -58,7 +58,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7257410877561320404
 MonoBehaviour:
@@ -339,4 +339,3 @@ MonoBehaviour:
   canvas: {fileID: 413979727646400850}
   rowsCount: 3
   columnsCount: 10
-  skillsProgression: {fileID: 11400000, guid: d3b623f4229c6ef418bb717a78ea91fc, type: 2}

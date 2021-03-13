@@ -4,16 +4,25 @@ using UnityEngine;
 
 namespace BialskyShooter.ItemSystem.UI
 {
-    public static class ItemStacker
+    public class ItemStacker : MonoBehaviour
     {
-        public static bool TryStackItems(IItemSlot source, IItemSlot destination)
+        public static ItemStacker Instance { get; private set; }
+        [SerializeField] GameObject stackModalPrefab = null;
+        GameObject stackModalInstance = null;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        public bool TryStackItems(IItemSlot source, IItemSlot destination)
         {
             if (!ValidateItemSlots(source, destination)) return false;
-            StackItems(source, destination);
+            DisplayStackModal(source, destination);
             return true;
         }
 
-        private static bool ValidateItemSlots(IItemSlot source, IItemSlot destination)
+        private bool ValidateItemSlots(IItemSlot source, IItemSlot destination)
         {
             return source.GetItemInformation() != null
                             && source.GetItemInformation().stackable
@@ -22,9 +31,16 @@ namespace BialskyShooter.ItemSystem.UI
                             && source.GetItemInformation().itemName == destination.GetItemInformation().itemName;
         }
 
-        static void StackItems(IItemSlot source, IItemSlot destination)
+        void StackItems(IItemSlot source, IItemSlot destination, int count)
         {
-            destination.Stack(source.GetItemId(), source.GetItemInformation().count);
+            destination.Stack(source.GetItemId(), count);
+        }
+
+        void DisplayStackModal(IItemSlot source, IItemSlot destination)
+        {
+            stackModalInstance = Instantiate(stackModalPrefab);
+            stackModalInstance.GetComponent<StackModal>().Init(source, destination);
+            stackModalInstance.GetComponent<StackModal>().OnStackFinished += StackItems;
         }
     }
 }

@@ -94,8 +94,28 @@ namespace BialskyShooter.InventoryModule
             var destinationStack = itemsDict[destinationItemId] as IStackable;
             var stack = sourceStack.Pop(count);
             destinationStack.Push(stack);
-            if(sourceStack.GetCount() <= 0) ThrowAwayItem(sourceItemId);
+            UpdateStack(sourceStack);
+            UpdateStack(destinationStack);
+
             RpcOnStackItems(new ItemInformation(sourceStack), new ItemInformation(destinationStack));
+        }
+
+        [Server]
+        void UpdateStack(IStackable stack)
+        {
+            var item = (Item)stack;
+            if (stack.GetCount() <= 0)
+            {
+                ThrowAwayItem(item.Id);
+                return;
+            }
+            itemsDict[item.Id] = item;
+            var itemInformation = syncItemInformations.FirstOrDefault(e => e.ItemId == item.Id);
+            if (itemInformation == null) return;
+            itemInformation.count = stack.GetCount();
+            syncItemInformations.Remove(itemInformation);
+            syncItemInformations.Add(itemInformation);
+            
         }
 
         #endregion

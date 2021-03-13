@@ -106,8 +106,8 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void Stack(Guid sourceItemId, int count)
         {
-            itemInformation.count += count;
-            GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
+            //itemInformation.count += count;
+            //GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
             clientOnItemStack?.Invoke(sourceItemId, itemInformation.ItemId, count);
         }
     }

@@ -101,7 +101,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         void DragItemTo(IItemSlot itemSlot)
         {
-            var result = ItemStacker.TryStackItems(draggingItemSlot, itemSlot);
+            var result = ItemStacker.Instance.TryStackItems(draggingItemSlot, itemSlot);
             if (!result) ItemSwapper.SwapItems(draggingItemSlot, itemSlot);
         }
 

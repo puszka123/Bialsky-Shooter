@@ -68,7 +68,6 @@ MonoBehaviour:
   canvas: {fileID: 4983079005522786521}
   rowsCount: 2
   columnsCount: 10
-  skillsProgression: {fileID: 0}
 --- !u!114 &172373374997877282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +255,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2692110421637329641
 MonoBehaviour:

@@ -18,3 +18,5 @@ MonoBehaviour:
     type: 3}
   teamManagerPrefab: {fileID: 5406200202218502591, guid: 913695487614da646b4c9131fdcfa3c8,
     type: 3}
+  itemStackerPrefab: {fileID: 3621512232464145611, guid: 5eaf092b8d5a80c46a5daa3ff069fbf1,
+    type: 3}
