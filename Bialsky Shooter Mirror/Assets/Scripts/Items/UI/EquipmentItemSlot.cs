@@ -16,6 +16,7 @@ namespace BialskyShooter.ItemSystem.UI
         public static event Action<Guid> clientOnItemDraggedOut;
 
         [SerializeField] ItemSlotType itemSlotType = default;
+        [SerializeField] Image itemImage;
         ItemInformation itemInformation;
         RectTransform rect;
         Controls controls;
@@ -53,18 +54,16 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void InjectItem(ItemInformation itemInformation)
         {
-            var image = transform.GetChild(0).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 1);
-            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
+            itemImage.color = new Color(1, 1, 1, 1);
+            itemImage.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
             this.itemInformation = itemInformation;
         }
 
         public Guid ClearItem()
         {
             var clearedItemId = itemInformation?.ItemId ?? Guid.Empty;
-            var image = transform.GetChild(0).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 0);
-            image.sprite = null;
+            itemImage.color = new Color(1, 1, 1, 0);
+            itemImage.sprite = null;
             itemInformation = null;
             return clearedItemId;
         }
@@ -90,7 +89,7 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void SetItemVisibility(bool visibility)
         {
-            transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
+            itemImage.color = new Color(1, 1, 1, visibility ? 1 : 0);
         }
 
         public ItemInformation GetItemInformation()

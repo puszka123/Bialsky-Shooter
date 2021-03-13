@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.ItemSystem;
 using BialskyShooter.ItemSystem.UI;
+using BialskyShooter.UI;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,10 +13,10 @@ namespace BialskyShooter.InventoryModule.UI
         public static event Action<Guid> clientOnItemSelected;
         public static event Action<Guid> clientOnItemDraggedIn;
         public static event Action<Guid> clientOnItemDraggedOut;
+        [SerializeField] Image itemImage;
         public ItemInformation itemInformation;
         bool readOnlyMode = default;
 
-        private void Start() { }
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -26,9 +27,8 @@ namespace BialskyShooter.InventoryModule.UI
         void InjectItem(ItemInformation itemInformation)
         {
             if (readOnlyMode) return;
-            var image = transform.GetChild(1).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 1);
-            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
+            itemImage.color = new Color(1, 1, 1, 1);
+            itemImage.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
             this.itemInformation = itemInformation;
         }
 
@@ -54,16 +54,15 @@ namespace BialskyShooter.InventoryModule.UI
         {
             if (readOnlyMode) return Guid.Empty;
             var clearedItemId = itemInformation.ItemId;
-            var image = transform.GetChild(1).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 0);
-            image.sprite = null;
+            itemImage.color = new Color(1, 1, 1, 0);
+            itemImage.sprite = null;
             itemInformation = null;
             return clearedItemId;
         }
 
         public void SetItemVisibility(bool visibility)
         {
-            transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, visibility ? 1 : 0);
+            itemImage.color = new Color(1, 1, 1, visibility ? 1 : 0);
         }
 
         public ItemInformation GetItemInformation()

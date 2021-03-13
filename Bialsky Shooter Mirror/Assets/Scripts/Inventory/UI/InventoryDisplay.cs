@@ -165,7 +165,6 @@ namespace BialskyShooter.InventoryModule.UI
                 for (int column = 1; column <= columnsCount; column++)
                 {
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
-                    slotInstance.AddComponent<InventoryItemSlot>();
                     InitSlots(index, slotInstance);
                     ++index;
                 }
@@ -230,8 +229,8 @@ namespace BialskyShooter.InventoryModule.UI
         bool ItemExists(ItemInformation itemInformation)
         {
             return slots
-                .Where(s => s.GetComponent<InventoryItemSlot>().itemInformation != null)
-                .Select(s => s.GetComponent<InventoryItemSlot>().itemInformation.ItemId)
+                .Where(s => s.GetComponent<InventoryItemSlot>().ItemInformation != null)
+                .Select(s => s.GetComponent<InventoryItemSlot>().ItemInformation.ItemId)
                 .Contains(itemInformation.ItemId);
         }
 

@@ -16,13 +16,18 @@ namespace BialskyShooter.ItemSystem.UI
         public static event Action<Guid> clientOnItemDraggedIn;
         public static event Action<Guid> clientOnItemDraggedOut;
         public static event Action<Guid, Guid, int> clientOnItemStack;
-        public ItemInformation itemInformation;
+        [SerializeField] Image itemImage;
+        public ItemInformation ItemInformation { get; set; }
         RectTransform rect;
         bool readOnlyMode = default;
 
-        private void Start()
+        private void Awake()
         {
             rect = GetComponent<RectTransform>();
+        }
+
+        private void Start()
+        {
             InitInputSystem();
         }
 
@@ -36,18 +41,17 @@ namespace BialskyShooter.ItemSystem.UI
         private void InventoryPerformed(InputAction.CallbackContext ctx)
         {
             if (!RectTransformUtility.RectangleContainsScreenPoint(rect, Mouse.current.position.ReadValue())) return;
-            if (itemInformation == null) return;
-            clientOnItemSelected?.Invoke(itemInformation.ItemId);
+            if (ItemInformation == null) return;
+            clientOnItemSelected?.Invoke(ItemInformation.ItemId);
         }
 
         public Guid ClearItem()
         {
             if (readOnlyMode) return Guid.Empty;
-            var clearedItemId = itemInformation?.ItemId ?? Guid.Empty;
-            var image = transform.GetChild(1).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 0);
-            image.sprite = null;
-            itemInformation = null;
+            var clearedItemId = ItemInformation?.ItemId ?? Guid.Empty;
+            itemImage.color = new Color(1, 1, 1, 0);
+            itemImage.sprite = null;
+            ItemInformation = null;
             GetComponent<ItemCountDisplay>().Disable();
             return clearedItemId;
         }
@@ -55,10 +59,9 @@ namespace BialskyShooter.ItemSystem.UI
         public void InjectItem(ItemInformation itemInformation)
         {
             if (readOnlyMode) return;
-            var image = transform.GetChild(1).GetComponent<Image>();
-            image.color = new Color(1, 1, 1, 1);
-            image.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
-            this.itemInformation = itemInformation;
+            itemImage.color = new Color(1, 1, 1, 1);
+            itemImage.sprite = Resources.Load<Sprite>(itemInformation.iconPath);
+            this.ItemInformation = itemInformation;
             if (itemInformation.stackable)
             {
                 GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
@@ -91,24 +94,22 @@ namespace BialskyShooter.ItemSystem.UI
 
         public void SetItemVisibility(bool visibility)
         {
-            transform.GetChild(1).GetComponent<Image>().color = new Color(1,1,1,visibility ? 1 : 0);
+            itemImage.color = new Color(1,1,1,visibility ? 1 : 0);
         }
 
         public ItemInformation GetItemInformation()
         {
-            return itemInformation;
+            return ItemInformation;
         }
 
         public Guid GetItemId()
         {
-            return itemInformation?.ItemId ?? Guid.Empty;
+            return ItemInformation?.ItemId ?? Guid.Empty;
         }
 
         public void Stack(Guid sourceItemId, int count)
         {
-            //itemInformation.count += count;
-            //GetComponent<ItemCountDisplay>().SetCount(itemInformation.count);
-            clientOnItemStack?.Invoke(sourceItemId, itemInformation.ItemId, count);
+            clientOnItemStack?.Invoke(sourceItemId, ItemInformation.ItemId, count);
         }
     }
 }

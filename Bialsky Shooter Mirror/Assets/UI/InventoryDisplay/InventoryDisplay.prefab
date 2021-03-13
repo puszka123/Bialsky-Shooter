@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotsPanel: {fileID: 9091418513683541530}
   mainPanel: {fileID: 3625164044362631137}
-  slotImagePrefab: {fileID: 2381210435746379025, guid: 7d0166e487042d24bb808418d312a04b,
+  slotImagePrefab: {fileID: 2381210435746379025, guid: 264e8b8a7894c334bba13a2cd9b8ac4d,
     type: 3}
   rowsCount: 9
   columnsCount: 5

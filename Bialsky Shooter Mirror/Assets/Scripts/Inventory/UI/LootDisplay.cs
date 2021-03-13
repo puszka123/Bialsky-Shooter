@@ -93,7 +93,6 @@ namespace BialskyShooter.InventoryModule.UI
                     if (index >= itemDisplays.Count) return;
                     var slotInstance = Instantiate(slotImagePrefab, slotsPanel);
                     slots.Add(slotInstance);
-                    slotInstance.AddComponent<LootItemSlot>();
                     DisplayItem(slotInstance, itemDisplays[index]);
                     SetLootItemSelection(slotInstance, itemDisplays[index]);
                     SetItemInformationToggle(slotInstance, itemDisplays[index]);
