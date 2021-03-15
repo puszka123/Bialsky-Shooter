@@ -14,8 +14,8 @@ namespace BialskyShooter.Gameplay
 
         public enum Priority
         {
-            TeamUp = 0,
-            Spawn = 1,
+            Spawn = 0,
+            TeamUp = 1,
             GenerateInventory = 2,
         }
 

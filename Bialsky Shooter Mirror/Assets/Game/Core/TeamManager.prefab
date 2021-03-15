@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  priority: 0
+  priority: 1
 --- !u!114 &5713017764138886155
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ namespace BialskyShooter.Zenject
 
             if (NetworkServer.active)
             {
-                Container.Bind<PlayerSpawner>().FromComponentInNewPrefab(playerSpawnerPrefab).AsTransient().NonLazy();
+                Container.Bind<PlayerSpawner>().FromComponentInNewPrefab(playerSpawnerPrefab).AsSingle().NonLazy();
             }
         }
     }

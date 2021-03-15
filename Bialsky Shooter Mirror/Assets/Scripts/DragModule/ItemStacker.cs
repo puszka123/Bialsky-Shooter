@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using BialskyShooter.ItemSystem.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BialskyShooter.ItemSystem.UI
+namespace BialskyShooter.DragModule
 {
     public class ItemStacker : MonoBehaviour
     {

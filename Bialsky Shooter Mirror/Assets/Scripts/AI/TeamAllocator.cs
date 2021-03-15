@@ -23,7 +23,22 @@ namespace BialskyShooter.AI
 
         public void Run()
         {
-            
+            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                var teamMember = player.GetComponent<TeamMember>();
+                if (teamMember.TeamId == Guid.Empty)
+                {
+                    var teamId = AssignToNewTeam(teamMember);
+                    foreach (var playerCharacter in GameObject.FindGameObjectsWithTag("PlayerCharacter"))
+                    {
+                        if(playerCharacter.GetComponent<NetworkIdentity>().connectionToClient
+                            == player.GetComponent<NetworkIdentity>().connectionToClient)
+                        {
+                            AssignToTeam(playerCharacter.GetComponent<TeamMember>(), teamId);
+                        }
+                    }
+                }
+            }
         }
 
         void Awake()
@@ -43,11 +58,10 @@ namespace BialskyShooter.AI
             return value;
         }
 
-        public float AssignToNewTeam(TeamMember teamMember)
+        public Guid AssignToNewTeam(TeamMember teamMember)
         {
             var teamId = teamManager.AddToNewTeam(teamMember, teamMember.name);
-            float value = teamManager.TeamsDictionary.Keys.ToList().IndexOf(teamId) / teamManager.TeamsDictionary.Keys.ToList().Count;
-            return value;
+            return teamId;
         }
     }
 }

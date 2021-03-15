@@ -161,6 +161,11 @@
     <Compile Include="Assets\Scripts\Core\ItemsSlotsJoint.cs" />
     <Compile Include="Assets\Scripts\Core\PlayerCameraSpawner.cs" />
     <Compile Include="Assets\Scripts\Core\RendererProxy.cs" />
+    <Compile Include="Assets\Scripts\DragModule\DragItem.cs" />
+    <Compile Include="Assets\Scripts\DragModule\DragItemMock.cs" />
+    <Compile Include="Assets\Scripts\DragModule\ItemStacker.cs" />
+    <Compile Include="Assets\Scripts\DragModule\ItemSwapper.cs" />
+    <Compile Include="Assets\Scripts\DragModule\StackModal.cs" />
     <Compile Include="Assets\Scripts\EnhancementsModule\AttackEnhancement.cs" />
     <Compile Include="Assets\Scripts\EnhancementsModule\AttackType.cs" />
     <Compile Include="Assets\Scripts\EnhancementsModule\EnhancementReceiver.cs" />
@@ -195,8 +200,6 @@
     <Compile Include="Assets\Scripts\Items\Legs\ILegs.cs" />
     <Compile Include="Assets\Scripts\Items\Shields\IShield.cs" />
     <Compile Include="Assets\Scripts\Items\Stack.cs" />
-    <Compile Include="Assets\Scripts\Items\UI\DragItem.cs" />
-    <Compile Include="Assets\Scripts\Items\UI\DragItemMock.cs" />
     <Compile Include="Assets\Scripts\Items\UI\EquipmentItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\UI\IItemSlot.cs" />
     <Compile Include="Assets\Scripts\Items\UI\InventoryItemSlot.cs" />
@@ -204,10 +207,7 @@
     <Compile Include="Assets\Scripts\Items\UI\ItemDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationDisplay.cs" />
     <Compile Include="Assets\Scripts\Items\UI\ItemInformationTooltip.cs" />
-    <Compile Include="Assets\Scripts\Items\UI\ItemStacker.cs" />
-    <Compile Include="Assets\Scripts\Items\UI\ItemSwapper.cs" />
     <Compile Include="Assets\Scripts\Items\UI\LootItemSlot.cs" />
-    <Compile Include="Assets\Scripts\Items\UI\StackModal.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Items\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Management\LoseManager.cs" />

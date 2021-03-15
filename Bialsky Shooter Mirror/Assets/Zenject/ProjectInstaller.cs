@@ -1,5 +1,6 @@
 using BialskyShooter.AI;
 using BialskyShooter.AI.Pathfinding;
+using BialskyShooter.DragModule;
 using BialskyShooter.ItemSystem.UI;
 using BialskyShooter.Multiplayer;
 using BialskyShooter.ResourcesModule;

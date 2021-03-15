@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BialskyShooter.ItemSystem.UI
+namespace BialskyShooter.DragModule
 {
     public class DragItemMock : MonoBehaviour
     {

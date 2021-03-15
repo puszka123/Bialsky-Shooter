@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BialskyShooter.ItemSystem.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BialskyShooter.ItemSystem.UI
+namespace BialskyShooter.DragModule
 {
     public class StackModal : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 ﻿using BialskyShooter.EquipmentSystem.UI;
 using BialskyShooter.InventoryModule.UI;
+using BialskyShooter.ItemSystem.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace BialskyShooter.ItemSystem.UI
+namespace BialskyShooter.DragModule
 {
     public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
