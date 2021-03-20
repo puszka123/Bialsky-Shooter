@@ -20,7 +20,10 @@ namespace BialskyShooter.ResourcesModule
 
         public override void Run()
         {
-            SpawnPlayer(myNetworkManager.NetworkConnections.Dequeue());
+            while (myNetworkManager.Players.Count > 0)
+            {
+                SpawnPlayer(myNetworkManager.Players.Dequeue().GetComponent<NetworkIdentity>().connectionToClient);
+            }
         }
 
         protected override Vector3 GetSpawnPosition()

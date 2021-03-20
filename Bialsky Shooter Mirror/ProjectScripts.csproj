@@ -215,6 +215,12 @@
     <Compile Include="Assets\Scripts\Movement\Movement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Multiplayer\MyNetworkManager.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\Player.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\UI\JoinPanel.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\UI\LobbyUpdater.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\UI\MenuController.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\UI\PlayerInformation.cs" />
+    <Compile Include="Assets\Scripts\Multiplayer\UI\PlayerPanel.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\Building.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingConfig.cs" />
     <Compile Include="Assets\Scripts\ResourcesModule\BuildingConstructor.cs" />

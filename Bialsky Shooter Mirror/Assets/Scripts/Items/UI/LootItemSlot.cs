@@ -1,12 +1,9 @@
-﻿using BialskyShooter.ItemSystem;
-using BialskyShooter.ItemSystem.UI;
-using BialskyShooter.UI;
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace BialskyShooter.InventoryModule.UI
+namespace BialskyShooter.ItemSystem.UI
 {
     public class LootItemSlot : MonoBehaviour, IPointerClickHandler, IItemSlot
     {

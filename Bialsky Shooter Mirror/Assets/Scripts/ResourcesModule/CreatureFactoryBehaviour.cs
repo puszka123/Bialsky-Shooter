@@ -25,30 +25,5 @@ namespace BialskyShooter.ResourcesModule
                 return creatureFactoryBehaviour;
             }
         }
-
-        //public class PlayerFactory : CreatureFactory
-        //{
-
-        //}
-
-        //public class HumanEnemyFactory : CreatureFactory
-        //{
-            
-        //}
-
-        //public class BoxEnemyFactory : CreatureFactory
-        //{ 
-
-        //}
-
-        //public class SwordmanFactory : CreatureFactory
-        //{
-
-        //}
-
-        //public class GoldMinerFactory : CreatureFactory
-        //{
-        //    override 
-        //}
     }
 }

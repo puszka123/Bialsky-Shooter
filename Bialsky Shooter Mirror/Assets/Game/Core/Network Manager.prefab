@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3074696157430663869}
   - component: {fileID: 7169305547259744203}
   - component: {fileID: 7558256964619850026}
-  - component: {fileID: 981014150298541026}
   m_Layer: 0
   m_Name: Network Manager
   m_TagString: Untagged
@@ -51,7 +50,7 @@ MonoBehaviour:
   showDebugMessages: 0
   serverTickRate: 30
   offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/Map_Battle_01.unity
+  onlineScene: 
   transport: {fileID: 7558256964619850026}
   networkAddress: localhost
   maxConnections: 4
@@ -77,6 +76,9 @@ MonoBehaviour:
   - {fileID: 4870458019370409838, guid: a3998ed231e3d074299297c5845f40ce, type: 3}
   - {fileID: 7087292269319735930, guid: 4c6231088910fa34c87118b7e4285ae5, type: 3}
   - {fileID: 3696161264886201140, guid: 6175569494973264b8c151194f1e8e5e, type: 3}
+  - {fileID: 3697649949126596817, guid: ecb13860383d0d64bbfc92fa27efbe75, type: 3}
+  lobbyUpdaterPrefab: {fileID: 3697649949126596817, guid: ecb13860383d0d64bbfc92fa27efbe75,
+    type: 3}
 --- !u!114 &7558256964619850026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,18 +123,3 @@ MonoBehaviour:
   SendWindowSize: 128
   ReceiveWindowSize: 128
   debugGUI: 0
---- !u!114 &981014150298541026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087170427319808519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0

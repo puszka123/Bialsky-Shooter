@@ -10,7 +10,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransform
     Mirror.dll:
     - Mirror.NetworkIdentity
-    - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     - kcp2k.KcpTransport
     ProjectScripts.dll:
@@ -64,6 +63,10 @@ ScriptsOnlyBuild:
     - BialskyShooter.Core.ItemsSlotsJoint
     - BialskyShooter.Core.PlayerCameraSpawner
     - BialskyShooter.Core.RendererProxy
+    - BialskyShooter.DragModule.DragItem
+    - BialskyShooter.DragModule.DragItemMock
+    - BialskyShooter.DragModule.ItemStacker
+    - BialskyShooter.DragModule.StackModal
     - BialskyShooter.EnhancementsModule.EnhancementReceiver
     - BialskyShooter.EnhancementsModule.EnhancementSender
     - BialskyShooter.EquipmentSystem.Equipment
@@ -77,22 +80,23 @@ ScriptsOnlyBuild:
     - BialskyShooter.InventoryModule.UI.InventoryDisplay
     - BialskyShooter.InventoryModule.UI.InventoryDisplayContainer
     - BialskyShooter.InventoryModule.UI.LootDisplay
-    - BialskyShooter.InventoryModule.UI.LootItemSlot
     - BialskyShooter.ItemSystem.ItemSettings
-    - BialskyShooter.ItemSystem.UI.DragItem
-    - BialskyShooter.ItemSystem.UI.DragItemMock
     - BialskyShooter.ItemSystem.UI.EquipmentItemSlot
     - BialskyShooter.ItemSystem.UI.InventoryItemSlot
     - BialskyShooter.ItemSystem.UI.ItemCountDisplay
     - BialskyShooter.ItemSystem.UI.ItemInformationDisplay
     - BialskyShooter.ItemSystem.UI.ItemInformationTooltip
-    - BialskyShooter.ItemSystem.UI.ItemStacker
-    - BialskyShooter.ItemSystem.UI.StackModal
+    - BialskyShooter.ItemSystem.UI.LootItemSlot
     - BialskyShooter.ManagementModule.LoseManager
     - BialskyShooter.MovementModule.AIMovement
     - BialskyShooter.MovementModule.Movement
     - BialskyShooter.MovementModule.PlayerMovement
     - BialskyShooter.Multiplayer.MyNetworkManager
+    - BialskyShooter.Multiplayer.Player
+    - BialskyShooter.Multiplayer.UI.JoinPanel
+    - BialskyShooter.Multiplayer.UI.LobbyUpdater
+    - BialskyShooter.Multiplayer.UI.MenuController
+    - BialskyShooter.Multiplayer.UI.PlayerPanel
     - BialskyShooter.ResourcesModule.Building
     - BialskyShooter.ResourcesModule.BuildingConfig
     - BialskyShooter.ResourcesModule.BuildingConstructor
@@ -185,6 +189,7 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -212,6 +217,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -655,8 +661,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11568}
-    - Class: 114
       Script: {instanceID: 11578}
     - Class: 114
       Script: {instanceID: 11596}
@@ -709,6 +713,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12216}
     - Class: 114
+      Script: {instanceID: 12218}
+    - Class: 114
       Script: {instanceID: 12278}
     - Class: 114
       Script: {instanceID: 12296}
@@ -732,6 +738,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12598}
     - Class: 114
       Script: {instanceID: 12628}
+    - Class: 114
+      Script: {instanceID: 12764}
     - Class: 114
       Script: {instanceID: 12838}
     - Class: 114
@@ -1061,7 +1069,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17952}
     - Class: 114
-      Script: {instanceID: 28876}
+      Script: {instanceID: 34374}
+    - Class: 114
+      Script: {instanceID: 50596}
+    - Class: 114
+      Script: {instanceID: 60116}
+    - Class: 114
+      Script: {instanceID: 63988}
+    - Class: 114
+      Script: {instanceID: 70708}
+    - Class: 114
+      Script: {instanceID: 85658}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -1215,7 +1233,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: ce6229123cf714ef595ec9b9a703a2a5
     assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.ItemSystem.UI
+    namespaceName: BialskyShooter.DragModule
     className: StackModal
   - hash:
       serializedVersion: 2
@@ -1557,7 +1575,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.ItemSystem.UI
+    namespaceName: BialskyShooter.DragModule
     className: DragItem
   - hash:
       serializedVersion: 2
@@ -2089,7 +2107,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: b2b4a4bf81317f3c08703a1773162a08
+      Hash: 192ab20107d095cdbcd123be2d5b37a6
     assemblyName: ProjectScripts.dll
     namespaceName: BialskyShooter.Multiplayer
     className: MyNetworkManager
@@ -2475,7 +2493,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: e7123aa84eb131c306d5d2365319eb13
     assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.ItemSystem.UI
+    namespaceName: BialskyShooter.DragModule
     className: ItemStacker
   - hash:
       serializedVersion: 2
@@ -3789,7 +3807,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 34d4e7ac5ad8d99e4516e77458eda261
     assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.InventoryModule.UI
+    namespaceName: BialskyShooter.ItemSystem.UI
     className: LootItemSlot
   - hash:
       serializedVersion: 2
@@ -4161,7 +4179,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 9a4656237d4b59441eee06fdcf9bb2f5
     assemblyName: ProjectScripts.dll
-    namespaceName: BialskyShooter.ItemSystem.UI
+    namespaceName: BialskyShooter.DragModule
     className: DragItemMock
   - hash:
       serializedVersion: 2
@@ -4289,6 +4307,36 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: e6fd4eaab1341bc893b01fce37307ccc
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Multiplayer.UI
+    className: MenuController
+  - hash:
+      serializedVersion: 2
+      Hash: 52b40a1000db587a415c0c3f944da50b
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Multiplayer.UI
+    className: PlayerPanel
+  - hash:
+      serializedVersion: 2
+      Hash: e2e484e9619b800aa55d0e64e9e596f0
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Multiplayer.UI
+    className: JoinPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Multiplayer
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: ProjectScripts.dll
+    namespaceName: BialskyShooter.Multiplayer.UI
+    className: LobbyUpdater
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
